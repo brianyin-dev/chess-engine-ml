@@ -1,0 +1,240 @@
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Ruy Lopez"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 { End of prescribed opening; both engines receive the same per-move budget. } 6. Nc3 { current: depth 3, 0.2502s } 6... b5 { stockfish: depth 21, 0.2540s } 7. Bb3 { current: depth 3, 0.2501s } 7... d6 { stockfish: depth 21, 0.2505s } 8. d4 { current: depth 2, 0.2501s } 8... Nxd4 { stockfish: depth 18, 0.2502s } 9. Nxd4 { current: depth 2, 0.2501s } 9... exd4 { stockfish: depth 18, 0.2498s } 10. Qxd4 { current: depth 2, 0.2501s } 10... c5 { stockfish: depth 17, 0.2511s } 11. Qd3 { current: depth 2, 0.2501s } 11... c4 { stockfish: depth 16, 0.2510s } 12. Bxc4 { current: depth 3, 0.2501s } 12... bxc4 { stockfish: depth 17, 0.2504s } 13. Qxc4 { current: depth 3, 0.2502s } 13... O-O { stockfish: depth 18, 0.2508s } 14. Bf4 { current: depth 2, 0.2502s } 14... Be6 { stockfish: depth 17, 0.2504s } 15. Nd5 { current: depth 2, 0.2501s } 15... Nxd5 { stockfish: depth 18, 0.2511s } 16. exd5 { current: depth 3, 0.2502s } 16... Bf5 { stockfish: depth 17, 0.2507s } 17. Rfe1 { current: depth 2, 0.2501s } 17... Bf6 { stockfish: depth 18, 0.2506s } 18. Qb4 { current: depth 2, 0.2501s } 18... a5 { stockfish: depth 18, 0.2504s } 19. Qxd6 { current: depth 3, 0.2501s } 19... Bxb2 { stockfish: depth 18, 0.2506s } 20. Rab1 { current: depth 2, 0.2502s } 20... Bc3 { stockfish: depth 17, 0.2507s } 21. Re2 { current: depth 2, 0.2501s } 21... Qxd6 { stockfish: depth 16, 0.2506s } 22. Bxd6 { current: depth 3, 0.2501s } 22... Rfd8 { stockfish: depth 17, 0.2508s } 23. Rb6 { current: depth 3, 0.2501s } 23... Bb4 { stockfish: depth 17, 0.2504s } 24. Bxb4 { current: depth 3, 0.2501s } 24... axb4 { stockfish: depth 18, 0.2505s } 25. Rxb4 { current: depth 3, 0.2501s } 25... Rxd5 { stockfish: depth 16, 0.2509s } 26. g4 { current: depth 3, 0.2501s } 26... Be6 { stockfish: depth 17, 0.2511s } 27. a4 { current: depth 2, 0.2501s } 27... Rda5 { stockfish: depth 18, 0.2502s } 28. Ree4 { current: depth 3, 0.2501s } 28... Bd7 { stockfish: depth 18, 0.2509s } 29. Re7 { current: depth 2, 0.2501s } 29... Be6 { stockfish: depth 17, 0.2506s } 30. Reb7 { current: depth 3, 0.2501s } 30... Kf8 { stockfish: depth 18, 0.2504s } 31. Rb8+ { current: depth 3, 0.2502s } 31... Rxb8 { stockfish: depth 16, 0.2508s } 32. Rxb8+ { current: depth 4, 0.2502s } 32... Ke7 { stockfish: depth 17, 0.2503s } 33. Rb4 { current: depth 3, 0.2502s } 33... Rc5 { stockfish: depth 19, 0.2506s } 34. Kf1 { current: depth 3, 0.2501s } 34... Rxc2 { stockfish: depth 21, 0.2509s } 35. a5 { current: depth 3, 0.2501s } 35... Ra2 { stockfish: depth 20, 0.2507s } 36. Rb7+ { current: depth 4, 0.2502s } 36... Kf6 { stockfish: depth 19, 0.2504s } 37. Ra7 { current: depth 3, 0.2502s } 37... Bxg4 { stockfish: depth 19, 0.2504s } 38. Kg2 { current: depth 4, 0.2502s } 38... Be6 { stockfish: depth 19, 0.2505s } 39. Kf3 { current: depth 3, 0.2501s } 39... Ke5 { stockfish: depth 21, 0.2506s } 40. a6 { current: depth 3, 0.2502s } 40... Ra3+ { stockfish: depth 23, 0.2506s } 41. Kg2 { current: depth 3, 0.2501s } 41... Bh3+ { stockfish: depth 64, 0.0031s } 42. Kg1 { current: depth 2, 0.0099s } 42... Ra1# { stockfish: depth 64, 0.0017s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Ruy Lopez"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 { End of prescribed opening; both engines receive the same per-move budget. } 6. Re1 { stockfish: depth 18, 0.2529s } 6... b5 { current: depth 3, 0.2501s } 7. Bb3 { stockfish: depth 19, 0.2509s } 7... Bc5 { current: depth 3, 0.2501s } 8. c3 { stockfish: depth 19, 0.2508s } 8... d6 { current: depth 2, 0.2501s } 9. d4 { stockfish: depth 18, 0.2509s } 9... exd4 { current: depth 2, 0.2501s } 10. cxd4 { stockfish: depth 17, 0.2504s } 10... Bb4 { current: depth 2, 0.2501s } 11. Nc3 { stockfish: depth 17, 0.2508s } 11... Bg4 { current: depth 1, 0.2501s } 12. Bg5 { stockfish: depth 18, 0.2510s } 12... O-O { current: depth 1, 0.2501s } 13. Re3 { stockfish: depth 19, 0.2505s } 13... Re8 { current: depth 1, 0.2501s } 14. Nd5 { stockfish: depth 17, 0.2508s } 14... Nxd5 { current: depth 2, 0.2501s } 15. Bxd8 { stockfish: depth 18, 0.2501s } 15... Nxe3 { current: depth 2, 0.2501s } 16. Bxf7+ { stockfish: depth 17, 0.2510s } 16... Kxf7 { current: depth 3, 0.2501s } 17. fxe3 { stockfish: depth 17, 0.2509s } 17... Rxe4 { current: depth 2, 0.2501s } 18. Ng5+ { stockfish: depth 18, 0.2506s } 18... Ke8 { current: depth 2, 0.2501s } 19. Qc2 { stockfish: depth 22, 0.2509s } 19... Kxd8 { current: depth 2, 0.2501s } 20. Qxc6 { stockfish: depth 21, 0.2502s } 20... Rxe3 { current: depth 3, 0.2502s } 21. Qxa8+ { stockfish: depth 19, 0.2508s } 21... Bc8 { current: depth 3, 0.2501s } 22. Rf1 { stockfish: depth 20, 0.2505s } 22... Re8 { current: depth 3, 0.2501s } 23. Qc6 { stockfish: depth 22, 0.2506s } 23... Bg4 { current: depth 2, 0.2501s } 24. Nf7+ { stockfish: depth 26, 0.2506s } 24... Ke7 { current: depth 2, 0.2501s } 25. Qxc7+ { stockfish: depth 35, 0.2509s } 25... Bd7 { current: depth 3, 0.2501s } 26. Ng5 { stockfish: depth 44, 0.2505s } 26... Rd8 { current: depth 3, 0.2501s } 27. Rf7+ { stockfish: depth 51, 0.2507s } 27... Ke8 { current: depth 3, 0.2501s } 28. Rxg7 { stockfish: depth 64, 0.1079s } 28... Ba5 { current: depth 3, 0.2501s } 29. Qxd6 { stockfish: depth 64, 0.0029s } 29... Bf5 { current: depth 2, 0.0705s } 30. Qe7# { stockfish: depth 64, 0.0025s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "French Advance"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { stockfish: depth 19, 0.2539s } 5... cxd4 { current: depth 2, 0.2501s } 6. cxd4 { stockfish: depth 18, 0.2512s } 6... Nge7 { current: depth 3, 0.2501s } 7. Na3 { stockfish: depth 19, 0.2505s } 7... Nf5 { current: depth 2, 0.2501s } 8. Nc2 { stockfish: depth 18, 0.2505s } 8... Bb4+ { current: depth 2, 0.2502s } 9. Nxb4 { stockfish: depth 18, 0.2510s } 9... Qa5 { current: depth 2, 0.2501s } 10. a3 { stockfish: depth 19, 0.2501s } 10... Nxb4 { current: depth 2, 0.2528s } 11. Bd2 { stockfish: depth 20, 0.2543s } 11... Nxd4 { current: depth 2, 0.2501s } 12. Nxd4 { stockfish: depth 20, 0.2506s } 12... Qc7 { current: depth 3, 0.2501s } 13. Bxb4 { stockfish: depth 19, 0.2507s } 13... Qxe5+ { current: depth 1, 0.2501s } 14. Be2 { stockfish: depth 19, 0.2504s } 14... Bd7 { current: depth 2, 0.2501s } 15. Nf3 { stockfish: depth 15, 0.2508s } 15... Qxb2 { current: depth 3, 0.2501s } 16. Rb1 { stockfish: depth 19, 0.2506s } 16... Qf6 { current: depth 3, 0.2501s } 17. O-O { stockfish: depth 17, 0.2509s } 17... Rc8 { current: depth 3, 0.2501s } 18. Re1 { stockfish: depth 18, 0.2504s } 18... Qf4 { current: depth 3, 0.2501s } 19. Bf1 { stockfish: depth 18, 0.2507s } 19... Kd8 { current: depth 2, 0.2502s } 20. Ne5 { stockfish: depth 17, 0.2507s } 20... Re8 { current: depth 2, 0.2501s } 21. g3 { stockfish: depth 15, 0.2510s } 21... Qf5 { current: depth 2, 0.2501s } 22. Bh3 { stockfish: depth 19, 0.2502s } 22... Qxh3 { current: depth 2, 0.2501s } 23. Nxf7+ { stockfish: depth 64, 0.0148s } 23... Kc7 { current: depth 3, 0.2501s } 24. Bd6+ { stockfish: depth 64, 0.0030s } 24... Kc6 { current: depth 2, 0.0204s } 25. Qc2# { stockfish: depth 64, 0.0017s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "French Advance"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { current: depth 2, 0.2501s } 5... Bd7 { stockfish: depth 18, 0.2533s } 6. Bd3 { current: depth 2, 0.2501s } 6... cxd4 { stockfish: depth 24, 0.2513s } 7. cxd4 { current: depth 2, 0.2501s } 7... Qb6 { stockfish: depth 26, 0.2503s } 8. Nc3 { current: depth 2, 0.2501s } 8... Nxd4 { stockfish: depth 16, 0.2504s } 9. Nxd4 { current: depth 2, 0.2501s } 9... Qxd4 { stockfish: depth 18, 0.2500s } 10. Qf3 { current: depth 2, 0.2502s } 10... Qxe5+ { stockfish: depth 18, 0.2509s } 11. Be3 { current: depth 2, 0.2501s } 11... d4 { stockfish: depth 16, 0.2505s } 12. Qxb7 { current: depth 2, 0.2501s } 12... Rb8 { stockfish: depth 20, 0.2512s } 13. Qxa7 { current: depth 2, 0.2501s } 13... Bc5 { stockfish: depth 18, 0.2508s } 14. Qa5 { current: depth 2, 0.2501s } 14... dxe3 { stockfish: depth 19, 0.2509s } 15. f4 { current: depth 1, 0.2501s } 15... Qxf4 { stockfish: depth 19, 0.2510s } 16. Qxc5 { current: depth 2, 0.2501s } 16... Qf2+ { stockfish: depth 64, 0.0035s } 17. Kd1 { current: depth 2, 0.0075s } 17... Qd2# { stockfish: depth 64, 0.0019s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "3.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Caro-Kann Classical"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 { End of prescribed opening; both engines receive the same per-move budget. } 5. Qf3 { current: depth 2, 0.2501s } 5... e6 { stockfish: depth 19, 0.2539s } 6. Ne2 { current: depth 2, 0.2502s } 6... Qd5 { stockfish: depth 18, 0.2506s } 7. N2g3 { current: depth 2, 0.2501s } 7... Bxe4 { stockfish: depth 20, 0.2508s } 8. Qxe4 { current: depth 2, 0.2501s } 8... Nf6 { stockfish: depth 20, 0.2502s } 9. Qxd5 { current: depth 3, 0.2501s } 9... cxd5 { stockfish: depth 21, 0.2509s } 10. Bd3 { current: depth 3, 0.2502s } 10... Nc6 { stockfish: depth 19, 0.2505s } 11. Be3 { current: depth 3, 0.2501s } 11... Nb4 { stockfish: depth 20, 0.2510s } 12. Bb5+ { current: depth 3, 0.2502s } 12... Kd8 { stockfish: depth 21, 0.2508s } 13. Kd2 { current: depth 3, 0.2501s } 13... h5 { stockfish: depth 20, 0.2503s } 14. Bf4 { current: depth 2, 0.2501s } 14... h4 { stockfish: depth 18, 0.2505s } 15. Ne2 { current: depth 2, 0.2502s } 15... Ne4+ { stockfish: depth 19, 0.2510s } 16. Kc1 { current: depth 4, 0.2501s } 16... a6 { stockfish: depth 18, 0.2502s } 17. Ba4 { current: depth 3, 0.2502s } 17... Nxf2 { stockfish: depth 17, 0.2513s } 18. Re1 { current: depth 3, 0.2501s } 18... Rc8 { stockfish: depth 17, 0.2515s } 19. Kd2 { current: depth 2, 0.2502s } 19... Ne4+ { stockfish: depth 17, 0.2507s } 20. Kd1 { current: depth 3, 0.2501s } 20... Nf2+ { stockfish: depth 18, 0.2506s } 21. Kd2 { current: depth 3, 0.2501s } 21... Ne4+ { stockfish: depth 16, 0.2507s } 22. Kd1 { current: depth 3, 0.2501s } 22... Nc6 { stockfish: depth 18, 0.2506s } 23. Bxc6 { current: depth 3, 0.2501s } 23... Rxc6 { stockfish: depth 17, 0.2509s } 24. Be5 { current: depth 3, 0.2502s } 24... f6 { stockfish: depth 18, 0.2502s } 25. Bf4 { current: depth 3, 0.2502s } 25... h3 { stockfish: depth 19, 0.2509s } 26. Rg1 { current: depth 2, 0.2501s } 26... hxg2 { stockfish: depth 18, 0.2504s } 27. Rxg2 { current: depth 3, 0.2501s } 27... g5 { stockfish: depth 17, 0.2508s } 28. Bg3 { current: depth 3, 0.2502s } 28... Bd6 { stockfish: depth 17, 0.2503s } 29. Bxd6 { current: depth 3, 0.2501s } 29... Nxd6 { stockfish: depth 18, 0.2511s } 30. Nc3 { current: depth 2, 0.2501s } 30... Rh4 { stockfish: depth 19, 0.2555s } 31. Rd2 { current: depth 2, 0.2501s } 31... Nc4 { stockfish: depth 20, 0.2509s } 32. Re2 { current: depth 2, 0.2502s } 32... Rxd4+ { stockfish: depth 20, 0.2513s } 33. Kc1 { current: depth 4, 0.2502s } 33... Rh4 { stockfish: depth 20, 0.2503s } 34. a3 { current: depth 2, 0.2501s } 34... d4 { stockfish: depth 19, 0.2507s } 35. Ne4 { current: depth 3, 0.2501s } 35... Ke7 { stockfish: depth 20, 0.2508s } 36. Rb1 { current: depth 2, 0.2501s } 36... d3 { stockfish: depth 23, 0.2503s } 37. cxd3 { current: depth 4, 0.2502s } 37... Nxa3+ { stockfish: depth 23, 0.2504s } 38. Nc3 { current: depth 4, 0.2501s } 38... Nxb1 { stockfish: depth 23, 0.2507s } 39. Kxb1 { current: depth 4, 0.2502s } 39... Rd6 { stockfish: depth 21, 0.2509s } 40. Kc2 { current: depth 3, 0.2501s } 40... Rd8 { stockfish: depth 21, 0.2508s } 41. Kd2 { current: depth 2, 0.2501s } 41... f5 { stockfish: depth 19, 0.2502s } 42. Rg2 { current: depth 3, 0.2501s } 42... Kf6 { stockfish: depth 19, 0.2505s } 43. Re2 { current: depth 2, 0.2501s } 43... Rh3 { stockfish: depth 20, 0.2508s } 44. d4 { current: depth 3, 0.2501s } 44... Rxd4+ { stockfish: depth 19, 0.2505s } 45. Ke1 { current: depth 4, 0.2502s } 45... Rh8 { stockfish: depth 18, 0.2505s } 46. Kf1 { current: depth 3, 0.2501s } 46... e5 { stockfish: depth 18, 0.2504s } 47. Kg2 { current: depth 3, 0.2501s } 47... g4 { stockfish: depth 19, 0.2506s } 48. Kg3 { current: depth 3, 0.2501s } 48... Rh3+ { stockfish: depth 20, 0.2507s } 49. Kg2 { current: depth 4, 0.2501s } 49... f4 { stockfish: depth 20, 0.2505s } 50. Ne4+ { current: depth 3, 0.2501s } 50... Kf5 { stockfish: depth 26, 0.2505s } 51. Ng3+ { current: depth 4, 0.2502s } 51... Rxg3+ { stockfish: depth 26, 0.2505s } 52. hxg3 { current: depth 5, 0.2502s } 52... f3+ { stockfish: depth 38, 0.2506s } 53. Kf2 { current: depth 5, 0.2503s } 53... fxe2 { stockfish: depth 48, 0.2499s } 54. Kxe2 { current: depth 5, 0.2502s } 54... Ke4 { stockfish: depth 53, 0.2506s } 55. Ke1 { current: depth 5, 0.2502s } 55... Kf3 { stockfish: depth 64, 0.0132s } 56. b3 { current: depth 5, 0.2503s } 56... e4 { stockfish: depth 64, 0.0037s } 57. b4 { current: depth 4, 0.0338s } 57... b5 { stockfish: depth 64, 0.0026s } 58. Kf1 { current: depth 2, 0.0012s } 58... Rd1# { stockfish: depth 64, 0.0015s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "3.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Caro-Kann Classical"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 { End of prescribed opening; both engines receive the same per-move budget. } 5. Ng3 { stockfish: depth 18, 0.2537s } 5... Nf6 { current: depth 3, 0.2501s } 6. Nxf5 { stockfish: depth 18, 0.2509s } 6... Qa5+ { current: depth 3, 0.2501s } 7. Bd2 { stockfish: depth 18, 0.2504s } 7... Qxf5 { current: depth 3, 0.2502s } 8. Nf3 { stockfish: depth 16, 0.2503s } 8... Nbd7 { current: depth 2, 0.2501s } 9. Bc4 { stockfish: depth 17, 0.2507s } 9... e5 { current: depth 2, 0.2501s } 10. Ng5 { stockfish: depth 15, 0.2511s } 10... Nd5 { current: depth 1, 0.2501s } 11. O-O { stockfish: depth 17, 0.2504s } 11... exd4 { current: depth 2, 0.2501s } 12. Re1+ { stockfish: depth 16, 0.2505s } 12... Be7 { current: depth 2, 0.2501s } 13. Bd3 { stockfish: depth 16, 0.2507s } 13... Qf6 { current: depth 2, 0.2501s } 14. Ne4 { stockfish: depth 16, 0.2508s } 14... Qe5 { current: depth 2, 0.2502s } 15. Ng3 { stockfish: depth 16, 0.2507s } 15... Qc7 { current: depth 2, 0.2502s } 16. Nf5 { stockfish: depth 17, 0.2506s } 16... Qb6 { current: depth 2, 0.2501s } 17. Qg4 { stockfish: depth 21, 0.2513s } 17... Qxb2 { current: depth 1, 0.2501s } 18. Nd6+ { stockfish: depth 22, 0.2508s } 18... Kd8 { current: depth 2, 0.2501s } 19. Nxf7+ { stockfish: depth 21, 0.2514s } 19... Kc7 { current: depth 2, 0.2502s } 20. Qg3+ { stockfish: depth 21, 0.2501s } 20... Kb6 { current: depth 2, 0.2501s } 21. Rab1 { stockfish: depth 19, 0.2509s } 21... Qxb1 { current: depth 3, 0.2502s } 22. Rxb1+ { stockfish: depth 22, 0.2507s } 22... Kc5 { current: depth 3, 0.2501s } 23. Ba6 { stockfish: depth 28, 0.2503s } 23... bxa6 { current: depth 3, 0.2502s } 24. Qa3+ { stockfish: depth 37, 0.2509s } 24... Kc4 { current: depth 3, 0.2501s } 25. Qa4+ { stockfish: depth 43, 0.2504s } 25... Bb4 { current: depth 2, 0.2501s } 26. Qxc6+ { stockfish: depth 64, 0.0031s } 26... Nc5 { current: depth 2, 0.0236s } 27. Ne5# { stockfish: depth 64, 0.0016s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "4.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Scandinavian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. d4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { stockfish: depth 18, 0.2537s } 5... Nc6 { current: depth 2, 0.2501s } 6. d5 { stockfish: depth 16, 0.2503s } 6... Nb4 { current: depth 2, 0.2501s } 7. Bc4 { stockfish: depth 17, 0.2509s } 7... Bf5 { current: depth 2, 0.2501s } 8. O-O { stockfish: depth 16, 0.2507s } 8... Nxc2 { current: depth 2, 0.2502s } 9. Bb5+ { stockfish: depth 19, 0.2508s } 9... Nd7 { current: depth 3, 0.2502s } 10. g4 { stockfish: depth 19, 0.2506s } 10... Bxg4 { current: depth 3, 0.2502s } 11. Qxc2 { stockfish: depth 18, 0.2509s } 11... Bxf3 { current: depth 2, 0.2501s } 12. Bxd7+ { stockfish: depth 17, 0.2505s } 12... Kxd7 { current: depth 3, 0.2501s } 13. Qf5+ { stockfish: depth 16, 0.2510s } 13... Ke8 { current: depth 3, 0.2501s } 14. Qxf3 { stockfish: depth 17, 0.2504s } 14... e6 { current: depth 2, 0.2501s } 15. Re1 { stockfish: depth 20, 0.2509s } 15... Bd6 { current: depth 2, 0.2501s } 16. dxe6 { stockfish: depth 22, 0.2508s } 16... fxe6 { current: depth 2, 0.2501s } 17. Rxe6+ { stockfish: depth 19, 0.2506s } 17... Kd8 { current: depth 3, 0.2501s } 18. Qf7 { stockfish: depth 19, 0.2511s } 18... g6 { current: depth 2, 0.2501s } 19. Ne4 { stockfish: depth 20, 0.2507s } 19... Qe1+ { current: depth 2, 0.2501s } 20. Kg2 { stockfish: depth 21, 0.2508s } 20... Qb4 { current: depth 2, 0.2501s } 21. Bg5+ { stockfish: depth 39, 0.2499s } 21... Be7 { current: depth 3, 0.2502s } 22. Rxe7 { stockfish: depth 58, 0.2506s } 22... Qxe7 { current: depth 4, 0.2502s } 23. Qxe7+ { stockfish: depth 64, 0.0119s } 23... Kc8 { current: depth 3, 0.2502s } 24. Bf4 { stockfish: depth 64, 0.0028s } 24... c6 { current: depth 2, 0.0145s } 25. Qc7# { stockfish: depth 64, 0.0018s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "4.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Scandinavian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. d4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { current: depth 3, 0.2502s } 5... c6 { stockfish: depth 18, 0.2527s } 6. Bf4 { current: depth 2, 0.2502s } 6... Bf5 { stockfish: depth 18, 0.2506s } 7. Bc4 { current: depth 2, 0.2501s } 7... e6 { stockfish: depth 18, 0.2496s } 8. O-O { current: depth 2, 0.2502s } 8... Nbd7 { stockfish: depth 17, 0.2503s } 9. Re1 { current: depth 2, 0.2501s } 9... Bb4 { stockfish: depth 18, 0.2506s } 10. Qd2 { current: depth 2, 0.2501s } 10... Nd5 { stockfish: depth 18, 0.2504s } 11. Bxd5 { current: depth 1, 0.2501s } 11... cxd5 { stockfish: depth 17, 0.2510s } 12. h3 { current: depth 2, 0.2501s } 12... Rc8 { stockfish: depth 18, 0.2505s } 13. g4 { current: depth 1, 0.2501s } 13... Be4 { stockfish: depth 17, 0.2508s } 14. Re3 { current: depth 2, 0.2502s } 14... Bxc3 { stockfish: depth 17, 0.2506s } 15. bxc3 { current: depth 2, 0.2501s } 15... Nb6 { stockfish: depth 16, 0.2511s } 16. Bd6 { current: depth 2, 0.2502s } 16... Nc4 { stockfish: depth 20, 0.2506s } 17. Qe2 { current: depth 2, 0.2501s } 17... Nxd6 { stockfish: depth 15, 0.2510s } 18. Qd2 { current: depth 2, 0.2501s } 18... Nc4 { stockfish: depth 19, 0.2509s } 19. Qe2 { current: depth 3, 0.2501s } 19... Nxe3 { stockfish: depth 16, 0.2506s } 20. Qxe3 { current: depth 2, 0.2501s } 20... O-O { stockfish: depth 18, 0.2508s } 21. Rb1 { current: depth 2, 0.2501s } 21... Rxc3 { stockfish: depth 15, 0.2511s } 22. Qd2 { current: depth 3, 0.2501s } 22... Qxa2 { stockfish: depth 16, 0.2504s } 23. Qxc3 { current: depth 3, 0.2501s } 23... Qxb1+ { stockfish: depth 18, 0.2505s } 24. Ne1 { current: depth 3, 0.2501s } 24... Qd1 { stockfish: depth 18, 0.2509s } 25. Kh2 { current: depth 3, 0.2501s } 25... e5 { stockfish: depth 19, 0.2504s } 26. dxe5 { current: depth 3, 0.2501s } 26... d4 { stockfish: depth 21, 0.2507s } 27. Qb4 { current: depth 3, 0.2501s } 27... Qe2 { stockfish: depth 19, 0.2505s } 28. Kg1 { current: depth 2, 0.2501s } 28... Re8 { stockfish: depth 17, 0.2511s } 29. f3 { current: depth 2, 0.2501s } 29... Qe3+ { stockfish: depth 19, 0.2508s } 30. Kg2 { current: depth 2, 0.2501s } 30... Bc6 { stockfish: depth 20, 0.2501s } 31. Nd3 { current: depth 2, 0.2501s } 31... Qxf3+ { stockfish: depth 64, 0.0029s } 32. Kg1 { current: depth 2, 0.0388s } 32... Qg2# { stockfish: depth 64, 0.0015s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "5.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Slav"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 { End of prescribed opening; both engines receive the same per-move budget. } 5. e4 { current: depth 3, 0.2501s } 5... b5 { stockfish: depth 17, 0.2527s } 6. Bf4 { current: depth 2, 0.2501s } 6... e6 { stockfish: depth 18, 0.2509s } 7. e5 { current: depth 2, 0.2501s } 7... Nd5 { stockfish: depth 19, 0.2504s } 8. Bg5 { current: depth 2, 0.2501s } 8... Qb6 { stockfish: depth 17, 0.2502s } 9. Be2 { current: depth 2, 0.2501s } 9... h6 { stockfish: depth 18, 0.2503s } 10. Nxd5 { current: depth 2, 0.2501s } 10... exd5 { stockfish: depth 17, 0.2507s } 11. Bf4 { current: depth 2, 0.2501s } 11... Be7 { stockfish: depth 17, 0.2512s } 12. Qc2 { current: depth 2, 0.2501s } 12... c5 { stockfish: depth 17, 0.2508s } 13. dxc5 { current: depth 2, 0.2501s } 13... Bxc5 { stockfish: depth 17, 0.2502s } 14. O-O-O { current: depth 2, 0.2502s } 14... Nc6 { stockfish: depth 18, 0.2511s } 15. Rxd5 { current: depth 1, 0.2501s } 15... Nb4 { stockfish: depth 23, 0.2510s } 16. Qe4 { current: depth 2, 0.2501s } 16... Bb7 { stockfish: depth 23, 0.2502s } 17. Bxc4 { current: depth 2, 0.2501s } 17... bxc4 { stockfish: depth 20, 0.2504s } 18. Rhd1 { current: depth 2, 0.2501s } 18... Nxa2+ { stockfish: depth 18, 0.2507s } 19. Kc2 { current: depth 2, 0.2501s } 19... Qb3+ { stockfish: depth 23, 0.2513s } 20. Kd2 { current: depth 3, 0.2501s } 20... Qxb2+ { stockfish: depth 21, 0.2504s } 21. Qc2 { current: depth 3, 0.2502s } 21... Bb4+ { stockfish: depth 23, 0.2508s } 22. Ke3 { current: depth 3, 0.2501s } 22... Qxc2 { stockfish: depth 19, 0.2503s } 23. R5d4 { current: depth 2, 0.2501s } 23... Bc5 { stockfish: depth 64, 0.1950s } 24. Bxh6 { current: depth 2, 0.2502s } 24... Qe4+ { stockfish: depth 64, 0.0029s } 25. Kd2 { current: depth 2, 0.0246s } 25... c3# { stockfish: depth 64, 0.0017s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "5.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Slav"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 { End of prescribed opening; both engines receive the same per-move budget. } 5. a4 { stockfish: depth 17, 0.2531s } 5... Bf5 { current: depth 2, 0.2502s } 6. Ne5 { stockfish: depth 16, 0.2506s } 6... Nbd7 { current: depth 3, 0.2502s } 7. Nxc4 { stockfish: depth 19, 0.2506s } 7... Qc7 { current: depth 3, 0.2502s } 8. g3 { stockfish: depth 18, 0.2508s } 8... e5 { current: depth 2, 0.2502s } 9. dxe5 { stockfish: depth 18, 0.2511s } 9... Nxe5 { current: depth 3, 0.2501s } 10. Bf4 { stockfish: depth 20, 0.2507s } 10... Rd8 { current: depth 2, 0.2502s } 11. Qc1 { stockfish: depth 18, 0.2505s } 11... Bd6 { current: depth 2, 0.2501s } 12. Nxd6+ { stockfish: depth 18, 0.2512s } 12... Qxd6 { current: depth 3, 0.2502s } 13. Bg2 { stockfish: depth 19, 0.2498s } 13... O-O { current: depth 2, 0.2502s } 14. O-O { stockfish: depth 19, 0.2508s } 14... Rfe8 { current: depth 2, 0.2501s } 15. Rd1 { stockfish: depth 19, 0.2507s } 15... Qc5 { current: depth 2, 0.2501s } 16. Rxd8 { stockfish: depth 18, 0.2509s } 16... Rxd8 { current: depth 3, 0.2502s } 17. b4 { stockfish: depth 15, 0.2505s } 17... Qd4 { current: depth 2, 0.2502s } 18. a5 { stockfish: depth 17, 0.2506s } 18... h6 { current: depth 1, 0.2501s } 19. e3 { stockfish: depth 15, 0.2510s } 19... Qd6 { current: depth 2, 0.2501s } 20. b5 { stockfish: depth 17, 0.2504s } 20... cxb5 { current: depth 2, 0.2501s } 21. Nxb5 { stockfish: depth 19, 0.2509s } 21... Qe7 { current: depth 2, 0.2501s } 22. Qa3 { stockfish: depth 18, 0.2505s } 22... Qxa3 { current: depth 3, 0.2501s } 23. Nxa3 { stockfish: depth 19, 0.2502s } 23... Nc6 { current: depth 3, 0.2502s } 24. a6 { stockfish: depth 17, 0.2510s } 24... Bc8 { current: depth 2, 0.2501s } 25. Rb1 { stockfish: depth 19, 0.2508s } 25... Bf5 { current: depth 2, 0.2501s } 26. axb7 { stockfish: depth 16, 0.2505s } 26... Bxb1 { current: depth 3, 0.2501s } 27. Bxc6 { stockfish: depth 17, 0.2508s } 27... Rd1+ { current: depth 2, 0.2501s } 28. Kg2 { stockfish: depth 15, 0.2504s } 28... Rd8 { current: depth 2, 0.2501s } 29. Nxb1 { stockfish: depth 17, 0.2507s } 29... a5 { current: depth 2, 0.2501s } 30. h3 { stockfish: depth 15, 0.2511s } 30... g5 { current: depth 3, 0.2501s } 31. Bc7 { stockfish: depth 15, 0.2498s } 31... Rf8 { current: depth 4, 0.2502s } 32. b8=Q { stockfish: depth 20, 0.2510s } 32... Rxb8 { current: depth 4, 0.2503s } 33. Bxb8 { stockfish: depth 20, 0.2503s } 33... Kg7 { current: depth 4, 0.2501s } 34. Be5 { stockfish: depth 21, 0.2508s } 34... Kg6 { current: depth 4, 0.2502s } 35. Bb5 { stockfish: depth 20, 0.2506s } 35... Nd5 { current: depth 3, 0.2503s } 36. Bd3+ { stockfish: depth 22, 0.2511s } 36... f5 { current: depth 4, 0.2502s } 37. e4 { stockfish: depth 23, 0.2507s } 37... Ne7 { current: depth 4, 0.2503s } 38. exf5+ { stockfish: depth 22, 0.2502s } 38... Kf7 { current: depth 4, 0.2502s } 39. f6 { stockfish: depth 24, 0.2508s } 39... Nc6 { current: depth 4, 0.2502s } 40. Bc4+ { stockfish: depth 27, 0.2506s } 40... Kg6 { current: depth 4, 0.2503s } 41. f7 { stockfish: depth 27, 0.2503s } 41... Nxe5 { current: depth 5, 0.2503s } 42. f8=Q { stockfish: depth 32, 0.2502s } 42... Nxc4 { current: depth 4, 0.2502s } 43. Nc3 { stockfish: depth 38, 0.2506s } 43... Ne5 { current: depth 3, 0.2501s } 44. Qd6+ { stockfish: depth 43, 0.2507s } 44... Kf5 { current: depth 3, 0.2502s } 45. Nd5 { stockfish: depth 64, 0.0087s } 45... a4 { current: depth 3, 0.2502s } 46. Ne7+ { stockfish: depth 64, 0.0028s } 46... Ke4 { current: depth 2, 0.0032s } 47. Qd5# { stockfish: depth 64, 0.0016s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "6.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "King's Indian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Be2 { stockfish: depth 17, 0.2531s } 5... Nc6 { current: depth 2, 0.2502s } 6. d5 { stockfish: depth 19, 0.2510s } 6... Ne5 { current: depth 2, 0.2501s } 7. f4 { stockfish: depth 17, 0.2504s } 7... Neg4 { current: depth 2, 0.2501s } 8. h3 { stockfish: depth 17, 0.2508s } 8... Nh6 { current: depth 2, 0.2501s } 9. g4 { stockfish: depth 18, 0.2515s } 9... e5 { current: depth 2, 0.2501s } 10. g5 { stockfish: depth 18, 0.2502s } 10... exf4 { current: depth 2, 0.2502s } 11. gxf6 { stockfish: depth 16, 0.2505s } 11... Qxf6 { current: depth 3, 0.2501s } 12. Nf3 { stockfish: depth 16, 0.2506s } 12... Bd7 { current: depth 2, 0.2501s } 13. Bd2 { stockfish: depth 17, 0.2512s } 13... O-O { current: depth 2, 0.2501s } 14. Qc1 { stockfish: depth 17, 0.2501s } 14... g5 { current: depth 2, 0.2502s } 15. Rg1 { stockfish: depth 17, 0.2513s } 15... Bxh3 { current: depth 2, 0.2502s } 16. Nxg5 { stockfish: depth 23, 0.2503s } 16... Bd7 { current: depth 2, 0.2501s } 17. Bxf4 { stockfish: depth 20, 0.2508s } 17... Qd4 { current: depth 2, 0.2501s } 18. Nf3 { stockfish: depth 22, 0.2507s } 18... Qxg1+ { current: depth 3, 0.2501s } 19. Nxg1 { stockfish: depth 22, 0.2502s } 19... Ng4 { current: depth 3, 0.2501s } 20. Bxg4 { stockfish: depth 20, 0.2508s } 20... Bxg4 { current: depth 3, 0.2501s } 21. Bh6 { stockfish: depth 19, 0.2507s } 21... Bxh6 { current: depth 3, 0.2501s } 22. Qxh6 { stockfish: depth 17, 0.2509s } 22... f5 { current: depth 3, 0.2502s } 23. Nge2 { stockfish: depth 16, 0.2503s } 23... Rae8 { current: depth 3, 0.2501s } 24. Kd2 { stockfish: depth 17, 0.2505s } 24... Bxe2 { current: depth 3, 0.2501s } 25. Rg1+ { stockfish: depth 20, 0.2508s } 25... Bg4 { current: depth 3, 0.2502s } 26. exf5 { stockfish: depth 21, 0.2509s } 26... Rxf5 { current: depth 3, 0.2501s } 27. Rxg4+ { stockfish: depth 64, 0.0096s } 27... Rg5 { current: depth 4, 0.1096s } 28. Qxg5+ { stockfish: depth 64, 0.0030s } 28... Kf7 { current: depth 2, 0.0046s } 29. Qg7# { stockfish: depth 64, 0.0016s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "6.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "King's Indian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { current: depth 2, 0.2501s } 5... O-O { stockfish: depth 20, 0.2534s } 6. e5 { current: depth 2, 0.2502s } 6... dxe5 { stockfish: depth 18, 0.2509s } 7. dxe5 { current: depth 2, 0.2501s } 7... Qxd1+ { stockfish: depth 19, 0.2508s } 8. Nxd1 { current: depth 3, 0.2502s } 8... Ng4 { stockfish: depth 18, 0.2507s } 9. Bf4 { current: depth 2, 0.2502s } 9... Nc6 { stockfish: depth 20, 0.2505s } 10. Nc3 { current: depth 2, 0.2501s } 10... Bf5 { stockfish: depth 19, 0.2509s } 11. e6 { current: depth 2, 0.2501s } 11... Nb4 { stockfish: depth 17, 0.2503s } 12. exf7+ { current: depth 3, 0.2501s } 12... Rxf7 { stockfish: depth 19, 0.2511s } 13. Rd1 { current: depth 2, 0.2501s } 13... Bc2 { stockfish: depth 16, 0.2509s } 14. Bxc7 { current: depth 1, 0.2501s } 14... Bxd1 { stockfish: depth 17, 0.2501s } 15. Nxd1 { current: depth 3, 0.2501s } 15... Rc8 { stockfish: depth 18, 0.2507s } 16. a3 { current: depth 2, 0.2501s } 16... Nc2+ { stockfish: depth 18, 0.2511s } 17. Kd2 { current: depth 3, 0.2501s } 17... Nxa3 { stockfish: depth 18, 0.2504s } 18. Bd3 { current: depth 2, 0.2501s } 18... Rxc7 { stockfish: depth 18, 0.2508s } 19. bxa3 { current: depth 3, 0.2501s } 19... Rc5 { stockfish: depth 17, 0.2506s } 20. h3 { current: depth 2, 0.2501s } 20... Ne5 { stockfish: depth 18, 0.2508s } 21. Ng5 { current: depth 2, 0.2501s } 21... Bh6 { stockfish: depth 22, 0.2506s } 22. h4 { current: depth 2, 0.2501s } 22... Nxd3 { stockfish: depth 21, 0.2505s } 23. Kxd3 { current: depth 4, 0.2502s } 23... Bxg5 { stockfish: depth 21, 0.2508s } 24. Kd4 { current: depth 3, 0.2501s } 24... b6 { stockfish: depth 22, 0.2508s } 25. hxg5 { current: depth 3, 0.2501s } 25... Rf4+ { stockfish: depth 21, 0.2505s } 26. Kd3 { current: depth 4, 0.2502s } 26... Rfxc4 { stockfish: depth 21, 0.2501s } 27. Re1 { current: depth 3, 0.2502s } 27... Rc1 { stockfish: depth 19, 0.2506s } 28. Kd2 { current: depth 3, 0.2501s } 28... R5c2+ { stockfish: depth 19, 0.2508s } 29. Kd3 { current: depth 4, 0.2502s } 29... Rxf2 { stockfish: depth 23, 0.2508s } 30. Nxf2 { current: depth 4, 0.2503s } 30... Rxe1 { stockfish: depth 20, 0.2500s } 31. Ng4 { current: depth 4, 0.2502s } 31... Ra1 { stockfish: depth 20, 0.2509s } 32. Ke4 { current: depth 4, 0.2502s } 32... Rxa3 { stockfish: depth 19, 0.2507s } 33. Ne3 { current: depth 4, 0.2502s } 33... a5 { stockfish: depth 21, 0.2502s } 34. Nd5 { current: depth 4, 0.2502s } 34... Rb3 { stockfish: depth 21, 0.2509s } 35. Nxe7+ { current: depth 5, 0.2504s } 35... Kg7 { stockfish: depth 22, 0.2510s } 36. Nd5 { current: depth 4, 0.2502s } 36... a4 { stockfish: depth 15, 0.2503s } 37. Nf4 { current: depth 4, 0.2502s } 37... a3 { stockfish: depth 22, 0.2508s } 38. Ne6+ { current: depth 5, 0.2502s } 38... Kf7 { stockfish: depth 24, 0.2503s } 39. Nd8+ { current: depth 5, 0.2502s } 39... Ke8 { stockfish: depth 21, 0.2509s } 40. Ne6 { current: depth 4, 0.2502s } 40... a2 { stockfish: depth 21, 0.2503s } 41. Nd4 { current: depth 4, 0.2502s } 41... Rb4 { stockfish: depth 26, 0.2503s } 42. Kd3 { current: depth 4, 0.2502s } 42... a1=Q { stockfish: depth 42, 0.2507s } 43. Nc2 { current: depth 3, 0.2502s } 43... Rb3+ { stockfish: depth 48, 0.2504s } 44. Ke2 { current: depth 3, 0.2501s } 44... Qc1 { stockfish: depth 64, 0.0743s } 45. Na1 { current: depth 3, 0.2501s } 45... Re3+ { stockfish: depth 64, 0.0031s } 46. Kf2 { current: depth 2, 0.0044s } 46... Qe1# { stockfish: depth 64, 0.0015s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "7.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Dutch"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 f5 2. g3 Nf6 3. Bg2 e6 4. Nf3 Be7 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nc3 { current: depth 3, 0.2501s } 5... d5 { stockfish: depth 19, 0.2534s } 6. Bf4 { current: depth 3, 0.2502s } 6... Bd7 { stockfish: depth 18, 0.2504s } 7. O-O { current: depth 2, 0.2501s } 7... O-O { stockfish: depth 18, 0.2512s } 8. Qd3 { current: depth 2, 0.2501s } 8... c5 { stockfish: depth 17, 0.2502s } 9. e3 { current: depth 1, 0.2501s } 9... Ne4 { stockfish: depth 16, 0.2510s } 10. Ne5 { current: depth 1, 0.2501s } 10... g5 { stockfish: depth 20, 0.2501s } 11. Nf7 { current: depth 0, 0.2501s } 11... Rxf7 { stockfish: depth 15, 0.2510s } 12. Bxe4 { current: depth 2, 0.2501s } 12... fxe4 { stockfish: depth 18, 0.2505s } 13. Nxe4 { current: depth 2, 0.2501s } 13... dxe4 { stockfish: depth 17, 0.2506s } 14. Qxe4 { current: depth 2, 0.2501s } 14... gxf4 { stockfish: depth 17, 0.2507s } 15. gxf4 { current: depth 2, 0.2501s } 15... Rg7+ { stockfish: depth 14, 0.2512s } 16. Kh1 { current: depth 4, 0.2501s } 16... Bc6 { stockfish: depth 14, 0.2505s } 17. d5 { current: depth 4, 0.2502s } 17... Bxd5 { stockfish: depth 21, 0.2503s } 18. f3 { current: depth 4, 0.2501s } 18... Bxe4 { stockfish: depth 22, 0.2510s } 19. fxe4 { current: depth 4, 0.2502s } 19... Qb6 { stockfish: depth 15, 0.2505s } 20. f5 { current: depth 3, 0.2502s } 20... Qc6 { stockfish: depth 20, 0.2506s } 21. Rf4 { current: depth 3, 0.2501s } 21... e5 { stockfish: depth 21, 0.2506s } 22. Rf3 { current: depth 4, 0.2502s } 22... Qxe4 { stockfish: depth 22, 0.2511s } 23. Rf1 { current: depth 4, 0.2502s } 23... Nd7 { stockfish: depth 23, 0.2503s } 24. f6 { current: depth 3, 0.2502s } 24... Nxf6 { stockfish: depth 37, 0.2505s } 25. b4 { current: depth 3, 0.2502s } 25... Rd8 { stockfish: depth 42, 0.2502s } 26. h3 { current: depth 3, 0.2501s } 26... Rd1 { stockfish: depth 62, 0.2506s } 27. Kh2 { current: depth 3, 0.2501s } 27... Rxf1 { stockfish: depth 64, 0.0049s } 28. bxc5 { current: depth 2, 0.0485s } 28... Qxc2+ { stockfish: depth 64, 0.0031s } 29. Rf2 { current: depth 1, 0.0009s } 29... Qxf2# { stockfish: depth 64, 0.0016s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "7.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Dutch"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 f5 2. g3 Nf6 3. Bg2 e6 4. Nf3 Be7 { End of prescribed opening; both engines receive the same per-move budget. } 5. c4 { stockfish: depth 18, 0.2534s } 5... Nc6 { current: depth 2, 0.2501s } 6. d5 { stockfish: depth 17, 0.2503s } 6... exd5 { current: depth 3, 0.2501s } 7. cxd5 { stockfish: depth 19, 0.2513s } 7... Bb4+ { current: depth 3, 0.2502s } 8. Nfd2 { stockfish: depth 18, 0.2504s } 8... Ne7 { current: depth 2, 0.2501s } 9. O-O { stockfish: depth 19, 0.2505s } 9... Nexd5 { current: depth 3, 0.2501s } 10. e4 { stockfish: depth 18, 0.2507s } 10... fxe4 { current: depth 3, 0.2502s } 11. Nxe4 { stockfish: depth 19, 0.2506s } 11... Nxe4 { current: depth 2, 0.2501s } 12. Qxd5 { stockfish: depth 17, 0.2506s } 12... Nf6 { current: depth 3, 0.2501s } 13. Qb3 { stockfish: depth 19, 0.2507s } 13... Bc5 { current: depth 2, 0.2502s } 14. Nc3 { stockfish: depth 18, 0.2511s } 14... d6 { current: depth 2, 0.2501s } 15. Bg5 { stockfish: depth 18, 0.2505s } 15... Rb8 { current: depth 1, 0.2502s } 16. Rfe1+ { stockfish: depth 21, 0.2509s } 16... Kf8 { current: depth 2, 0.2501s } 17. Ne4 { stockfish: depth 22, 0.2507s } 17... Bd4 { current: depth 2, 0.2502s } 18. Rad1 { stockfish: depth 20, 0.2507s } 18... Be5 { current: depth 1, 0.2501s } 19. f4 { stockfish: depth 19, 0.2507s } 19... Bg4 { current: depth 2, 0.2501s } 20. fxe5 { stockfish: depth 22, 0.2507s } 20... Bxd1 { current: depth 2, 0.2501s } 21. Rxd1 { stockfish: depth 21, 0.2505s } 21... h6 { current: depth 3, 0.2502s } 22. exf6 { stockfish: depth 23, 0.2508s } 22... hxg5 { current: depth 3, 0.2501s } 23. Nxg5 { stockfish: depth 25, 0.2512s } 23... Qxf6 { current: depth 2, 0.2501s } 24. Rf1 { stockfish: depth 26, 0.2508s } 24... Qxf1+ { current: depth 3, 0.2502s } 25. Bxf1 { stockfish: depth 64, 0.0183s } 25... d5 { current: depth 3, 0.2501s } 26. Qxd5 { stockfish: depth 64, 0.0042s } 26... Ke7 { current: depth 3, 0.2501s } 27. Qe6+ { stockfish: depth 64, 0.0031s } 27... Kd8 { current: depth 2, 0.0059s } 28. Nf7# { stockfish: depth 64, 0.0015s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "8.2"]
+[White "stockfish"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Catalan"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 Be7 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { stockfish: depth 19, 0.2542s } 5... Nc6 { current: depth 2, 0.2501s } 6. O-O { stockfish: depth 17, 0.2505s } 6... dxc4 { current: depth 2, 0.2501s } 7. Qa4 { stockfish: depth 17, 0.2510s } 7... Bb4 { current: depth 2, 0.2501s } 8. Ne5 { stockfish: depth 20, 0.2507s } 8... Rb8 { current: depth 2, 0.2502s } 9. Nxc6 { stockfish: depth 19, 0.2505s } 9... bxc6 { current: depth 2, 0.2501s } 10. Qxc6+ { stockfish: depth 19, 0.2511s } 10... Bd7 { current: depth 3, 0.2502s } 11. Qxc4 { stockfish: depth 18, 0.2503s } 11... Nd5 { current: depth 2, 0.2501s } 12. Rd1 { stockfish: depth 16, 0.2504s } 12... Bb5 { current: depth 2, 0.2502s } 13. Qc2 { stockfish: depth 17, 0.2504s } 13... O-O { current: depth 1, 0.2502s } 14. e4 { stockfish: depth 16, 0.2502s } 14... Nf6 { current: depth 2, 0.2502s } 15. Bf4 { stockfish: depth 18, 0.2506s } 15... Bd6 { current: depth 2, 0.2501s } 16. e5 { stockfish: depth 16, 0.2507s } 16... Nh5 { current: depth 2, 0.2501s } 17. exd6 { stockfish: depth 17, 0.2509s } 17... Nxf4 { current: depth 2, 0.2501s } 18. dxc7 { stockfish: depth 20, 0.2509s } 18... Ne2+ { current: depth 2, 0.2501s } 19. Kh1 { stockfish: depth 17, 0.2503s } 19... Qd6 { current: depth 2, 0.2501s } 20. Na3 { stockfish: depth 16, 0.2505s } 20... Nxd4 { current: depth 2, 0.2501s } 21. cxb8=Q { stockfish: depth 20, 0.2503s } 21... Rxb8 { current: depth 3, 0.2502s } 22. Qe4 { stockfish: depth 20, 0.2502s } 22... e5 { current: depth 2, 0.2501s } 23. Nxb5 { stockfish: depth 18, 0.2508s } 23... Rxb5 { current: depth 3, 0.2501s } 24. Rxd4 { stockfish: depth 19, 0.2504s } 24... Qb8 { current: depth 3, 0.2501s } 25. Rd7 { stockfish: depth 14, 0.2511s } 25... Rxb2 { current: depth 2, 0.2501s } 26. Qd5 { stockfish: depth 15, 0.2503s } 26... Rb1+ { current: depth 2, 0.2501s } 27. Bf1 { stockfish: depth 37, 0.2506s } 27... Rxf1+ { current: depth 3, 0.2502s } 28. Rxf1 { stockfish: depth 46, 0.2505s } 28... Qe8 { current: depth 3, 0.2502s } 29. Rd8 { stockfish: depth 51, 0.2504s } 29... Qf8 { current: depth 3, 0.2501s } 30. Rxf8+ { stockfish: depth 64, 0.0032s } 30... Kxf8 { current: depth 2, 0.0032s } 31. Qd8# { stockfish: depth 64, 0.0017s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "8.1"]
+[White "current"]
+[Black "stockfish"]
+[Result "0-1"]
+[Opening "Catalan"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 Be7 { End of prescribed opening; both engines receive the same per-move budget. } 5. cxd5 { current: depth 2, 0.2501s } 5... exd5 { stockfish: depth 21, 0.2535s } 6. Nc3 { current: depth 3, 0.2501s } 6... O-O { stockfish: depth 18, 0.2510s } 7. e4 { current: depth 2, 0.2501s } 7... dxe4 { stockfish: depth 18, 0.2504s } 8. Bxe4 { current: depth 2, 0.2502s } 8... Nxe4 { stockfish: depth 17, 0.2512s } 9. Nxe4 { current: depth 3, 0.2501s } 9... Bb4+ { stockfish: depth 18, 0.2508s } 10. Kf1 { current: depth 3, 0.2501s } 10... Nc6 { stockfish: depth 17, 0.2505s } 11. Nf3 { current: depth 2, 0.2501s } 11... Qd5 { stockfish: depth 18, 0.2509s } 12. Nc3 { current: depth 2, 0.2501s } 12... Bxc3 { stockfish: depth 18, 0.2504s } 13. bxc3 { current: depth 3, 0.2501s } 13... Ne5 { stockfish: depth 17, 0.2510s } 14. Kg2 { current: depth 3, 0.2502s } 14... Nxf3 { stockfish: depth 22, 0.2507s } 15. Qb3 { current: depth 3, 0.2502s } 15... Ne1+ { stockfish: depth 26, 0.2510s } 16. Kf1 { current: depth 4, 0.2502s } 16... Qxh1+ { stockfish: depth 26, 0.2499s } 17. Ke2 { current: depth 3, 0.2501s } 17... Bg4+ { stockfish: depth 23, 0.2508s } 18. Kd2 { current: depth 3, 0.2501s } 18... Qf1 { stockfish: depth 21, 0.2507s } 19. Ke3 { current: depth 3, 0.2501s } 19... Qe2+ { stockfish: depth 64, 0.0127s } 20. Kf4 { current: depth 3, 0.2501s } 20... Ng2+ { stockfish: depth 64, 0.0029s } 21. Kg5 { current: depth 2, 0.0238s } 21... h6# { stockfish: depth 64, 0.0017s } 0-1
+

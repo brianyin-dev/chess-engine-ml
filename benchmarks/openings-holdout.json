@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Scotch",
+    "moves": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "d2d4",
+      "e5d4",
+      "f3d4",
+      "g8f6"
+    ]
+  },
+  {
+    "name": "Petroff",
+    "moves": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "g8f6",
+      "f3e5",
+      "d7d6",
+      "e5f3",
+      "f6e4"
+    ]
+  },
+  {
+    "name": "Pirc",
+    "moves": [
+      "e2e4",
+      "d7d6",
+      "d2d4",
+      "g8f6",
+      "b1c3",
+      "g7g6",
+      "g1f3",
+      "f8g7"
+    ]
+  },
+  {
+    "name": "Nimzo-Indian",
+    "moves": [
+      "d2d4",
+      "g8f6",
+      "c2c4",
+      "e7e6",
+      "b1c3",
+      "f8b4",
+      "e2e3",
+      "e8g8"
+    ]
+  },
+  {
+    "name": "Benoni",
+    "moves": [
+      "d2d4",
+      "g8f6",
+      "c2c4",
+      "c7c5",
+      "d4d5",
+      "e7e6",
+      "b1c3",
+      "e6d5",
+      "c4d5",
+      "d7d6"
+    ]
+  },
+  {
+    "name": "Reti",
+    "moves": [
+      "g1f3",
+      "d7d5",
+      "c2c4",
+      "e7e6",
+      "g2g3",
+      "g8f6",
+      "f1g2",
+      "f8e7"
+    ]
+  }
+]

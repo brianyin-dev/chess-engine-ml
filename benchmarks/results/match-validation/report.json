@@ -1,0 +1,211 @@
+{
+  "started_at": "2026-09-28T19:32:11.249391+00:00",
+  "python": "3.13.1 (v3.13.1:06714517797, Dec  3 2024, 14:00:22) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python_chess": "1.11.2",
+  "config": {
+    "time_ms": 50.0,
+    "max_plies": 160,
+    "depth_cap": 64,
+    "pairs": 2,
+    "planned_games": 4
+  },
+  "openings": [
+    {
+      "name": "Italian",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ]
+    },
+    {
+      "name": "Queen's Gambit Declined",
+      "moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ]
+    }
+  ],
+  "openings_sha256": "857e31000f448870bb0326399173f2d80417d92ad785a63bca13139f0e3a7573",
+  "source_sha256": {
+    "engine/search.py": "6126eac46e96a899448d1de8eed452f5b5d1dd5e926b1f63ff9e2c37e1620582",
+    "engine/evaluation.py": "91e17454ab970b754e45989966c1ffe42ae3aefed4bfdc31c093099d8cd6a1b7",
+    "benchmarks/legacy/search.py": "8e7aaf040be28430beab19b53a64bf2f72fd889f8efc4e7c02347b2e22a0edde",
+    "benchmarks/legacy/evaluation.py": "d88df4578f9273204a8bc79444547c0a05b7c91681cddfa1fddd30a5d3a471ce",
+    "benchmarks/match.py": "5faf74c581e62b23079cdda3ffcb299a96953264a956aede878392519269f02a"
+  },
+  "policy": "Equal per-move cooperative deadlines, sequential execution, no pondering. Legacy adds iterative deepening and leaf deadline checks to frozen search. Automatic draws only; no score adjudication or clock forfeits. Ply-limit games are unfinished, not draws. Results are not an Elo estimate.",
+  "games": [
+    {
+      "pair": 1,
+      "opening": "Italian",
+      "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "current_color": "white",
+      "moves": [],
+      "result": "*",
+      "current_result": null,
+      "reason": "engine_error",
+      "error": {
+        "engine": "current",
+        "type": "AttributeError",
+        "message": "'dict' object has no attribute 'drop'"
+      },
+      "final_fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "played_plies": 0
+    },
+    {
+      "pair": 1,
+      "opening": "Italian",
+      "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "current_color": "black",
+      "moves": [
+        {
+          "engine": "legacy",
+          "uci": "d2d4",
+          "san": "d4",
+          "depth": 2,
+          "timed_out": true,
+          "eval_calls": 311,
+          "nodes": null,
+          "qnodes": null,
+          "tt_hits": null,
+          "score": null,
+          "stop_reason": "time_limit",
+          "elapsed": 0.05012370797339827,
+          "budget_seconds": 0.05,
+          "overrun_seconds": 0.00012370797339826545
+        }
+      ],
+      "result": "*",
+      "current_result": null,
+      "reason": "engine_error",
+      "error": {
+        "engine": "current",
+        "type": "AttributeError",
+        "message": "'dict' object has no attribute 'drop'"
+      },
+      "final_fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2BPP3/5N2/PPP2PPP/RNBQK2R b KQkq - 0 4",
+      "played_plies": 1
+    },
+    {
+      "pair": 2,
+      "opening": "Queen's Gambit Declined",
+      "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "current_color": "black",
+      "moves": [
+        {
+          "engine": "legacy",
+          "uci": "c4d5",
+          "san": "cxd5",
+          "depth": 2,
+          "timed_out": true,
+          "eval_calls": 329,
+          "nodes": null,
+          "qnodes": null,
+          "tt_hits": null,
+          "score": null,
+          "stop_reason": "time_limit",
+          "elapsed": 0.05014004197437316,
+          "budget_seconds": 0.05,
+          "overrun_seconds": 0.00014004197437315902
+        }
+      ],
+      "result": "*",
+      "current_result": null,
+      "reason": "engine_error",
+      "error": {
+        "engine": "current",
+        "type": "AttributeError",
+        "message": "'dict' object has no attribute 'drop'"
+      },
+      "final_fen": "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4",
+      "played_plies": 1
+    },
+    {
+      "pair": 2,
+      "opening": "Queen's Gambit Declined",
+      "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "current_color": "white",
+      "moves": [],
+      "result": "*",
+      "current_result": null,
+      "reason": "engine_error",
+      "error": {
+        "engine": "current",
+        "type": "AttributeError",
+        "message": "'dict' object has no attribute 'drop'"
+      },
+      "final_fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+      "played_plies": 0
+    }
+  ],
+  "status": "completed_with_errors",
+  "summary": {
+    "games": 4,
+    "completed": 0,
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "unfinished": 0,
+    "errors": 4,
+    "interrupted": 0,
+    "score_fraction_completed": null,
+    "complete_pairs": 0,
+    "score_fraction_complete_pairs": null,
+    "timing": {
+      "current": {
+        "moves": 0,
+        "mean_elapsed": null,
+        "max_overrun_seconds": 0,
+        "fallback_moves": 0
+      },
+      "legacy": {
+        "moves": 2,
+        "mean_elapsed": 0.050131874973885715,
+        "max_overrun_seconds": 0.00014004197437315902,
+        "fallback_moves": 0
+      }
+    }
+  },
+  "finished_at": "2026-09-28T19:32:11.576860+00:00"
+}

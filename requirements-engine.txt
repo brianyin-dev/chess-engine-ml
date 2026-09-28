@@ -1,0 +1,5 @@
+# Tested engine/API versions; ML dependencies are in requirements.txt.
+python-chess==1.999
+chess==1.11.2
+Flask==3.1.3
+gunicorn==23.0.0

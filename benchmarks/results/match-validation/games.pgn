@@ -1,0 +1,56 @@
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.1"]
+[White "current"]
+[Black "legacy"]
+[Result "*"]
+[Opening "Italian"]
+[TimeControl "1/0.05"]
+[Termination "unterminated"]
+[TerminationDetail "engine_error"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 { End of prescribed opening; both engines receive the same per-move budget. } *
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.2"]
+[White "legacy"]
+[Black "current"]
+[Result "*"]
+[Opening "Italian"]
+[TimeControl "1/0.05"]
+[Termination "unterminated"]
+[TerminationDetail "engine_error"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 { End of prescribed opening; both engines receive the same per-move budget. } 4. d4 { legacy: depth 2, 0.0501s } *
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.2"]
+[White "legacy"]
+[Black "current"]
+[Result "*"]
+[Opening "Queen's Gambit Declined"]
+[TimeControl "1/0.05"]
+[Termination "unterminated"]
+[TerminationDetail "engine_error"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 4. cxd5 { legacy: depth 2, 0.0501s } *
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.1"]
+[White "current"]
+[Black "legacy"]
+[Result "*"]
+[Opening "Queen's Gambit Declined"]
+[TimeControl "1/0.05"]
+[Termination "unterminated"]
+[TerminationDetail "engine_error"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } *
+

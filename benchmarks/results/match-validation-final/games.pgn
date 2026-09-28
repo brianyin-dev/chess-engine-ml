@@ -1,0 +1,120 @@
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.1"]
+[White "current"]
+[Black "legacy"]
+[Result "1-0"]
+[Opening "Italian"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 { End of prescribed opening; both engines receive the same per-move budget. } 4. Nc3 { current: depth 2, 0.1002s } 4... d5 { legacy: depth 2, 0.1001s } 5. exd5 { current: depth 2, 0.1001s } 5... Nb4 { legacy: depth 2, 0.1001s } 6. Nxe5 { current: depth 1, 0.1001s } 6... Nf6 { legacy: depth 2, 0.1001s } 7. Bb5+ { current: depth 1, 0.1001s } 7... Kf8 { legacy: depth 2, 0.1001s } 8. Nxf7 { current: depth 0, 0.1001s } 8... Kxf7 { legacy: depth 2, 0.1002s } 9. d4 { current: depth 1, 0.1001s } 9... Qe7+ { legacy: depth 2, 0.1002s } 10. Kf1 { current: depth 1, 0.1001s } 10... Bd6 { legacy: depth 2, 0.1001s } 11. Bg5 { current: depth 2, 0.1001s } 11... Nxc2 { legacy: depth 2, 0.1000s } 12. Qxc2 { current: depth 2, 0.1001s } 12... Bxh2 { legacy: depth 2, 0.1001s } 13. Rxh2 { current: depth 1, 0.1001s } 13... Bg4 { legacy: depth 2, 0.1001s } 14. Re1 { current: depth 1, 0.1001s } 14... Be2+ { legacy: depth 2, 0.1001s } 15. Nxe2 { current: depth 1, 0.1001s } 15... Rad8 { legacy: depth 2, 0.1001s } 16. Nc3 { current: depth 1, 0.1001s } 16... Qxe1+ { legacy: depth 2, 0.1001s } 17. Kxe1 { current: depth 3, 0.1001s } 17... Rhf8 { legacy: depth 2, 0.1000s } 18. Bxf6 { current: depth 1, 0.1000s } 18... Kxf6 { legacy: depth 3, 0.1001s } 19. Rxh7 { current: depth 1, 0.1001s } 19... Rf7 { legacy: depth 2, 0.1000s } 20. Qe4 { current: depth 1, 0.1001s } 20... Rd6 { legacy: depth 2, 0.1001s } 21. Qe5+ { current: depth 2, 0.1001s } 21... Kg6 { legacy: depth 3, 0.1001s } 22. Bd3+ { current: depth 1, 0.0125s } 22... Rf5 { legacy: depth 3, 0.1001s } 23. Qxf5# { current: depth 1, 0.0106s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "1.2"]
+[White "legacy"]
+[Black "current"]
+[Result "0-1"]
+[Opening "Italian"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 { End of prescribed opening; both engines receive the same per-move budget. } 4. d4 { legacy: depth 2, 0.1001s } 4... exd4 { current: depth 2, 0.1002s } 5. Nbd2 { legacy: depth 2, 0.1001s } 5... Nf6 { current: depth 2, 0.1001s } 6. Qe2 { legacy: depth 2, 0.1001s } 6... d6 { current: depth 1, 0.1001s } 7. Nb3 { legacy: depth 2, 0.1000s } 7... Bg4 { current: depth 1, 0.1001s } 8. Nxc5 { legacy: depth 2, 0.1000s } 8... dxc5 { current: depth 1, 0.1001s } 9. Bxf7+ { legacy: depth 2, 0.1001s } 9... Kxf7 { current: depth 2, 0.1001s } 10. Qc4+ { legacy: depth 2, 0.1002s } 10... Kg6 { current: depth 2, 0.1001s } 11. Nh4+ { legacy: depth 2, 0.1000s } 11... Kh5 { current: depth 2, 0.1001s } 12. g3 { legacy: depth 2, 0.1001s } 12... Nxe4 { current: depth 2, 0.1001s } 13. Qf7+ { legacy: depth 2, 0.1001s } 13... g6 { current: depth 2, 0.1001s } 14. Ng2 { legacy: depth 2, 0.1001s } 14... Qd6 { current: depth 1, 0.1001s } 15. O-O { legacy: depth 2, 0.1001s } 15... Rae8 { current: depth 1, 0.1001s } 16. Re1 { legacy: depth 2, 0.1001s } 16... Be6 { current: depth 1, 0.1000s } 17. Qf3+ { legacy: depth 2, 0.1001s } 17... Bg4 { current: depth 2, 0.1001s } 18. Qd3 { legacy: depth 2, 0.1001s } 18... Qe5 { current: depth 1, 0.1002s } 19. Qc4 { legacy: depth 2, 0.1001s } 19... Rhf8 { current: depth 1, 0.1001s } 20. f3 { legacy: depth 2, 0.1000s } 20... Rxf3 { current: depth 2, 0.1001s } 21. Re2 { legacy: depth 2, 0.1000s } 21... Rf1+ { current: depth 1, 0.1001s } 22. Kxf1 { legacy: depth 3, 0.1001s } 22... Nxg3+ { current: depth 2, 0.1001s } 23. hxg3 { legacy: depth 3, 0.1001s } 23... Bxe2+ { current: depth 3, 0.1001s } 24. Qxe2+ { legacy: depth 4, 0.1001s } 24... Qxe2+ { current: depth 5, 0.1001s } 25. Kg1 { legacy: depth 3, 0.1001s } 25... Qd1+ { current: depth 3, 0.1001s } 26. Kh2 { legacy: depth 3, 0.1001s } 26... Qxc2 { current: depth 2, 0.1001s } 27. g4+ { legacy: depth 2, 0.1001s } 27... Kxg4 { current: depth 3, 0.1001s } 28. Bf4 { legacy: depth 2, 0.1000s } 28... Re2 { current: depth 2, 0.1001s } 29. Rg1 { legacy: depth 3, 0.1001s } 29... Qxb2 { current: depth 2, 0.1001s } 30. a4 { legacy: depth 3, 0.1000s } 30... Ne5 { current: depth 2, 0.1001s } 31. Kh1 { legacy: depth 3, 0.1000s } 31... Nf3 { current: depth 2, 0.1001s } 32. Rf1 { legacy: depth 3, 0.1001s } 32... Rxg2 { current: depth 2, 0.1001s } 33. Bxc7 { legacy: depth 3, 0.1000s } 33... Rh2+ { current: depth 1, 0.0047s } 34. Bxh2 { legacy: depth 3, 0.1001s } 34... Qxh2# { current: depth 1, 0.0026s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.2"]
+[White "legacy"]
+[Black "current"]
+[Result "0-1"]
+[Opening "Queen's Gambit Declined"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 4. cxd5 { legacy: depth 2, 0.1000s } 4... Be7 { current: depth 2, 0.1001s } 5. dxe6 { legacy: depth 2, 0.1002s } 5... Bxe6 { current: depth 3, 0.1001s } 6. Qa4+ { legacy: depth 2, 0.1000s } 6... Nc6 { current: depth 2, 0.1001s } 7. Nf3 { legacy: depth 2, 0.1000s } 7... Bd6 { current: depth 1, 0.1001s } 8. Be3 { legacy: depth 2, 0.1001s } 8... O-O { current: depth 2, 0.1001s } 9. d5 { legacy: depth 2, 0.1001s } 9... Nxd5 { current: depth 2, 0.1001s } 10. Nxd5 { legacy: depth 2, 0.1000s } 10... Bxd5 { current: depth 2, 0.1001s } 11. Nd2 { legacy: depth 2, 0.1000s } 11... Qf6 { current: depth 1, 0.1001s } 12. Kd1 { legacy: depth 2, 0.1001s } 12... Qxb2 { current: depth 1, 0.1001s } 13. Bxa7 { legacy: depth 2, 0.1001s } 13... Qxa1+ { current: depth 1, 0.1001s } 14. Kc2 { legacy: depth 3, 0.1002s } 14... Nb4+ { current: depth 1, 0.1001s } 15. Qxb4 { legacy: depth 3, 0.1000s } 15... Bxb4 { current: depth 1, 0.1001s } 16. Be3 { legacy: depth 2, 0.1001s } 16... Qc3+ { current: depth 1, 0.1001s } 17. Kd1 { legacy: depth 3, 0.1001s } 17... Rxa2 { current: depth 1, 0.1003s } 18. Rg1 { legacy: depth 2, 0.1001s } 18... Qc2+ { current: depth 1, 0.0109s } 19. Ke1 { legacy: depth 3, 0.1001s } 19... Qc1# { current: depth 1, 0.0050s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "2.1"]
+[White "current"]
+[Black "legacy"]
+[Result "1-0"]
+[Opening "Queen's Gambit Declined"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 4. cxd5 { current: depth 2, 0.1001s } 4... exd5 { legacy: depth 2, 0.1001s } 5. Nf3 { current: depth 2, 0.1001s } 5... Bb4 { legacy: depth 2, 0.1000s } 6. a3 { current: depth 2, 0.1001s } 6... Bxc3+ { legacy: depth 2, 0.1001s } 7. bxc3 { current: depth 3, 0.1001s } 7... Nc6 { legacy: depth 2, 0.1001s } 8. Rb1 { current: depth 2, 0.1001s } 8... Bf5 { legacy: depth 2, 0.1001s } 9. Rxb7 { current: depth 2, 0.1001s } 9... Qd6 { legacy: depth 2, 0.1000s } 10. e3 { current: depth 1, 0.1001s } 10... O-O { legacy: depth 2, 0.1002s } 11. Bd3 { current: depth 1, 0.1001s } 11... Bxd3 { legacy: depth 2, 0.1001s } 12. Qxd3 { current: depth 2, 0.1001s } 12... h6 { legacy: depth 2, 0.1000s } 13. Bb2 { current: depth 2, 0.1001s } 13... Kh8 { legacy: depth 2, 0.1000s } 14. c4 { current: depth 2, 0.1001s } 14... dxc4 { legacy: depth 2, 0.1001s } 15. Qxc4 { current: depth 2, 0.1001s } 15... Ne7 { legacy: depth 2, 0.1001s } 16. Rxc7 { current: depth 1, 0.1001s } 16... Nf5 { legacy: depth 2, 0.1000s } 17. Rxf7 { current: depth 1, 0.1001s } 17... Rxf7 { legacy: depth 2, 0.1001s } 18. Qxf7 { current: depth 2, 0.1001s } 18... Nxe3 { legacy: depth 2, 0.1001s } 19. fxe3 { current: depth 2, 0.1001s } 19... Ne4 { legacy: depth 2, 0.1000s } 20. d5 { current: depth 2, 0.1001s } 20... Rg8 { legacy: depth 3, 0.1000s } 21. O-O { current: depth 1, 0.1001s } 21... Nc3 { legacy: depth 2, 0.1000s } 22. Bxc3 { current: depth 2, 0.1001s } 22... Qxa3 { legacy: depth 3, 0.1000s } 23. Bd4 { current: depth 2, 0.1001s } 23... Qd6 { legacy: depth 2, 0.1000s } 24. Bxa7 { current: depth 1, 0.1001s } 24... Rc8 { legacy: depth 2, 0.1001s } 25. Bd4 { current: depth 2, 0.1001s } 25... Rg8 { legacy: depth 3, 0.1000s } 26. e4 { current: depth 2, 0.1001s } 26... Kh7 { legacy: depth 2, 0.1001s } 27. Qf5+ { current: depth 2, 0.1001s } 27... Kh8 { legacy: depth 3, 0.1001s } 28. Be5 { current: depth 2, 0.1001s } 28... Qc5+ { legacy: depth 2, 0.1001s } 29. Bd4 { current: depth 3, 0.1001s } 29... Qc4 { legacy: depth 2, 0.1000s } 30. Qg6 { current: depth 2, 0.1001s } 30... Qxf1+ { legacy: depth 3, 0.1001s } 31. Kxf1 { current: depth 2, 0.0045s } 31... Rf8 { legacy: depth 4, 0.1001s } 32. Qxg7# { current: depth 1, 0.0037s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "3.1"]
+[White "current"]
+[Black "legacy"]
+[Result "1-0"]
+[Opening "Open Sicilian"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Bb5+ { current: depth 2, 0.1001s } 5... Bd7 { legacy: depth 3, 0.1000s } 6. Nc3 { current: depth 2, 0.1001s } 6... Bxb5 { legacy: depth 3, 0.1000s } 7. Ndxb5 { current: depth 2, 0.1001s } 7... Nc6 { legacy: depth 2, 0.1001s } 8. Bf4 { current: depth 1, 0.1001s } 8... d5 { legacy: depth 2, 0.1002s } 9. Nc7+ { current: depth 2, 0.1001s } 9... Kd7 { legacy: depth 3, 0.1001s } 10. Nxa8 { current: depth 1, 0.1001s } 10... Qxa8 { legacy: depth 2, 0.1001s } 11. exd5 { current: depth 1, 0.1001s } 11... Nb4 { legacy: depth 2, 0.1000s } 12. O-O { current: depth 1, 0.1001s } 12... Ke8 { legacy: depth 2, 0.1001s } 13. a3 { current: depth 2, 0.1001s } 13... Na6 { legacy: depth 2, 0.1001s } 14. Qd3 { current: depth 2, 0.1001s } 14... Nc5 { legacy: depth 2, 0.1000s } 15. Qb5+ { current: depth 2, 0.1001s } 15... Ncd7 { legacy: depth 3, 0.1001s } 16. Rfe1 { current: depth 2, 0.1001s } 16... Nxd5 { legacy: depth 2, 0.1001s } 17. Qxd5 { current: depth 2, 0.1001s } 17... Nf6 { legacy: depth 2, 0.1001s } 18. Qb5+ { current: depth 2, 0.1001s } 18... Kd8 { legacy: depth 3, 0.1001s } 19. Rad1+ { current: depth 2, 0.1001s } 19... Nd5 { legacy: depth 3, 0.1001s } 20. Rxd5+ { current: depth 2, 0.1001s } 20... Kc8 { legacy: depth 3, 0.1000s } 21. Qe8# { current: depth 1, 0.0066s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "3.2"]
+[White "legacy"]
+[Black "current"]
+[Result "0-1"]
+[Opening "Open Sicilian"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nc3 { legacy: depth 2, 0.1001s } 5... e5 { current: depth 2, 0.1001s } 6. Bb5+ { legacy: depth 2, 0.1001s } 6... Bd7 { current: depth 3, 0.1001s } 7. Bxd7+ { legacy: depth 2, 0.1001s } 7... Nbxd7 { current: depth 3, 0.1001s } 8. Nf5 { legacy: depth 2, 0.1002s } 8... Nc5 { current: depth 1, 0.1001s } 9. Be3 { legacy: depth 2, 0.1001s } 9... Nfxe4 { current: depth 2, 0.1001s } 10. Nxe4 { legacy: depth 2, 0.1001s } 10... Nxe4 { current: depth 2, 0.1001s } 11. f3 { legacy: depth 2, 0.1000s } 11... Qa5+ { current: depth 2, 0.1001s } 12. Kf1 { legacy: depth 2, 0.1000s } 12... Qb5+ { current: depth 2, 0.1000s } 13. Kg1 { legacy: depth 3, 0.1000s } 13... g6 { current: depth 2, 0.1001s } 14. fxe4 { legacy: depth 2, 0.1001s } 14... gxf5 { current: depth 2, 0.1001s } 15. exf5 { legacy: depth 2, 0.1001s } 15... Qxb2 { current: depth 2, 0.1001s } 16. Bxa7 { legacy: depth 2, 0.1001s } 16... Rxa7 { current: depth 1, 0.1001s } 17. Kf2 { legacy: depth 2, 0.1001s } 17... Rxa2 { current: depth 1, 0.1001s } 18. Rxa2 { legacy: depth 2, 0.1000s } 18... Qxa2 { current: depth 3, 0.1001s } 19. Re1 { legacy: depth 2, 0.1000s } 19... Qc4 { current: depth 2, 0.1001s } 20. c3 { legacy: depth 2, 0.1000s } 20... Qxc3 { current: depth 2, 0.1001s } 21. Qa4+ { legacy: depth 2, 0.1001s } 21... Qc6 { current: depth 2, 0.1001s } 22. Qxc6+ { legacy: depth 2, 0.1001s } 22... bxc6 { current: depth 4, 0.1003s } 23. f6 { legacy: depth 3, 0.1001s } 23... Bh6 { current: depth 3, 0.1001s } 24. Kf3 { legacy: depth 3, 0.1000s } 24... Rg8 { current: depth 3, 0.1001s } 25. Re2 { legacy: depth 2, 0.1000s } 25... Rg6 { current: depth 3, 0.1001s } 26. Ke4 { legacy: depth 3, 0.1000s } 26... Rxf6 { current: depth 3, 0.1001s } 27. Kd3 { legacy: depth 3, 0.1000s } 27... Rg6 { current: depth 3, 0.1001s } 28. Kc3 { legacy: depth 3, 0.1001s } 28... Bf4 { current: depth 3, 0.1001s } 29. g3 { legacy: depth 3, 0.1001s } 29... Bg5 { current: depth 3, 0.1001s } 30. Re4 { legacy: depth 3, 0.1001s } 30... Kd7 { current: depth 2, 0.1001s } 31. Rg4 { legacy: depth 3, 0.1000s } 31... Bd2+ { current: depth 3, 0.1001s } 32. Kxd2 { legacy: depth 4, 0.1001s } 32... Rxg4 { current: depth 4, 0.1002s } 33. Kc3 { legacy: depth 3, 0.1001s } 33... d5 { current: depth 3, 0.1001s } 34. Kb3 { legacy: depth 3, 0.1000s } 34... Ke6 { current: depth 3, 0.1031s } 35. Kc3 { legacy: depth 3, 0.1000s } 35... Ra4 { current: depth 3, 0.1002s } 36. Kb3 { legacy: depth 3, 0.1000s } 36... Rc4 { current: depth 3, 0.1002s } 37. Ka3 { legacy: depth 3, 0.1000s } 37... Rc2 { current: depth 3, 0.1001s } 38. h3 { legacy: depth 3, 0.1000s } 38... Rc3+ { current: depth 3, 0.1001s } 39. Ka4 { legacy: depth 4, 0.1000s } 39... Rxg3 { current: depth 3, 0.1002s } 40. h4 { legacy: depth 3, 0.1001s } 40... Rg4+ { current: depth 3, 0.1001s } 41. Ka5 { legacy: depth 4, 0.1000s } 41... Rxh4 { current: depth 3, 0.1002s } 42. Kb6 { legacy: depth 4, 0.1000s } 42... Kd6 { current: depth 4, 0.1001s } 43. Kb7 { legacy: depth 4, 0.1000s } 43... Rb4+ { current: depth 4, 0.1002s } 44. Ka8 { legacy: depth 3, 0.1000s } 44... Kc7 { current: depth 3, 0.0387s } 45. Ka7 { legacy: depth 4, 0.1000s } 45... Ra4# { current: depth 1, 0.0015s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "4.2"]
+[White "legacy"]
+[Black "current"]
+[Result "0-1"]
+[Opening "English"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. c4 e5 2. Nc3 Nf6 3. g3 d5 { End of prescribed opening; both engines receive the same per-move budget. } 4. Nf3 { legacy: depth 2, 0.1000s } 4... Nc6 { current: depth 2, 0.1001s } 5. cxd5 { legacy: depth 2, 0.1000s } 5... Nxd5 { current: depth 2, 0.1001s } 6. Nxd5 { legacy: depth 2, 0.1000s } 6... Qxd5 { current: depth 2, 0.1001s } 7. e4 { legacy: depth 2, 0.1001s } 7... Qxe4+ { current: depth 2, 0.1001s } 8. Qe2 { legacy: depth 3, 0.1001s } 8... Bf5 { current: depth 2, 0.1001s } 9. Qxe4 { legacy: depth 2, 0.1001s } 9... Bxe4 { current: depth 2, 0.1001s } 10. Bc4 { legacy: depth 2, 0.1001s } 10... Bxf3 { current: depth 2, 0.1001s } 11. O-O { legacy: depth 2, 0.1001s } 11... Bc5 { current: depth 2, 0.1001s } 12. Bb5 { legacy: depth 3, 0.1001s } 12... a6 { current: depth 2, 0.1001s } 13. Ba4 { legacy: depth 3, 0.1001s } 13... Rd8 { current: depth 2, 0.1001s } 14. d4 { legacy: depth 3, 0.1000s } 14... exd4 { current: depth 2, 0.1001s } 15. Bf4 { legacy: depth 2, 0.1001s } 15... Kd7 { current: depth 2, 0.1001s } 16. Rfe1 { legacy: depth 2, 0.1001s } 16... d3 { current: depth 2, 0.1001s } 17. Bxc6+ { legacy: depth 2, 0.1000s } 17... Kxc6 { current: depth 3, 0.1001s } 18. Rac1 { legacy: depth 2, 0.1001s } 18... d2 { current: depth 3, 0.1001s } 19. Bxd2 { legacy: depth 3, 0.1000s } 19... Rxd2 { current: depth 2, 0.1003s } 20. Rc4 { legacy: depth 2, 0.1000s } 20... Kd6 { current: depth 2, 0.1001s } 21. Rf1 { legacy: depth 3, 0.1001s } 21... Be2 { current: depth 2, 0.1001s } 22. Rxc5 { legacy: depth 2, 0.1001s } 22... Kxc5 { current: depth 2, 0.1001s } 23. Rc1+ { legacy: depth 3, 0.1001s } 23... Kd6 { current: depth 3, 0.1001s } 24. Re1 { legacy: depth 3, 0.1001s } 24... Rxb2 { current: depth 2, 0.1004s } 25. a3 { legacy: depth 2, 0.1001s } 25... Re8 { current: depth 2, 0.1001s } 26. Kh1 { legacy: depth 2, 0.1001s } 26... Bf3+ { current: depth 1, 0.0041s } 27. Kg1 { legacy: depth 3, 0.1000s } 27... Rxe1# { current: depth 1, 0.0033s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.28"]
+[Round "4.1"]
+[White "current"]
+[Black "legacy"]
+[Result "1-0"]
+[Opening "English"]
+[TimeControl "?"]
+[MoveTimeMs "100"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. c4 e5 2. Nc3 Nf6 3. g3 d5 { End of prescribed opening; both engines receive the same per-move budget. } 4. Nf3 { current: depth 1, 0.1001s } 4... dxc4 { legacy: depth 2, 0.1000s } 5. Nxe5 { current: depth 1, 0.1001s } 5... Bf5 { legacy: depth 2, 0.1001s } 6. Nxc4 { current: depth 1, 0.1001s } 6... Nc6 { legacy: depth 2, 0.1001s } 7. Bg2 { current: depth 2, 0.1001s } 7... Nd4 { legacy: depth 2, 0.1000s } 8. Bxb7 { current: depth 1, 0.1001s } 8... Rb8 { legacy: depth 2, 0.1001s } 9. Qa4+ { current: depth 2, 0.1001s } 9... Ke7 { legacy: depth 2, 0.1002s } 10. Qxa7 { current: depth 1, 0.1001s } 10... Nc2+ { legacy: depth 2, 0.1001s } 11. Kf1 { current: depth 2, 0.1001s } 11... Bh3+ { legacy: depth 2, 0.1000s } 12. Kg1 { current: depth 3, 0.1001s } 12... Nxa1 { legacy: depth 2, 0.1000s } 13. Qc5+ { current: depth 2, 0.1001s } 13... Kd7 { legacy: depth 3, 0.1001s } 14. Ne5+ { current: depth 2, 0.1001s } 14... Ke6 { legacy: depth 3, 0.1000s } 15. Qb5 { current: depth 2, 0.1001s } 15... Nc2 { legacy: depth 2, 0.1001s } 16. Nc6 { current: depth 2, 0.1001s } 16... Qd6 { legacy: depth 2, 0.1001s } 17. Qc4+ { current: depth 2, 0.1001s } 17... Kf5 { legacy: depth 3, 0.1002s } 18. e4+ { current: depth 2, 0.1001s } 18... Kg6 { legacy: depth 3, 0.1000s } 19. Nxb8 { current: depth 2, 0.1001s } 19... Kh6 { legacy: depth 2, 0.1001s } 20. Qxf7 { current: depth 1, 0.1001s } 20... Nxe4 { legacy: depth 2, 0.1001s } 21. Bxe4 { current: depth 1, 0.1001s } 21... Nd4 { legacy: depth 2, 0.1000s } 22. d3+ { current: depth 2, 0.1001s } 22... g5 { legacy: depth 3, 0.1001s } 23. Be3 { current: depth 1, 0.1001s } 23... Be7 { legacy: depth 2, 0.1001s } 24. Bxd4 { current: depth 1, 0.1001s } 24... Qxd4 { legacy: depth 2, 0.1000s } 25. Qxe7 { current: depth 1, 0.1001s } 25... Bg4 { legacy: depth 2, 0.1001s } 26. Qxc7 { current: depth 1, 0.1001s } 26... Be6 { legacy: depth 2, 0.1001s } 27. Nc6 { current: depth 1, 0.1001s } 27... Qf6 { legacy: depth 2, 0.1001s } 28. d4 { current: depth 1, 0.1001s } 28... Bxa2 { legacy: depth 2, 0.1001s } 29. Nxa2 { current: depth 1, 0.1001s } 29... Qe6 { legacy: depth 3, 0.1001s } 30. Nc3 { current: depth 2, 0.1001s } 30... Kh5 { legacy: depth 2, 0.1001s } 31. d5 { current: depth 2, 0.1001s } 31... Qf6 { legacy: depth 2, 0.1001s } 32. Bxh7 { current: depth 2, 0.1001s } 32... Re8 { legacy: depth 2, 0.1000s } 33. Be4 { current: depth 2, 0.1001s } 33... g4 { legacy: depth 2, 0.1000s } 34. h3 { current: depth 2, 0.1003s } 34... Rxe4 { legacy: depth 3, 0.1001s } 35. Qh7+ { current: depth 2, 0.1001s } 35... Qh6 { legacy: depth 3, 0.1001s } 36. Qf5+ { current: depth 1, 0.0090s } 36... Qg5 { legacy: depth 3, 0.1001s } 37. hxg4# { current: depth 1, 0.0070s } 1-0
+

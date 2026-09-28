@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Local official engine bundle; provenance and reproduction instructions are tracked.
+tools/stockfish-sf19/
+# Downloaded opening books are external data; see books/README.md.
+books/*.bin

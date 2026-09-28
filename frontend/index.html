@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess Engine</title>
+  <link rel="stylesheet" href="./chess.css" />
+</head>
+<body>
+  <button id="reset-board" class="reset-button" type="button">Reset Board</button>
+  <main class="board-shell">
+    <div class="board-frame">
+      <div class="board-row">
+        <div id="rank-labels-left" class="axis axis-ranks"></div>
+        <div id="chessboard" class="chessboard" aria-label="Interactive chessboard" role="grid"></div>
+      </div>
+      <div id="file-labels-bottom" class="axis axis-files axis-files-bottom"></div>
+    </div>
+  </main>
+
+  <script type="module" src="./chess.js"></script>
+</body>
+</html>

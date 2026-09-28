@@ -1,0 +1,12 @@
+[
+  {"id":"mate-white","fen":"7k/5Q2/6K1/8/8/8/8/8 w - - 0 1","expect":"mate","note":"Deliver immediate mate as White."},
+  {"id":"mate-black","fen":"8/8/8/8/8/6k1/5q2/7K b - - 0 1","expect":"mate","note":"Deliver immediate mate as Black."},
+  {"id":"poisoned-pawn","fen":"3r3k/8/8/3p4/8/8/8/K2Q4 w - - 0 1","avoid":["d1d5"],"note":"Qxd5 loses the queen to Rxd5; this only tests avoiding that blunder."},
+  {"id":"hanging-queen","fen":"7k/8/8/8/8/8/4q3/K3R3 w - - 0 1","best":["e1e2"],"note":"Capture the undefended queen."},
+  {"id":"capture-promotion","fen":"1r5k/P7/8/8/8/8/8/7K w - - 0 1","best":["a7b8q"],"note":"Capture the rook while promoting to a queen."},
+  {"id":"quiet-promotion","fen":"7k/P7/8/8/8/8/8/7K w - - 0 1","note":"Performance sample: immediate promotion is not the only winning continuation. An earlier fixture incorrectly required it."},
+  {"id":"check-evasion","fen":"r6k/8/8/8/8/8/8/KQ6 w - - 0 1","best":["a1b2"],"note":"Escape check without interposing and losing the queen."},
+  {"id":"en-passant","fen":"7k/8/8/3pP3/8/8/8/K7 w - d6 0 1","best":["e5d6"],"note":"Win the pawn en passant."},
+  {"id":"starting-position","fen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1","note":"Performance workload only; no asserted best move."},
+  {"id":"middlegame","fen":"r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 4 7","note":"Performance workload only; no asserted best move."}
+]
