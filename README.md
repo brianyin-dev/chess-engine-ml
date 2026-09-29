@@ -227,6 +227,12 @@ held-out pairs, but the ranked model scored 1–11 against the heuristic on six
 fresh paired openings. See [the loss-analysis and ranking report](ml/RESULTS-v5.md).
 The trained NN remains experimental.
 
+A subsequent [consistency and search-position audit](ml/AUDIT-v5.md) found
+color asymmetry and material inconsistencies despite exact agreement between
+training and engine inference. Its prediction advantage also largely disappeared
+on positions sampled from actual search. These checks must improve before another
+architecture experiment or promotion to the app.
+
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
