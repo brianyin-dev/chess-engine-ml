@@ -1,6 +1,7 @@
 services:
   - type: web
     name: chess-engine-ml
+    plan: free
     runtime: python
     buildCommand: pip install -r requirements-engine.txt && python books/install_gm2001.py
     startCommand: gunicorn --bind 0.0.0.0:$PORT backend.app:app
