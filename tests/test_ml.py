@@ -21,6 +21,72 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_candidate_ranking_uses_root_mover_perspective(self):
+        import json
+        from ml.model import ChessNet
+        from ml.train import pair_loader, ranking_accuracy
+
+        bad = chess.Board()
+        good = bad.copy()
+        good.remove_piece_at(chess.D8)
+        model = ChessNet()
+        for p in model.parameters():
+            p.data.zero_()
+        rows = [{'good_fen': good.fen(), 'bad_fen': bad.fen(), 'sign': 1},
+                {'good_fen': good.mirror().fen(), 'bad_fen': bad.mirror().fen(), 'sign': -1}]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'pairs.jsonl'
+            path.write_text(''.join(json.dumps(r) + '\n' for r in rows))
+            self.assertEqual(ranking_accuracy(model, pair_loader(path, False)), 1)
+
+    def test_material_features_and_phase(self):
+        from ml.model import board_to_tensor, material_score
+
+        board = chess.Board()
+        initial = board_to_tensor(board)
+        self.assertEqual(initial[792].item(), 0)
+        self.assertEqual(initial[793].item(), 1)
+        board.remove_piece_at(chess.D8)
+        features = board_to_tensor(board)
+        self.assertEqual(material_score(board), 900)
+        self.assertAlmostEqual(features[792].item(), .225)
+        self.assertLess(features[793].item(), initial[793].item())
+        self.assertEqual(material_score(board.mirror()), -900)
+
+    def test_material_anchor_bounds_neural_correction(self):
+        import torch
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE, material_score, board_to_tensor
+        from ml.evaluator import NeuralEvaluator
+
+        model = ChessNet(correction_limit_cp=250)
+        for p in model.parameters():
+            p.data.zero_()
+        model.net[-1].bias.data.fill_(-100)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'material.pt'
+            torch.save({'version': MODEL_VERSION, 'input_size': INPUT_SIZE,
+                        'score_scale': SCORE_SCALE, 'target_mode': 'material',
+                        'correction_limit_cp': 250, 'state_dict': model.state_dict()}, path)
+            evaluator = NeuralEvaluator(path)
+            board = chess.Board()
+            board.remove_piece_at(chess.D8)
+            with torch.inference_mode():
+                reference = round(material_score(board) + model(board_to_tensor(board)).item() * SCORE_SCALE)
+            self.assertEqual(evaluator(board), reference)
+            self.assertGreaterEqual(evaluator(board), 650)
+
+    def test_legacy_checkpoint_remains_loadable(self):
+        import torch
+        from ml.model import ChessNet, LEGACY_INPUT_SIZE, SCORE_SCALE
+        from ml.evaluator import NeuralEvaluator
+
+        model = ChessNet(LEGACY_INPUT_SIZE)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'old.pt'
+            torch.save({'version': 2, 'input_size': LEGACY_INPUT_SIZE,
+                        'score_scale': SCORE_SCALE, 'state_dict': model.state_dict()}, path)
+            self.assertIsInstance(NeuralEvaluator(path)(chess.Board()), int)
+
     def test_target_modes_encode_full_score_and_residual(self):
         from engine.evaluation import evaluate
         from ml.dataset import ChessEvalDataset

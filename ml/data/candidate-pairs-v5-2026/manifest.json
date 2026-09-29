@@ -1,0 +1,14 @@
+{
+  "seed": 331,
+  "analysis_ms_per_root": 80,
+  "minimum_cp_loss": 50,
+  "analysis_sha256": "fad821e7818e98647ea1a6a1bad599af3e2fd33b6946687b4845148478ad5551",
+  "data_manifest_sha256": "c579ed19cb7425575ef1575f21114b3c0787414ed384a091ba71629c28cd0b88",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "counts": {
+    "train": 452,
+    "val": 108,
+    "test": 103
+  },
+  "policy": "Better/worse successor boards, signed for the root mover. First mistakes from old lost games are training only. No identical successor FEN crosses base or pair splits."
+}

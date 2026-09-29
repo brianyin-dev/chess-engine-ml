@@ -25,6 +25,7 @@ def main():
     parser.add_argument("--max-plies", type=int, default=120)
     parser.add_argument("--stockfish", type=Path, help="Local UCI opponent instead of the heuristic")
     parser.add_argument("--stockfish-elo", type=int, help="Stockfish limited-strength setting")
+    parser.add_argument('--opponent-checkpoint', type=Path, help='Neural baseline instead of the heuristic')
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     openings = json.loads(args.openings.read_text())
@@ -34,16 +35,20 @@ def main():
         parser.error("invalid pairs, time-ms, or max-plies")
     if args.stockfish_elo is not None and args.stockfish is None:
         parser.error("stockfish-elo requires --stockfish")
+    if args.stockfish and args.opponent_checkpoint:
+        parser.error('choose either Stockfish or a neural baseline')
     if args.output.exists():
         parser.error("output directory already exists")
     evaluator = NeuralEvaluator(args.checkpoint)
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
+    neural_baseline = NeuralEvaluator(args.opponent_checkpoint) if args.opponent_checkpoint else None
     opponent = (f"stockfish-elo-{args.stockfish_elo}" if args.stockfish_elo is not None
-                else "stockfish" if uci else "classical")
+                else "stockfish" if uci else 'neural-baseline' if neural_baseline else "classical")
 
     def select(name, board, time_limit, depth_cap):
-        if name == "current":
-            result = search(board, depth=depth_cap, eval_fn=evaluator, time_limit=time_limit)
+        selected = evaluator if name == 'current' else neural_baseline
+        if selected is not None:
+            result = search(board, depth=depth_cap, eval_fn=selected, time_limit=time_limit)
             stats = asdict(result)
             stats.pop("move")
             stats["budget_seconds"] = time_limit
@@ -64,7 +69,8 @@ def main():
         "config": {"pairs": args.pairs, "time_ms": args.time_ms,
                    "max_plies": args.max_plies, "depth_cap": 8,
                    "opponent_depth_cap": 64 if uci else 8,
-                   "target_mode": evaluator.target_mode},
+                   "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
+                   'correction_limit_cp': evaluator.correction_limit_cp},
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
         "openings_sha256": hashlib.sha256(args.openings.read_bytes()).hexdigest(),
         "games": [],
@@ -72,6 +78,10 @@ def main():
     if uci:
         report["opponent"] = {"id": uci.engine.id, "options": uci.options,
                               "sha256": hashlib.sha256(args.stockfish.read_bytes()).hexdigest()}
+    elif neural_baseline:
+        report['opponent'] = {'checkpoint_sha256': hashlib.sha256(args.opponent_checkpoint.read_bytes()).hexdigest(),
+                              'target_mode': neural_baseline.target_mode,
+                              'input_size': neural_baseline.input_size}
     pgns = []
     try:
         for pair_id, opening in enumerate(openings[:args.pairs], 1):

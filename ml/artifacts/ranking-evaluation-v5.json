@@ -1,0 +1,15 @@
+{
+  "pairs": 103,
+  "heuristic": 0.6990291262135923,
+  "material_only": 0.3300970873786408,
+  "material-control-v5": {
+    "test_mae_cp": 143.4,
+    "best_epoch": 40,
+    "test_rank_accuracy": 0.5825242718446602
+  },
+  "material-ranked-v5": {
+    "test_mae_cp": 146.2,
+    "best_epoch": 15,
+    "test_rank_accuracy": 0.7184466019417476
+  }
+}

@@ -8,7 +8,7 @@ import torch
 from torch.utils.data import Dataset
 
 from engine.evaluation import evaluate
-from ml.model import SCORE_SCALE, board_to_tensor
+from ml.model import SCORE_SCALE, board_to_tensor, material_score
 
 
 def load_rows(path: str | Path) -> list[dict]:
@@ -27,13 +27,16 @@ class ChessEvalDataset(Dataset):
     """Precompute encodings for residual or full-score training."""
 
     def __init__(self, rows: list[dict], target_mode: str = "residual"):
-        if target_mode not in ("residual", "absolute"):
-            raise ValueError("target_mode must be residual or absolute")
+        if target_mode not in ("residual", "absolute", "material"):
+            raise ValueError("unknown target mode")
         boards = [chess.Board(row["fen"]) for row in rows]
         self.features = torch.stack([board_to_tensor(board) for board in boards])
         self.baselines = torch.tensor([evaluate(board) for board in boards], dtype=torch.float32)
-        self.targets = torch.tensor([(row["score_cp"] - (base if target_mode == "residual" else 0)) / SCORE_SCALE
-                                     for row, base in zip(rows, self.baselines.tolist())],
+        self.target_baselines = (self.baselines if target_mode == 'residual' else
+            torch.tensor([material_score(board) if target_mode == 'material' else 0
+                          for board in boards], dtype=torch.float32))
+        self.targets = torch.tensor([(row["score_cp"] - base) / SCORE_SCALE
+                                     for row, base in zip(rows, self.target_baselines.tolist())],
                                     dtype=torch.float32)
 
     def __len__(self) -> int:

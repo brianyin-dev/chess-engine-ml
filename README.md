@@ -205,7 +205,8 @@ To profile without mixing instrumentation overhead into benchmark timings:
 The `ml/` pipeline generates positions from local Stockfish self-play starting
 from varied book openings, labels them with Stockfish analysis, splits by source
 game, and trains either a residual correction to the heuristic or a full-score
-782-feature MLP. A second generator adds labeled legal-move deviations to expose
+MLP. Model version three has 794 features, adding material counts, balance, and
+game phase to the original encoding. A second generator adds labeled legal-move deviations to expose
 the model to weaker play. Features cover piece placement, side to move, castling
 rights, legal en passant, and the halfmove clock. NumPy runs inference; PyTorch
 trains and loads checkpoints. Legal moves, checkmate, and draws remain search rules.
@@ -218,6 +219,13 @@ full-score NN and the residual NN each lost all eight completed games on the
 diagnostic openings after training on the expanded dataset. The browser app
 therefore keeps the classical evaluator. See [the ML experiment report](ml/RESULTS.md)
 for data provenance, prediction metrics, timing, PGNs, and match limitations.
+
+The next experiment analyzed the first costly move in 16 NN losses and trained
+candidate rankings with a fixed material baseline and bounded positional correction.
+Ranking accuracy improved from 58.3% for the score-only control to 71.8% on 103
+held-out pairs, but the ranked model scored 1–11 against the heuristic on six
+fresh paired openings. See [the loss-analysis and ranking report](ml/RESULTS-v5.md).
+The trained NN remains experimental.
 
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
@@ -430,7 +438,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **69 tests**, including optional neural-path checks.
+The full suite now passes **75 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 

@@ -1,0 +1,1878 @@
+{
+  "policy": "First >=100cp loss or mate deterioration, screened at 100ms and confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, not a definitive cause. Scores are from the root mover perspective.",
+  "checkpoint_sha256": "d2fbbd57469c6993a1c7d25de6779470fc385a29cf5e12cb7d8b82871d9d98e5",
+  "source_sha256": {
+    "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json": "2f64ad576a78bcfb7fa416fca29423398927fc63fdb0101bdae40c1397a68677",
+    "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json": "cfb7b4eacec000919408781f4502a57fb6f0fd38eba8f665eea3103ff1814c6d"
+  },
+  "games": [
+    {
+      "opening": "Ruy Lopez",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 3,
+      "first_costly_move": {
+        "ply": 5,
+        "fen": "r1bqk2r/1pppbppp/p1n5/2n1p3/B1P5/3P1N2/PP3PPP/RNBQ1RK1 w kq - 1 8",
+        "played": "c1e3",
+        "played_san": "Be3",
+        "best_move": "a4c6",
+        "best_san": "Bxc6",
+        "best_score": {
+          "cp": -47,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -255,
+          "mate": null
+        },
+        "best_pv": [
+          "Bxc6",
+          "dxc6",
+          "Nxe5",
+          "Be6",
+          "d4",
+          "Nd7",
+          "Qb3",
+          "Nxe5",
+          "dxe5",
+          "O-O",
+          "Rd1",
+          "Qc8"
+        ],
+        "played_pv": [
+          "Be3",
+          "Nxa4",
+          "Qxa4",
+          "d6",
+          "Nc3",
+          "O-O",
+          "Nd5",
+          "f5",
+          "Qb3",
+          "f4",
+          "Bd2",
+          "Rb8"
+        ],
+        "best_depth": 17,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 208,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 137,
+        "nn_static_bad_cp": -172,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "a4c6",
+        "probe_review": {
+          "best_move": "a4c6",
+          "best_san": "Bxc6",
+          "best_score": {
+            "cp": -44,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -44,
+            "mate": null
+          },
+          "best_pv": [
+            "Bxc6",
+            "dxc6",
+            "Nxe5",
+            "Be6",
+            "Be3",
+            "O-O",
+            "Nc3",
+            "f6",
+            "Bxc5",
+            "Bxc5",
+            "Nf3",
+            "Bg4"
+          ],
+          "played_pv": [
+            "Bxc6",
+            "dxc6",
+            "Nxe5",
+            "Be6",
+            "Be3",
+            "O-O",
+            "Nc3",
+            "f6",
+            "Bxc5",
+            "Bxc5",
+            "Nf3",
+            "Bg4"
+          ],
+          "best_depth": 19,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Ruy Lopez",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 1,
+      "first_costly_move": {
+        "ply": 2,
+        "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq - 5 6",
+        "played": "e7b4",
+        "played_san": "Bb4",
+        "best_move": "b7b5",
+        "best_san": "b5",
+        "best_score": {
+          "cp": -2,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -144,
+          "mate": null
+        },
+        "best_pv": [
+          "b5",
+          "Bb3",
+          "d6",
+          "a4",
+          "b4",
+          "Nd5",
+          "Na5",
+          "Nxe7",
+          "Qxe7",
+          "Ba2",
+          "O-O",
+          "d3"
+        ],
+        "played_pv": [
+          "Bb4",
+          "Bxc6",
+          "bxc6",
+          "Nxe5",
+          "O-O",
+          "f3",
+          "Qe7",
+          "Nd3",
+          "Ba5",
+          "Nf2",
+          "d5",
+          "d3"
+        ],
+        "best_depth": 21,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 142,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -9,
+        "nn_static_bad_cp": 1,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "e7b4",
+        "probe_review": {
+          "best_move": "b7b5",
+          "best_san": "b5",
+          "best_score": {
+            "cp": -6,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -144,
+            "mate": null
+          },
+          "best_pv": [
+            "b5",
+            "Bb3",
+            "d6",
+            "a4",
+            "b4",
+            "Nd5",
+            "Na5",
+            "Nxe7",
+            "Qxe7",
+            "Ba2",
+            "O-O",
+            "d3"
+          ],
+          "played_pv": [
+            "Bb4",
+            "Bxc6",
+            "bxc6",
+            "Nxe5",
+            "O-O",
+            "f3",
+            "Qe7",
+            "Nd3",
+            "Ba5",
+            "Nf2",
+            "d5",
+            "d3"
+          ],
+          "best_depth": 23,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 138,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "French Advance",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 14,
+      "first_costly_move": {
+        "ply": 28,
+        "fen": "r1b1k2r/pp3p2/2n1p2p/4Pnp1/2BP4/3K1N2/P2B1PPP/1R5R b kq - 1 18",
+        "played": "a7a5",
+        "played_san": "a5",
+        "best_move": "g5g4",
+        "best_san": "g4",
+        "best_score": {
+          "cp": 94,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -113,
+          "mate": null
+        },
+        "best_pv": [
+          "g4",
+          "Ng1",
+          "Nfxd4",
+          "Ne2",
+          "Nf5",
+          "Bc3",
+          "b6",
+          "Ng3",
+          "Nxg3",
+          "hxg3",
+          "Bb7",
+          "Rbc1"
+        ],
+        "played_pv": [
+          "a5",
+          "g4",
+          "Nfe7",
+          "Ke2",
+          "Nb4",
+          "Bb5+",
+          "Kd8",
+          "h4",
+          "gxh4",
+          "Rxh4",
+          "Bd7",
+          "Bxd7"
+        ],
+        "best_depth": 17,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 207,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -66,
+        "nn_static_bad_cp": -34,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "g5g4",
+        "probe_review": {
+          "best_move": "g5g4",
+          "best_san": "g4",
+          "best_score": {
+            "cp": 94,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 94,
+            "mate": null
+          },
+          "best_pv": [
+            "g4",
+            "Ng1",
+            "Nfxd4",
+            "Ne2",
+            "Nf5",
+            "Bc3",
+            "b6",
+            "Ng3",
+            "Nxg3",
+            "hxg3",
+            "Bb7",
+            "Rbc1"
+          ],
+          "played_pv": [
+            "g4",
+            "Ng1",
+            "Nfxd4",
+            "Ne2",
+            "Nf5",
+            "Bc3",
+            "b6",
+            "Ng3",
+            "Nxg3",
+            "hxg3",
+            "Bb7",
+            "Rbc1"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "French Advance",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 3,
+      "first_costly_move": {
+        "ply": 5,
+        "fen": "r2qk1nr/pp1b1ppp/2n1p3/1BbpP3/8/2P5/PP3PPP/RNBQK1NR w KQkq - 0 7",
+        "played": "e1f1",
+        "played_san": "Kf1",
+        "best_move": "b5c6",
+        "best_san": "Bxc6",
+        "best_score": {
+          "cp": -81,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -426,
+          "mate": null
+        },
+        "best_pv": [
+          "Bxc6",
+          "bxc6",
+          "Qg4",
+          "Bf8",
+          "Nf3",
+          "Ne7",
+          "O-O",
+          "Ng6",
+          "c4",
+          "Be7",
+          "Nc3",
+          "O-O"
+        ],
+        "played_pv": [
+          "Kf1",
+          "Nxe5",
+          "Bxd7+",
+          "Qxd7",
+          "Nd2",
+          "Nf6",
+          "Nb3",
+          "Bb6",
+          "g3",
+          "Nc6",
+          "a4",
+          "a6"
+        ],
+        "best_depth": 18,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 345,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 142,
+        "nn_static_bad_cp": -173,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "b2b4",
+        "probe_review": {
+          "best_move": "b5c6",
+          "best_san": "Bxc6",
+          "best_score": {
+            "cp": -81,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -154,
+            "mate": null
+          },
+          "best_pv": [
+            "Bxc6",
+            "bxc6",
+            "Qg4",
+            "Bf8",
+            "Nf3",
+            "Ne7",
+            "O-O",
+            "Ng6",
+            "c4",
+            "Be7",
+            "Nc3",
+            "O-O"
+          ],
+          "played_pv": [
+            "b4",
+            "Qb6",
+            "bxc5",
+            "Qxb5",
+            "a4",
+            "Qxc5",
+            "Nf3",
+            "Qc4",
+            "Nbd2",
+            "Qxc3",
+            "Ra3",
+            "Qb4"
+          ],
+          "best_depth": 18,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 73,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Caro-Kann Classical",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 5,
+      "first_costly_move": {
+        "ply": 9,
+        "fen": "rn2kb1r/pp3ppp/2p2n2/4pq2/1P1P4/8/P1P1BPPP/R1BQK1NR w KQkq - 0 9",
+        "played": "c2c3",
+        "played_san": "c3",
+        "best_move": "a2a3",
+        "best_san": "a3",
+        "best_score": {
+          "cp": 21,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -107,
+          "mate": null
+        },
+        "best_pv": [
+          "a3",
+          "Bd6",
+          "Nf3",
+          "Nbd7",
+          "O-O",
+          "Bc7",
+          "Re1",
+          "O-O",
+          "g3",
+          "Rfe8",
+          "Nh4",
+          "Qe6"
+        ],
+        "played_pv": [
+          "c3",
+          "Ne4",
+          "Be3",
+          "Nxc3",
+          "Qb3",
+          "Nd5",
+          "Bd2",
+          "Bd6",
+          "dxe5",
+          "Qxe5",
+          "Rd1",
+          "O-O"
+        ],
+        "best_depth": 19,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 128,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -160,
+        "nn_static_bad_cp": -134,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "c2c3",
+        "probe_review": {
+          "best_move": "a2a3",
+          "best_san": "a3",
+          "best_score": {
+            "cp": 19,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -107,
+            "mate": null
+          },
+          "best_pv": [
+            "a3",
+            "Bd6",
+            "Nf3",
+            "Nbd7",
+            "O-O",
+            "Bc7",
+            "g3",
+            "O-O",
+            "Re1",
+            "Rfe8",
+            "Nh4",
+            "Qe6"
+          ],
+          "played_pv": [
+            "c3",
+            "Ne4",
+            "Be3",
+            "Nxc3",
+            "Qb3",
+            "Nd5",
+            "Bd2",
+            "Bd6",
+            "dxe5",
+            "Qxe5",
+            "Rd1",
+            "O-O"
+          ],
+          "best_depth": 18,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 126,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Caro-Kann Classical",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 4,
+      "first_costly_move": {
+        "ply": 8,
+        "fen": "rn2kb1r/pp2pppp/2p2n2/q7/3P1Q2/8/PPPB1PPP/R3KBNR b KQkq - 4 8",
+        "played": "a5a4",
+        "played_san": "Qa4",
+        "best_move": "a5d5",
+        "best_san": "Qd5",
+        "best_score": {
+          "cp": -78,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -317,
+          "mate": null
+        },
+        "best_pv": [
+          "Qd5",
+          "Nf3",
+          "Qe4+",
+          "Qe3",
+          "Qxe3+",
+          "fxe3",
+          "e6",
+          "O-O-O",
+          "Be7",
+          "Bd3",
+          "O-O",
+          "Rhf1"
+        ],
+        "played_pv": [
+          "Qa4",
+          "b3",
+          "Qa3",
+          "Qc7",
+          "Nbd7",
+          "Qxb7",
+          "Rd8",
+          "Qxc6",
+          "e5",
+          "Nf3",
+          "exd4",
+          "Bc4"
+        ],
+        "best_depth": 18,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 239,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -60,
+        "nn_static_bad_cp": -92,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a5d5",
+        "probe_review": {
+          "best_move": "a5d5",
+          "best_san": "Qd5",
+          "best_score": {
+            "cp": -77,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -77,
+            "mate": null
+          },
+          "best_pv": [
+            "Qd5",
+            "Nf3",
+            "Qe4+",
+            "Qe3",
+            "Qxe3+",
+            "fxe3",
+            "e6",
+            "Bd3",
+            "c5",
+            "O-O-O",
+            "Nc6",
+            "c3"
+          ],
+          "played_pv": [
+            "Qd5",
+            "Nf3",
+            "Qe4+",
+            "Qe3",
+            "Qxe3+",
+            "fxe3",
+            "e6",
+            "Bd3",
+            "c5",
+            "O-O-O",
+            "Nc6",
+            "c3"
+          ],
+          "best_depth": 20,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Scandinavian",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 3,
+      "first_costly_move": {
+        "ply": 6,
+        "fen": "rn2kb1r/ppp1pppp/5n2/q7/3P4/2N2Q1P/PPP2PP1/R1B1KB1R b KQkq - 0 7",
+        "played": "b8c6",
+        "played_san": "Nc6",
+        "best_move": "c7c6",
+        "best_san": "c6",
+        "best_score": {
+          "cp": -103,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -241,
+          "mate": null
+        },
+        "best_pv": [
+          "c6",
+          "Bd2",
+          "Nbd7",
+          "a3",
+          "e6",
+          "O-O-O",
+          "Qb6",
+          "Be1",
+          "Qc7",
+          "g4",
+          "h6",
+          "h4"
+        ],
+        "played_pv": [
+          "Nc6",
+          "Bb5",
+          "O-O-O",
+          "Bxc6",
+          "bxc6",
+          "Qxc6",
+          "e6",
+          "Be3",
+          "Qb6",
+          "Qc4",
+          "Qb4",
+          "Qd3"
+        ],
+        "best_depth": 18,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 138,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -55,
+        "nn_static_bad_cp": 1,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "b8c6",
+        "probe_review": {
+          "best_move": "c7c6",
+          "best_san": "c6",
+          "best_score": {
+            "cp": -103,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -241,
+            "mate": null
+          },
+          "best_pv": [
+            "c6",
+            "Bd2",
+            "Nbd7",
+            "a3",
+            "e6",
+            "O-O-O",
+            "Qb6",
+            "Be1",
+            "Qc7",
+            "g4",
+            "h6",
+            "h4"
+          ],
+          "played_pv": [
+            "Nc6",
+            "Bb5",
+            "O-O-O",
+            "Bxc6",
+            "bxc6",
+            "Qxc6",
+            "e6",
+            "Be3",
+            "Qb6",
+            "Qc4",
+            "Qb4",
+            "Qd3"
+          ],
+          "best_depth": 18,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 138,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Scandinavian",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "screened_moves": 1,
+      "first_costly_move": {
+        "ply": 1,
+        "fen": "rnb1kb1r/ppp1pppp/5n2/q7/3P4/2N5/PPP2PPP/R1BQKBNR w KQkq - 1 5",
+        "played": "b2b4",
+        "played_san": "b4",
+        "best_move": "g1f3",
+        "best_san": "Nf3",
+        "best_score": {
+          "cp": 85,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -77,
+          "mate": null
+        },
+        "best_pv": [
+          "Nf3",
+          "Bf5",
+          "Ne5",
+          "Be6",
+          "Bd3",
+          "Nbd7",
+          "Nxd7",
+          "Bxd7",
+          "O-O",
+          "c6",
+          "Re1",
+          "Bg4"
+        ],
+        "played_pv": [
+          "b4",
+          "Qxb4",
+          "Ne2",
+          "e6",
+          "Rb1",
+          "Qc4",
+          "a3",
+          "Qc6",
+          "Qd3",
+          "a6",
+          "Rg1",
+          "h5"
+        ],
+        "best_depth": 19,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 162,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -146,
+        "nn_static_bad_cp": -141,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "b2b4",
+        "probe_review": {
+          "best_move": "g1f3",
+          "best_san": "Nf3",
+          "best_score": {
+            "cp": 94,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -77,
+            "mate": null
+          },
+          "best_pv": [
+            "Nf3",
+            "c6",
+            "Bc4",
+            "Bf5",
+            "Ne5",
+            "e6",
+            "g4",
+            "Bg6",
+            "h4",
+            "Nbd7",
+            "Nxd7",
+            "Nxd7"
+          ],
+          "played_pv": [
+            "b4",
+            "Qxb4",
+            "Ne2",
+            "e6",
+            "Rb1",
+            "Qc4",
+            "a3",
+            "Qc6",
+            "Qd3",
+            "a6",
+            "Rg1",
+            "h5"
+          ],
+          "best_depth": 17,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 171,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "QGD Exchange setup",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 3,
+      "first_costly_move": {
+        "ply": 5,
+        "fen": "r1bqk2r/ppp2pp1/2n1pb1p/3p4/2PP4/2N2N2/PP2PPPP/R2QKBR1 w Qkq - 2 8",
+        "played": "c4c5",
+        "played_san": "c5",
+        "best_move": "e2e3",
+        "best_san": "e3",
+        "best_score": {
+          "cp": -14,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -175,
+          "mate": null
+        },
+        "best_pv": [
+          "e3",
+          "O-O",
+          "Qd2",
+          "Rb8",
+          "O-O-O",
+          "g6",
+          "h4",
+          "Bg7",
+          "g4",
+          "dxc4",
+          "Bxc4",
+          "b5"
+        ],
+        "played_pv": [
+          "c5",
+          "b6",
+          "cxb6",
+          "axb6",
+          "e3",
+          "O-O",
+          "a3",
+          "e5",
+          "dxe5",
+          "Nxe5",
+          "Qxd5",
+          "Nxf3+"
+        ],
+        "best_depth": 17,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 161,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -126,
+        "nn_static_bad_cp": -168,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "e2e3",
+        "probe_review": {
+          "best_move": "e2e3",
+          "best_san": "e3",
+          "best_score": {
+            "cp": -14,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -14,
+            "mate": null
+          },
+          "best_pv": [
+            "e3",
+            "O-O",
+            "Qd2",
+            "Rb8",
+            "O-O-O",
+            "g6",
+            "h4",
+            "Bg7",
+            "g4",
+            "dxc4",
+            "Bxc4",
+            "b5"
+          ],
+          "played_pv": [
+            "e3",
+            "O-O",
+            "Qd2",
+            "Rb8",
+            "O-O-O",
+            "g6",
+            "h4",
+            "Bg7",
+            "g4",
+            "dxc4",
+            "Bxc4",
+            "b5"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "QGD Exchange setup",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 3,
+      "first_costly_move": {
+        "ply": 6,
+        "fen": "rnbqk2r/ppp2pp1/4pb1p/8/2PPN3/5N2/PP3PPP/R2QKB1R b KQkq - 0 8",
+        "played": "e6e5",
+        "played_san": "e5",
+        "best_move": "b8c6",
+        "best_san": "Nc6",
+        "best_score": {
+          "cp": 19,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -105,
+          "mate": null
+        },
+        "best_pv": [
+          "Nc6",
+          "Nxf6+",
+          "Qxf6",
+          "Qd3",
+          "b6",
+          "Qe4",
+          "Bb7",
+          "Ne5",
+          "Na5",
+          "Qe3",
+          "O-O-O",
+          "O-O-O"
+        ],
+        "played_pv": [
+          "e5",
+          "Qe2",
+          "Be7",
+          "O-O-O",
+          "exd4",
+          "Rxd4",
+          "Bd7",
+          "Ne5",
+          "Qc8",
+          "Nxd7",
+          "Nxd7",
+          "g3"
+        ],
+        "best_depth": 18,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 124,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -8,
+        "nn_static_bad_cp": -24,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "e6e5",
+        "probe_review": {
+          "best_move": "b8c6",
+          "best_san": "Nc6",
+          "best_score": {
+            "cp": 19,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -105,
+            "mate": null
+          },
+          "best_pv": [
+            "Nc6",
+            "Nxf6+",
+            "Qxf6",
+            "Qd3",
+            "b6",
+            "Qe4",
+            "Bb7",
+            "Ne5",
+            "Na5",
+            "Qe3",
+            "O-O-O",
+            "O-O-O"
+          ],
+          "played_pv": [
+            "e5",
+            "Qe2",
+            "Be7",
+            "O-O-O",
+            "exd4",
+            "Rxd4",
+            "Bd7",
+            "Ne5",
+            "Qc8",
+            "Nxd7",
+            "Nxd7",
+            "g3"
+          ],
+          "best_depth": 18,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 124,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "French Tarrasch sideline",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 1,
+      "first_costly_move": {
+        "ply": 2,
+        "fen": "rnbqk1nr/1p3ppp/p3p3/2bp4/4P3/1N3N2/PPP2PPP/R1BQKB1R b KQkq - 1 6",
+        "played": "d5e4",
+        "played_san": "dxe4",
+        "best_move": "c5b6",
+        "best_san": "Bb6",
+        "best_score": {
+          "cp": -18,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -494,
+          "mate": null
+        },
+        "best_pv": [
+          "Bb6",
+          "exd5",
+          "exd5",
+          "Bd3",
+          "Qe7+",
+          "Qe2",
+          "Nc6",
+          "h3",
+          "Bd7",
+          "Bg5",
+          "Qxe2+",
+          "Kxe2"
+        ],
+        "played_pv": [
+          "dxe4",
+          "Qxd8+",
+          "Kxd8",
+          "Ng5",
+          "Bb6",
+          "Nxf7+",
+          "Ke7",
+          "Nxh8",
+          "Nf6",
+          "Nd2",
+          "Nc6",
+          "Nc4"
+        ],
+        "best_depth": 21,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 476,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -61,
+        "nn_static_bad_cp": 48,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "d5e4",
+        "probe_review": {
+          "best_move": "c5b6",
+          "best_san": "Bb6",
+          "best_score": {
+            "cp": -18,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -494,
+            "mate": null
+          },
+          "best_pv": [
+            "Bb6",
+            "exd5",
+            "exd5",
+            "Bd3",
+            "Qe7+",
+            "Qe2",
+            "Nc6",
+            "h3",
+            "Bd7",
+            "Bg5",
+            "Qxe2+",
+            "Kxe2"
+          ],
+          "played_pv": [
+            "dxe4",
+            "Qxd8+",
+            "Kxd8",
+            "Ng5",
+            "Bb6",
+            "Nxf7+",
+            "Ke7",
+            "Nxh8",
+            "Nf6",
+            "Nd2",
+            "Nc6",
+            "Nc4"
+          ],
+          "best_depth": 20,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 476,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "French Tarrasch sideline",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 6,
+      "first_costly_move": {
+        "ply": 11,
+        "fen": "rnb1k1nr/1p3ppp/p7/3p4/4p3/2P1BN2/PP3PPP/R3KB1R w KQkq - 0 11",
+        "played": "f3e5",
+        "played_san": "Ne5",
+        "best_move": "f3d4",
+        "best_san": "Nd4",
+        "best_score": {
+          "cp": -27,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -536,
+          "mate": null
+        },
+        "best_pv": [
+          "Nd4",
+          "Ne7",
+          "Rd1",
+          "Nbc6",
+          "Be2",
+          "Bd7",
+          "Nxc6",
+          "Bxc6",
+          "O-O",
+          "O-O",
+          "Bc5",
+          "Rfe8"
+        ],
+        "played_pv": [
+          "Ne5",
+          "f6",
+          "Nc4",
+          "dxc4",
+          "Bxc4",
+          "Ne7",
+          "O-O-O",
+          "Bf5",
+          "f3",
+          "Nd7",
+          "Rhe1",
+          "Ne5"
+        ],
+        "best_depth": 20,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 509,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -118,
+        "nn_static_bad_cp": -80,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "f3d2",
+        "probe_review": {
+          "best_move": "f3d4",
+          "best_san": "Nd4",
+          "best_score": {
+            "cp": -27,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -31,
+            "mate": null
+          },
+          "best_pv": [
+            "Nd4",
+            "Ne7",
+            "Rd1",
+            "Nbc6",
+            "Be2",
+            "Bd7",
+            "Nxc6",
+            "Bxc6",
+            "O-O",
+            "O-O",
+            "Bc5",
+            "Rfe8"
+          ],
+          "played_pv": [
+            "Nd2",
+            "Ne7",
+            "O-O-O",
+            "O-O",
+            "Nb3",
+            "Nd7",
+            "Be2",
+            "Re8",
+            "Rhe1",
+            "Ne5",
+            "Nc5",
+            "b5"
+          ],
+          "best_depth": 21,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 4,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Sicilian Rossolimo",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 4,
+      "first_costly_move": {
+        "ply": 7,
+        "fen": "r2qkb1r/1p2nppp/p1b1p3/2ppP3/Q7/2P2N2/PP1P1PPP/RNB2RK1 w kq - 0 9",
+        "played": "a4c2",
+        "played_san": "Qc2",
+        "best_move": "a4d1",
+        "best_san": "Qd1",
+        "best_score": {
+          "cp": -90,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -245,
+          "mate": null
+        },
+        "best_pv": [
+          "Qd1",
+          "d4",
+          "cxd4",
+          "Nf5",
+          "dxc5",
+          "Nd4",
+          "Nxd4",
+          "Qxd4",
+          "Nc3",
+          "Bxc5",
+          "d3",
+          "Qxe5"
+        ],
+        "played_pv": [
+          "Qc2",
+          "d4",
+          "d3",
+          "Bxf3",
+          "gxf3",
+          "Ng6",
+          "cxd4",
+          "Qxd4",
+          "f4",
+          "Nxf4",
+          "Be3",
+          "Nh3+"
+        ],
+        "best_depth": 19,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 155,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -159,
+        "nn_static_bad_cp": -143,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "a4d1",
+        "probe_review": {
+          "best_move": "a4d1",
+          "best_san": "Qd1",
+          "best_score": {
+            "cp": -105,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -105,
+            "mate": null
+          },
+          "best_pv": [
+            "Qd1",
+            "d4",
+            "cxd4",
+            "Nf5",
+            "dxc5",
+            "Nd4",
+            "Nxd4",
+            "Qxd4",
+            "Nc3",
+            "Bxc5",
+            "d3",
+            "Qxe5"
+          ],
+          "played_pv": [
+            "Qd1",
+            "d4",
+            "cxd4",
+            "Nf5",
+            "dxc5",
+            "Nd4",
+            "Nxd4",
+            "Qxd4",
+            "Nc3",
+            "Bxc5",
+            "d3",
+            "Qxe5"
+          ],
+          "best_depth": 21,
+          "played_depth": 21,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Sicilian Rossolimo",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 2,
+      "first_costly_move": {
+        "ply": 4,
+        "fen": "r1bqkb1r/1p1p1ppp/p1n1p3/2p5/3PP3/2P2N2/PP3PPP/RNBQ1RK1 b kq - 0 7",
+        "played": "d8a5",
+        "played_san": "Qa5",
+        "best_move": "c5d4",
+        "best_san": "cxd4",
+        "best_score": {
+          "cp": -1,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -244,
+          "mate": null
+        },
+        "best_pv": [
+          "cxd4",
+          "cxd4",
+          "d5",
+          "Bg5",
+          "f6",
+          "exd5",
+          "exd5",
+          "Bf4",
+          "Be7",
+          "Nc3",
+          "Be6",
+          "Na4"
+        ],
+        "played_pv": [
+          "Qa5",
+          "d5",
+          "Nd8",
+          "a4",
+          "b5",
+          "Bf4",
+          "Bb7",
+          "Nbd2",
+          "f6",
+          "h4",
+          "Qb6",
+          "Qb3"
+        ],
+        "best_depth": 22,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 243,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 34,
+        "nn_static_bad_cp": -43,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "d8a5",
+        "probe_review": {
+          "best_move": "c5d4",
+          "best_san": "cxd4",
+          "best_score": {
+            "cp": -1,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -244,
+            "mate": null
+          },
+          "best_pv": [
+            "cxd4",
+            "cxd4",
+            "d5",
+            "Bg5",
+            "f6",
+            "exd5",
+            "exd5",
+            "Bf4",
+            "Be7",
+            "Nc3",
+            "Be6",
+            "Na4"
+          ],
+          "played_pv": [
+            "Qa5",
+            "d5",
+            "Nd8",
+            "a4",
+            "b5",
+            "Bf4",
+            "Bb7",
+            "Nbd2",
+            "f6",
+            "h4",
+            "Qb6",
+            "Qb3"
+          ],
+          "best_depth": 22,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 243,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Queen's Gambit Accepted",
+      "color": "black",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 6,
+      "first_costly_move": {
+        "ply": 12,
+        "fen": "rnb1k2r/1p3pp1/p3pn1p/q1P1N3/2BQ4/P1P1P3/5PPP/R1B1K2R b KQkq - 1 11",
+        "played": "b8c6",
+        "played_san": "Nc6",
+        "best_move": "e8g8",
+        "best_san": "O-O",
+        "best_score": {
+          "cp": -20,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -235,
+          "mate": null
+        },
+        "best_pv": [
+          "O-O",
+          "Be2",
+          "Rd8",
+          "Nc4",
+          "Qc7",
+          "Qf4",
+          "Qxc5",
+          "a4",
+          "Nc6",
+          "Ba3",
+          "Qf5",
+          "O-O"
+        ],
+        "played_pv": [
+          "Nc6",
+          "Nxc6",
+          "bxc6",
+          "e4",
+          "O-O",
+          "Bf4",
+          "Rd8",
+          "Bd6",
+          "e5",
+          "Qe3",
+          "Qa4",
+          "Qe2"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 215,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -114,
+        "nn_static_bad_cp": -52,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "b8c6",
+        "probe_review": {
+          "best_move": "e8g8",
+          "best_san": "O-O",
+          "best_score": {
+            "cp": -20,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -235,
+            "mate": null
+          },
+          "best_pv": [
+            "O-O",
+            "Be2",
+            "Rd8",
+            "Nc4",
+            "Qc7",
+            "Qf4",
+            "Qxc5",
+            "a4",
+            "Nc6",
+            "Ba3",
+            "Qf5",
+            "O-O"
+          ],
+          "played_pv": [
+            "Nc6",
+            "Nxc6",
+            "bxc6",
+            "e4",
+            "O-O",
+            "Bf4",
+            "Rd8",
+            "Bd6",
+            "e5",
+            "Qe3",
+            "Qa4",
+            "Qe2"
+          ],
+          "best_depth": 19,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 215,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Queen's Gambit Accepted",
+      "color": "white",
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "screened_moves": 4,
+      "first_costly_move": {
+        "ply": 7,
+        "fen": "r1b1kb1r/2p2ppp/p1nqpn2/1p2N3/3P4/4P3/PP2BPPP/RNBQK1R1 w Qkq - 4 9",
+        "played": "b1c3",
+        "played_san": "Nc3",
+        "best_move": "e5c6",
+        "best_san": "Nxc6",
+        "best_score": {
+          "cp": 31,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -178,
+          "mate": null
+        },
+        "best_pv": [
+          "Nxc6",
+          "Qxc6",
+          "Bf3",
+          "Nd5",
+          "Nc3",
+          "Bb7",
+          "Bd2",
+          "Qb6",
+          "Rc1",
+          "Nxc3",
+          "Rxc3",
+          "Bd6"
+        ],
+        "played_pv": [
+          "Nc3",
+          "Nxe5",
+          "dxe5",
+          "Qxe5",
+          "f4",
+          "Qc5",
+          "Bf3",
+          "Rb8",
+          "g4",
+          "h6",
+          "Bd2",
+          "Qb6"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 209,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 153,
+        "nn_static_bad_cp": -88,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "b1c3",
+        "probe_review": {
+          "best_move": "e5c6",
+          "best_san": "Nxc6",
+          "best_score": {
+            "cp": 31,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -178,
+            "mate": null
+          },
+          "best_pv": [
+            "Nxc6",
+            "Qxc6",
+            "Bf3",
+            "Nd5",
+            "Nc3",
+            "Bb7",
+            "Bd2",
+            "Qb6",
+            "Rc1",
+            "Nxc3",
+            "Rxc3",
+            "Bd6"
+          ],
+          "played_pv": [
+            "Nc3",
+            "Nxe5",
+            "dxe5",
+            "Qxe5",
+            "f4",
+            "Qc5",
+            "Bf3",
+            "Rb8",
+            "g4",
+            "h6",
+            "Bd2",
+            "Qb6"
+          ],
+          "best_depth": 19,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 209,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "good_fen": "r1bqk2r/1pppbppp/p1B5/2n1p3/2P5/3P1N2/PP3PPP/RNBQ1RK1 b kq - 0 8",
+      "bad_fen": "r1bqk2r/1pppbppp/p1n5/2n1p3/B1P5/3PBN2/PP3PPP/RN1Q1RK1 b kq - 2 8",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 0,
+      "cp_loss": 208
+    },
+    {
+      "good_fen": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq - 0 7",
+      "bad_fen": "r1bqk2r/1ppp1ppp/p1n2n2/4p3/Bb2P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq - 6 7",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 1,
+      "cp_loss": 142
+    },
+    {
+      "good_fen": "r1b1k2r/pp3p2/2n1p2p/4Pn2/2BP2p1/3K1N2/P2B1PPP/1R5R w kq - 0 19",
+      "bad_fen": "r1b1k2r/1p3p2/2n1p2p/p3Pnp1/2BP4/3K1N2/P2B1PPP/1R5R w kq - 0 19",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 2,
+      "cp_loss": 207
+    },
+    {
+      "good_fen": "r2qk1nr/pp1b1ppp/2B1p3/2bpP3/8/2P5/PP3PPP/RNBQK1NR b KQkq - 0 7",
+      "bad_fen": "r2qk1nr/pp1b1ppp/2n1p3/1BbpP3/8/2P5/PP3PPP/RNBQ1KNR b kq - 1 7",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 3,
+      "cp_loss": 345
+    },
+    {
+      "good_fen": "rn2kb1r/pp3ppp/2p2n2/4pq2/1P1P4/P7/2P1BPPP/R1BQK1NR b KQkq - 0 9",
+      "bad_fen": "rn2kb1r/pp3ppp/2p2n2/4pq2/1P1P4/2P5/P3BPPP/R1BQK1NR b KQkq - 0 9",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 4,
+      "cp_loss": 128
+    },
+    {
+      "good_fen": "rn2kb1r/pp2pppp/2p2n2/3q4/3P1Q2/8/PPPB1PPP/R3KBNR w KQkq - 5 9",
+      "bad_fen": "rn2kb1r/pp2pppp/2p2n2/8/q2P1Q2/8/PPPB1PPP/R3KBNR w KQkq - 5 9",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 5,
+      "cp_loss": 239
+    },
+    {
+      "good_fen": "rn2kb1r/pp2pppp/2p2n2/q7/3P4/2N2Q1P/PPP2PP1/R1B1KB1R w KQkq - 0 8",
+      "bad_fen": "r3kb1r/ppp1pppp/2n2n2/q7/3P4/2N2Q1P/PPP2PP1/R1B1KB1R w KQkq - 1 8",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 6,
+      "cp_loss": 138
+    },
+    {
+      "good_fen": "rnb1kb1r/ppp1pppp/5n2/q7/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 2 5",
+      "bad_fen": "rnb1kb1r/ppp1pppp/5n2/q7/1P1P4/2N5/P1P2PPP/R1BQKBNR b KQkq - 0 5",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json",
+      "game": 7,
+      "cp_loss": 162
+    },
+    {
+      "good_fen": "r1bqk2r/ppp2pp1/2n1pb1p/3p4/2PP4/2N1PN2/PP3PPP/R2QKBR1 b Qkq - 0 8",
+      "bad_fen": "r1bqk2r/ppp2pp1/2n1pb1p/2Pp4/3P4/2N2N2/PP2PPPP/R2QKBR1 b Qkq - 0 8",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 8,
+      "cp_loss": 161
+    },
+    {
+      "good_fen": "r1bqk2r/ppp2pp1/2n1pb1p/8/2PPN3/5N2/PP3PPP/R2QKB1R w KQkq - 1 9",
+      "bad_fen": "rnbqk2r/ppp2pp1/5b1p/4p3/2PPN3/5N2/PP3PPP/R2QKB1R w KQkq - 0 9",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 9,
+      "cp_loss": 124
+    },
+    {
+      "good_fen": "rnbqk1nr/1p3ppp/pb2p3/3p4/4P3/1N3N2/PPP2PPP/R1BQKB1R w KQkq - 2 7",
+      "bad_fen": "rnbqk1nr/1p3ppp/p3p3/2b5/4p3/1N3N2/PPP2PPP/R1BQKB1R w KQkq - 0 7",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 10,
+      "cp_loss": 476
+    },
+    {
+      "good_fen": "rnb1k1nr/1p3ppp/p7/3p4/3Np3/2P1B3/PP3PPP/R3KB1R b KQkq - 1 11",
+      "bad_fen": "rnb1k1nr/1p3ppp/p7/3pN3/4p3/2P1B3/PP3PPP/R3KB1R b KQkq - 1 11",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 11,
+      "cp_loss": 509
+    },
+    {
+      "good_fen": "r2qkb1r/1p2nppp/p1b1p3/2ppP3/8/2P2N2/PP1P1PPP/RNBQ1RK1 b kq - 1 9",
+      "bad_fen": "r2qkb1r/1p2nppp/p1b1p3/2ppP3/8/2P2N2/PPQP1PPP/RNB2RK1 b kq - 1 9",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 12,
+      "cp_loss": 155
+    },
+    {
+      "good_fen": "r1bqkb1r/1p1p1ppp/p1n1p3/8/3pP3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 0 8",
+      "bad_fen": "r1b1kb1r/1p1p1ppp/p1n1p3/q1p5/3PP3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 1 8",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 13,
+      "cp_loss": 243
+    },
+    {
+      "good_fen": "rnb2rk1/1p3pp1/p3pn1p/q1P1N3/2BQ4/P1P1P3/5PPP/R1B1K2R w KQ - 2 12",
+      "bad_fen": "r1b1k2r/1p3pp1/p1n1pn1p/q1P1N3/2BQ4/P1P1P3/5PPP/R1B1K2R w KQkq - 2 12",
+      "sign": -1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 14,
+      "cp_loss": 215
+    },
+    {
+      "good_fen": "r1b1kb1r/2p2ppp/p1Nqpn2/1p6/3P4/4P3/PP2BPPP/RNBQK1R1 b Qkq - 0 9",
+      "bad_fen": "r1b1kb1r/2p2ppp/p1nqpn2/1p2N3/3P4/2N1P3/PP2BPPP/R1BQK1R1 b Qkq - 5 9",
+      "sign": 1,
+      "source": "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json",
+      "game": 15,
+      "cp_loss": 209
+    }
+  ],
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "summary": {
+    "games": 16,
+    "confirmed": 16,
+    "extra_time_recovered": 7,
+    "wrong_static_ranking": 9
+  }
+}
