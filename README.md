@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml)
 
+[Play the live engine](https://chess-engine-ml.onrender.com)
+
 A browser chess app with a Python classical engine, a Polyglot opening book, and
 scaffolding for a future learned evaluator. The classical baseline, tactical tests,
 and reproducible comparison tooling are in place. No trained neural model is
@@ -24,6 +26,10 @@ main-search depth of eight plies. Restart the backend and refresh the page after
 updating the code. These are local development servers, not a production deployment.
 
 ## Deploy and share
+
+The current free deployment is available at
+<https://chess-engine-ml.onrender.com>. Free instances sleep after inactivity,
+so the first request after a quiet period can take about a minute.
 
 `render.yaml` describes a single Render web service. Its build installs the small
 engine requirements and downloads the externally sourced opening book with pinned
