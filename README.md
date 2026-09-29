@@ -1,5 +1,7 @@
 # Chess Engine ML
 
+[![CI](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml)
+
 A browser chess app with a Python classical engine, a Polyglot opening book, and
 scaffolding for a future learned evaluator. The classical baseline, tactical tests,
 and reproducible comparison tooling are in place. No trained neural model is
