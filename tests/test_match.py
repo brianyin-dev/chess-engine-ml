@@ -41,6 +41,15 @@ class MatchTests(unittest.TestCase):
             self.assertNotEqual(retry.returncode, 0)
             self.assertEqual((output / 'report.json').read_bytes(), original)
 
+    def test_stockfish_elo_requires_uci_opponent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            command = [sys.executable, '-m', 'benchmarks.match', '--stockfish-elo', '1320',
+                       '--output', str(Path(directory) / 'match')]
+            run = subprocess.run(command, capture_output=True, text=True,
+                                 cwd=Path(__file__).resolve().parents[1], timeout=10)
+            self.assertNotEqual(run.returncode, 0)
+            self.assertIn('stockfish-elo requires --stockfish', run.stderr)
+
     def test_legacy_adapter_matches_original_at_completed_depth(self):
         for moves in [[], ['e2e4', 'e7e5'], ['d2d4', 'd7d5', 'c2c4']]:
             board = chess.Board()

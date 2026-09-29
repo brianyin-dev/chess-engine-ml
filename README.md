@@ -206,6 +206,21 @@ Run the current engine against the frozen original with equal thinking budgets:
 .venv/bin/python -m benchmarks.match --time-ms 250 --max-plies 200 --output benchmarks/results/match-250ms
 ```
 
+For a repeatable strength checkpoint, play the same paired openings against a
+UCI engine in limited-strength mode:
+
+```bash
+.venv/bin/python -m benchmarks.match \
+  --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal \
+  --stockfish-elo 1320 --openings benchmarks/openings-holdout.json \
+  --time-ms 250 --max-plies 200 --output benchmarks/results/stockfish-elo-1320
+```
+
+The requested rating must fall within the UCI engine's advertised range
+(Stockfish 19 starts at 1320). Treat it as a controlled engine checkpoint rather
+than a direct human/FIDE rating: hardware, time control, opening selection, and
+the number of completed games all affect the result.
+
 This plays eight games: four prescribed openings, each with the engines swapping
 colors. Games run sequentially so engines do not compete for CPU time. The order
 of the two colors alternates between opening pairs. `--pairs 2` selects the first

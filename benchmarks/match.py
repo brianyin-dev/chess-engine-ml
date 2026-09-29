@@ -24,10 +24,20 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class UciOpponent:
     """Single-threaded UCI opponent, reset between games, with no pondering."""
-    def __init__(self, path):
+    def __init__(self, path, elo=None):
         self.path = Path(path).resolve()
         self.engine = chess.engine.SimpleEngine.popen_uci(str(self.path), timeout=10)
         self.options = {"Threads": 1, "Hash": 32}
+        if elo is not None:
+            limit = self.engine.options.get("UCI_LimitStrength")
+            rating = self.engine.options.get("UCI_Elo")
+            if limit is None or rating is None:
+                self.engine.quit()
+                raise ValueError("UCI engine does not support Elo-limited play")
+            if rating.min is not None and elo < rating.min or rating.max is not None and elo > rating.max:
+                self.engine.quit()
+                raise ValueError(f"requested Elo must be between {rating.min} and {rating.max}")
+            self.options.update({"UCI_LimitStrength": True, "UCI_Elo": elo})
         self.engine.configure(self.options)
         self.game = object()
 
@@ -232,11 +242,15 @@ def main():
     parser.add_argument("--depth-cap", type=int, default=64)
     parser.add_argument("--output", type=Path, required=True, help="New output directory (must not exist)")
     parser.add_argument("--stockfish", type=Path, help="Local Stockfish UCI executable; otherwise play legacy")
+    parser.add_argument("--stockfish-elo", type=int,
+                        help="Enable the UCI opponent's calibrated limited-strength mode")
     parser.add_argument("--baseline", choices=["legacy", "previous"], default="legacy",
                         help="previous = frozen engine immediately before the final search round")
     args = parser.parse_args()
     if args.stockfish and args.baseline != "legacy":
         parser.error("choose either Stockfish or a local baseline")
+    if args.stockfish_elo is not None and not args.stockfish:
+        parser.error("stockfish-elo requires --stockfish")
     if not math.isfinite(args.time_ms) or args.time_ms <= 0:
         parser.error("time-ms must be positive and finite")
     if args.max_plies < 1 or not 1 <= args.depth_cap <= 64:
@@ -274,8 +288,12 @@ def main():
                   "Ply-limit games are unfinished, not draws. Results are not an Elo estimate.",
         "games": [], "status": "running",
     }
-    selector = UciOpponent(args.stockfish) if args.stockfish else choose_move
-    opponent = "stockfish" if args.stockfish else args.baseline
+    try:
+        selector = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else choose_move
+    except (OSError, ValueError, chess.engine.EngineError) as exc:
+        parser.error(str(exc))
+    opponent = (f"stockfish-elo-{args.stockfish_elo}" if args.stockfish_elo is not None
+                else "stockfish" if args.stockfish else args.baseline)
     report["config"]["opponent"] = opponent
     if args.stockfish:
         report["opponent"] = {"id": selector.engine.id, "options": selector.options,
