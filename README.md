@@ -9,6 +9,10 @@ scaffolding for a future learned evaluator. The classical baseline, tactical tes
 and reproducible comparison tooling are in place. No trained neural model is
 currently used, and human playing strength has not been rated.
 
+The board supports either color, three difficulty settings, a move list, thinking
+feedback, and game-end messages. Select Black to have the engine make the first move.
+The move list uses compact piece/destination notation rather than full SAN.
+
 ## Run locally
 
 Python 3.10+ is required. From the repository root:
@@ -35,6 +39,12 @@ so the first request after a quiet period can take about a minute.
 engine requirements and downloads the externally sourced opening book with pinned
 archive and book checksums. Gunicorn serves the Flask API and frontend together,
 so a deployed browser never tries to call its own localhost.
+Render's `checksPass` trigger waits for GitHub checks on the commit before an
+automatic deployment. The service uses one worker and two threads, with one search
+slot per process. Excess concurrent search requests receive HTTP 503. A 16 KB body
+limit, 300-move history limit, and 120 requests per minute per observed client IP
+bound public requests; HTTP 429 includes `Retry-After`. The limit is in memory and
+resets on restart. Render's proxy may group clients under one observed address.
 
 After pushing the repository to GitHub, create a Render Blueprint from that repo.
 Render reads `render.yaml`, builds the service, and provides one public URL to
@@ -108,7 +118,10 @@ Responses retain `move` (UCI) and `eval` (White's static score after the move), 
 identify `source` as `book` or `search`. Book responses include the filename,
 selected weight, number of alternatives, and no search diagnostics. Search responses
 include completed depth, nodes, cache hits, elapsed time, score, and timeout details.
-Invalid payloads/positions and finished games return HTTP 400.
+The `game` field reports automatic termination after the engine move. Invalid
+payloads/positions and finished games return HTTP 400; finished games include the
+result and reason. Oversized, rate-limited, and busy requests return 413, 429, and
+503 respectively.
 
 ## Opening book
 
@@ -401,3 +414,28 @@ for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
 Opening-book support adds eight tests; the full suite now passes **59 tests**.
+
+## Deployment evaluation and profiling
+
+The `benchmarks/match.py` runner can send current-engine moves to the deployed API
+while Stockfish runs locally. Both get the same per-move thinking budget; network
+round-trip time is recorded separately from server search time. Book play is disabled
+for these matches. `benchmarks/openings-live-2026.json` supplies eight fresh legal
+opening lines, paired by color. For example:
+
+```bash
+.venv/bin/python -m benchmarks.match \
+  --remote-url https://chess-engine-ml.onrender.com \
+  --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal \
+  --stockfish-elo 1320 --openings benchmarks/openings-live-2026.json \
+  --time-ms 250 --max-plies 140 --output benchmarks/results/live-1320
+```
+
+To profile the search without network effects, run
+`.venv/bin/python -m benchmarks.profile_search --output /tmp/profile.json`.
+The first optimization pass reduced median depth-three runtime on three fixed
+positions from 33.9 to 32.1 ms, 31.7 to 29.5 ms, and 411.7 to 379.0 ms on the
+development machine. It iterates piece bitmasks directly in the evaluator, avoiding
+extra square-set objects. Moves, scores, and node counts were unchanged in the
+saved before/after reports. These timings are local microbenchmarks, not evidence
+of a specific gain on Render or a higher rating.

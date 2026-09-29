@@ -7,8 +7,24 @@
   <link rel="stylesheet" href="./chess.css" />
 </head>
 <body>
-  <button id="reset-board" class="reset-button" type="button">Reset Board</button>
-  <main class="board-shell">
+  <main class="app-shell">
+    <section class="game-panel" aria-label="Game controls">
+      <p class="eyebrow">Chess engine</p>
+      <h1>Play a game</h1>
+      <p class="intro">Choose a side and challenge the engine.</p>
+      <div class="settings">
+        <label for="play-color">Your pieces</label>
+        <select id="play-color"><option value="w">White</option><option value="b">Black</option></select>
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select>
+      </div>
+      <button id="reset-board" class="reset-button" type="button">New game</button>
+      <p id="game-status" class="game-status" role="status" aria-live="polite">Your move as White.</p>
+      <div class="history-header"><h2>Moves</h2><span id="move-count">0 moves</span></div>
+      <ol id="move-history" class="move-history" aria-label="Move history"></ol>
+      <p class="help">Select a piece, then a highlighted square. Pawns promote to a queen.</p>
+    </section>
+    <section class="board-shell" aria-label="Chess game">
     <div class="board-frame">
       <div class="board-row">
         <div id="rank-labels-left" class="axis axis-ranks"></div>
@@ -16,6 +32,7 @@
       </div>
       <div id="file-labels-bottom" class="axis axis-files axis-files-bottom"></div>
     </div>
+    </section>
   </main>
 
   <script type="module" src="./chess.js"></script>

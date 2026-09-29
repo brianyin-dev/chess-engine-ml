@@ -17,19 +17,30 @@ const PIECES = {
 
 // Use the same deployed origin. Keep the standalone port-8000 workflow working locally.
 const API_BASE = window.location.port === "8000" ? "http://127.0.0.1:5000" : "";
-const ENGINE_DEPTH = 8; // Upper bound; the engine returns its last completed depth.
-const ENGINE_TIME_MS = 1500;
 const USE_OPENING_BOOK = true;
 const MAX_BOOK_PLY = 20; // Ten full moves; search starts earlier when the book has no entry.
-const HUMAN_COLOR = "w";
+const DIFFICULTY = {
+  easy: { depth: 2, time_ms: 200, use_book: false },
+  medium: { depth: 8, time_ms: 750, use_book: true },
+  hard: { depth: 8, time_ms: 1500, use_book: true },
+};
 
 const boardEl = document.getElementById("chessboard");
 const resetButton = document.getElementById("reset-board");
+const colorSelect = document.getElementById("play-color");
+const difficultySelect = document.getElementById("difficulty");
+const statusEl = document.getElementById("game-status");
+const historyEl = document.getElementById("move-history");
+const moveCountEl = document.getElementById("move-count");
 
 let gameState = createInitialState();
 let selectedSquare = null;
 let legalTargets = [];
 let engineThinking = false;
+let humanColor = "w";
+let gameFinished = false;
+let requestController = null;
+let gameId = 0;
 
 function createInitialBoard() {
   return [
@@ -62,8 +73,10 @@ function createSquareLabels() {
   const bottomFiles = document.getElementById("file-labels-bottom");
   const leftRanks = document.getElementById("rank-labels-left");
 
-  const fileMarkup = ["", ...FILES].map((label) => `<span>${label}</span>`).join("");
-  const rankMarkup = RANKS.map((label) => `<span>${label}</span>`).join("");
+  const files = humanColor === "w" ? FILES : [...FILES].reverse();
+  const ranks = humanColor === "w" ? RANKS : [...RANKS].reverse();
+  const fileMarkup = ["", ...files].map((label) => `<span>${label}</span>`).join("");
+  const rankMarkup = ranks.map((label) => `<span>${label}</span>`).join("");
 
   if (bottomFiles) bottomFiles.innerHTML = fileMarkup;
   if (leftRanks) leftRanks.innerHTML = rankMarkup;
@@ -72,8 +85,10 @@ function createSquareLabels() {
 function renderBoard() {
   boardEl.innerHTML = "";
 
-  for (let row = 0; row < 8; row += 1) {
-    for (let col = 0; col < 8; col += 1) {
+  const rows = humanColor === "w" ? [...Array(8).keys()] : [...Array(8).keys()].reverse();
+  const cols = humanColor === "w" ? [...Array(8).keys()] : [...Array(8).keys()].reverse();
+  for (const row of rows) {
+    for (const col of cols) {
       const square = document.createElement("button");
       const piece = gameState.board[row][col];
       const squareName = toSquare(row, col);
@@ -87,7 +102,7 @@ function renderBoard() {
       if (legalMove) square.classList.add(legalMove.capture ? "capture" : "move");
       square.dataset.row = String(row);
       square.dataset.col = String(col);
-      square.disabled = engineThinking || gameState.turn !== HUMAN_COLOR;
+      square.disabled = engineThinking || gameFinished || gameState.turn !== humanColor;
       square.setAttribute("aria-label", `${squareName} ${piece ? describePiece(piece) : "empty square"}`);
 
       if (piece) {
@@ -109,7 +124,7 @@ function renderBoard() {
 }
 
 async function handleSquareClick(row, col) {
-  if (engineThinking || gameState.turn !== HUMAN_COLOR) return;
+  if (engineThinking || gameFinished || gameState.turn !== humanColor) return;
 
   const piece = gameState.board[row][col];
 
@@ -119,11 +134,8 @@ async function handleSquareClick(row, col) {
       applyMove(selectedSquare, chosenMove);
       clearSelection();
       renderBoard();
-
-      if (!hasAnyLegalMove(gameState, gameState.turn)) {
-        return;
-      }
-
+      renderHistory();
+      if (updateLocalGameStatus()) return;
       await requestEngineMove();
       return;
     }
@@ -140,39 +152,108 @@ async function handleSquareClick(row, col) {
 }
 
 async function requestEngineMove() {
+  const currentGame = gameId;
+  const settings = DIFFICULTY[difficultySelect.value];
+  requestController = new AbortController();
   engineThinking = true;
+  setStatus("Engine thinking…");
   renderBoard();
 
   try {
     const response = await fetch(`${API_BASE}/move`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      signal: requestController.signal,
       body: JSON.stringify({
         moves: gameState.uciHistory,
-        depth: ENGINE_DEPTH,
-        time_ms: ENGINE_TIME_MS,
-        use_book: USE_OPENING_BOOK,
+        depth: settings.depth,
+        time_ms: settings.time_ms,
+        use_book: USE_OPENING_BOOK && settings.use_book,
         max_book_ply: MAX_BOOK_PLY,
       }),
     });
 
     const payload = await response.json();
+    if (currentGame !== gameId) return;
     if (!response.ok) {
-      if (payload.error !== "game over") {
-        throw new Error(payload.detail || payload.error || "Engine request failed.");
-      }
+      if (payload.error !== "game over") throw new Error(payload.detail || payload.error || "Engine request failed.");
+      showServerGameStatus(payload.game);
       return;
     }
 
     applyUciMove(payload.move);
     clearSelection();
+    renderHistory();
+    if (!showServerGameStatus(payload.game)) updateLocalGameStatus();
   } catch (error) {
-    console.error(error);
-    alert("Could not reach the chess engine. Make sure the backend is running.");
+    if (error.name !== "AbortError" && currentGame === gameId) {
+      console.error(error);
+      setStatus(`Engine unavailable: ${error.message} Try a new game.`);
+    }
   } finally {
-    engineThinking = false;
-    renderBoard();
+    if (currentGame === gameId) {
+      engineThinking = false;
+      requestController = null;
+      renderBoard();
+    }
   }
+}
+
+function setStatus(message) { statusEl.textContent = message; }
+
+function showServerGameStatus(game) {
+  if (!game?.over) return false;
+  gameFinished = true;
+  const reason = {
+    checkmate: "Checkmate",
+    stalemate: "Draw by stalemate",
+    insufficient_material: "Draw by insufficient material",
+    fivefold_repetition: "Draw by fivefold repetition",
+    seventyfive_moves: "Draw by the 75-move rule",
+  }[game.reason] || "Game over";
+  const winner = game.result === "1-0" ? "White wins." : game.result === "0-1" ? "Black wins." : "";
+  setStatus(winner ? `${reason} — ${winner}` : `${reason}.`);
+  return true;
+}
+
+function renderHistory() {
+  historyEl.innerHTML = "";
+  const moves = gameState.moveHistory;
+  for (let i = 0; i < moves.length; i += 2) {
+    const item = document.createElement("li");
+    const white = document.createElement("span");
+    white.textContent = moves[i];
+    const black = document.createElement("span");
+    black.textContent = moves[i + 1] || "";
+    item.append(white, black);
+    historyEl.appendChild(item);
+  }
+  moveCountEl.textContent = `${moves.length} ${moves.length === 1 ? "move" : "moves"}`;
+  historyEl.scrollTop = historyEl.scrollHeight;
+}
+
+function updateLocalGameStatus() {
+  const side = gameState.turn === "w" ? "White" : "Black";
+  const check = isKingInCheck(gameState, gameState.turn);
+  if (!hasAnyLegalMove(gameState, gameState.turn)) {
+    gameFinished = true;
+    setStatus(check ? `Checkmate — ${side === "White" ? "Black" : "White"} wins.` : "Draw by stalemate.");
+    renderBoard();
+    return true;
+  }
+  if (hasInsufficientMaterial(gameState.board)) {
+    gameFinished = true;
+    setStatus("Draw by insufficient material.");
+    renderBoard();
+    return true;
+  }
+  setStatus(check ? `${side} is in check.` : gameState.turn === humanColor ? "Your move." : "Engine thinking…");
+  return false;
+}
+
+function hasInsufficientMaterial(board) {
+  const pieces = board.flat().filter(Boolean).filter((piece) => piece[1] !== "k");
+  return pieces.length === 0 || (pieces.length === 1 && ["b", "n"].includes(pieces[0][1]));
 }
 
 function clearSelection() {
@@ -211,7 +292,7 @@ function applyMove(from, move) {
 
   let finalPiece = piece;
   if (piece[1] === "p" && (move.row === 0 || move.row === 7)) {
-    finalPiece = `${piece[0]}q`;
+    finalPiece = `${piece[0]}${move.promotion || "q"}`;
   }
   nextBoard[move.row][move.col] = finalPiece;
 
@@ -250,20 +331,20 @@ function applyUciMove(uci) {
     throw new Error(`Illegal engine move received: ${uci}`);
   }
 
-  applyMove(from, legalMove);
+  applyMove(from, { ...legalMove, promotion });
 }
 
 function promotionIsSupported(piece, move, promotion) {
   if (piece[1] !== "p" || (move.row !== 0 && move.row !== 7)) {
     return true;
   }
-  return !promotion || promotion === "q";
+  return !promotion || ["q", "r", "b", "n"].includes(promotion);
 }
 
 function toUciMove(from, move, piece) {
   let uci = `${toSquare(from.row, from.col)}${toSquare(move.row, move.col)}`;
   if (piece[1] === "p" && (move.row === 0 || move.row === 7)) {
-    uci += "q";
+    uci += move.promotion || "q";
   }
   return uci;
 }
@@ -364,19 +445,7 @@ function simulateMove(state, from, move) {
 function isKingInCheck(state, color) {
   const kingSquare = findKing(state.board, color);
   if (!kingSquare) return false;
-
-  const enemyColor = color === "w" ? "b" : "w";
-  for (let row = 0; row < 8; row += 1) {
-    for (let col = 0; col < 8; col += 1) {
-      const piece = state.board[row][col];
-      if (!piece || piece[0] !== enemyColor) continue;
-      const moves = getPseudoLegalMoves(state, row, col, false);
-      if (moves.some((move) => move.row === kingSquare.row && move.col === kingSquare.col)) {
-        return true;
-      }
-    }
-  }
-  return false;
+  return isSquareAttacked(state, kingSquare.row, kingSquare.col, color);
 }
 
 function findKing(board, color) {
@@ -506,6 +575,7 @@ function getKingMoves(state, row, col, color, includeCastling) {
 
   if (
     rights.kingSide &&
+    state.board[homeRow][7] === `${color}r` &&
     !state.board[homeRow][5] &&
     !state.board[homeRow][6] &&
     !isSquareAttacked(state, homeRow, 5, color) &&
@@ -516,6 +586,7 @@ function getKingMoves(state, row, col, color, includeCastling) {
 
   if (
     rights.queenSide &&
+    state.board[homeRow][0] === `${color}r` &&
     !state.board[homeRow][1] &&
     !state.board[homeRow][2] &&
     !state.board[homeRow][3] &&
@@ -534,6 +605,11 @@ function isSquareAttacked(state, row, col, defendingColor) {
     for (let c = 0; c < 8; c += 1) {
       const piece = state.board[r][c];
       if (!piece || piece[0] !== enemyColor) continue;
+      if (piece[1] === "p") {
+        const attackedRow = r + (enemyColor === "w" ? -1 : 1);
+        if (attackedRow === row && Math.abs(c - col) === 1) return true;
+        continue;
+      }
       const moves = getPseudoLegalMoves(state, r, c, false);
       if (moves.some((move) => move.row === row && move.col === col)) {
         return true;
@@ -555,7 +631,7 @@ function formatMove(piece, from, move, targetPiece) {
 
   if (piece[1] === "p") {
     const pawnPrefix = capture ? FILES[from.col] : "";
-    const promotion = move.row === 0 || move.row === 7 ? "=Q" : "";
+    const promotion = move.row === 0 || move.row === 7 ? `=${(move.promotion || "q").toUpperCase()}` : "";
     return `${pawnPrefix}${capture}${destination}${promotion}`;
   }
 
@@ -581,13 +657,25 @@ function cloneBoard(board) {
 }
 
 function resetBoard() {
+  gameId += 1;
+  requestController?.abort();
+  requestController = null;
   engineThinking = false;
+  gameFinished = false;
+  humanColor = colorSelect.value;
   gameState = createInitialState();
   clearSelection();
+  createSquareLabels();
+  renderHistory();
+  setStatus(humanColor === "w" ? "Your move as White." : "Engine opens as White…");
   renderBoard();
+  if (humanColor === "b") void requestEngineMove();
 }
 
 resetButton.addEventListener("click", resetBoard);
+colorSelect.addEventListener("change", resetBoard);
+difficultySelect.addEventListener("change", resetBoard);
 
 createSquareLabels();
+renderHistory();
 renderBoard();

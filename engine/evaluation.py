@@ -119,7 +119,7 @@ def _pst_score(board: chess.Board, color: chess.Color, phase=None) -> int:
     if phase is None:
         phase = _phase(board)
     for piece_type, table in PST.items():
-        for sq in board.pieces(piece_type, color):
+        for sq in chess.scan_forward(board.pieces_mask(piece_type, color)):
             idx = chess.square_mirror(sq) if color == chess.WHITE else sq
             value = table[idx]
             if piece_type == chess.KING:
@@ -145,7 +145,7 @@ def _mobility_score(board: chess.Board, color: chess.Color) -> int:
     score = 0
     friendly = board.occupied_co[color]
     for piece_type, weight in MOBILITY_WEIGHTS.items():
-        for square in board.pieces(piece_type, color):
+        for square in chess.scan_forward(board.pieces_mask(piece_type, color)):
             score += weight * chess.popcount(board.attacks_mask(square) & ~friendly)
     return score
 
@@ -154,14 +154,16 @@ def _development_score(board: chess.Board, color: chess.Color, phase: int) -> in
     home_rank = 0 if color == chess.WHITE else 7
     score = 0
 
-    for square in board.pieces(chess.KNIGHT, color) | board.pieces(chess.BISHOP, color):
+    minors = board.pieces_mask(chess.KNIGHT, color) | board.pieces_mask(chess.BISHOP, color)
+    for square in chess.scan_forward(minors):
         if chess.square_rank(square) != home_rank:
             score += DEVELOPMENT_BONUS
 
     queen_home = chess.D1 if color == chess.WHITE else chess.D8
-    if board.pieces(chess.QUEEN, color) and queen_home not in board.pieces(chess.QUEEN, color):
+    queens = board.pieces_mask(chess.QUEEN, color)
+    if queens and not queens & chess.BB_SQUARES[queen_home]:
         undeveloped_minors = 0
-        for square in board.pieces(chess.KNIGHT, color) | board.pieces(chess.BISHOP, color):
+        for square in chess.scan_forward(minors):
             if chess.square_rank(square) == home_rank:
                 undeveloped_minors += 1
         if undeveloped_minors >= 2:
@@ -181,7 +183,7 @@ def _center_control_score(board: chess.Board, color: chess.Color) -> int:
 def _rook_activity_score(board: chess.Board, color: chess.Color) -> int:
     score = 0
     enemy = not color
-    for square in board.pieces(chess.ROOK, color):
+    for square in chess.scan_forward(board.pieces_mask(chess.ROOK, color)):
         file_index = chess.square_file(square)
         friendly_pawns = board.pieces_mask(chess.PAWN, color) & chess.BB_FILES[file_index]
         enemy_pawns = board.pieces_mask(chess.PAWN, enemy) & chess.BB_FILES[file_index]
@@ -195,7 +197,7 @@ def _rook_activity_score(board: chess.Board, color: chess.Color) -> int:
 def _passed_pawn_score(board: chess.Board, color: chess.Color) -> int:
     score = 0
     enemy_pawns = board.pieces_mask(chess.PAWN, not color)
-    for square in board.pieces(chess.PAWN, color):
+    for square in chess.scan_forward(board.pieces_mask(chess.PAWN, color)):
         rank_index = chess.square_rank(square)
         if not enemy_pawns & PASSED_MASKS[color][square]:
             progress = rank_index if color == chess.WHITE else 7 - rank_index

@@ -6,10 +6,13 @@ POST /move   { "moves": ["e2e4", "e7e5"], "depth": 3 }
              -> { "move": "g1f3", "eval": 42 }
 """
 
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, g, jsonify, request, send_from_directory
 import chess
 import os
 from pathlib import Path
+from collections import deque
+from threading import BoundedSemaphore, Lock
+from time import monotonic
 
 from engine.search import search
 from engine.evaluation import evaluate
@@ -19,7 +22,53 @@ import math
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FRONTEND_ROOT = PROJECT_ROOT / "frontend"
 app = Flask(__name__, static_folder=str(FRONTEND_ROOT), static_url_path="")
+app.config["MAX_CONTENT_LENGTH"] = 16_384
 DEFAULT_BOOK_PATH = PROJECT_ROOT / "books" / "gm2001.bin"
+MAX_MOVES = 300
+RATE_LIMIT = 120
+RATE_WINDOW_SECONDS = 60
+search_slots = BoundedSemaphore(1)
+rate_lock = Lock()
+request_times = {}
+
+
+@app.errorhandler(413)
+def request_too_large(_):
+    return jsonify({"error": "request too large", "detail": "Send at most 16 KB of JSON."}), 413
+
+
+@app.before_request
+def limit_move_requests():
+    if request.path != "/move" or request.method != "POST":
+        return None
+    now = monotonic()
+    address = request.remote_addr or "unknown"
+    with rate_lock:
+        # Expire idle clients to bound in-memory rate-limit state.
+        for key in list(request_times):
+            times = request_times[key]
+            while times and times[0] <= now - RATE_WINDOW_SECONDS:
+                times.popleft()
+            if not times:
+                del request_times[key]
+        times = request_times.setdefault(address, deque())
+        if len(times) >= RATE_LIMIT:
+            response = jsonify({"error": "rate limit", "detail": "Too many moves. Try again shortly."})
+            response.headers["Retry-After"] = str(max(1, int(RATE_WINDOW_SECONDS - (now - times[0]))))
+            return response, 429
+        times.append(now)
+    if not search_slots.acquire(blocking=False):
+        response = jsonify({"error": "engine busy", "detail": "Another game is being analyzed. Try again shortly."})
+        response.headers["Retry-After"] = "2"
+        return response, 503
+    g.search_slot = True
+    return None
+
+
+@app.teardown_request
+def release_search_slot(_):
+    if getattr(g, "search_slot", False):
+        search_slots.release()
 
 
 @app.get("/")
@@ -39,6 +88,8 @@ def build_board(payload: dict) -> chess.Board:
     if "moves" in payload:
         if not isinstance(payload["moves"], list) or not all(isinstance(m, str) for m in payload["moves"]):
             raise ValueError("moves must be a list of UCI strings")
+        if len(payload["moves"]) > MAX_MOVES:
+            raise ValueError(f"moves must contain at most {MAX_MOVES} entries")
         board = chess.Board()
         for uci in payload.get("moves", []):
             if board.is_game_over():
@@ -53,6 +104,13 @@ def build_board(payload: dict) -> chess.Board:
     if not board.is_valid():
         raise ValueError("FEN does not describe a valid position")
     return board
+
+
+def game_status(board: chess.Board) -> dict:
+    outcome = board.outcome(claim_draw=False)
+    return {"over": outcome is not None,
+            "result": outcome.result() if outcome else None,
+            "reason": outcome.termination.name.lower() if outcome else None}
 
 
 @app.route("/move", methods=["POST", "OPTIONS"])
@@ -84,7 +142,7 @@ def get_move():
         return jsonify({"error": "invalid request", "detail": str(exc)}), 400
 
     if board.is_game_over():
-        return jsonify({"error": "game over", "result": board.result()}), 400
+        return jsonify({"error": "game over", "game": game_status(board)}), 400
 
     book_path = Path(os.environ.get("CHESS_BOOK_PATH", DEFAULT_BOOK_PATH))
     book_choice = None
@@ -102,6 +160,7 @@ def get_move():
     board.push(move)
     response = {
         "move": move.uci(),
+        "game": game_status(board),
         "eval": evaluate(board),
         "source": "book" if book_choice else "search",
         "book": ({"file": book_path.name, "weight": book_choice.weight,

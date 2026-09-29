@@ -9,6 +9,7 @@ from pathlib import Path
 import platform
 import sys
 from time import perf_counter
+from urllib.request import Request, urlopen
 
 import chess
 import chess.pgn
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class UciOpponent:
     """Single-threaded UCI opponent, reset between games, with no pondering."""
-    def __init__(self, path, elo=None):
+    def __init__(self, path, elo=None, remote_url=None):
         self.path = Path(path).resolve()
         self.engine = chess.engine.SimpleEngine.popen_uci(str(self.path), timeout=10)
         self.options = {"Threads": 1, "Hash": 32}
@@ -40,6 +41,7 @@ class UciOpponent:
             self.options.update({"UCI_LimitStrength": True, "UCI_Elo": elo})
         self.engine.configure(self.options)
         self.game = object()
+        self.remote_url = remote_url
 
     def new_game(self):
         self.game = object()
@@ -49,6 +51,8 @@ class UciOpponent:
 
     def __call__(self, name, board, time_limit, depth_cap):
         if name == "current":
+            if self.remote_url:
+                return remote_move(self.remote_url, board, time_limit, depth_cap)
             return choose_move(name, board, time_limit, depth_cap)
         start = perf_counter()
         result = self.engine.play(board, chess.engine.Limit(time=time_limit, depth=depth_cap),
@@ -62,6 +66,29 @@ class UciOpponent:
             "overrun_seconds": max(0, elapsed - time_limit),
             "timed_out": None, "stop_reason": "uci_returned", "qnodes": None, "tt_hits": None,
         }
+
+
+def remote_move(url, board, time_limit, depth_cap):
+    """Call the deployed API with the same position and disable its opening book."""
+    start = perf_counter()
+    root = board.root()
+    payload = ({"moves": [move.uci() for move in board.move_stack]}
+               if root.fen() == chess.STARTING_FEN else {"fen": board.fen()})
+    payload.update({"depth": depth_cap, "time_ms": time_limit * 1000, "use_book": False})
+    request = Request(url.rstrip("/") + "/move", data=json.dumps(payload).encode(),
+                      headers={"Content-Type": "application/json"}, method="POST")
+    with urlopen(request, timeout=max(20, time_limit + 15)) as response:
+        data = json.load(response)
+    elapsed = perf_counter() - start
+    stats = data["search"]
+    return chess.Move.from_uci(data["move"]), {
+        "depth": stats["depth"], "nodes": stats["nodes"], "qnodes": stats["qnodes"],
+        "score": stats["score"], "elapsed": elapsed,
+        "server_elapsed": stats["elapsed_ms"] / 1000,
+        "budget_seconds": time_limit, "overrun_seconds": max(0, elapsed - time_limit),
+        "timed_out": stats["timed_out"], "stop_reason": stats["stop_reason"],
+        "tt_hits": stats["tt_hits"],
+    }
 
 
 class _Deadline(Exception):
@@ -244,6 +271,7 @@ def main():
     parser.add_argument("--stockfish", type=Path, help="Local Stockfish UCI executable; otherwise play legacy")
     parser.add_argument("--stockfish-elo", type=int,
                         help="Enable the UCI opponent's calibrated limited-strength mode")
+    parser.add_argument("--remote-url", help="Call the deployed engine instead of local current search")
     parser.add_argument("--baseline", choices=["legacy", "previous"], default="legacy",
                         help="previous = frozen engine immediately before the final search round")
     args = parser.parse_args()
@@ -251,6 +279,8 @@ def main():
         parser.error("choose either Stockfish or a local baseline")
     if args.stockfish_elo is not None and not args.stockfish:
         parser.error("stockfish-elo requires --stockfish")
+    if args.remote_url and not args.stockfish:
+        parser.error("remote-url requires --stockfish")
     if not math.isfinite(args.time_ms) or args.time_ms <= 0:
         parser.error("time-ms must be positive and finite")
     if args.max_plies < 1 or not 1 <= args.depth_cap <= 64:
@@ -289,7 +319,7 @@ def main():
         "games": [], "status": "running",
     }
     try:
-        selector = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else choose_move
+        selector = UciOpponent(args.stockfish, args.stockfish_elo, args.remote_url) if args.stockfish else choose_move
     except (OSError, ValueError, chess.engine.EngineError) as exc:
         parser.error(str(exc))
     opponent = (f"stockfish-elo-{args.stockfish_elo}" if args.stockfish_elo is not None
@@ -299,6 +329,8 @@ def main():
         report["opponent"] = {"id": selector.engine.id, "options": selector.options,
                               "path": str(selector.path),
                               "sha256": hashlib.sha256(selector.path.read_bytes()).hexdigest()}
+    if args.remote_url:
+        report["remote_url"] = args.remote_url
     pgns = []
 
     def save():

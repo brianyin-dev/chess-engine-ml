@@ -1,0 +1,123 @@
+{
+  "depth": 3,
+  "repeats": 5,
+  "positions": [
+    {
+      "id": "poisoned-pawn",
+      "median_seconds": 0.03212849999545142,
+      "nodes": 1204,
+      "move": "d1h5",
+      "score": 722,
+      "trials": [
+        {
+          "elapsed": 0.03198529197834432,
+          "nodes": 1204,
+          "move": "d1h5",
+          "score": 722
+        },
+        {
+          "elapsed": 0.03212849999545142,
+          "nodes": 1204,
+          "move": "d1h5",
+          "score": 722
+        },
+        {
+          "elapsed": 0.03290158399613574,
+          "nodes": 1204,
+          "move": "d1h5",
+          "score": 722
+        },
+        {
+          "elapsed": 0.032411916996352375,
+          "nodes": 1204,
+          "move": "d1h5",
+          "score": 722
+        },
+        {
+          "elapsed": 0.031467834021896124,
+          "nodes": 1204,
+          "move": "d1h5",
+          "score": 722
+        }
+      ]
+    },
+    {
+      "id": "starting-position",
+      "median_seconds": 0.029498040967155248,
+      "nodes": 620,
+      "move": "g1f3",
+      "score": 98,
+      "trials": [
+        {
+          "elapsed": 0.02966208301950246,
+          "nodes": 620,
+          "move": "g1f3",
+          "score": 98
+        },
+        {
+          "elapsed": 0.029218457988463342,
+          "nodes": 620,
+          "move": "g1f3",
+          "score": 98
+        },
+        {
+          "elapsed": 0.029498040967155248,
+          "nodes": 620,
+          "move": "g1f3",
+          "score": 98
+        },
+        {
+          "elapsed": 0.029400833998806775,
+          "nodes": 620,
+          "move": "g1f3",
+          "score": 98
+        },
+        {
+          "elapsed": 0.029514750000089407,
+          "nodes": 620,
+          "move": "g1f3",
+          "score": 98
+        }
+      ]
+    },
+    {
+      "id": "middlegame",
+      "median_seconds": 0.3789993750397116,
+      "nodes": 8578,
+      "move": "c1e3",
+      "score": 13,
+      "trials": [
+        {
+          "elapsed": 0.3897175420424901,
+          "nodes": 8578,
+          "move": "c1e3",
+          "score": 13
+        },
+        {
+          "elapsed": 0.3924201250192709,
+          "nodes": 8578,
+          "move": "c1e3",
+          "score": 13
+        },
+        {
+          "elapsed": 0.376719249994494,
+          "nodes": 8578,
+          "move": "c1e3",
+          "score": 13
+        },
+        {
+          "elapsed": 0.37713604199234396,
+          "nodes": 8578,
+          "move": "c1e3",
+          "score": 13
+        },
+        {
+          "elapsed": 0.3789993750397116,
+          "nodes": 8578,
+          "move": "c1e3",
+          "score": 13
+        }
+      ]
+    }
+  ]
+}
