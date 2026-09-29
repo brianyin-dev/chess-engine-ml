@@ -221,6 +221,12 @@ The requested rating must fall within the UCI engine's advertised range
 than a direct human/FIDE rating: hardware, time control, opening selection, and
 the number of completed games all affect the result.
 
+The first 12-game checkpoint at 250 ms per move produced **11 wins and 1 loss**
+against Stockfish 19 at its 1320 setting, with all games completed and no engine
+errors. See `benchmarks/results/strength-stockfish-1320-250ms/RESULTS.md` for the
+method and limitations. This supports testing the engine against the intended
+roughly 1200-strength friend; it does not establish a human Elo rating.
+
 This plays eight games: four prescribed openings, each with the engines swapping
 colors. Games run sequentially so engines do not compete for CPU time. The order
 of the two colors alternates between opening pairs. `--pairs 2` selects the first
