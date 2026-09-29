@@ -1,33 +1,41 @@
-"""
-Dataset utilities.
+"""JSONL position labels and pre-encoded tensors for evaluator training."""
 
-Expected input: a CSV with columns  fen, eval
-  fen  - FEN string of the position
-  eval - Stockfish centipawn score (integers; mate scores can be clipped)
+import json
+from pathlib import Path
 
-Generate this CSV with scripts/generate_data.py (see README).
-"""
-
-import pandas as pd
+import chess
 import torch
 from torch.utils.data import Dataset
 
-from ml.model import board_to_tensor
+from engine.evaluation import evaluate
+from ml.model import SCORE_SCALE, board_to_tensor
+
+
+def load_rows(path: str | Path) -> list[dict]:
+    rows = [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
+    if not rows:
+        raise ValueError(f"No positions in {path}")
+    for row in rows:
+        if not isinstance(row.get("game_id"), int) or not isinstance(row.get("fen"), str):
+            raise ValueError(f"Invalid position record in {path}")
+        if isinstance(row.get("score_cp"), bool) or not isinstance(row.get("score_cp"), int):
+            raise ValueError(f"Invalid score in {path}")
+    return rows
 
 
 class ChessEvalDataset(Dataset):
-    def __init__(self, csv_path: str, eval_clip: int = 2000):
-        df = pd.read_csv(csv_path)
-        self.fens = df["fen"].tolist()
-        # Clip extreme mate scores so the net isn't overwhelmed
-        self.evals = df["eval"].clip(-eval_clip, eval_clip).astype(float).tolist()
+    """Precompute encodings once so training epochs do not repeatedly parse FENs."""
 
-    def __len__(self):
-        return len(self.fens)
+    def __init__(self, rows: list[dict]):
+        boards = [chess.Board(row["fen"]) for row in rows]
+        self.features = torch.stack([board_to_tensor(board) for board in boards])
+        self.baselines = torch.tensor([evaluate(board) for board in boards], dtype=torch.float32)
+        self.targets = torch.tensor([(row["score_cp"] - base) / SCORE_SCALE
+                                     for row, base in zip(rows, self.baselines.tolist())],
+                                    dtype=torch.float32)
 
-    def __getitem__(self, idx):
-        import chess
-        board = chess.Board(self.fens[idx])
-        x = board_to_tensor(board)
-        y = torch.tensor(self.evals[idx], dtype=torch.float32)
-        return x, y
+    def __len__(self) -> int:
+        return len(self.targets)
+
+    def __getitem__(self, index):
+        return self.features[index], self.targets[index]

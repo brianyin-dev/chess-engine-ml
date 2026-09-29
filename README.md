@@ -3,9 +3,9 @@
 [![CI](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml)
 
 A browser chess app with a Python classical engine, a Polyglot opening book, and
-scaffolding for a future learned evaluator. The classical baseline, tactical tests,
-and reproducible comparison tooling are in place. No trained neural model is
-currently used, and human playing strength has not been rated.
+an experimental trained neural evaluator. The app still uses the classical evaluator:
+the neural model improved held-out score prediction but has not improved playing
+strength in equal-time games. Human playing strength has not been rated.
 
 The board supports either color, three difficulty settings, a move list, thinking
 feedback, and game-end messages. Select Black to have the engine make the first move.
@@ -48,7 +48,7 @@ If you resume hosting later, the service filesystem only needs the downloaded bo
 third-party `.bin` remains excluded from Git. Free hosting, cold-start behavior,
 and plan availability depend on Render's current terms.
 
-The engine-only requirements omit PyTorch and pandas. Install `requirements.txt`
+The engine-only requirements omit PyTorch and NumPy. Install `requirements.txt`
 when working on the ML modules.
 
 ## Classical engine
@@ -200,18 +200,42 @@ To profile without mixing instrumentation overhead into benchmark timings:
 .venv/bin/python -c 'import pstats; pstats.Stats("/tmp/chess-engine.prof").sort_stats("cumulative").print_stats(20)'
 ```
 
-## Future learned evaluation
+## Experimental neural evaluation
 
-`ml/model.py` contains an MLP and board encoder; `ml/dataset.py` loads FEN/score CSV
-data. These are scaffolding, not a trained or validated strength improvement.
-Generate labels, split by source game to reduce leakage, train a small evaluator,
-and compare it with the classical evaluator in the same search under equal time.
-The present encoder contains piece planes only; turn and other rule-state features
-need consideration before serious training.
+The `ml/` pipeline generates positions from local Stockfish self-play, labels them
+with Stockfish analysis, splits by source game, trains a 782-feature MLP to correct
+the classical evaluator, and compares it in the same search under equal move-time
+budgets. Features cover piece placement, side to move, castling rights, legal en
+passant, and the halfmove clock. The adapter returns White-perspective centipawns;
+legal moves, checkmate, and draws remain rules handled by the search. NumPy runs the
+small network at inference time; PyTorch is used for training and checkpoint loading.
 
-An inference adapter can be passed as `eval_fn`; use `model.eval()` and
-`torch.inference_mode()`, and return White-perspective centipawns. The search keeps
-mate/legal-move rules independent of the learned scores.
+The generated dataset contains 8,259 positions from 640 games (6,598 training, 832
+validation, 829 test). On the held-out test games, mean absolute error against
+Stockfish depth-eight labels was **115.1 centipawns** with the neural correction,
+versus **128.5** with the heuristic alone. This measures agreement with a shallow
+Stockfish label, not game strength. A four-opening paired match at 250 ms per move
+scored 1 win, 1 draw, 4 losses, and 2 unfinished for the NN. The first PyTorch
+inference run searched a median 2,636 nodes per NN move versus 5,956 for the
+heuristic; a faster NumPy inference run reached 3,983 versus 6,087 and got the same
+game score. See `ml/artifacts/paired-v2-250ms/report.json` and
+`ml/artifacts/paired-v2-numpy-250ms/report.json`. Search trees and game paths differ
+between runs, so this is an observed performance comparison, not a fixed-position
+speedup claim. The NN is optional and is not used by the browser app. These small,
+time-limited games are not an Elo estimate.
+
+To reproduce or extend the experiment, install `requirements.txt` and provide a
+local Stockfish UCI binary. Each command writes to a new path to preserve results:
+
+```bash
+.venv/bin/python -m ml.generate_data --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --games 640 --seed 113 --output ml/data/another-run
+.venv/bin/python -m ml.train --data ml/data/another-run --seed 113 --checkpoint ml/artifacts/another-run.pt --metrics ml/artifacts/another-run-metrics.json
+.venv/bin/python -m ml.compare --checkpoint ml/artifacts/another-run.pt --pairs 4 --time-ms 250 --output ml/artifacts/another-run-match
+```
+
+`ml/data/stockfish-selfplay-v2-2026/manifest.json` records the source engine hash
+and generation settings. Stockfish's time-limited self-play is hardware-dependent,
+so the checked-in JSONL data, checkpoint, and reports are the exact experiment.
 
 ## Automated paired matches
 
@@ -409,7 +433,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-Opening-book support adds eight tests; the full suite now passes **59 tests**.
+The full suite now passes **69 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 

@@ -82,6 +82,27 @@ class SearchRoundTests(unittest.TestCase):
         self.assertEqual(worker.static(board), 2)
         self.assertEqual(worker.static_cache_hits, 0)
 
+    def test_declared_position_only_evaluator_caches_with_clock(self):
+        class PositionEvaluator:
+            cacheable_by_fen = True
+
+            def __init__(self):
+                self.calls = 0
+
+            def __call__(self, board):
+                self.calls += 1
+                return board.halfmove_clock
+
+        board = chess.Board()
+        evaluator = PositionEvaluator()
+        worker = _Search(board, evaluator, None, True)
+        self.assertEqual(worker.static(board), 0)
+        self.assertEqual(worker.static(board), 0)
+        self.assertEqual(evaluator.calls, 1)
+        board.halfmove_clock = 1
+        self.assertEqual(worker.static(board), 1)
+        self.assertEqual(evaluator.calls, 2)
+
     def test_stalemate_in_quiescence(self):
         board = chess.Board('7k/5Q2/6K1/8/8/8/8/8 b - - 0 1')
         worker = _Search(board, evaluate, None, True)

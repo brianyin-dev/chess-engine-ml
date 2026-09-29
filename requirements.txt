@@ -1,4 +1,4 @@
 python-chess
 torch
 flask
-pandas
+numpy

@@ -134,8 +134,8 @@ class _Search:
         return None
 
     def static(self, board):
-        # Only the built-in positional evaluator is known to be history-free.
-        # Terminal/repetition rules have already been checked by the caller.
+        # Only evaluators explicitly known to depend on position state alone are
+        # cached. Terminal/repetition rules have already been checked.
         if self.eval_fn is evaluate:
             key = _position_key(board)
             if key in self.static_cache:
@@ -143,6 +143,16 @@ class _Search:
                 score = self.static_cache[key]
             else:
                 score = evaluate_position(board)
+                if len(self.static_cache) >= 20_000:
+                    self.static_cache.clear()
+                self.static_cache[key] = score
+        elif getattr(self.eval_fn, "cacheable_by_fen", False):
+            key = (_position_key(board), min(board.halfmove_clock, 150))
+            if key in self.static_cache:
+                self.static_cache_hits += 1
+                score = self.static_cache[key]
+            else:
+                score = int(self.eval_fn(board))
                 if len(self.static_cache) >= 20_000:
                     self.static_cache.clear()
                 self.static_cache[key] = score

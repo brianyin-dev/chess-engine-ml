@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-09-29T21:01:22.750356+00:00",
+  "source": "new local Stockfish self-play games; first six plies randomized",
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "config": {
+    "games": 640,
+    "plies": 48,
+    "sample_every": 3,
+    "label_depth": 8,
+    "play_ms": 5.0,
+    "seed": 113
+  },
+  "positions": {
+    "train": 6598,
+    "val": 832,
+    "test": 829
+  },
+  "games_per_split": {
+    "train": 512,
+    "val": 64,
+    "test": 64
+  }
+}
