@@ -2,8 +2,6 @@
 
 [![CI](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/brianyin-dev/chess-engine-ml/actions/workflows/ci.yml)
 
-[Play the live engine](https://chess-engine-ml.onrender.com)
-
 A browser chess app with a Python classical engine, a Polyglot opening book, and
 scaffolding for a future learned evaluator. The classical baseline, tactical tests,
 and reproducible comparison tooling are in place. No trained neural model is
@@ -20,6 +18,7 @@ Python 3.10+ is required. From the repository root:
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-engine.txt
+.venv/bin/python books/install_gm2001.py
 .venv/bin/python -m backend.app
 ```
 
@@ -30,26 +29,22 @@ and 3 seconds on Hard, with a maximum main-search depth of eight plies. Restart
 the backend and refresh the page after
 updating the code. These are local development servers, not a production deployment.
 
-## Deploy and share
+## Optional deployment
 
-The current free deployment is available at
-<https://chess-engine-ml.onrender.com>. Free instances sleep after inactivity,
-so the first request after a quiet period can take about a minute.
+The previous Render demo is suspended. The deployment configuration remains in
+`render.yaml` in case you want to host the app again. Automatic deploys are off.
 
 `render.yaml` describes a single Render web service. Its build installs the small
 engine requirements and downloads the externally sourced opening book with pinned
 archive and book checksums. Gunicorn serves the Flask API and frontend together,
 so a deployed browser never tries to call its own localhost.
-Render's `checksPass` trigger waits for GitHub checks on the commit before an
-automatic deployment. The service uses one worker and two threads, with one search
+The service uses one worker and two threads, with one search
 slot per process. Excess concurrent search requests receive HTTP 503. A 16 KB body
 limit, 300-move history limit, and 120 requests per minute per observed client IP
 bound public requests; HTTP 429 includes `Retry-After`. The limit is in memory and
 resets on restart. Render's proxy may group clients under one observed address.
 
-After pushing the repository to GitHub, create a Render Blueprint from that repo.
-Render reads `render.yaml`, builds the service, and provides one public URL to
-share. The service filesystem only needs the downloaded book at runtime; the
+If you resume hosting later, the service filesystem only needs the downloaded book at runtime; the
 third-party `.bin` remains excluded from Git. Free hosting, cold-start behavior,
 and plan availability depend on Render's current terms.
 
@@ -426,7 +421,7 @@ opening lines, paired by color. For example:
 
 ```bash
 .venv/bin/python -m benchmarks.match \
-  --remote-url https://chess-engine-ml.onrender.com \
+  --remote-url https://YOUR-SERVICE.onrender.com \
   --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal \
   --stockfish-elo 1320 --openings benchmarks/openings-live-2026.json \
   --time-ms 250 --max-plies 140 --output benchmarks/results/live-1320

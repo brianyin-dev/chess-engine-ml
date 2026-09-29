@@ -2,7 +2,7 @@ services:
   - type: web
     name: chess-engine-ml
     plan: free
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: off
     runtime: python
     buildCommand: pip install -r requirements-engine.txt && python books/install_gm2001.py
     startCommand: gunicorn --workers 1 --threads 2 --timeout 30 --bind 0.0.0.0:$PORT backend.app:app
