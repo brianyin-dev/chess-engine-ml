@@ -21,9 +21,6 @@
       <button id="reset-board" class="reset-button" type="button">New game</button>
       <p id="game-status" class="game-status" role="status" aria-live="polite">Your move as White.</p>
       <button id="retry-engine" class="reset-button" type="button" hidden>Retry engine move</button>
-      <div class="history-header"><h2>Moves</h2><span id="move-count">0 moves</span></div>
-      <ol id="move-history" class="move-history" aria-label="Move history"></ol>
-      <p class="help">Select a piece, then a highlighted square. Pawns promote to a queen.</p>
     </section>
     <section class="board-shell" aria-label="Chess game">
     <div class="board-frame">
@@ -33,6 +30,10 @@
       </div>
       <div id="file-labels-bottom" class="axis axis-files axis-files-bottom"></div>
     </div>
+    </section>
+    <section class="move-panel" aria-label="Game moves">
+      <div class="history-header"><h2>Moves</h2><span id="move-count">0 moves</span></div>
+      <ol id="move-history" class="move-history" aria-label="Move history"></ol>
     </section>
   </main>
 
