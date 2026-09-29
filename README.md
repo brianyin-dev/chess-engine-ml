@@ -202,44 +202,37 @@ To profile without mixing instrumentation overhead into benchmark timings:
 
 ## Experimental neural evaluation
 
-The `ml/` pipeline generates positions from local Stockfish self-play, labels them
-with Stockfish analysis, splits by source game, trains a 782-feature MLP to correct
-the classical evaluator, and compares it in the same search under equal move-time
-budgets. Features cover piece placement, side to move, castling rights, legal en
-passant, and the halfmove clock. The adapter returns White-perspective centipawns;
-legal moves, checkmate, and draws remain rules handled by the search. NumPy runs the
-small network at inference time; PyTorch is used for training and checkpoint loading.
+The `ml/` pipeline generates positions from local Stockfish self-play starting
+from varied book openings, labels them with Stockfish analysis, splits by source
+game, and trains either a residual correction to the heuristic or a full-score
+782-feature MLP. A second generator adds labeled legal-move deviations to expose
+the model to weaker play. Features cover piece placement, side to move, castling
+rights, legal en passant, and the halfmove clock. NumPy runs inference; PyTorch
+trains and loads checkpoints. Legal moves, checkmate, and draws remain search rules.
 
-The generated dataset contains 8,259 positions from 640 games (6,598 training, 832
-validation, 829 test). On the held-out test games, mean absolute error against
-Stockfish depth-eight labels was **115.1 centipawns** with the neural correction,
-versus **128.5** with the heuristic alone. This measures agreement with a shallow
-Stockfish label, not game strength. A four-opening paired match at 250 ms per move
-scored 1 win, 1 draw, 4 losses, and 2 unfinished for the NN. The first PyTorch
-inference run searched a median 2,636 nodes per NN move versus 5,956 for the
-heuristic; a faster NumPy inference run reached 3,983 versus 6,087 and got the same
-game score. See `ml/artifacts/paired-v2-250ms/report.json` and
-`ml/artifacts/paired-v2-numpy-250ms/report.json`. Search trees and game paths differ
-between runs, so this is an observed performance comparison, not a fixed-position
-speedup claim. The NN is optional and is not used by the browser app. These small,
-time-limited games are not an Elo estimate.
+The latest 1,000-game dataset contains 23,542 positions, including later-game and
+low-material positions. Adding legal-move deviations yields 32,918 positions.
+Both new model types predict held-out Stockfish depth-ten scores more accurately
+than the heuristic, but neither beat it in 250 ms local paired matches. The faster
+full-score NN and the residual NN each lost all eight completed games on the
+diagnostic openings after training on the expanded dataset. The browser app
+therefore keeps the classical evaluator. See [the ML experiment report](ml/RESULTS.md)
+for data provenance, prediction metrics, timing, PGNs, and match limitations.
 
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
 ```bash
-.venv/bin/python -m ml.generate_data --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --opening-book books/gm2001.bin --games 640 --seed 113 --output ml/data/another-run
-.venv/bin/python -m ml.train --data ml/data/another-run --seed 113 --checkpoint ml/artifacts/another-run.pt --metrics ml/artifacts/another-run-metrics.json
+.venv/bin/python -m ml.generate_data --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --opening-book books/gm2001.bin --games 1000 --plies 112 --sample-every 4 --label-depth 10 --play-ms 10 --seed 227 --output ml/data/another-run
+.venv/bin/python -m ml.augment_data --data ml/data/another-run --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --fraction 0.4 --label-depth 10 --seed 229 --output ml/data/another-run-deviations
+.venv/bin/python -m ml.train --data ml/data/another-run-deviations --target residual --seed 229 --checkpoint ml/artifacts/another-run.pt --metrics ml/artifacts/another-run-metrics.json
 .venv/bin/python -m ml.compare --checkpoint ml/artifacts/another-run.pt --pairs 4 --time-ms 250 --output ml/artifacts/another-run-match
 ```
 
-`ml/data/stockfish-selfplay-v2-2026/manifest.json` records the source engine hash
-and generation settings. Stockfish's time-limited self-play is hardware-dependent,
-so the checked-in JSONL data, checkpoint, and reports are the exact experiment.
-That existing dataset used six uniformly random opening plies. New runs use
-weighted moves from the local Polyglot book for up to ten plies, then Stockfish
-self-play. This changes future training data; the existing model and match results
-still describe the original dataset.
+Manifests record binary hashes and generation settings. Time-limited Stockfish
+self-play depends on hardware, so the checked-in data, checkpoints, and reports
+identify the exact experiments. The earlier 8,259-position, depth-eight experiment
+is preserved separately under `ml/data/stockfish-selfplay-v2-2026`.
 
 ## Automated paired matches
 

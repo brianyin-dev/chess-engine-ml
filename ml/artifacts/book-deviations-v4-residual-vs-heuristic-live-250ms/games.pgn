@@ -1,0 +1,120 @@
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "1.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "QGD Exchange setup"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Be7 4. Nf3 Nf6 5. Bg5 h6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Bxf6 { current: depth 3, 0.2500s } 6... Bxf6 { classical: depth 3, 0.2504s } 7. Rg1 { current: depth 3, 0.2501s } 7... Nc6 { classical: depth 3, 0.2504s } 8. c5 { current: depth 3, 0.2501s } 8... O-O { classical: depth 3, 0.2504s } 9. e3 { current: depth 2, 0.2501s } 9... Bd7 { classical: depth 3, 0.2502s } 10. Bb5 { current: depth 3, 0.2500s } 10... Nb4 { classical: depth 3, 0.2504s } 11. a4 { current: depth 3, 0.2500s } 11... Bxb5 { classical: depth 3, 0.2503s } 12. axb5 { current: depth 3, 0.2501s } 12... b6 { classical: depth 3, 0.2503s } 13. c6 { current: depth 3, 0.2500s } 13... Qd6 { classical: depth 3, 0.2503s } 14. h3 { current: depth 2, 0.2501s } 14... e5 { classical: depth 2, 0.2503s } 15. dxe5 { current: depth 3, 0.2501s } 15... Bxe5 { classical: depth 3, 0.2503s } 16. e4 { current: depth 3, 0.2501s } 16... d4 { classical: depth 3, 0.2503s } 17. Ne2 { current: depth 3, 0.2501s } 17... d3 { classical: depth 3, 0.2503s } 18. Nxe5 { current: depth 3, 0.2501s } 18... Qxe5 { classical: depth 3, 0.2503s } 19. Nc3 { current: depth 3, 0.2500s } 19... Nc2+ { classical: depth 2, 0.2504s } 20. Kd2 { current: depth 3, 0.2501s } 20... Nxa1 { classical: depth 2, 0.2503s } 21. Qxa1 { current: depth 3, 0.2501s } 21... Rfd8 { classical: depth 3, 0.2503s } 22. Nd5 { current: depth 3, 0.2501s } 22... Re8 { classical: depth 2, 0.2504s } 23. h4 { current: depth 2, 0.2500s } 23... Qxe4 { classical: depth 3, 0.2504s } 24. Nxc7 { current: depth 3, 0.2501s } 24... Qf4+ { classical: depth 3, 0.2504s } 25. Kc3 { current: depth 3, 0.2500s } 25... Qxc7 { classical: depth 3, 0.2503s } 26. Re1 { current: depth 3, 0.2501s } 26... Red8 { classical: depth 3, 0.2504s } 27. Qa3 { current: depth 2, 0.2501s } 27... d2 { classical: depth 3, 0.2504s } 28. Re7 { current: depth 3, 0.2500s } 28... Qf4 { classical: depth 3, 0.2503s } 29. Rd7 { current: depth 3, 0.2500s } 29... Rxd7 { classical: depth 3, 0.2503s } 30. cxd7 { current: depth 3, 0.2501s } 30... d1=Q { classical: depth 3, 0.2504s } 31. d8=Q+ { current: depth 3, 0.2500s } 31... Rxd8 { classical: depth 4, 0.2503s } 32. Qf8+ { current: depth 4, 0.1085s } 32... Kxf8 { classical: depth 3, 0.0256s } 33. b4 { current: depth 2, 0.0239s } 33... Qfd4# { classical: depth 1, 0.0139s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "1.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "QGD Exchange setup"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Be7 4. Nf3 Nf6 5. Bg5 h6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Bxf6 { classical: depth 3, 0.2504s } 6... Bxf6 { current: depth 3, 0.2501s } 7. e4 { classical: depth 3, 0.2504s } 7... dxe4 { current: depth 3, 0.2501s } 8. Nxe4 { classical: depth 3, 0.2504s } 8... e5 { current: depth 3, 0.2501s } 9. dxe5 { classical: depth 3, 0.2504s } 9... Bxe5 { current: depth 3, 0.2501s } 10. Qxd8+ { classical: depth 3, 0.2504s } 10... Kxd8 { current: depth 4, 0.2501s } 11. Nxe5 { classical: depth 3, 0.2504s } 11... f6 { current: depth 3, 0.2501s } 12. Nf7+ { classical: depth 4, 0.2506s } 12... Ke7 { current: depth 4, 0.2501s } 13. Nxh8 { classical: depth 4, 0.2506s } 13... Bf5 { current: depth 3, 0.2501s } 14. Ng3 { classical: depth 4, 0.2504s } 14... Bg4 { current: depth 3, 0.2501s } 15. Be2 { classical: depth 4, 0.2504s } 15... Be6 { current: depth 3, 0.2500s } 16. Ng6+ { classical: depth 3, 0.2507s } 16... Kf7 { current: depth 3, 0.2501s } 17. Nh8+ { classical: depth 3, 0.2507s } 17... Kg8 { current: depth 4, 0.2500s } 18. Ng6 { classical: depth 3, 0.2505s } 18... Bf7 { current: depth 3, 0.2501s } 19. Ne7+ { classical: depth 4, 0.2506s } 19... Kf8 { current: depth 4, 0.2500s } 20. Nd5 { classical: depth 3, 0.2505s } 20... Na6 { current: depth 3, 0.2500s } 21. Nf5 { classical: depth 3, 0.2505s } 21... Be6 { current: depth 3, 0.2501s } 22. Nd4 { classical: depth 3, 0.2505s } 22... Bg8 { current: depth 3, 0.2501s } 23. Kd2 { classical: depth 3, 0.2506s } 23... c5 { current: depth 3, 0.2501s } 24. Nf5 { classical: depth 3, 0.2504s } 24... Re8 { current: depth 3, 0.2500s } 25. Nd6 { classical: depth 2, 0.2504s } 25... Rd8 { current: depth 3, 0.2501s } 26. Nxb7 { classical: depth 3, 0.2504s } 26... Rb8 { current: depth 3, 0.2501s } 27. Nd6 { classical: depth 3, 0.2505s } 27... Rxb2+ { current: depth 3, 0.2501s } 28. Ke3 { classical: depth 4, 0.2504s } 28... f5 { current: depth 3, 0.2501s } 29. Rhb1 { classical: depth 3, 0.2504s } 29... Bxd5 { current: depth 4, 0.2500s } 30. Rxb2 { classical: depth 4, 0.2506s } 30... f4+ { current: depth 4, 0.2501s } 31. Kxf4 { classical: depth 4, 0.2504s } 31... Bxg2 { current: depth 4, 0.2500s } 32. Ne4 { classical: depth 3, 0.2504s } 32... Nc7 { current: depth 4, 0.2500s } 33. Nxc5 { classical: depth 3, 0.2505s } 33... g5+ { current: depth 3, 0.2500s } 34. Kg3 { classical: depth 4, 0.2504s } 34... Bc6 { current: depth 3, 0.2501s } 35. Re1 { classical: depth 3, 0.2505s } 35... Ne8 { current: depth 3, 0.2501s } 36. Bf3 { classical: depth 3, 0.2738s } 36... Bxf3 { current: depth 4, 0.2500s } 37. Ne6+ { classical: depth 3, 0.2505s } 37... Kg8 { current: depth 4, 0.2500s } 38. Kxf3 { classical: depth 3, 0.2505s } 38... g4+ { current: depth 4, 0.2500s } 39. Kxg4 { classical: depth 4, 0.2505s } 39... Nf6+ { current: depth 3, 0.2500s } 40. Kf5 { classical: depth 4, 0.2504s } 40... Ne8 { current: depth 3, 0.2500s } 41. Kg6 { classical: depth 4, 0.1881s } 41... a5 { current: depth 3, 0.0385s } 42. Rb8 { classical: depth 2, 0.0110s } 42... a4 { current: depth 1, 0.0006s } 43. Rxe8# { classical: depth 1, 0.0030s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "2.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "French Tarrasch sideline"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. Nd2 a6 4. Ngf3 c5 5. dxc5 Bxc5 { End of prescribed opening; both engines receive the same per-move budget. } 6. Nb3 { classical: depth 3, 0.2503s } 6... dxe4 { current: depth 3, 0.2501s } 7. Qxd8+ { classical: depth 3, 0.2504s } 7... Kxd8 { current: depth 4, 0.2500s } 8. Nxc5 { classical: depth 3, 0.2505s } 8... exf3 { current: depth 3, 0.2501s } 9. gxf3 { classical: depth 3, 0.2503s } 9... Nf6 { current: depth 3, 0.2500s } 10. Rg1 { classical: depth 3, 0.2503s } 10... b6 { current: depth 3, 0.2501s } 11. Ne4 { classical: depth 3, 0.2503s } 11... Nxe4 { current: depth 3, 0.2501s } 12. fxe4 { classical: depth 3, 0.2504s } 12... Rg8 { current: depth 3, 0.2501s } 13. Bg5+ { classical: depth 3, 0.2504s } 13... Kc7 { current: depth 3, 0.2500s } 14. Bf4+ { classical: depth 3, 0.2506s } 14... Kc6 { current: depth 3, 0.2501s } 15. Bg2 { classical: depth 3, 0.2503s } 15... Bb7 { current: depth 3, 0.2500s } 16. Rd1 { classical: depth 3, 0.2504s } 16... Kc5 { current: depth 3, 0.2500s } 17. Bd6+ { classical: depth 3, 0.2505s } 17... Kb5 { current: depth 3, 0.2501s } 18. c4+ { classical: depth 3, 0.2505s } 18... Ka4 { current: depth 3, 0.2501s } 19. Rd3 { classical: depth 3, 0.0803s } 19... Nd7 { current: depth 2, 0.0162s } 20. Ra3# { classical: depth 1, 0.0035s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "2.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "French Tarrasch sideline"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. Nd2 a6 4. Ngf3 c5 5. dxc5 Bxc5 { End of prescribed opening; both engines receive the same per-move budget. } 6. Nb3 { current: depth 3, 0.2501s } 6... Qb6 { classical: depth 2, 0.2504s } 7. Nxc5 { current: depth 3, 0.2500s } 7... Qxc5 { classical: depth 3, 0.2503s } 8. c3 { current: depth 3, 0.2500s } 8... dxe4 { classical: depth 3, 0.2503s } 9. Be3 { current: depth 3, 0.2501s } 9... Qd5 { classical: depth 3, 0.2503s } 10. Qxd5 { current: depth 3, 0.2500s } 10... exd5 { classical: depth 3, 0.2505s } 11. Ne5 { current: depth 3, 0.2500s } 11... f6 { classical: depth 3, 0.2505s } 12. Be2 { current: depth 3, 0.2501s } 12... fxe5 { classical: depth 3, 0.2505s } 13. O-O-O { current: depth 2, 0.2501s } 13... Nf6 { classical: depth 3, 0.2504s } 14. Bg5 { current: depth 3, 0.2501s } 14... Be6 { classical: depth 3, 0.2505s } 15. Bxf6 { current: depth 3, 0.2501s } 15... gxf6 { classical: depth 4, 0.2506s } 16. Rhg1 { current: depth 3, 0.2501s } 16... Nc6 { classical: depth 3, 0.2505s } 17. h3 { current: depth 3, 0.2501s } 17... d4 { classical: depth 3, 0.2505s } 18. cxd4 { current: depth 3, 0.2501s } 18... exd4 { classical: depth 3, 0.2504s } 19. Kb1 { current: depth 3, 0.2500s } 19... d3 { classical: depth 3, 0.2505s } 20. Bh5+ { current: depth 3, 0.2501s } 20... Ke7 { classical: depth 4, 0.2505s } 21. Rc1 { current: depth 3, 0.2501s } 21... d2 { classical: depth 3, 0.2504s } 22. Rc2 { current: depth 3, 0.2500s } 22... Rhd8 { classical: depth 3, 0.2503s } 23. Bd1 { current: depth 3, 0.2500s } 23... Rac8 { classical: depth 3, 0.2505s } 24. a4 { current: depth 3, 0.2500s } 24... Ne5 { classical: depth 3, 0.2505s } 25. a5 { current: depth 3, 0.2500s } 25... f5 { classical: depth 3, 0.2504s } 26. Rc3 { current: depth 3, 0.2500s } 26... Rxc3 { classical: depth 3, 0.2505s } 27. bxc3 { current: depth 4, 0.2501s } 27... Nc6 { classical: depth 3, 0.2504s } 28. g4 { current: depth 3, 0.2501s } 28... fxg4 { classical: depth 3, 0.2505s } 29. Ka1 { current: depth 3, 0.2501s } 29... gxh3 { classical: depth 3, 0.2506s } 30. Rg7+ { current: depth 4, 0.2501s } 30... Kd6 { classical: depth 4, 0.2520s } 31. Rxh7 { current: depth 3, 0.2501s } 31... Nxa5 { classical: depth 3, 0.2503s } 32. Kb1 { current: depth 3, 0.2501s } 32... e3 { classical: depth 3, 0.2506s } 33. Rh4 { current: depth 3, 0.2500s } 33... exf2 { classical: depth 3, 0.2505s } 34. Rf4 { current: depth 4, 0.2500s } 34... h2 { classical: depth 3, 0.2505s } 35. Rd4+ { current: depth 4, 0.2500s } 35... Ke7 { classical: depth 4, 0.2506s } 36. Rxd8 { current: depth 3, 0.2501s } 36... Kxd8 { classical: depth 3, 0.2504s } 37. Bf3 { current: depth 3, 0.2501s } 37... f1=Q+ { classical: depth 2, 0.2503s } 38. Kc2 { current: depth 3, 0.2501s } 38... Bb3+ { classical: depth 3, 0.2164s } 39. Kxd2 { current: depth 2, 0.0119s } 39... Nc4# { classical: depth 1, 0.0046s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "3.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "Sicilian Rossolimo"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 e6 4. O-O Nge7 5. c3 a6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Qa4 { current: depth 3, 0.2501s } 6... d5 { classical: depth 3, 0.2503s } 7. e5 { current: depth 3, 0.2501s } 7... Bd7 { classical: depth 4, 0.2505s } 8. Bxc6 { current: depth 3, 0.2501s } 8... Bxc6 { classical: depth 3, 0.2626s } 9. Qc2 { current: depth 3, 0.2500s } 9... d4 { classical: depth 3, 0.2503s } 10. Re1 { current: depth 3, 0.2501s } 10... d3 { classical: depth 3, 0.2504s } 11. Qb3 { current: depth 3, 0.2500s } 11... Bxf3 { classical: depth 3, 0.2506s } 12. gxf3 { current: depth 3, 0.2501s } 12... Qd5 { classical: depth 3, 0.2505s } 13. c4 { current: depth 3, 0.2501s } 13... Qxf3 { classical: depth 3, 0.2505s } 14. Nc3 { current: depth 3, 0.2501s } 14... Nf5 { classical: depth 3, 0.2504s } 15. Qa4+ { current: depth 3, 0.2501s } 15... Kd8 { classical: depth 4, 0.2504s } 16. b4 { current: depth 3, 0.2500s } 16... cxb4 { classical: depth 3, 0.2504s } 17. Ne4 { current: depth 3, 0.2501s } 17... Qg4+ { classical: depth 3, 0.2504s } 18. Ng3 { current: depth 4, 0.2501s } 18... Nxg3 { classical: depth 3, 0.2504s } 19. hxg3 { current: depth 3, 0.2501s } 19... Qxc4 { classical: depth 3, 0.2505s } 20. a3 { current: depth 3, 0.2501s } 20... Rc8 { classical: depth 3, 0.2504s } 21. Bb2 { current: depth 3, 0.2500s } 21... b3 { classical: depth 3, 0.2505s } 22. Qxc4 { current: depth 3, 0.2501s } 22... Rxc4 { classical: depth 4, 0.2505s } 23. Rac1 { current: depth 3, 0.2500s } 23... Rc2 { classical: depth 4, 0.2505s } 24. Bc3 { current: depth 3, 0.2500s } 24... Bxa3 { classical: depth 4, 0.2504s } 25. Ra1 { current: depth 4, 0.2500s } 25... Ra2 { classical: depth 3, 0.2503s } 26. Ba5+ { current: depth 3, 0.2501s } 26... Kd7 { classical: depth 4, 0.2504s } 27. Kh1 { current: depth 3, 0.2500s } 27... Rxa1 { classical: depth 3, 0.2506s } 28. Rxa1 { current: depth 4, 0.2500s } 28... b2 { classical: depth 4, 0.2506s } 29. Rg1 { current: depth 4, 0.2501s } 29... Kc6 { classical: depth 3, 0.2506s } 30. Bc3 { current: depth 3, 0.2501s } 30... Kd5 { classical: depth 3, 0.2504s } 31. Rb1 { current: depth 4, 0.2501s } 31... b5 { classical: depth 4, 0.2505s } 32. Bxb2 { current: depth 4, 0.2500s } 32... Bxb2 { classical: depth 4, 0.2505s } 33. Rxb2 { current: depth 4, 0.2501s } 33... Kxe5 { classical: depth 4, 0.2506s } 34. Rb1 { current: depth 4, 0.2501s } 34... Rc8 { classical: depth 4, 0.2506s } 35. Rg1 { current: depth 4, 0.2500s } 35... Rc2 { classical: depth 4, 0.2506s } 36. Rb1 { current: depth 4, 0.2500s } 36... Rxd2 { classical: depth 4, 0.2505s } 37. Re1+ { current: depth 4, 0.2500s } 37... Re2 { classical: depth 5, 0.2504s } 38. Rf1 { current: depth 4, 0.2501s } 38... d2 { classical: depth 4, 0.2504s } 39. Rg1 { current: depth 4, 0.2501s } 39... Rxf2 { classical: depth 3, 0.2506s } 40. Rd1 { current: depth 4, 0.2501s } 40... Re2 { classical: depth 5, 0.2506s } 41. Rxd2 { current: depth 5, 0.2500s } 41... Rxd2 { classical: depth 5, 0.2506s } 42. Kg1 { current: depth 5, 0.2501s } 42... b4 { classical: depth 4, 0.2506s } 43. Kf1 { current: depth 4, 0.2501s } 43... b3 { classical: depth 4, 0.2506s } 44. Ke1 { current: depth 5, 0.2500s } 44... Rd8 { classical: depth 4, 0.2505s } 45. Ke2 { current: depth 4, 0.2501s } 45... Ke4 { classical: depth 4, 0.2506s } 46. g4 { current: depth 4, 0.2501s } 46... b2 { classical: depth 4, 0.2506s } 47. Kf2 { current: depth 4, 0.2501s } 47... Kf4 { classical: depth 4, 0.2507s } 48. Kg2 { current: depth 4, 0.2501s } 48... b1=Q { classical: depth 4, 0.2507s } 49. Kh2 { current: depth 4, 0.1763s } 49... Kxg4 { classical: depth 3, 0.1105s } 50. Kg2 { current: depth 2, 0.0040s } 50... Rd2# { classical: depth 1, 0.0039s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "3.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Sicilian Rossolimo"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 e6 4. O-O Nge7 5. c3 a6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Bxc6 { classical: depth 3, 0.2504s } 6... Nxc6 { current: depth 4, 0.2500s } 7. d4 { classical: depth 3, 0.2504s } 7... Qa5 { current: depth 3, 0.2501s } 8. Bf4 { classical: depth 3, 0.2504s } 8... h6 { current: depth 3, 0.2500s } 9. d5 { classical: depth 2, 0.2505s } 9... exd5 { current: depth 3, 0.2500s } 10. exd5 { classical: depth 3, 0.2503s } 10... Ne7 { current: depth 3, 0.2501s } 11. Re1 { classical: depth 2, 0.2505s } 11... f6 { current: depth 2, 0.2500s } 12. d6 { classical: depth 3, 0.2504s } 12... c4 { current: depth 3, 0.2500s } 13. Qd4 { classical: depth 2, 0.2504s } 13... g6 { current: depth 2, 0.2501s } 14. Qxf6 { classical: depth 2, 0.2504s } 14... Rh7 { current: depth 2, 0.2501s } 15. Qxg6+ { classical: depth 1, 0.2503s } 15... Rf7 { current: depth 3, 0.2500s } 16. dxe7 { classical: depth 2, 0.2504s } 16... Bxe7 { current: depth 3, 0.2501s } 17. Ne5 { classical: depth 2, 0.2503s } 17... Qxe5 { current: depth 2, 0.2500s } 18. Rxe5 { classical: depth 3, 0.2505s } 18... b5 { current: depth 3, 0.2501s } 19. Rf5 { classical: depth 3, 0.2504s } 19... Bf6 { current: depth 3, 0.2500s } 20. Rxf6 { classical: depth 3, 0.2504s } 20... Bb7 { current: depth 3, 0.2500s } 21. Qxf7+ { classical: depth 3, 0.1605s } 21... Kd8 { current: depth 2, 0.0062s } 22. Qf8# { classical: depth 1, 0.0052s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "4.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Queen's Gambit Accepted"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 dxc4 3. Nf3 Nf6 4. e3 e6 5. Bxc4 a6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Nc3 { classical: depth 3, 0.2503s } 6... Bb4 { current: depth 3, 0.2502s } 7. a3 { classical: depth 3, 0.2504s } 7... Bxc3+ { current: depth 3, 0.2501s } 8. bxc3 { classical: depth 3, 0.2505s } 8... c5 { current: depth 3, 0.2501s } 9. dxc5 { classical: depth 3, 0.2504s } 9... Qa5 { current: depth 3, 0.2501s } 10. Qd4 { classical: depth 2, 0.2504s } 10... h6 { current: depth 2, 0.2500s } 11. Ne5 { classical: depth 2, 0.2503s } 11... Nc6 { current: depth 2, 0.2501s } 12. Nxc6 { classical: depth 3, 0.2504s } 12... bxc6 { current: depth 3, 0.2501s } 13. Rb1 { classical: depth 2, 0.2504s } 13... Nh7 { current: depth 2, 0.2501s } 14. Qxg7 { classical: depth 3, 0.2503s } 14... Rf8 { current: depth 3, 0.2501s } 15. Qd4 { classical: depth 2, 0.2503s } 15... Rg8 { current: depth 3, 0.2500s } 16. Rb6 { classical: depth 2, 0.2504s } 16... Ng5 { current: depth 2, 0.2501s } 17. Rxc6 { classical: depth 2, 0.2504s } 17... Bd7 { current: depth 3, 0.2501s } 18. Rd6 { classical: depth 2, 0.2503s } 18... Qa4 { current: depth 2, 0.2501s } 19. e4 { classical: depth 1, 0.2504s } 19... a5 { current: depth 2, 0.2501s } 20. Bf4 { classical: depth 1, 0.2503s } 20... Kf8 { current: depth 2, 0.2501s } 21. Rxd7 { classical: depth 2, 0.2504s } 21... Qxd7 { current: depth 2, 0.2501s } 22. Qxd7 { classical: depth 3, 0.2504s } 22... Nf3+ { current: depth 2, 0.2501s } 23. gxf3 { classical: depth 4, 0.2505s } 23... Rg6 { current: depth 3, 0.2501s } 24. c6 { classical: depth 2, 0.2504s } 24... Rf6 { current: depth 3, 0.2500s } 25. Rg1 { classical: depth 3, 0.2504s } 25... Rxf4 { current: depth 3, 0.2500s } 26. Qd6+ { classical: depth 3, 0.0628s } 26... Ke8 { current: depth 2, 0.0050s } 27. Rg8# { classical: depth 1, 0.0048s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "4.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "Queen's Gambit Accepted"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. d4 d5 2. c4 dxc4 3. Nf3 Nf6 4. e3 e6 5. Bxc4 a6 { End of prescribed opening; both engines receive the same per-move budget. } 6. Rg1 { current: depth 3, 0.2501s } 6... b5 { classical: depth 3, 0.2504s } 7. Be2 { current: depth 3, 0.2501s } 7... Nc6 { classical: depth 3, 0.2503s } 8. Ne5 { current: depth 3, 0.2500s } 8... Qd6 { classical: depth 3, 0.2505s } 9. Nc3 { current: depth 3, 0.2501s } 9... Nxe5 { classical: depth 3, 0.2505s } 10. dxe5 { current: depth 2, 0.2500s } 10... Qxe5 { classical: depth 3, 0.2505s } 11. Bf3 { current: depth 3, 0.2500s } 11... Qxh2 { classical: depth 3, 0.2505s } 12. Kf1 { current: depth 3, 0.2500s } 12... Rb8 { classical: depth 3, 0.2505s } 13. Bc6+ { current: depth 2, 0.2500s } 13... Bd7 { classical: depth 3, 0.2504s } 14. Qf3 { current: depth 3, 0.2501s } 14... Bc5 { classical: depth 2, 0.2503s } 15. Bxd7+ { current: depth 2, 0.2501s } 15... Kxd7 { classical: depth 3, 0.2504s } 16. Qd1+ { current: depth 2, 0.2501s } 16... Kc8 { classical: depth 3, 0.2504s } 17. f4 { current: depth 2, 0.2500s } 17... b4 { classical: depth 2, 0.2505s } 18. Ne2 { current: depth 3, 0.2501s } 18... Rd8 { classical: depth 3, 0.2503s } 19. Qc2 { current: depth 2, 0.2500s } 19... Qh5 { classical: depth 2, 0.2504s } 20. f5 { current: depth 3, 0.2500s } 20... Qxf5+ { classical: depth 3, 0.2504s } 21. Qxf5 { current: depth 4, 0.2501s } 21... exf5 { classical: depth 3, 0.2505s } 22. Nd4 { current: depth 3, 0.2501s } 22... Bxd4 { classical: depth 3, 0.2505s } 23. exd4 { current: depth 4, 0.2501s } 23... Rxd4 { classical: depth 3, 0.2505s } 24. Bg5 { current: depth 3, 0.2501s } 24... Kd7 { classical: depth 3, 0.2506s } 25. Bxf6 { current: depth 3, 0.2501s } 25... Rf4+ { classical: depth 4, 0.2506s } 26. Ke2 { current: depth 5, 0.2501s } 26... Re4+ { classical: depth 4, 0.2506s } 27. Kf3 { current: depth 4, 0.2500s } 27... gxf6 { classical: depth 3, 0.2675s } 28. Rh1 { current: depth 3, 0.2500s } 28... Rh8 { classical: depth 3, 0.2504s } 29. Rac1 { current: depth 3, 0.2501s } 29... Rd4 { classical: depth 3, 0.2506s } 30. Rcd1 { current: depth 4, 0.2500s } 30... c5 { classical: depth 4, 0.2505s } 31. Rhg1 { current: depth 3, 0.2501s } 31... Kd6 { classical: depth 3, 0.2505s } 32. Rxd4+ { current: depth 4, 0.2500s } 32... cxd4 { classical: depth 5, 0.2506s } 33. Kf4 { current: depth 4, 0.2501s } 33... Re8 { classical: depth 4, 0.2506s } 34. Kxf5 { current: depth 4, 0.2501s } 34... Re2 { classical: depth 4, 0.2507s } 35. Kxf6 { current: depth 4, 0.2501s } 35... Rxb2 { classical: depth 4, 0.2506s } 36. Kxf7 { current: depth 4, 0.2501s } 36... Rxa2 { classical: depth 4, 0.2505s } 37. Kg7 { current: depth 4, 0.2500s } 37... d3 { classical: depth 4, 0.2506s } 38. Kxh7 { current: depth 4, 0.2500s } 38... Rf2 { classical: depth 4, 0.2506s } 39. Kg7 { current: depth 4, 0.2500s } 39... d2 { classical: depth 4, 0.2505s } 40. Kg6 { current: depth 3, 0.2501s } 40... Rxg2+ { classical: depth 4, 0.2505s } 41. Rxg2 { current: depth 5, 0.2500s } 41... d1=Q { classical: depth 5, 0.2506s } 42. Kg7 { current: depth 3, 0.2500s } 42... Qd4+ { classical: depth 4, 0.2507s } 43. Kh7 { current: depth 4, 0.2501s } 43... Qe4+ { classical: depth 4, 0.2506s } 44. Rg6+ { current: depth 5, 0.2500s } 44... Ke5 { classical: depth 4, 0.2507s } 45. Kh6 { current: depth 4, 0.2500s } 45... Qf4+ { classical: depth 4, 0.2506s } 46. Kh7 { current: depth 4, 0.2500s } 46... a5 { classical: depth 4, 0.2506s } 47. Kg8 { current: depth 4, 0.2500s } 47... b3 { classical: depth 4, 0.2506s } 48. Rg2 { current: depth 3, 0.2500s } 48... Kd4 { classical: depth 4, 0.2507s } 49. Kg7 { current: depth 3, 0.2501s } 49... Kc3 { classical: depth 4, 0.2507s } 50. Rg6 { current: depth 4, 0.2500s } 50... b2 { classical: depth 4, 0.2507s } 51. Rc6+ { current: depth 4, 0.2501s } 51... Kd4 { classical: depth 5, 0.2505s } 52. Rb6 { current: depth 4, 0.2500s } 52... Qc7+ { classical: depth 4, 0.2506s } 53. Kh6 { current: depth 4, 0.2607s } 53... Qxb6+ { classical: depth 4, 0.2507s } 54. Kg7 { current: depth 4, 0.2501s } 54... a4 { classical: depth 4, 0.2507s } 55. Kg8 { current: depth 4, 0.2500s } 55... a3 { classical: depth 4, 0.2507s } 56. Kf8 { current: depth 4, 0.2500s } 56... a2 { classical: depth 4, 0.2506s } 57. Ke8 { current: depth 3, 0.2500s } 57... b1=Q { classical: depth 3, 0.2506s } 58. Kf7 { current: depth 3, 0.2501s } 58... Qh7+ { classical: depth 3, 0.2118s } 59. Ke8 { current: depth 2, 0.0139s } 59... Qb8# { classical: depth 1, 0.0058s } 0-1
+

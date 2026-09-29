@@ -18,6 +18,9 @@ class NeuralEvaluator:
         if (saved.get("version") != MODEL_VERSION or saved.get("input_size") != INPUT_SIZE
                 or saved.get("score_scale") != SCORE_SCALE):
             raise ValueError("checkpoint is incompatible with this evaluator")
+        self.target_mode = saved.get("target_mode", "residual")
+        if self.target_mode not in ("residual", "absolute"):
+            raise ValueError("checkpoint has an unknown target mode")
         self.model = ChessNet()
         self.model.load_state_dict(saved["state_dict"])
         self.model.eval()
@@ -31,5 +34,5 @@ class NeuralEvaluator:
         for weight, bias in zip(self.weights[:-1], self.biases[:-1]):
             x = np.maximum(weight @ x + bias, 0)
         correction = float((self.weights[-1] @ x + self.biases[-1])[0])
-        score = evaluate(board) + correction * SCORE_SCALE
+        score = (evaluate(board) if self.target_mode == "residual" else 0) + correction * SCORE_SCALE
         return round(score)

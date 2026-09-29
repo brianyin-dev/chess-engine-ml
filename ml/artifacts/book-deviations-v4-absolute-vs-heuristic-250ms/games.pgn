@@ -1,0 +1,120 @@
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "1.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "Ruy Lopez"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 { End of prescribed opening; both engines receive the same per-move budget. } 6. Kh1 { current: depth 3, 0.2501s } 6... b5 { classical: depth 3, 0.2504s } 7. c3 { current: depth 3, 0.2500s } 7... bxa4 { classical: depth 3, 0.2503s } 8. b3 { current: depth 3, 0.2500s } 8... Nxe4 { classical: depth 2, 0.2503s } 9. g4 { current: depth 3, 0.2500s } 9... d5 { classical: depth 2, 0.2503s } 10. Rg1 { current: depth 3, 0.2500s } 10... Nxf2+ { classical: depth 3, 0.2504s } 11. Kg2 { current: depth 4, 0.2500s } 11... Nxd1 { classical: depth 3, 0.2504s } 12. Kf1 { current: depth 3, 0.2500s } 12... Bc5 { classical: depth 3, 0.2505s } 13. Ke2 { current: depth 3, 0.2500s } 13... Bxg1 { classical: depth 3, 0.2504s } 14. bxa4 { current: depth 3, 0.2500s } 14... Bxg4 { classical: depth 3, 0.2504s } 15. a5 { current: depth 3, 0.2500s } 15... Qh4 { classical: depth 3, 0.2503s } 16. Kd3 { current: depth 3, 0.2501s } 16... Bxf3 { classical: depth 3, 0.2503s } 17. Kc2 { current: depth 3, 0.2500s } 17... Qxh2 { classical: depth 2, 0.2503s } 18. a4 { current: depth 3, 0.2500s } 18... Rb8 { classical: depth 2, 0.2504s } 19. Ra3 { current: depth 3, 0.2500s } 19... Ne3+ { classical: depth 2, 0.2503s } 20. Kd3 { current: depth 2, 0.0031s } 20... Be4# { classical: depth 1, 0.0063s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "1.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Ruy Lopez"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 { End of prescribed opening; both engines receive the same per-move budget. } 6. Nc3 { classical: depth 3, 0.2504s } 6... Nxe4 { current: depth 3, 0.2501s } 7. Nxe4 { classical: depth 3, 0.2504s } 7... Nd4 { current: depth 3, 0.2500s } 8. Nxe5 { classical: depth 3, 0.2505s } 8... Bh4 { current: depth 3, 0.2501s } 9. d3 { classical: depth 2, 0.2503s } 9... Ne2+ { current: depth 3, 0.2500s } 10. Qxe2 { classical: depth 3, 0.2503s } 10... c6 { current: depth 3, 0.2500s } 11. Nd6+ { classical: depth 2, 0.2502s } 11... Kf8 { current: depth 4, 0.2500s } 12. Ndxf7 { classical: depth 3, 0.2503s } 12... Qg5 { current: depth 3, 0.2500s } 13. Bxg5 { classical: depth 3, 0.2503s } 13... Bxg5 { current: depth 4, 0.2501s } 14. Nxh8 { classical: depth 3, 0.2503s } 14... Bh6 { current: depth 4, 0.2500s } 15. Qf3+ { classical: depth 3, 0.2503s } 15... Kg8 { current: depth 3, 0.2500s } 16. Qf7+ { classical: depth 3, 0.1489s } 16... Kxh8 { current: depth 2, 0.0026s } 17. Qf8# { classical: depth 1, 0.0048s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "2.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "French Advance"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { classical: depth 3, 0.2503s } 5... Qh4 { current: depth 3, 0.2500s } 6. Nxh4 { classical: depth 3, 0.2504s } 6... cxd4 { current: depth 3, 0.2500s } 7. cxd4 { classical: depth 3, 0.2505s } 7... Bb4+ { current: depth 4, 0.2500s } 8. Nc3 { classical: depth 4, 0.2504s } 8... a6 { current: depth 3, 0.2500s } 9. Nf3 { classical: depth 3, 0.2502s } 9... f5 { current: depth 3, 0.2501s } 10. Bd3 { classical: depth 2, 0.2504s } 10... b6 { current: depth 3, 0.2500s } 11. Bg5 { classical: depth 2, 0.2504s } 11... Bb7 { current: depth 3, 0.2501s } 12. a3 { classical: depth 3, 0.2504s } 12... Rc8 { current: depth 3, 0.2500s } 13. axb4 { classical: depth 3, 0.2504s } 13... Nxe5 { current: depth 3, 0.2500s } 14. Nxe5 { classical: depth 3, 0.2504s } 14... Rc4 { current: depth 3, 0.2501s } 15. Nxc4 { classical: depth 2, 0.2504s } 15... Nf6 { current: depth 3, 0.2501s } 16. Nd6+ { classical: depth 3, 0.2505s } 16... Kf8 { current: depth 3, 0.2501s } 17. Nxb7 { classical: depth 3, 0.2504s } 17... e5 { current: depth 3, 0.2501s } 18. dxe5 { classical: depth 3, 0.2504s } 18... d4 { current: depth 3, 0.2500s } 19. exf6 { classical: depth 3, 0.2503s } 19... h6 { current: depth 3, 0.2500s } 20. fxg7+ { classical: depth 2, 0.2504s } 20... Kxg7 { current: depth 3, 0.2500s } 21. Bd2 { classical: depth 2, 0.2504s } 21... Re8+ { current: depth 4, 0.2500s } 22. Ne2 { classical: depth 3, 0.2504s } 22... Kh8 { current: depth 3, 0.2500s } 23. Rxa6 { classical: depth 3, 0.2504s } 23... Kh7 { current: depth 4, 0.2500s } 24. Nd6 { classical: depth 3, 0.2505s } 24... Re6 { current: depth 3, 0.2501s } 25. Bxf5+ { classical: depth 3, 0.2505s } 25... Kg7 { current: depth 4, 0.2500s } 26. Bxe6 { classical: depth 3, 0.2504s } 26... Kf6 { current: depth 3, 0.2500s } 27. Nxd4 { classical: depth 2, 0.2503s } 27... Kg7 { current: depth 3, 0.2500s } 28. Rxb6 { classical: depth 3, 0.2504s } 28... Kf6 { current: depth 3, 0.2500s } 29. Qh5 { classical: depth 3, 0.1804s } 29... Ke7 { current: depth 2, 0.0050s } 30. Qh4+ { classical: depth 1, 0.0074s } 30... Kf8 { current: depth 1, 0.0003s } 31. Bxh6# { classical: depth 1, 0.0057s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "2.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "French Advance"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { current: depth 3, 0.2500s } 5... cxd4 { classical: depth 2, 0.2505s } 6. Rg1 { current: depth 2, 0.2500s } 6... Qa5 { classical: depth 3, 0.2504s } 7. g4 { current: depth 3, 0.2500s } 7... Bc5 { classical: depth 2, 0.2503s } 8. Rg3 { current: depth 3, 0.2500s } 8... Nge7 { classical: depth 2, 0.2503s } 9. Qd2 { current: depth 2, 0.2500s } 9... Qb6 { classical: depth 2, 0.2503s } 10. Qg5 { current: depth 3, 0.2501s } 10... dxc3 { classical: depth 2, 0.2502s } 11. Be3 { current: depth 3, 0.2500s } 11... cxb2 { classical: depth 3, 0.2503s } 12. Nfd2 { current: depth 3, 0.2500s } 12... bxa1=Q { classical: depth 2, 0.2503s } 13. Qh4 { current: depth 3, 0.2500s } 13... Qxe5 { classical: depth 1, 0.2503s } 14. Qxe7+ { current: depth 2, 0.2500s } 14... Kxe7 { classical: depth 3, 0.2502s } 15. Rf3 { current: depth 3, 0.2500s } 15... d4 { classical: depth 2, 0.2502s } 16. a4 { current: depth 3, 0.2500s } 16... dxe3 { classical: depth 3, 0.2504s } 17. fxe3 { current: depth 4, 0.2500s } 17... Bxe3 { classical: depth 2, 0.2502s } 18. Rxe3 { current: depth 3, 0.2500s } 18... Qbxe3+ { classical: depth 3, 0.2503s } 19. Kd1 { current: depth 3, 0.2500s } 19... Q3f4 { classical: depth 2, 0.2503s } 20. Bb5 { current: depth 2, 0.2501s } 20... Qxg4+ { classical: depth 2, 0.2502s } 21. Nf3 { current: depth 3, 0.2500s } 21... Qxf3+ { classical: depth 2, 0.2502s } 22. Kd2 { current: depth 3, 0.2501s } 22... Qb2+ { classical: depth 2, 0.2503s } 23. Ke1 { current: depth 2, 0.0059s } 23... Qbf2# { classical: depth 1, 0.0094s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "3.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "Caro-Kann Classical"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 { End of prescribed opening; both engines receive the same per-move budget. } 5. Ke2 { current: depth 3, 0.2500s } 5... Bxe4 { classical: depth 3, 0.2504s } 6. c3 { current: depth 3, 0.2501s } 6... Nf6 { classical: depth 3, 0.2505s } 7. Nf3 { current: depth 3, 0.2500s } 7... Qb6 { classical: depth 3, 0.2506s } 8. g4 { current: depth 3, 0.2500s } 8... Nxg4 { classical: depth 2, 0.2502s } 9. Ke1 { current: depth 2, 0.2501s } 9... Nd7 { classical: depth 2, 0.2505s } 10. Qb3 { current: depth 3, 0.2500s } 10... Bxf3 { classical: depth 3, 0.2504s } 11. Qxf7+ { current: depth 3, 0.2500s } 11... Kxf7 { classical: depth 4, 0.2504s } 12. Bc4+ { current: depth 4, 0.2500s } 12... e6 { classical: depth 3, 0.2504s } 13. Bxe6+ { current: depth 3, 0.2500s } 13... Kxe6 { classical: depth 4, 0.2505s } 14. Be3 { current: depth 3, 0.2500s } 14... Nxe3 { classical: depth 3, 0.2503s } 15. fxe3 { current: depth 4, 0.2500s } 15... Bxh1 { classical: depth 3, 0.2503s } 16. b3 { current: depth 3, 0.2500s } 16... Bd6 { classical: depth 3, 0.2504s } 17. Kd2 { current: depth 3, 0.2500s } 17... Be4 { classical: depth 3, 0.2504s } 18. a4 { current: depth 3, 0.2500s } 18... Qxb3 { classical: depth 3, 0.2504s } 19. Ra3 { current: depth 4, 0.2500s } 19... Qxa3 { classical: depth 3, 0.2504s } 20. a5 { current: depth 4, 0.2500s } 20... Qb2+ { classical: depth 3, 0.2505s } 21. Ke1 { current: depth 4, 0.2501s } 21... Qxc3+ { classical: depth 2, 0.2504s } 22. Ke2 { current: depth 4, 0.2500s } 22... Bxh2 { classical: depth 2, 0.2503s } 23. d5+ { current: depth 4, 0.2500s } 23... cxd5 { classical: depth 4, 0.2503s } 24. a6 { current: depth 3, 0.2500s } 24... Bg3 { classical: depth 3, 0.2003s } 25. axb7 { current: depth 2, 0.0064s } 25... Qd3# { classical: depth 1, 0.0063s } 0-1
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "3.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Caro-Kann Classical"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 { End of prescribed opening; both engines receive the same per-move budget. } 5. Qf3 { classical: depth 3, 0.2503s } 5... Qa5+ { current: depth 4, 0.2500s } 6. Bd2 { classical: depth 3, 0.2505s } 6... Qe5 { current: depth 3, 0.2500s } 7. dxe5 { classical: depth 3, 0.2505s } 7... a6 { current: depth 3, 0.2501s } 8. Qxf5 { classical: depth 3, 0.2505s } 8... f6 { current: depth 3, 0.2501s } 9. Qc8+ { classical: depth 2, 0.2504s } 9... Kf7 { current: depth 3, 0.2500s } 10. Qxb7 { classical: depth 2, 0.2505s } 10... fxe5 { current: depth 3, 0.2500s } 11. Qxa8 { classical: depth 2, 0.2504s } 11... Nf6 { current: depth 3, 0.2502s } 12. Bc4+ { classical: depth 3, 0.2503s } 12... Kg6 { current: depth 2, 0.2500s } 13. Nxf6 { classical: depth 3, 0.2506s } 13... gxf6 { current: depth 3, 0.2501s } 14. Qxb8 { classical: depth 3, 0.2505s } 14... Bh6 { current: depth 4, 0.2501s } 15. Qxh8 { classical: depth 3, 0.2506s } 15... Kf5 { current: depth 3, 0.2504s } 16. Qxh7+ { classical: depth 3, 0.2116s } 16... Kg4 { current: depth 2, 0.0139s } 17. Be2+ { classical: depth 1, 0.0161s } 17... Kh4 { current: depth 1, 0.0005s } 18. Qxh6# { classical: depth 1, 0.0083s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "4.2"]
+[White "classical"]
+[Black "current"]
+[Result "1-0"]
+[Opening "Scandinavian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. d4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { classical: depth 3, 0.2503s } 5... c6 { current: depth 3, 0.2501s } 6. Bd3 { classical: depth 3, 0.2505s } 6... Bf5 { current: depth 3, 0.2501s } 7. Bxf5 { classical: depth 3, 0.2506s } 7... Nh5 { current: depth 3, 0.2500s } 8. Ne5 { classical: depth 3, 0.2506s } 8... e6 { current: depth 3, 0.2501s } 9. Qxh5 { classical: depth 3, 0.2504s } 9... g6 { current: depth 3, 0.2500s } 10. Nxg6 { classical: depth 3, 0.2505s } 10... Bh6 { current: depth 2, 0.2500s } 11. Nxh8 { classical: depth 3, 0.2504s } 11... Qe5+ { current: depth 3, 0.2500s } 12. dxe5 { classical: depth 4, 0.2506s } 12... a6 { current: depth 3, 0.2501s } 13. Qxf7+ { classical: depth 3, 0.2505s } 13... Kd8 { current: depth 3, 0.2501s } 14. Qxb7 { classical: depth 2, 0.2503s } 14... Ke8 { current: depth 3, 0.2500s } 15. Qc8+ { classical: depth 3, 0.2504s } 15... Ke7 { current: depth 4, 0.2084s } 16. Bxh6 { classical: depth 3, 0.2332s } 16... Nd7 { current: depth 2, 0.0147s } 17. Bg5+ { classical: depth 1, 0.0103s } 17... Nf6 { current: depth 1, 0.0024s } 18. Bxf6# { classical: depth 1, 0.0120s } 1-0
+
+[Event "Classical engine comparison"]
+[Site "Local"]
+[Date "2026.09.29"]
+[Round "4.1"]
+[White "current"]
+[Black "classical"]
+[Result "0-1"]
+[Opening "Scandinavian"]
+[TimeControl "?"]
+[MoveTimeMs "250"]
+[Termination "normal"]
+[TerminationDetail "checkmate"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 4. d4 Nf6 { End of prescribed opening; both engines receive the same per-move budget. } 5. Nf3 { current: depth 3, 0.2500s } 5... Nc6 { classical: depth 2, 0.2505s } 6. Bb5 { current: depth 3, 0.2501s } 6... Be6 { classical: depth 3, 0.2504s } 7. Be3 { current: depth 3, 0.2500s } 7... Ne4 { classical: depth 2, 0.2504s } 8. Rf1 { current: depth 3, 0.2500s } 8... Nxc3 { classical: depth 3, 0.2505s } 9. Qd2 { current: depth 3, 0.2500s } 9... Nxb5 { classical: depth 3, 0.2505s } 10. c3 { current: depth 3, 0.2500s } 10... Nd6 { classical: depth 2, 0.2504s } 11. g4 { current: depth 3, 0.2500s } 11... Bxg4 { classical: depth 3, 0.2504s } 12. Qc2 { current: depth 3, 0.2500s } 12... Bxf3 { classical: depth 3, 0.2505s } 13. Rg1 { current: depth 3, 0.2500s } 13... e5 { classical: depth 2, 0.2505s } 14. Rg5 { current: depth 3, 0.2501s } 14... Ne4 { classical: depth 2, 0.2503s } 15. Rxe5+ { current: depth 3, 0.2500s } 15... Nxe5 { classical: depth 3, 0.2504s } 16. dxe5 { current: depth 3, 0.2501s } 16... Qxe5 { classical: depth 2, 0.2507s } 17. Qa4+ { current: depth 3, 0.2501s } 17... b5 { classical: depth 3, 0.2505s } 18. Qd4 { current: depth 3, 0.2501s } 18... Qxh2 { classical: depth 3, 0.2504s } 19. Qd7+ { current: depth 4, 0.2500s } 19... Kxd7 { classical: depth 6, 0.2504s } 20. Rd1+ { current: depth 4, 0.2500s } 20... Ke6 { classical: depth 4, 0.2504s } 21. Rd6+ { current: depth 3, 0.2500s } 21... Bxd6 { classical: depth 3, 0.0373s } 22. a4 { current: depth 2, 0.0117s } 22... Qh1# { classical: depth 1, 0.0056s } 0-1
+

@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-09-29T22:30:33.066299+00:00",
+  "source": "existing book-started self-play positions plus random legal successors",
+  "parent_manifest_sha256": "e9c330f46642782eafb319324efb88ba6c941b61196c76908252956507ac0f00",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "config": {
+    "fraction": 0.4,
+    "label_depth": 10,
+    "seed": 229
+  },
+  "added": {
+    "train": 7471,
+    "val": 937,
+    "test": 968
+  },
+  "positions": {
+    "train": 26254,
+    "val": 3286,
+    "test": 3378
+  }
+}

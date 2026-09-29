@@ -2,6 +2,7 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import chess
 
@@ -20,6 +21,21 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_target_modes_encode_full_score_and_residual(self):
+        from engine.evaluation import evaluate
+        from ml.dataset import ChessEvalDataset
+        from ml.model import SCORE_SCALE
+
+        board = chess.Board()
+        board.push_uci("e2e4")
+        label = 75
+        row = {"game_id": 0, "fen": board.fen(), "score_cp": label}
+        absolute = ChessEvalDataset([row], "absolute")
+        residual = ChessEvalDataset([row], "residual")
+        self.assertAlmostEqual(absolute.targets[0].item() * SCORE_SCALE, label, places=4)
+        self.assertAlmostEqual(residual.targets[0].item() * SCORE_SCALE,
+                               label - evaluate(board), places=4)
+
     def test_encoder_includes_rule_state(self):
         from ml.model import board_to_tensor
 
@@ -51,6 +67,26 @@ class NeuralEvaluatorTests(unittest.TestCase):
                 for move in moves:
                     board.push_uci(move)
                 self.assertEqual(adapter(board), evaluate(board))
+
+    def test_absolute_mode_does_not_call_heuristic(self):
+        import torch
+
+        from ml.evaluator import NeuralEvaluator
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE
+
+        model = ChessNet()
+        for parameter in model.parameters():
+            parameter.data.zero_()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "absolute.pt"
+            torch.save({"version": MODEL_VERSION, "input_size": INPUT_SIZE,
+                        "score_scale": SCORE_SCALE, "target_mode": "absolute",
+                        "state_dict": model.state_dict()}, path)
+            adapter = NeuralEvaluator(path)
+            board = chess.Board()
+            board.push_uci("e2e4")
+            with patch("ml.evaluator.evaluate", side_effect=AssertionError("heuristic called")):
+                self.assertEqual(adapter(board), 0)
 
     def test_numpy_inference_matches_torch(self):
         import torch

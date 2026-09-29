@@ -24,13 +24,15 @@ def load_rows(path: str | Path) -> list[dict]:
 
 
 class ChessEvalDataset(Dataset):
-    """Precompute encodings once so training epochs do not repeatedly parse FENs."""
+    """Precompute encodings for residual or full-score training."""
 
-    def __init__(self, rows: list[dict]):
+    def __init__(self, rows: list[dict], target_mode: str = "residual"):
+        if target_mode not in ("residual", "absolute"):
+            raise ValueError("target_mode must be residual or absolute")
         boards = [chess.Board(row["fen"]) for row in rows]
         self.features = torch.stack([board_to_tensor(board) for board in boards])
         self.baselines = torch.tensor([evaluate(board) for board in boards], dtype=torch.float32)
-        self.targets = torch.tensor([(row["score_cp"] - base) / SCORE_SCALE
+        self.targets = torch.tensor([(row["score_cp"] - (base if target_mode == "residual" else 0)) / SCORE_SCALE
                                      for row, base in zip(rows, self.baselines.tolist())],
                                     dtype=torch.float32)
 

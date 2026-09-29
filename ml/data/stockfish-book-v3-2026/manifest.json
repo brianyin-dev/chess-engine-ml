@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-09-29T22:24:24.525309+00:00",
+  "source": "local Stockfish self-play from weighted Polyglot opening moves",
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "opening_book_sha256": "fb6e9f3f27bb19a5b2fdefcc441c88ddeae48db61d5f00ad83973abb9f939c87",
+  "config": {
+    "games": 1000,
+    "plies": 112,
+    "sample_every": 4,
+    "label_depth": 10,
+    "play_ms": 10.0,
+    "seed": 227,
+    "book_plies": 10
+  },
+  "positions": {
+    "train": 18783,
+    "val": 2349,
+    "test": 2410
+  },
+  "games_per_split": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  }
+}
