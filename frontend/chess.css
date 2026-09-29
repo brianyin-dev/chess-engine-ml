@@ -40,6 +40,9 @@ body {
   font-weight: 700;
 }
 
+.reset-button[hidden] { display: none; }
+#retry-engine { margin: 0 0 12px; }
+
 .app-shell {
   min-height: 100vh;
   display: grid;

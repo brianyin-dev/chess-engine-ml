@@ -9,6 +9,8 @@ from pathlib import Path
 import platform
 import sys
 from time import perf_counter
+from time import sleep
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 import chess
@@ -77,8 +79,17 @@ def remote_move(url, board, time_limit, depth_cap):
     payload.update({"depth": depth_cap, "time_ms": time_limit * 1000, "use_book": False})
     request = Request(url.rstrip("/") + "/move", data=json.dumps(payload).encode(),
                       headers={"Content-Type": "application/json"}, method="POST")
-    with urlopen(request, timeout=max(20, time_limit + 15)) as response:
-        data = json.load(response)
+    retries = 0
+    for attempt in range(3):
+        try:
+            with urlopen(request, timeout=max(20, time_limit + 15)) as response:
+                data = json.load(response)
+            break
+        except (TimeoutError, HTTPError) as exc:
+            if attempt == 2 or isinstance(exc, HTTPError) and exc.code not in (502, 503, 504):
+                raise
+            retries += 1
+            sleep(2)
     elapsed = perf_counter() - start
     stats = data["search"]
     return chess.Move.from_uci(data["move"]), {
@@ -87,7 +98,7 @@ def remote_move(url, board, time_limit, depth_cap):
         "server_elapsed": stats["elapsed_ms"] / 1000,
         "budget_seconds": time_limit, "overrun_seconds": max(0, elapsed - time_limit),
         "timed_out": stats["timed_out"], "stop_reason": stats["stop_reason"],
-        "tt_hits": stats["tt_hits"],
+        "tt_hits": stats["tt_hits"], "network_retries": retries,
     }
 
 

@@ -22,11 +22,12 @@ const MAX_BOOK_PLY = 20; // Ten full moves; search starts earlier when the book 
 const DIFFICULTY = {
   easy: { depth: 2, time_ms: 200, use_book: false },
   medium: { depth: 8, time_ms: 750, use_book: true },
-  hard: { depth: 8, time_ms: 1500, use_book: true },
+  hard: { depth: 8, time_ms: 3000, use_book: true },
 };
 
 const boardEl = document.getElementById("chessboard");
 const resetButton = document.getElementById("reset-board");
+const retryButton = document.getElementById("retry-engine");
 const colorSelect = document.getElementById("play-color");
 const difficultySelect = document.getElementById("difficulty");
 const statusEl = document.getElementById("game-status");
@@ -156,24 +157,33 @@ async function requestEngineMove() {
   const settings = DIFFICULTY[difficultySelect.value];
   requestController = new AbortController();
   engineThinking = true;
+  retryButton.hidden = true;
   setStatus("Engine thinking…");
   renderBoard();
 
   try {
-    const response = await fetch(`${API_BASE}/move`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: requestController.signal,
-      body: JSON.stringify({
-        moves: gameState.uciHistory,
-        depth: settings.depth,
-        time_ms: settings.time_ms,
-        use_book: USE_OPENING_BOOK && settings.use_book,
-        max_book_ply: MAX_BOOK_PLY,
-      }),
+    const body = JSON.stringify({
+      moves: gameState.uciHistory,
+      depth: settings.depth,
+      time_ms: settings.time_ms,
+      use_book: USE_OPENING_BOOK && settings.use_book,
+      max_book_ply: MAX_BOOK_PLY,
     });
-
-    const payload = await response.json();
+    let response;
+    let payload;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      response = await fetch(`${API_BASE}/move`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: requestController.signal,
+        body,
+      });
+      payload = await response.json();
+      if (response.status !== 503 || attempt === 2) break;
+      setStatus("Engine busy — waiting to retry…");
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (currentGame !== gameId) return;
+    }
     if (currentGame !== gameId) return;
     if (!response.ok) {
       if (payload.error !== "game over") throw new Error(payload.detail || payload.error || "Engine request failed.");
@@ -188,7 +198,8 @@ async function requestEngineMove() {
   } catch (error) {
     if (error.name !== "AbortError" && currentGame === gameId) {
       console.error(error);
-      setStatus(`Engine unavailable: ${error.message} Try a new game.`);
+      setStatus(`Engine unavailable: ${error.message} Retry this position.`);
+      retryButton.hidden = false;
     }
   } finally {
     if (currentGame === gameId) {
@@ -662,6 +673,7 @@ function resetBoard() {
   requestController = null;
   engineThinking = false;
   gameFinished = false;
+  retryButton.hidden = true;
   humanColor = colorSelect.value;
   gameState = createInitialState();
   clearSelection();
@@ -673,6 +685,7 @@ function resetBoard() {
 }
 
 resetButton.addEventListener("click", resetBoard);
+retryButton.addEventListener("click", () => { void requestEngineMove(); });
 colorSelect.addEventListener("change", resetBoard);
 difficultySelect.addEventListener("change", resetBoard);
 

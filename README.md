@@ -25,8 +25,9 @@ python3 -m venv .venv
 
 Open <http://127.0.0.1:5000>. Flask now serves both the board and API from one
 origin, matching production deployment. The separate port-8000 frontend workflow
-still works for development. Each engine move has a 1.5-second search budget and a maximum
-main-search depth of eight plies. Restart the backend and refresh the page after
+still works for development. The browser uses 200 ms on Easy, 750 ms on Medium,
+and 3 seconds on Hard, with a maximum main-search depth of eight plies. Restart
+the backend and refresh the page after
 updating the code. These are local development servers, not a production deployment.
 
 ## Deploy and share
@@ -439,3 +440,13 @@ development machine. It iterates piece bitmasks directly in the evaluator, avoid
 extra square-set objects. Moves, scores, and node counts were unchanged in the
 saved before/after reports. These timings are local microbenchmarks, not evidence
 of a specific gain on Render or a higher rating.
+
+The [live evaluation report](benchmarks/results/live-2026-09/RESULTS.md) records
+the final paired checkpoints: Render scored 2–6 against Stockfish's 1320 setting
+on four fresh openings, versus 7–1 locally on those same openings at 250 ms.
+Smaller Render checkpoints covered 1500 and 1800. Render searched a median of
+463 nodes per move in the 1320 games, versus 5,864 locally. These are limited
+engine settings, not human ratings; the deployed 250 ms configuration is not a
+reliable 1200-strength claim. Hard uses a longer 3-second budget, which reached
+roughly the laptop's 250 ms depth/node count in one sample position, but has not
+been rated by a full match.

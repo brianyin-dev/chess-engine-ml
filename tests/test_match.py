@@ -5,12 +5,13 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import chess
 import chess.pgn
 
 from benchmarks.legacy.search import best_move
-from benchmarks.match import choose_move, opening_board, play_game, summarize
+from benchmarks.match import choose_move, opening_board, play_game, remote_move, summarize
 
 
 def stats():
@@ -18,6 +19,22 @@ def stats():
 
 
 class MatchTests(unittest.TestCase):
+    def test_remote_retry_preserves_position(self):
+        board = chess.Board()
+        board.push_uci("e2e4")
+        before = board.fen(), list(board.move_stack)
+        reply = io.BytesIO(json.dumps({"move": "e7e5", "search": {
+            "depth": 1, "nodes": 50, "qnodes": 20, "score": 5,
+            "elapsed_ms": 250, "timed_out": True, "stop_reason": "time_limit",
+            "tt_hits": 0}}).encode())
+        with patch("benchmarks.match.urlopen", side_effect=[TimeoutError(), reply]) as fetch, \
+             patch("benchmarks.match.sleep"):
+            move, data = remote_move("https://example.org", board, .25, 8)
+        self.assertEqual(move.uci(), "e7e5")
+        self.assertEqual(data["network_retries"], 1)
+        self.assertEqual((board.fen(), board.move_stack), before)
+        self.assertEqual(fetch.call_args.args[0].full_url, "https://example.org/move")
+
     def test_cli_exports_and_preserves_existing_results(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'match'
