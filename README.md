@@ -228,7 +228,7 @@ To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
 ```bash
-.venv/bin/python -m ml.generate_data --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --games 640 --seed 113 --output ml/data/another-run
+.venv/bin/python -m ml.generate_data --stockfish tools/stockfish-sf19/stockfish/stockfish-macos-universal --opening-book books/gm2001.bin --games 640 --seed 113 --output ml/data/another-run
 .venv/bin/python -m ml.train --data ml/data/another-run --seed 113 --checkpoint ml/artifacts/another-run.pt --metrics ml/artifacts/another-run-metrics.json
 .venv/bin/python -m ml.compare --checkpoint ml/artifacts/another-run.pt --pairs 4 --time-ms 250 --output ml/artifacts/another-run-match
 ```
@@ -236,6 +236,10 @@ local Stockfish UCI binary. Each command writes to a new path to preserve result
 `ml/data/stockfish-selfplay-v2-2026/manifest.json` records the source engine hash
 and generation settings. Stockfish's time-limited self-play is hardware-dependent,
 so the checked-in JSONL data, checkpoint, and reports are the exact experiment.
+That existing dataset used six uniformly random opening plies. New runs use
+weighted moves from the local Polyglot book for up to ten plies, then Stockfish
+self-play. This changes future training data; the existing model and match results
+still describe the original dataset.
 
 ## Automated paired matches
 
