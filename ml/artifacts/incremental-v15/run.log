@@ -1,0 +1,152 @@
+tests
+----------------------------------------------------------------------
+Ran 99 tests in 5.764s
+
+OK
+freeze-openings
+{
+  "seed": 152500,
+  "pairs": 50,
+  "attempts": 81,
+  "excluded_labeled_position_aliases": 17540,
+  "book_sha256": "fb6e9f3f27bb19a5b2fdefcc441c88ddeae48db61d5f00ad83973abb9f939c87",
+  "openings_sha256": "bf4c1bc87ae0e1650216691755fe549f3ef1a48aef80ba5139a127322c922481",
+  "selection": "Weighted book sampling; 10/12/14/16 plies; unique FENs; exclude previous benchmark starts. No engine-score or game-result filtering. Each start is played with both colors; no book after the prefix."
+}
+vs-heuristic
+Game 1/20: Frozen book start 01, candidate as White
+  0-1 (checkmate, 74 plies)
+Game 2/20: Frozen book start 01, candidate as Black
+  0-1 (checkmate, 62 plies)
+Game 3/20: Frozen book start 02, candidate as Black
+  1/2-1/2 (seventyfive_moves, 276 plies)
+Game 4/20: Frozen book start 02, candidate as White
+  0-1 (checkmate, 78 plies)
+Game 5/20: Frozen book start 03, candidate as White
+  0-1 (checkmate, 112 plies)
+Game 6/20: Frozen book start 03, candidate as Black
+  1-0 (checkmate, 87 plies)
+Game 7/20: Frozen book start 04, candidate as Black
+  1-0 (checkmate, 75 plies)
+Game 8/20: Frozen book start 04, candidate as White
+  0-1 (checkmate, 86 plies)
+Game 9/20: Frozen book start 05, candidate as White
+  0-1 (checkmate, 58 plies)
+Game 10/20: Frozen book start 05, candidate as Black
+  1/2-1/2 (insufficient_material, 267 plies)
+Game 11/20: Frozen book start 06, candidate as Black
+  1-0 (checkmate, 169 plies)
+Game 12/20: Frozen book start 06, candidate as White
+  0-1 (checkmate, 104 plies)
+Game 13/20: Frozen book start 07, candidate as White
+  0-1 (checkmate, 76 plies)
+Game 14/20: Frozen book start 07, candidate as Black
+  1-0 (checkmate, 87 plies)
+Game 15/20: Frozen book start 08, candidate as Black
+  1-0 (checkmate, 145 plies)
+Game 16/20: Frozen book start 08, candidate as White
+  1-0 (checkmate, 151 plies)
+Game 17/20: Frozen book start 09, candidate as White
+  1-0 (checkmate, 49 plies)
+Game 18/20: Frozen book start 09, candidate as Black
+  1/2-1/2 (fivefold_repetition, 178 plies)
+Game 19/20: Frozen book start 10, candidate as Black
+  1-0 (checkmate, 135 plies)
+Game 20/20: Frozen book start 10, candidate as White
+  1-0 (checkmate, 57 plies)
+{
+  "games": 20,
+  "completed": 20,
+  "wins": 4,
+  "draws": 3,
+  "losses": 13,
+  "unfinished": 0,
+  "errors": 0,
+  "interrupted": 0,
+  "score_fraction_completed": 0.275,
+  "complete_pairs": 10,
+  "score_fraction_complete_pairs": 0.275,
+  "timing": {
+    "classical": {
+      "moves": 1165,
+      "mean_elapsed": 0.2428447647831131,
+      "max_overrun_seconds": 0.026146833028178662,
+      "fallback_moves": 0
+    },
+    "current": {
+      "moves": 1161,
+      "mean_elapsed": 0.24476567731331353,
+      "max_overrun_seconds": 0.030833916971459985,
+      "fallback_moves": 0
+    }
+  }
+}
+vs-reference-NN
+Game 1/20: Frozen book start 01, candidate as White
+  0-1 (checkmate, 62 plies)
+Game 2/20: Frozen book start 01, candidate as Black
+  0-1 (checkmate, 34 plies)
+Game 3/20: Frozen book start 02, candidate as Black
+  0-1 (checkmate, 94 plies)
+Game 4/20: Frozen book start 02, candidate as White
+  1-0 (checkmate, 91 plies)
+Game 5/20: Frozen book start 03, candidate as White
+  0-1 (checkmate, 112 plies)
+Game 6/20: Frozen book start 03, candidate as Black
+  0-1 (checkmate, 50 plies)
+Game 7/20: Frozen book start 04, candidate as Black
+  1-0 (checkmate, 163 plies)
+Game 8/20: Frozen book start 04, candidate as White
+  1-0 (checkmate, 131 plies)
+Game 9/20: Frozen book start 05, candidate as White
+  1-0 (checkmate, 119 plies)
+Game 10/20: Frozen book start 05, candidate as Black
+  0-1 (checkmate, 118 plies)
+Game 11/20: Frozen book start 06, candidate as Black
+  1-0 (checkmate, 155 plies)
+Game 12/20: Frozen book start 06, candidate as White
+  0-1 (checkmate, 166 plies)
+Game 13/20: Frozen book start 07, candidate as White
+  1-0 (checkmate, 129 plies)
+Game 14/20: Frozen book start 07, candidate as Black
+  1-0 (checkmate, 91 plies)
+Game 15/20: Frozen book start 08, candidate as Black
+  1-0 (checkmate, 59 plies)
+Game 16/20: Frozen book start 08, candidate as White
+  1-0 (checkmate, 161 plies)
+Game 17/20: Frozen book start 09, candidate as White
+  1-0 (checkmate, 117 plies)
+Game 18/20: Frozen book start 09, candidate as Black
+  1-0 (checkmate, 117 plies)
+Game 19/20: Frozen book start 10, candidate as Black
+  0-1 (checkmate, 104 plies)
+Game 20/20: Frozen book start 10, candidate as White
+  1-0 (checkmate, 55 plies)
+{
+  "games": 20,
+  "completed": 20,
+  "wins": 12,
+  "draws": 0,
+  "losses": 8,
+  "unfinished": 0,
+  "errors": 0,
+  "interrupted": 0,
+  "score_fraction_completed": 0.6,
+  "complete_pairs": 10,
+  "score_fraction_complete_pairs": 0.6,
+  "timing": {
+    "current": {
+      "moves": 1065,
+      "mean_elapsed": 0.24338275755071323,
+      "max_overrun_seconds": 0.041450208984315395,
+      "fallback_moves": 0
+    },
+    "neural-baseline": {
+      "moves": 1063,
+      "mean_elapsed": 0.2437042999031484,
+      "max_overrun_seconds": 0.002044374996330589,
+      "fallback_moves": 0
+    }
+  }
+}
+completed

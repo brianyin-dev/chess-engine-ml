@@ -1,0 +1,189 @@
+{
+  "policy": "Same unchanged v8 weights and .25 quiet gate; depth3, three alternating trials per opening. Exact move, score, nodes and qnodes parity.",
+  "positions": [
+    {
+      "fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/3P4/5NP1/PPP1PPBP/RNBQ1RK1 w - - 5 6",
+      "move": "b1c3",
+      "score": 65,
+      "nodes": 3144,
+      "trials_seconds": {
+        "reference": [
+          0.15535420802189037,
+          0.15989808400627226,
+          0.15619425004115328
+        ],
+        "incremental": [
+          0.2670403750380501,
+          0.15033416700316593,
+          0.14574645803077146
+        ]
+      }
+    },
+    {
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/2Pp4/3P4/P1N1P3/1P2NPPP/R1BQKB1R w KQ - 1 8",
+      "move": "e2f4",
+      "score": 51,
+      "nodes": 3556,
+      "trials_seconds": {
+        "reference": [
+          0.1127964589977637,
+          0.10867041698656976,
+          0.10825437499443069
+        ],
+        "incremental": [
+          0.1160207919892855,
+          0.10888199997134507,
+          0.10763254202902317
+        ]
+      }
+    },
+    {
+      "fen": "rnbq1rk1/pp2nppp/4p3/2ppP3/3P2Q1/P1P5/2P2PPP/R1B1KBNR w KQ - 3 8",
+      "move": "g1f3",
+      "score": 80,
+      "nodes": 7395,
+      "trials_seconds": {
+        "reference": [
+          0.26631820801412687,
+          0.23270329198567197,
+          0.23988783301319927
+        ],
+        "incremental": [
+          0.23000683402642608,
+          0.22870529198553413,
+          0.22203679097583517
+        ]
+      }
+    },
+    {
+      "fen": "rnbqk2r/pp2bppp/4pn2/2pp4/8/3P1NP1/PPP1PPBP/RNBQ1RK1 w kq - 0 6",
+      "move": "b1c3",
+      "score": 66,
+      "nodes": 3515,
+      "trials_seconds": {
+        "reference": [
+          0.17943620798178017,
+          0.17560504202265292,
+          0.18779483396792784
+        ],
+        "incremental": [
+          0.1709699159837328,
+          0.1810470839845948,
+          0.19538783299503848
+        ]
+      }
+    },
+    {
+      "fen": "rnbqkb1r/p4ppp/2p1pn2/1p4B1/2pPP3/2N2N2/PP3PPP/R2QKB1R w KQkq - 0 7",
+      "move": "g5f6",
+      "score": 86,
+      "nodes": 10198,
+      "trials_seconds": {
+        "reference": [
+          0.31971700000576675,
+          0.2738450000179,
+          0.27505024999845773
+        ],
+        "incremental": [
+          0.2821091250516474,
+          0.2977830840391107,
+          0.27412383403861895
+        ]
+      }
+    },
+    {
+      "fen": "rnb1kb1r/p2ppppp/5n2/q1pP2B1/Np6/5N2/PPP1PPPP/R2QKB1R w KQkq - 2 7",
+      "move": "g5f6",
+      "score": 113,
+      "nodes": 5978,
+      "trials_seconds": {
+        "reference": [
+          0.17108575004385784,
+          0.173159416008275,
+          0.17264099995372817
+        ],
+        "incremental": [
+          0.16664712503552437,
+          0.17569554201327264,
+          0.17066291696392
+        ]
+      }
+    },
+    {
+      "fen": "rnbq1rk1/ppppp1bp/5np1/5p2/3P4/5NP1/PPP1PPBP/RNBQ1RK1 w - - 4 6",
+      "move": "b1c3",
+      "score": 128,
+      "nodes": 3021,
+      "trials_seconds": {
+        "reference": [
+          0.1081899999990128,
+          0.10559195902897045,
+          0.1087450830382295
+        ],
+        "incremental": [
+          0.10848004202125594,
+          0.10921825002878904,
+          0.1098787080263719
+        ]
+      }
+    },
+    {
+      "fen": "r1bqkb1r/pppn1pp1/4pn1p/6B1/3PN3/5N2/PPP2PPP/R2QKB1R w KQkq - 0 7",
+      "move": "g5f6",
+      "score": 102,
+      "nodes": 5969,
+      "trials_seconds": {
+        "reference": [
+          0.1475749170058407,
+          0.14879391697468236,
+          0.14697283401619643
+        ],
+        "incremental": [
+          0.15457808296196163,
+          0.14385737502016127,
+          0.14467604097444564
+        ]
+      }
+    },
+    {
+      "fen": "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "move": "f1c4",
+      "score": 20,
+      "nodes": 24229,
+      "trials_seconds": {
+        "reference": [
+          0.6661654589697719,
+          0.6726400830084458,
+          0.6719570830464363
+        ],
+        "incremental": [
+          0.679742707987316,
+          0.6763757080188952,
+          0.6786400420241989
+        ]
+      }
+    },
+    {
+      "fen": "rnbq1k1r/pp2nppp/4p3/2ppP3/3P2Q1/P1P5/2P2PPP/R1B1KBNR w KQ - 3 8",
+      "move": "g1f3",
+      "score": 86,
+      "nodes": 8174,
+      "trials_seconds": {
+        "reference": [
+          0.24088524997932836,
+          0.23936374997720122,
+          0.24837049999041483
+        ],
+        "incremental": [
+          0.2417964159976691,
+          0.2512934579863213,
+          0.276866499974858
+        ]
+      }
+    }
+  ],
+  "median_total_seconds": {
+    "reference": 2.3004872080055065,
+    "incremental": 2.3055683759739622
+  }
+}

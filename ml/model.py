@@ -73,6 +73,15 @@ def board_to_array(board: chess.Board, input_size=INPUT_SIZE) -> np.ndarray:
             offset = (color_index * 6 + piece_type - 1) * 64
             for square in chess.scan_forward(board.pieces_mask(piece_type, color)):
                 values[offset + square] = 1.0
+    encode_state(board, values, input_size)
+    if input_size == RELATIONAL_INPUT_SIZE:
+        values[794:] = relationship_features(board)
+    return values
+
+
+def encode_state(board, values, input_size):
+    """Refresh rule/material state independently of the piece planes."""
+    values[768:] = 0
     values[768] = float(board.turn == chess.WHITE)
     for index, enabled in enumerate((
         board.has_kingside_castling_rights(chess.WHITE),
@@ -93,9 +102,6 @@ def board_to_array(board: chess.Board, input_size=INPUT_SIZE) -> np.ndarray:
                 phase += count * PHASE_WEIGHTS.get(piece_type, 0)
         values[792] = material_score(board) / 4000.0
         values[793] = min(phase, 24) / 24.0
-    if input_size == RELATIONAL_INPUT_SIZE:
-        values[794:] = relationship_features(board)
-    return values
 
 
 def board_to_tensor(board: chess.Board, input_size=INPUT_SIZE) -> torch.Tensor:

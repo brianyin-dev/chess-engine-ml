@@ -1,0 +1,127 @@
+{
+  "node_budget": 12000,
+  "positions": [
+    {
+      "opening": "Frozen book start 01",
+      "fen": "r1b1kbnr/2qp1ppp/p3p3/1p6/3QPP2/2N1B3/PPP3PP/R3KB1R w KQkq - 0 9",
+      "output": [
+        "d4e5",
+        214,
+        3,
+        12000,
+        11386,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 02",
+      "fen": "r2qkb1r/pppb1ppp/8/3p4/3Pn3/3B4/PPP2PPP/RNBQK2R w KQkq - 0 7",
+      "output": [
+        "d3e4",
+        2,
+        3,
+        12000,
+        10924,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 03",
+      "fen": "r1bqkb1r/1pppnp1p/p1n3p1/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 6",
+      "output": [
+        "b1c3",
+        94,
+        3,
+        12000,
+        11149,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 04",
+      "fen": "rnbqk2r/ppp1ppbp/2n3p1/8/3PP3/P5P1/1P3PBP/RNBQK1NR w KQkq - 1 8",
+      "output": [
+        "d4d5",
+        -4,
+        4,
+        12000,
+        10436,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 05",
+      "fen": "r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 6",
+      "output": [
+        "b1c3",
+        -57,
+        3,
+        12000,
+        11219,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 06",
+      "fen": "r1b1k2r/ppp1np1p/2p2p2/2b5/2B1P3/8/PPP2PPP/RNB1K2R w KQkq - 0 9",
+      "output": [
+        "c1f4",
+        6,
+        4,
+        12000,
+        10481,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 07",
+      "fen": "rnbq1rk1/pp2ppbp/6p1/2pn4/8/2N2NP1/PP1PPPBP/R1BQ1RK1 w - - 0 8",
+      "output": [
+        "e2e4",
+        75,
+        3,
+        12000,
+        11155,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 08",
+      "fen": "r1bqk2r/pp1n1ppp/2pbpn2/3p4/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQkq - 3 7",
+      "output": [
+        "c4c5",
+        82,
+        3,
+        12000,
+        10625,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 09",
+      "fen": "rn1qkb1r/4pppp/p1p2n2/1p1p4/2PP2b1/1PN1PN2/P4PPP/R1BQKB1R w KQkq - 1 7",
+      "output": [
+        "c4d5",
+        88,
+        2,
+        12000,
+        11753,
+        "node_limit"
+      ]
+    },
+    {
+      "opening": "Frozen book start 10",
+      "fen": "rnbqk2r/pp2bp1p/2p2np1/3p2B1/3P4/2N2N2/PPQ1PPPP/R3KB1R w KQkq - 0 8",
+      "output": [
+        "e2e4",
+        129,
+        3,
+        12000,
+        11734,
+        "node_limit"
+      ]
+    }
+  ],
+  "mismatches": 0,
+  "policy": "Same v8 checkpoint, .25quiet gate, clock disabled. Verify move, score, completed depth, nodes, qnodes and stop reason on actual fresh game starts."
+}

@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--nodes', type=int, help='Equal visited-node budgets, including quiescence; no clock limit')
     parser.add_argument('--nn-weight', type=float, default=1.0)
     parser.add_argument('--quiet-only', action='store_true', help='Apply correction only outside check with no legal capture')
+    parser.add_argument('--incremental', action='store_true', help='Reuse unchanged neural and handcrafted feature blocks')
     parser.add_argument('--reference-inference', action='store_true', help='Disable the NN search-leaf fast path')
     parser.add_argument('--frozen-heuristic', action='store_true', help='Use the heuristic search frozen at 9e23b7c as local opponent')
     args = parser.parse_args()
@@ -54,7 +55,7 @@ def main():
     if args.output.exists():
         parser.error("output directory already exists")
     evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only,
-                                optimized=not args.reference_inference)
+                                optimized=not args.reference_inference, incremental=args.incremental)
     if evaluator.diagnostic_only:
         parser.error("memorization-only checkpoints are excluded from match candidates")
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
@@ -96,6 +97,7 @@ def main():
                    "opponent_depth_cap": 64 if uci else 8,
                    "nn_weight": args.nn_weight, "quiet_only": args.quiet_only,
                    "reference_inference": args.reference_inference,
+                   'incremental': args.incremental,
                    "frozen_heuristic": args.frozen_heuristic,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
                    'hidden_sizes': list(evaluator.hidden_sizes),

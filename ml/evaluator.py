@@ -16,7 +16,8 @@ from ml.model import (ChessNet, INPUT_SIZE, LEGACY_INPUT_SIZE, MODEL_VERSION,
 class NeuralEvaluator:
     cacheable_by_fen = True
 
-    def __init__(self, checkpoint: str | Path, correction_weight=1.0, quiet_only=False, optimized=True):
+    def __init__(self, checkpoint: str | Path, correction_weight=1.0, quiet_only=False, optimized=True,
+                 incremental=False):
         saved = torch.load(checkpoint, map_location="cpu", weights_only=True)
         if ((saved.get("version"), saved.get("input_size")) not in
                 ((2, LEGACY_INPUT_SIZE), (MODEL_VERSION, INPUT_SIZE),
@@ -33,6 +34,7 @@ class NeuralEvaluator:
         self.correction_weight = correction_weight
         self.quiet_only = quiet_only
         self.optimized = optimized
+        self.incremental = incremental
         self.diagnostic_only = saved.get('diagnostic_only', False)
         self.input_size = saved['input_size']
         self.correction_limit_cp = saved.get('correction_limit_cp')
@@ -52,6 +54,10 @@ class NeuralEvaluator:
         linear = (self.model.net[0], self.model.net[2], self.model.net[4])
         self.weights = tuple(layer.weight.detach().numpy() for layer in linear)
         self.biases = tuple(layer.bias.detach().numpy() for layer in linear)
+        if incremental:
+            from ml.incremental import IncrementalEncoder, IncrementalBaseline
+            self.encoders = {sign: IncrementalEncoder(self.input_size) for sign in (1,-1)}
+            self.baseline_encoder = IncrementalBaseline()
 
     def __call__(self, board: chess.Board) -> int:
         baseline = evaluate(board) if self.target_mode == 'residual' else 0
@@ -65,7 +71,8 @@ class NeuralEvaluator:
         """
         if not self.optimized:
             return self(board)
-        baseline = evaluate_position(board) if self.target_mode == 'residual' else 0
+        baseline = ((self.baseline_encoder.evaluate(board) if self.incremental else evaluate_position(board))
+                    if self.target_mode == 'residual' else 0)
         return self._score(board, baseline)
 
     def _score(self, board, baseline):
@@ -74,7 +81,8 @@ class NeuralEvaluator:
             return baseline
         sign = -1 if self.color_consistent and board.turn == chess.BLACK else 1
         encoded_board = board.mirror() if sign == -1 else board
-        x = board_to_array(encoded_board, self.input_size)
+        x = (self.encoders[sign].encode(encoded_board) if self.incremental else
+             board_to_array(encoded_board, self.input_size))
         material = sign * float(x[792]) * 4000 if self.target_mode == 'material' else 0
         for weight, bias in zip(self.weights[:-1], self.biases[:-1]):
             x = np.maximum(weight @ x + bias, 0)

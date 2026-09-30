@@ -34,6 +34,51 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_incremental_features_survive_special_moves_and_undo(self):
+        import numpy as np
+        import random
+        from ml.incremental import IncrementalEncoder
+        from ml.model import board_to_array
+        from ml.incremental import IncrementalBaseline
+        from engine.evaluation import evaluate_position
+        encoder=IncrementalEncoder(892)
+        baseline=IncrementalBaseline()
+        for fen, move in [('r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1','e1g1'),
+                          ('4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 2','e5d6'),
+                          ('1r2k3/P7/8/8/8/8/8/4K3 w - - 0 1','a7b8n')]:
+            board=chess.Board(fen)
+            for action in ('initial','push','pop'):
+                if action=='push':board.push_uci(move)
+                elif action=='pop':board.pop()
+                np.testing.assert_array_equal(encoder.encode(board),board_to_array(board,892))
+                self.assertEqual(baseline.evaluate(board),evaluate_position(board))
+        rng=random.Random(15);board=chess.Board()
+        for _ in range(300):
+            np.testing.assert_array_equal(encoder.encode(board),board_to_array(board,892))
+            self.assertEqual(baseline.evaluate(board),evaluate_position(board))
+            if board.is_game_over():board=chess.Board()
+            elif board.move_stack and rng.random()<.2:board.pop()
+            else:board.push(rng.choice(list(board.legal_moves)))
+
+    def test_incremental_search_preserves_neural_scores_and_decisions(self):
+        import torch
+        from ml.model import ChessNet, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, SCORE_SCALE
+        from ml.evaluator import NeuralEvaluator
+        from engine.search import search
+        torch.manual_seed(15)
+        model=ChessNet(RELATIONAL_INPUT_SIZE,250,True)
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'network.pt'
+            torch.save({'version':RELATIONAL_MODEL_VERSION,'input_size':RELATIONAL_INPUT_SIZE,
+                        'score_scale':SCORE_SCALE,'target_mode':'residual','correction_limit_cp':250,
+                        'color_consistent':True,'state_dict':model.state_dict()},path)
+            old=NeuralEvaluator(path,.25,quiet_only=True)
+            new=NeuralEvaluator(path,.25,quiet_only=True,incremental=True)
+            for board in (chess.Board(),chess.Board().mirror()):
+                self.assertEqual(old.evaluate_position(board),new.evaluate_position(board))
+                a=search(board,depth=2,eval_fn=old);b=search(board,depth=2,eval_fn=new)
+                self.assertEqual((a.move,a.score,a.nodes,a.qnodes),(b.move,b.score,b.nodes,b.qnodes))
+
     def test_compact_projection_preserves_selected_connections(self):
         import torch
         from ml.model import ChessNet, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, INPUT_SIZE

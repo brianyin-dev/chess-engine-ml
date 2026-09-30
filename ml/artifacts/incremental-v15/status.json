@@ -1,0 +1,61 @@
+{
+  "phase": "completed",
+  "results": {
+    "vs-heuristic": {
+      "games": 20,
+      "completed": 20,
+      "wins": 4,
+      "draws": 3,
+      "losses": 13,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.275,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.275,
+      "timing": {
+        "classical": {
+          "moves": 1165,
+          "mean_elapsed": 0.2428447647831131,
+          "max_overrun_seconds": 0.026146833028178662,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 1161,
+          "mean_elapsed": 0.24476567731331353,
+          "max_overrun_seconds": 0.030833916971459985,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "vs-reference-NN": {
+      "games": 20,
+      "completed": 20,
+      "wins": 12,
+      "draws": 0,
+      "losses": 8,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.6,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.6,
+      "timing": {
+        "current": {
+          "moves": 1065,
+          "mean_elapsed": 0.24338275755071323,
+          "max_overrun_seconds": 0.041450208984315395,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1063,
+          "mean_elapsed": 0.2437042999031484,
+          "max_overrun_seconds": 0.002044374996330589,
+          "fallback_moves": 0
+        }
+      }
+    }
+  },
+  "extended_to_100": false,
+  "policy": "Same v8 checkpoint and .25 quiet gate for NN sides; only candidate uses incremental blocks. Fresh paired starts, 250ms. Extend only for >=60% heuristic and >50% reference NN. No app promotion or external games."
+}
