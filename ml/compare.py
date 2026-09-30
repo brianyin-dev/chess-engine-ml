@@ -29,6 +29,7 @@ def main():
     parser.add_argument('--opponent-checkpoint', type=Path, help='Neural baseline instead of the heuristic')
     parser.add_argument('--opponent-nn-weight', type=float, default=1.)
     parser.add_argument('--opponent-quiet-only', action='store_true')
+    parser.add_argument('--opponent-incremental', action='store_true')
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument('--nodes', type=int, help='Equal visited-node budgets, including quiescence; no clock limit')
     parser.add_argument('--nn-weight', type=float, default=1.0)
@@ -50,7 +51,7 @@ def main():
         parser.error('choose either Stockfish or a neural baseline')
     if args.frozen_heuristic and (args.stockfish or args.opponent_checkpoint):
         parser.error('frozen-heuristic requires a local heuristic opponent')
-    if (args.opponent_nn_weight != 1 or args.opponent_quiet_only) and not args.opponent_checkpoint:
+    if (args.opponent_nn_weight != 1 or args.opponent_quiet_only or args.opponent_incremental) and not args.opponent_checkpoint:
         parser.error('opponent blend/gate requires opponent-checkpoint')
     if args.output.exists():
         parser.error("output directory already exists")
@@ -60,14 +61,14 @@ def main():
         parser.error("memorization-only checkpoints are excluded from match candidates")
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
     neural_baseline = NeuralEvaluator(args.opponent_checkpoint, args.opponent_nn_weight,
-                                     args.opponent_quiet_only) if args.opponent_checkpoint else None
+                                     args.opponent_quiet_only, incremental=args.opponent_incremental) if args.opponent_checkpoint else None
     if neural_baseline and neural_baseline.diagnostic_only:
         parser.error('memorization-only checkpoints are excluded from opponents')
     opponent = (f"stockfish-elo-{args.stockfish_elo}" if args.stockfish_elo is not None
                 else "stockfish" if uci else 'neural-baseline' if neural_baseline else "classical")
 
     def select(name, board, time_limit, depth_cap):
-        selected = (evaluator if args.nn_weight else None) if name == 'current' else neural_baseline
+        selected = (evaluator if args.nn_weight or args.incremental else None) if name == 'current' else neural_baseline
         if selected is not None or args.nodes is not None or (args.frozen_heuristic and name != 'current' and not uci):
             search_fn = frozen_search if args.frozen_heuristic and name != 'current' else search
             result = search_fn(board, depth=depth_cap, eval_fn=selected,
@@ -106,7 +107,9 @@ def main():
         "openings_sha256": hashlib.sha256(args.openings.read_bytes()).hexdigest(),
         "engine_sources_sha256": {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                                   for path in sorted((ROOT / 'engine').glob('*.py'))},
-        "candidate": "weighted-neural" if args.nn_weight else "heuristic",
+        'evaluation_sources_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                                     for path in (ROOT/'ml/evaluator.py', ROOT/'ml/model.py', ROOT/'ml/incremental.py')},
+        "candidate": "weighted-neural" if args.nn_weight else ('incremental-heuristic' if args.incremental else 'heuristic'),
         "games": [],
     }
     if uci:
@@ -115,6 +118,7 @@ def main():
     elif neural_baseline:
         report['opponent'] = {'checkpoint_sha256': hashlib.sha256(args.opponent_checkpoint.read_bytes()).hexdigest(),
                               'correction_weight': args.opponent_nn_weight, 'quiet_only': args.opponent_quiet_only,
+                              'incremental': args.opponent_incremental,
                               'target_mode': neural_baseline.target_mode,
                               'input_size': neural_baseline.input_size}
         report['opponent']['hidden_sizes'] = list(neural_baseline.hidden_sizes)

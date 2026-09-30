@@ -34,6 +34,36 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_zero_weight_benchmark_keeps_optimized_baseline_for_both_players(self):
+        import json
+        import io
+        from contextlib import redirect_stdout
+        import torch
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE
+        from ml.compare import main
+        from engine.search import search
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);checkpoint=root/'network.pt';openings=root/'openings.json';output=root/'match'
+            model=ChessNet(INPUT_SIZE,250,True)
+            torch.save({'version':MODEL_VERSION,'input_size':INPUT_SIZE,'score_scale':SCORE_SCALE,
+                        'target_mode':'residual','correction_limit_cp':250,'color_consistent':True,
+                        'state_dict':model.state_dict()},checkpoint)
+            openings.write_text(json.dumps([{'name':'start','moves':[]}]))
+            args=['compare','--checkpoint',str(checkpoint),'--openings',str(openings),'--output',str(output),
+                  '--pairs','1','--max-plies','2','--nodes','128','--nn-weight','0','--quiet-only','--incremental',
+                  '--opponent-checkpoint',str(checkpoint),'--opponent-nn-weight','0',
+                  '--opponent-quiet-only','--opponent-incremental']
+            with patch('sys.argv',args),patch('ml.compare.search',wraps=search) as calls,redirect_stdout(io.StringIO()):
+                main()
+            self.assertEqual(calls.call_count,4)
+            for call in calls.call_args_list:
+                evaluator=call.kwargs['eval_fn']
+                self.assertTrue(evaluator.incremental)
+                self.assertEqual(evaluator.correction_weight,0)
+            report=json.loads((output/'report.json').read_text())
+            self.assertEqual(report['candidate'],'incremental-heuristic')
+            self.assertTrue(report['opponent']['incremental'])
+
     def test_incremental_features_survive_special_moves_and_undo(self):
         import numpy as np
         import random

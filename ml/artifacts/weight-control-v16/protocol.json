@@ -1,0 +1,18 @@
+{
+  "reference": "Incremental handcrafted evaluator, 0% NN correction",
+  "checkpoint": "ml/artifacts/quiet-ranking-v8.pt",
+  "seed": 162500,
+  "time_ms": 250,
+  "pairs_per_screen": 10,
+  "depth_cap": 8,
+  "screens": [
+    "original-heuristic",
+    "old-NN-25",
+    "weight-05",
+    "weight-10",
+    "weight-25"
+  ],
+  "order": "Predeclared sequential screens; identical opening order, paired colors",
+  "confirmation": "Best positive weight (ties prefer smaller) requires 60% and 20 complete error-free pilot games. Confirm on 20 fresh games; if >=60%, extend independent confirmation to 100 games. Selection pilot excluded from confirmation.",
+  "promotion": "No automatic app promotion or Stockfish matches"
+}
