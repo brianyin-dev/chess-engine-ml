@@ -16,18 +16,22 @@ RELATIONAL_MODEL_VERSION = 4
 
 
 class ChessNet(nn.Module):
-    def __init__(self, input_size=INPUT_SIZE, correction_limit_cp=None, color_consistent=False):
+    def __init__(self, input_size=INPUT_SIZE, correction_limit_cp=None, color_consistent=False,
+                 hidden_sizes=(64, 32)):
         super().__init__()
+        if len(hidden_sizes) != 2 or any(type(v) is not int or v < 1 for v in hidden_sizes):
+            raise ValueError('two positive integer hidden sizes required')
+        self.hidden_sizes = tuple(hidden_sizes)
         self.correction_limit_cp = correction_limit_cp
         if color_consistent and input_size not in (INPUT_SIZE, RELATIONAL_INPUT_SIZE):
             raise ValueError("color consistency requires current features")
         self.color_consistent = color_consistent
         self.net = nn.Sequential(
-            nn.Linear(input_size, 64),
+            nn.Linear(input_size, hidden_sizes[0]),
             nn.ReLU(),
-            nn.Linear(64, 32),
+            nn.Linear(hidden_sizes[0], hidden_sizes[1]),
             nn.ReLU(),
-            nn.Linear(32, 1),
+            nn.Linear(hidden_sizes[1], 1),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:

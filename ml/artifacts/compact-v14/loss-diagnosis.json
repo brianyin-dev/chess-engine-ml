@@ -1,0 +1,1235 @@
+{
+  "policy": "Confirmed first mistakes from actual games; FEN position diagnostics without repetition history; not new generalization evidence. Same search algorithm, depth3 or250ms. Teacher depth12 restricted-root scores are approximate.",
+  "checkpoint_sha256": "3f1c602b297d3e8a1e45716828709eb6b9c26e9906559e5861cfcd74fed5fdc6",
+  "old_checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "engine_sources_sha256": {
+    "engine/__init__.py": "b1f1dff770d6e080df2300016c19c55c8513e3db21e9ce19c357f4c0423d3be9",
+    "engine/board.py": "aed7ca6b36f327af5f47eb78a5c250ada46059ef225468726127221394fc3bf4",
+    "engine/evaluation.py": "fb5c503844e57fc39f4f6ee33a082526ef28101ee89b091ba6f53e0b033d4d88",
+    "engine/opening_book.py": "484c1a63247f5e9369f9988eb76a8e5b7064f150a796842ec52d8a00fb295148",
+    "engine/search.py": "456ebcedb5af0dd2a90e64f7d546853d4c29a5c6ed432fbe40aa12b5f1342000"
+  },
+  "median_ms_per_evaluation": {
+    "heuristic": 0.02581408693913545,
+    "old": 0.10275227828060451,
+    "compact": 0.06843355373575832
+  },
+  "timing_trials_ms": {
+    "heuristic": [
+      0.0252130937496986,
+      0.025272054642755393,
+      0.02573181154730264,
+      0.02581408693913545,
+      0.02649145505984052,
+      0.02799853513124617,
+      0.02665934181322882
+    ],
+    "old": [
+      0.10103161622510015,
+      0.10275227828060451,
+      0.10084598829962488,
+      0.10479207423941261,
+      0.10103133206484927,
+      0.10493347167539469,
+      0.10635611914722176
+    ],
+    "compact": [
+      0.06699857522107777,
+      0.06944022561583552,
+      0.0691270341803829,
+      0.0706243076251667,
+      0.06843355373575832,
+      0.06676765917745797,
+      0.0660754804471253
+    ]
+  },
+  "summary": {
+    "equal_depth": {
+      "heuristic": {
+        "mean_teacher_regret_cp": 127.16666666666667,
+        "regrets_at_least_100cp": 4,
+        "mean_depth": 3,
+        "mean_nodes": 15078.75,
+        "mean_seconds": 0.34098869091637124
+      },
+      "old": {
+        "mean_teacher_regret_cp": 93.5,
+        "regrets_at_least_100cp": 3,
+        "mean_depth": 3,
+        "mean_nodes": 14049.25,
+        "mean_seconds": 0.37864493400168914
+      },
+      "compact": {
+        "mean_teacher_regret_cp": 93.5,
+        "regrets_at_least_100cp": 3,
+        "mean_depth": 3,
+        "mean_nodes": 15395.416666666666,
+        "mean_seconds": 0.3971563437420021
+      }
+    },
+    "equal_time": {
+      "heuristic": {
+        "mean_teacher_regret_cp": 292.0833333333333,
+        "regrets_at_least_100cp": 9,
+        "mean_depth": 2.5,
+        "mean_nodes": 10396.833333333334,
+        "mean_seconds": 0.250059500001953
+      },
+      "old": {
+        "mean_teacher_regret_cp": 235,
+        "regrets_at_least_100cp": 9,
+        "mean_depth": 2.1666666666666665,
+        "mean_nodes": 8792.916666666666,
+        "mean_seconds": 0.25005974308684625
+      },
+      "compact": {
+        "mean_teacher_regret_cp": 301.6666666666667,
+        "regrets_at_least_100cp": 10,
+        "mean_depth": 2.1666666666666665,
+        "mean_nodes": 9084.416666666666,
+        "mean_seconds": 0.2500681354916499
+      }
+    }
+  },
+  "positions": [
+    {
+      "fen": "r2q1rk1/pppn2bp/3pp1p1/8/4PB2/2N2QP1/PPP2P1P/3RR1K1 w - - 2 15",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "f3g4",
+            "score": 72,
+            "depth": 3,
+            "nodes": 11019,
+            "qnodes": 10713,
+            "tt_hits": 0,
+            "elapsed": 0.5309375830111094,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2378,
+            "fallback_evaluations": 41
+          },
+          "old": {
+            "move": "f3g4",
+            "score": 72,
+            "depth": 3,
+            "nodes": 11021,
+            "qnodes": 10715,
+            "tt_hits": 0,
+            "elapsed": 0.6567520409589633,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2315,
+            "fallback_evaluations": 41
+          },
+          "compact": {
+            "move": "f3g4",
+            "score": 72,
+            "depth": 3,
+            "nodes": 11044,
+            "qnodes": 10738,
+            "tt_hits": 0,
+            "elapsed": 0.5996055839932524,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2315,
+            "fallback_evaluations": 41
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "g3g4",
+            "score": 66,
+            "depth": 2,
+            "nodes": 4932,
+            "qnodes": 4810,
+            "tt_hits": 0,
+            "elapsed": 0.2500831659999676,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1242,
+            "fallback_evaluations": 41
+          },
+          "old": {
+            "move": "g3g4",
+            "score": 66,
+            "depth": 2,
+            "nodes": 4330,
+            "qnodes": 4247,
+            "tt_hits": 0,
+            "elapsed": 0.2500439580180682,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1165,
+            "fallback_evaluations": 41
+          },
+          "compact": {
+            "move": "g3g4",
+            "score": 66,
+            "depth": 2,
+            "nodes": 4235,
+            "qnodes": 4154,
+            "tt_hits": 0,
+            "elapsed": 0.2501183749991469,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1078,
+            "fallback_evaluations": 41
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "f3g4": 1,
+          "g3g4": -634
+        },
+        "best_cp": 9
+      }
+    },
+    {
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/2Pp4/3P1N2/P1N1P3/1P3PPP/R1BQKB1R b KQ - 2 8",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 3262,
+            "qnodes": 3033,
+            "tt_hits": 1,
+            "elapsed": 0.1599728749715723,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 961,
+            "fallback_evaluations": 26
+          },
+          "old": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 3262,
+            "qnodes": 3033,
+            "tt_hits": 1,
+            "elapsed": 0.1843354589655064,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 909,
+            "fallback_evaluations": 26
+          },
+          "compact": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 3262,
+            "qnodes": 3033,
+            "tt_hits": 1,
+            "elapsed": 0.17759366700192913,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 909,
+            "fallback_evaluations": 26
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 5348,
+            "qnodes": 4999,
+            "tt_hits": 1,
+            "elapsed": 0.2500365839805454,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1610,
+            "fallback_evaluations": 26
+          },
+          "old": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 4353,
+            "qnodes": 4053,
+            "tt_hits": 1,
+            "elapsed": 0.2500272080069408,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1103,
+            "fallback_evaluations": 26
+          },
+          "compact": {
+            "move": "g7g5",
+            "score": -10,
+            "depth": 3,
+            "nodes": 4629,
+            "qnodes": 4317,
+            "tt_hits": 1,
+            "elapsed": 0.2500237499480136,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1181,
+            "fallback_evaluations": 26
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "g7g5": -116
+        },
+        "best_cp": -4
+      }
+    },
+    {
+      "fen": "r1b2rk1/p1p3qp/2p1p3/2Pp2BQ/3Pp3/P1P5/5PPP/R3K2R w KQ - 0 18",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "h5h6",
+            "score": -4,
+            "depth": 3,
+            "nodes": 4423,
+            "qnodes": 4151,
+            "tt_hits": 0,
+            "elapsed": 0.21578575001331046,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 612,
+            "fallback_evaluations": 40
+          },
+          "old": {
+            "move": "a1b1",
+            "score": -12,
+            "depth": 3,
+            "nodes": 4517,
+            "qnodes": 4298,
+            "tt_hits": 0,
+            "elapsed": 0.27314716699765995,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 560,
+            "fallback_evaluations": 40
+          },
+          "compact": {
+            "move": "a1b1",
+            "score": -12,
+            "depth": 3,
+            "nodes": 4517,
+            "qnodes": 4298,
+            "tt_hits": 0,
+            "elapsed": 0.25874162500258535,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 560,
+            "fallback_evaluations": 40
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "h5h6",
+            "score": -4,
+            "depth": 3,
+            "nodes": 5204,
+            "qnodes": 4784,
+            "tt_hits": 2,
+            "elapsed": 0.25003437499981374,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 796,
+            "fallback_evaluations": 40
+          },
+          "old": {
+            "move": "a1b1",
+            "score": -12,
+            "depth": 2,
+            "nodes": 4010,
+            "qnodes": 3809,
+            "tt_hits": 0,
+            "elapsed": 0.25007012498099357,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 512,
+            "fallback_evaluations": 40
+          },
+          "compact": {
+            "move": "a1b1",
+            "score": -12,
+            "depth": 2,
+            "nodes": 4357,
+            "qnodes": 4144,
+            "tt_hits": 0,
+            "elapsed": 0.2500314579810947,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 545,
+            "fallback_evaluations": 40
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "a1b1": -81,
+          "h5h6": -52
+        },
+        "best_cp": 400
+      }
+    },
+    {
+      "fen": "r1b3k1/ppq2p2/1nn1p1p1/1R1pP1Np/2pP1Q2/P1P2B2/2P2PPP/1R4K1 w - - 16 23",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "f4g3",
+            "score": 280,
+            "depth": 3,
+            "nodes": 17210,
+            "qnodes": 16987,
+            "tt_hits": 0,
+            "elapsed": 0.6744228749885224,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 6765,
+            "fallback_evaluations": 43
+          },
+          "old": {
+            "move": "f4g3",
+            "score": 280,
+            "depth": 3,
+            "nodes": 17119,
+            "qnodes": 16896,
+            "tt_hits": 0,
+            "elapsed": 0.746607416018378,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 6617,
+            "fallback_evaluations": 43
+          },
+          "compact": {
+            "move": "f4g3",
+            "score": 280,
+            "depth": 3,
+            "nodes": 17119,
+            "qnodes": 16896,
+            "tt_hits": 0,
+            "elapsed": 0.7196075419778936,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 6617,
+            "fallback_evaluations": 43
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "f3e2",
+            "score": 277,
+            "depth": 2,
+            "nodes": 5628,
+            "qnodes": 5575,
+            "tt_hits": 0,
+            "elapsed": 0.25004150002496317,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1393,
+            "fallback_evaluations": 43
+          },
+          "old": {
+            "move": "f3e2",
+            "score": 276,
+            "depth": 1,
+            "nodes": 5028,
+            "qnodes": 4983,
+            "tt_hits": 0,
+            "elapsed": 0.25009279197547585,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1090,
+            "fallback_evaluations": 43
+          },
+          "compact": {
+            "move": "f3e2",
+            "score": 276,
+            "depth": 1,
+            "nodes": 4972,
+            "qnodes": 4928,
+            "tt_hits": 0,
+            "elapsed": 0.2500847920309752,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1081,
+            "fallback_evaluations": 43
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "f3e2": 242,
+          "f4g3": 428
+        },
+        "best_cp": 549
+      }
+    },
+    {
+      "fen": "r1b1k2r/pp2bppp/2n5/q2Qp3/2p1P3/4BNP1/PPP2PBP/R4RK1 b kq - 1 14",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 4401,
+            "qnodes": 4113,
+            "tt_hits": 0,
+            "elapsed": 0.1997553330147639,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1243,
+            "fallback_evaluations": 47
+          },
+          "old": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 4493,
+            "qnodes": 4205,
+            "tt_hits": 0,
+            "elapsed": 0.23478533304296434,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1204,
+            "fallback_evaluations": 47
+          },
+          "compact": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 4391,
+            "qnodes": 4090,
+            "tt_hits": 0,
+            "elapsed": 0.23169091599993408,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1110,
+            "fallback_evaluations": 47
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 5293,
+            "qnodes": 4968,
+            "tt_hits": 0,
+            "elapsed": 0.2500720000243746,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1344,
+            "fallback_evaluations": 47
+          },
+          "old": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 4722,
+            "qnodes": 4428,
+            "tt_hits": 0,
+            "elapsed": 0.25003779196413234,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1252,
+            "fallback_evaluations": 47
+          },
+          "compact": {
+            "move": "a5c7",
+            "score": -125,
+            "depth": 3,
+            "nodes": 4766,
+            "qnodes": 4455,
+            "tt_hits": 0,
+            "elapsed": 0.2501376659492962,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1162,
+            "fallback_evaluations": 47
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "a5c7": -90
+        },
+        "best_cp": -5
+      }
+    },
+    {
+      "fen": "r1bqk2r/1p3ppp/p1nbpn2/2p5/2Np4/3P1NP1/PPP1PPBP/R1BQ1RK1 w kq - 4 10",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "c1d2",
+            "score": 24,
+            "depth": 3,
+            "nodes": 9897,
+            "qnodes": 9532,
+            "tt_hits": 0,
+            "elapsed": 0.42772504198364913,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 3803,
+            "fallback_evaluations": 35
+          },
+          "old": {
+            "move": "c1d2",
+            "score": 24,
+            "depth": 3,
+            "nodes": 7822,
+            "qnodes": 7505,
+            "tt_hits": 0,
+            "elapsed": 0.43527845898643136,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2439,
+            "fallback_evaluations": 35
+          },
+          "compact": {
+            "move": "c1d2",
+            "score": 24,
+            "depth": 3,
+            "nodes": 10272,
+            "qnodes": 9891,
+            "tt_hits": 0,
+            "elapsed": 0.5403157909750007,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 3791,
+            "fallback_evaluations": 35
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "c1f4",
+            "score": 6,
+            "depth": 2,
+            "nodes": 5420,
+            "qnodes": 5225,
+            "tt_hits": 0,
+            "elapsed": 0.2500876249978319,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1743,
+            "fallback_evaluations": 35
+          },
+          "old": {
+            "move": "c1f4",
+            "score": 12,
+            "depth": 2,
+            "nodes": 4322,
+            "qnodes": 4158,
+            "tt_hits": 0,
+            "elapsed": 0.25007737503619865,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1194,
+            "fallback_evaluations": 35
+          },
+          "compact": {
+            "move": "c1f4",
+            "score": 3,
+            "depth": 2,
+            "nodes": 4542,
+            "qnodes": 4354,
+            "tt_hits": 0,
+            "elapsed": 0.2501147090224549,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1173,
+            "fallback_evaluations": 35
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "c1d2": 30,
+          "c1f4": -79
+        },
+        "best_cp": 77
+      }
+    },
+    {
+      "fen": "rnbqkb1r/p4pp1/2p1pn1p/1p2P1B1/2pP4/2N2N2/PP3PPP/R2QKB1R w KQkq - 0 8",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 3114,
+            "qnodes": 2956,
+            "tt_hits": 0,
+            "elapsed": 0.1327965409727767,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1144,
+            "fallback_evaluations": 42
+          },
+          "old": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 3121,
+            "qnodes": 2963,
+            "tt_hits": 0,
+            "elapsed": 0.156377709005028,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 941,
+            "fallback_evaluations": 42
+          },
+          "compact": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 3124,
+            "qnodes": 2966,
+            "tt_hits": 0,
+            "elapsed": 0.15411729196785018,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 944,
+            "fallback_evaluations": 42
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 5397,
+            "qnodes": 5080,
+            "tt_hits": 1,
+            "elapsed": 0.2500530420220457,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1581,
+            "fallback_evaluations": 42
+          },
+          "old": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 4681,
+            "qnodes": 4432,
+            "tt_hits": 0,
+            "elapsed": 0.2500503750052303,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1190,
+            "fallback_evaluations": 42
+          },
+          "compact": {
+            "move": "g5f6",
+            "score": 94,
+            "depth": 3,
+            "nodes": 4790,
+            "qnodes": 4532,
+            "tt_hits": 0,
+            "elapsed": 0.25006033398676664,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1222,
+            "fallback_evaluations": 42
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "g5f6": -62
+        },
+        "best_cp": -9
+      }
+    },
+    {
+      "fen": "r1bqkb1r/p2n1p1p/2p1pp2/1p6/2pPP3/2N2N2/PPQ1BPPP/R3K2R b KQkq - 3 9",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "f8d6",
+            "score": 7,
+            "depth": 3,
+            "nodes": 4311,
+            "qnodes": 3965,
+            "tt_hits": 0,
+            "elapsed": 0.19658358400920406,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1418,
+            "fallback_evaluations": 28
+          },
+          "old": {
+            "move": "f8d6",
+            "score": 7,
+            "depth": 3,
+            "nodes": 4231,
+            "qnodes": 3930,
+            "tt_hits": 0,
+            "elapsed": 0.2533908330369741,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1282,
+            "fallback_evaluations": 28
+          },
+          "compact": {
+            "move": "f8d6",
+            "score": 7,
+            "depth": 3,
+            "nodes": 4645,
+            "qnodes": 4289,
+            "tt_hits": 0,
+            "elapsed": 0.2663883750210516,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1304,
+            "fallback_evaluations": 28
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "f8d6",
+            "score": 7,
+            "depth": 3,
+            "nodes": 5296,
+            "qnodes": 4912,
+            "tt_hits": 0,
+            "elapsed": 0.250021249987185,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1668,
+            "fallback_evaluations": 28
+          },
+          "old": {
+            "move": "b5b4",
+            "score": 13,
+            "depth": 2,
+            "nodes": 4229,
+            "qnodes": 3928,
+            "tt_hits": 0,
+            "elapsed": 0.25006350001785904,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1281,
+            "fallback_evaluations": 28
+          },
+          "compact": {
+            "move": "b5b4",
+            "score": 25,
+            "depth": 2,
+            "nodes": 4303,
+            "qnodes": 3967,
+            "tt_hits": 0,
+            "elapsed": 0.250025832967367,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1272,
+            "fallback_evaluations": 28
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "b5b4": -52,
+          "f8d6": 34
+        },
+        "best_cp": 77
+      }
+    },
+    {
+      "fen": "r3k2r/pb1p1ppp/n2b1p2/q1pP4/1p2P3/1P1B1N2/PNP2PPP/R2QK2R b KQkq - 4 11",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "a6c7",
+            "score": -103,
+            "depth": 3,
+            "nodes": 3503,
+            "qnodes": 3357,
+            "tt_hits": 0,
+            "elapsed": 0.1650680000311695,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 997,
+            "fallback_evaluations": 36
+          },
+          "old": {
+            "move": "d6f4",
+            "score": -70,
+            "depth": 3,
+            "nodes": 5041,
+            "qnodes": 4759,
+            "tt_hits": 0,
+            "elapsed": 0.2879946249886416,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1484,
+            "fallback_evaluations": 36
+          },
+          "compact": {
+            "move": "d6f4",
+            "score": -77,
+            "depth": 3,
+            "nodes": 4903,
+            "qnodes": 4620,
+            "tt_hits": 0,
+            "elapsed": 0.2632205409463495,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1474,
+            "fallback_evaluations": 36
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "a6c7",
+            "score": -103,
+            "depth": 3,
+            "nodes": 5171,
+            "qnodes": 4859,
+            "tt_hits": 2,
+            "elapsed": 0.25010108295828104,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1376,
+            "fallback_evaluations": 36
+          },
+          "old": {
+            "move": "a6c7",
+            "score": -86,
+            "depth": 2,
+            "nodes": 4405,
+            "qnodes": 4143,
+            "tt_hits": 0,
+            "elapsed": 0.25005212501855567,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1291,
+            "fallback_evaluations": 36
+          },
+          "compact": {
+            "move": "a6c7",
+            "score": -86,
+            "depth": 2,
+            "nodes": 4576,
+            "qnodes": 4305,
+            "tt_hits": 0,
+            "elapsed": 0.2500514999846928,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1382,
+            "fallback_evaluations": 36
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "a6c7": -708,
+          "d6f4": -275
+        },
+        "best_cp": -202
+      }
+    },
+    {
+      "fen": "r7/pp1qpkbp/2n3p1/3p1p2/3PnB2/3Q2P1/PPP1PPBP/R4RK1 w - - 2 14",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e2e3",
+            "score": 241,
+            "depth": 3,
+            "nodes": 10762,
+            "qnodes": 10348,
+            "tt_hits": 0,
+            "elapsed": 0.48948166600894183,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 3039,
+            "fallback_evaluations": 44
+          },
+          "old": {
+            "move": "e2e3",
+            "score": 241,
+            "depth": 3,
+            "nodes": 10767,
+            "qnodes": 10353,
+            "tt_hits": 0,
+            "elapsed": 0.5668984579970129,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2919,
+            "fallback_evaluations": 44
+          },
+          "compact": {
+            "move": "e2e3",
+            "score": 241,
+            "depth": 3,
+            "nodes": 10758,
+            "qnodes": 10344,
+            "tt_hits": 0,
+            "elapsed": 0.543240875005722,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2918,
+            "fallback_evaluations": 44
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "g2e4",
+            "score": 259,
+            "depth": 2,
+            "nodes": 5545,
+            "qnodes": 5355,
+            "tt_hits": 0,
+            "elapsed": 0.25007645797450095,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1619,
+            "fallback_evaluations": 44
+          },
+          "old": {
+            "move": "g2e4",
+            "score": 259,
+            "depth": 2,
+            "nodes": 4484,
+            "qnodes": 4316,
+            "tt_hits": 0,
+            "elapsed": 0.2500810420024209,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1304,
+            "fallback_evaluations": 44
+          },
+          "compact": {
+            "move": "g2e4",
+            "score": 259,
+            "depth": 2,
+            "nodes": 4947,
+            "qnodes": 4771,
+            "tt_hits": 0,
+            "elapsed": 0.25005550001515076,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1500,
+            "fallback_evaluations": 44
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "e2e3": 503,
+          "g2e4": 411
+        },
+        "best_cp": 600
+      }
+    },
+    {
+      "fen": "r1bq1rk1/pppnp1bp/5np1/3p1pN1/3P1B2/2N3P1/PPP1PPBP/R2Q1RK1 b - - 3 8",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "d7b6",
+            "score": -132,
+            "depth": 3,
+            "nodes": 13861,
+            "qnodes": 13395,
+            "tt_hits": 0,
+            "elapsed": 0.6259126670192927,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 4436,
+            "fallback_evaluations": 25
+          },
+          "old": {
+            "move": "d7b6",
+            "score": -132,
+            "depth": 3,
+            "nodes": 8021,
+            "qnodes": 7887,
+            "tt_hits": 0,
+            "elapsed": 0.4240847500041127,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2179,
+            "fallback_evaluations": 25
+          },
+          "compact": {
+            "move": "d7b6",
+            "score": -132,
+            "depth": 3,
+            "nodes": 13689,
+            "qnodes": 13224,
+            "tt_hits": 0,
+            "elapsed": 0.6943754170206375,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 4540,
+            "fallback_evaluations": 25
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "h7h6",
+            "score": -136,
+            "depth": 2,
+            "nodes": 4994,
+            "qnodes": 4783,
+            "tt_hits": 0,
+            "elapsed": 0.2500831670477055,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1180,
+            "fallback_evaluations": 25
+          },
+          "old": {
+            "move": "d7b6",
+            "score": -124,
+            "depth": 2,
+            "nodes": 4549,
+            "qnodes": 4493,
+            "tt_hits": 0,
+            "elapsed": 0.25009695801418275,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1562,
+            "fallback_evaluations": 25
+          },
+          "compact": {
+            "move": "h7h6",
+            "score": -108,
+            "depth": 2,
+            "nodes": 4660,
+            "qnodes": 4449,
+            "tt_hits": 0,
+            "elapsed": 0.250067625020165,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1398,
+            "fallback_evaluations": 25
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "d7b6": -10,
+          "h7h6": -820
+        },
+        "best_cp": -20
+      }
+    },
+    {
+      "fen": "r3k2r/ppp1n1pp/2nppq2/2b5/2B1P3/N1P1B3/PP3PPP/R2QK2R w KQkq - 0 10",
+      "searches": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e3c5",
+            "score": 78,
+            "depth": 3,
+            "nodes": 6441,
+            "qnodes": 6191,
+            "tt_hits": 0,
+            "elapsed": 0.2734223749721423,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 2111,
+            "fallback_evaluations": 49
+          },
+          "old": {
+            "move": "e3c5",
+            "score": 78,
+            "depth": 3,
+            "nodes": 6441,
+            "qnodes": 6191,
+            "tt_hits": 0,
+            "elapsed": 0.3240869580185972,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1903,
+            "fallback_evaluations": 49
+          },
+          "compact": {
+            "move": "e3c5",
+            "score": 78,
+            "depth": 3,
+            "nodes": 6441,
+            "qnodes": 6191,
+            "tt_hits": 0,
+            "elapsed": 0.31697849999181926,
+            "timed_out": false,
+            "stop_reason": null,
+            "static_cache_hits": 1903,
+            "fallback_evaluations": 49
+          }
+        },
+        "equal_time": {
+          "heuristic": {
+            "move": "d1h5",
+            "score": 4,
+            "depth": 2,
+            "nodes": 5701,
+            "qnodes": 5483,
+            "tt_hits": 0,
+            "elapsed": 0.25002375000622123,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1743,
+            "fallback_evaluations": 49
+          },
+          "old": {
+            "move": "d1h5",
+            "score": 4,
+            "depth": 2,
+            "nodes": 4796,
+            "qnodes": 4616,
+            "tt_hits": 0,
+            "elapsed": 0.25002366700209677,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1451,
+            "fallback_evaluations": 49
+          },
+          "compact": {
+            "move": "d1h5",
+            "score": 4,
+            "depth": 2,
+            "nodes": 5024,
+            "qnodes": 4836,
+            "tt_hits": 0,
+            "elapsed": 0.2500460839946754,
+            "timed_out": true,
+            "stop_reason": "time_limit",
+            "static_cache_hits": 1526,
+            "fallback_evaluations": 49
+          }
+        }
+      },
+      "teacher": {
+        "depth": 12,
+        "selected_move_cp": {
+          "d1h5": -13,
+          "e3c5": 144
+        },
+        "best_cp": 146
+      }
+    }
+  ],
+  "failures_sha256": "22a1f06ea413cbf0f00ed8f0b0c264f948bb6fbf2cc482a81ae3e31fb856643f"
+}

@@ -34,6 +34,44 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_compact_projection_preserves_selected_connections(self):
+        import torch
+        from ml.model import ChessNet, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, INPUT_SIZE
+        from ml.project_compact import project
+        model = ChessNet(RELATIONAL_INPUT_SIZE, 250, True)
+        saved = {'version': RELATIONAL_MODEL_VERSION, 'input_size': RELATIONAL_INPUT_SIZE,
+                 'target_mode': 'residual', 'correction_limit_cp': 250, 'color_consistent': True,
+                 'state_dict': model.state_dict()}
+        result, report = project(saved)
+        first, second = report['first_units'], report['second_units']
+        self.assertEqual(result['input_size'], INPUT_SIZE)
+        self.assertTrue(torch.equal(result['state_dict']['net.0.weight'], saved['state_dict']['net.0.weight'][first,:INPUT_SIZE]))
+        self.assertTrue(torch.equal(result['state_dict']['net.2.weight'], saved['state_dict']['net.2.weight'][second][:,first]))
+        with self.assertRaises(ValueError):
+            project(saved, (65,16))
+
+    def test_compact_checkpoint_inference_matches_torch(self):
+        import torch
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE, board_to_tensor
+        from ml.evaluator import NeuralEvaluator
+        from engine.evaluation import evaluate
+        torch.manual_seed(14)
+        model = ChessNet(INPUT_SIZE, 250, True, (32, 16)).eval()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'compact.pt'
+            torch.save({'version': MODEL_VERSION, 'input_size': INPUT_SIZE, 'score_scale': SCORE_SCALE,
+                        'target_mode': 'residual', 'hidden_sizes': [32,16], 'correction_limit_cp': 250,
+                        'color_consistent': True, 'state_dict': model.state_dict()}, path)
+            evaluator = NeuralEvaluator(path, .25)
+            board = chess.Board()
+            for position in (board, board.mirror()):
+                with torch.inference_mode():
+                    predicted = round(evaluate(position) + model(board_to_tensor(position)).item() * SCORE_SCALE * .25)
+                self.assertEqual(evaluator(position), predicted)
+            self.assertEqual(evaluator(board), -evaluator(board.mirror()))
+        with self.assertRaises(ValueError):
+            ChessNet(hidden_sizes=(32, 0))
+
     def test_validation_ranking_uses_integer_search_scores(self):
         import torch
         from ml.train import ranking_accuracy

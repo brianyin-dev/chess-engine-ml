@@ -43,7 +43,9 @@ class NeuralEvaluator:
         self.color_consistent = saved.get('color_consistent', False)
         if self.color_consistent and self.input_size not in (INPUT_SIZE, RELATIONAL_INPUT_SIZE):
             raise ValueError('color consistency requires current features')
-        self.model = ChessNet(self.input_size, self.correction_limit_cp, self.color_consistent)
+        self.hidden_sizes = tuple(saved.get('hidden_sizes', (64, 32)))
+        self.model = ChessNet(self.input_size, self.correction_limit_cp, self.color_consistent,
+                              self.hidden_sizes)
         self.model.load_state_dict(saved["state_dict"])
         self.model.eval()
         torch.set_num_threads(1)

@@ -1,0 +1,61 @@
+{
+  "phase": "completed",
+  "results": {
+    "vs-heuristic": {
+      "games": 20,
+      "completed": 20,
+      "wins": 6,
+      "draws": 4,
+      "losses": 10,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.4,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.4,
+      "timing": {
+        "classical": {
+          "moves": 1108,
+          "mean_elapsed": 0.24306233313645106,
+          "max_overrun_seconds": 0.0318611660040915,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 1104,
+          "mean_elapsed": 0.2439428408848682,
+          "max_overrun_seconds": 0.025594208971597254,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "vs-old-NN": {
+      "games": 20,
+      "completed": 20,
+      "wins": 8,
+      "draws": 2,
+      "losses": 10,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.45,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.45,
+      "timing": {
+        "current": {
+          "moves": 1089,
+          "mean_elapsed": 0.24402889144979759,
+          "max_overrun_seconds": 0.018613292020745575,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1089,
+          "mean_elapsed": 0.24411974944864015,
+          "max_overrun_seconds": 0.04432249994715676,
+          "fallback_moves": 0
+        }
+      }
+    }
+  },
+  "extended_to_100": false,
+  "policy": "Same fresh paired starts for both baseline screens, 250ms. Extend only for >=60% heuristic and >50% old NN, all games complete. No automatic app promotion or external games."
+}

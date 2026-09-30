@@ -109,6 +109,7 @@ def main():
     parser.add_argument('--correction-limit-cp', type=float, default=None)
     parser.add_argument('--search-weight', type=float, default=1, help='Training sampling weight for search-derived rows')
     parser.add_argument('--features', choices=('board', 'relationships'), default='board')
+    parser.add_argument('--hidden-sizes', type=int, nargs=2, default=(64, 32))
     parser.add_argument('--rank-margin-cp', type=float, default=100)
     parser.add_argument('--hard-pair-weight', type=float, default=1)
     parser.add_argument('--selection', choices=('combined', 'ranking'), default='combined')
@@ -160,7 +161,8 @@ def main():
     correction_limit = args.correction_limit_cp
     if correction_limit is None and args.target == 'material':
         correction_limit = 250
-    model = ChessNet(input_size=input_size, correction_limit_cp=correction_limit, color_consistent=args.color_consistent)
+    model = ChessNet(input_size=input_size, correction_limit_cp=correction_limit, color_consistent=args.color_consistent,
+                     hidden_sizes=args.hidden_sizes)
     if args.initial_checkpoint:
         saved = torch.load(args.initial_checkpoint, map_location='cpu', weights_only=True)
         if saved.get('input_size') != input_size or saved.get('target_mode') != args.target or saved.get('diagnostic_only'):
@@ -253,6 +255,7 @@ def main():
                 'color_consistent': args.color_consistent,
                 'training_correction_weight': args.correction_weight,
                 'training_quiet_only': args.quiet_only,
+                'hidden_sizes': list(args.hidden_sizes),
                 "state_dict": best_state}, args.checkpoint)
     test_mae = mean_absolute_error_cp(model, datasets["test"], args.batch_size)
     heuristic_mae = mean(abs(evaluate(chess.Board(row["fen"])) - row["score_cp"])
@@ -262,6 +265,7 @@ def main():
         "torch": torch.__version__, "seed": args.seed,
         "search_weight": args.search_weight,
         "features": args.features, "input_size": input_size,
+        'hidden_sizes': list(args.hidden_sizes),
         "target_mode": args.target,
         'correction_limit_cp': correction_limit,
         'color_consistent': args.color_consistent,

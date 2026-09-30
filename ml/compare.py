@@ -98,6 +98,7 @@ def main():
                    "reference_inference": args.reference_inference,
                    "frozen_heuristic": args.frozen_heuristic,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
+                   'hidden_sizes': list(evaluator.hidden_sizes),
                    'correction_limit_cp': evaluator.correction_limit_cp},
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
         "openings_sha256": hashlib.sha256(args.openings.read_bytes()).hexdigest(),
@@ -114,6 +115,7 @@ def main():
                               'correction_weight': args.opponent_nn_weight, 'quiet_only': args.opponent_quiet_only,
                               'target_mode': neural_baseline.target_mode,
                               'input_size': neural_baseline.input_size}
+        report['opponent']['hidden_sizes'] = list(neural_baseline.hidden_sizes)
     elif args.frozen_heuristic:
         frozen_path = ROOT / 'benchmarks/nn_baseline_v10/search.py'
         report['opponent'] = {'search_frozen_at': '9e23b7c',

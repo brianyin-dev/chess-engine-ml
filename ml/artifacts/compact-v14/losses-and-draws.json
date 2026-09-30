@@ -1,0 +1,1458 @@
+{
+  "policy": "First >=100cp loss or mate deterioration, screened at 100ms and confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, not a definitive cause. Scores are from the root mover perspective.",
+  "checkpoint_sha256": "3f1c602b297d3e8a1e45716828709eb6b9c26e9906559e5861cfcd74fed5fdc6",
+  "nn_weight": 0.25,
+  "quiet_only": true,
+  "include_draws": true,
+  "models_by_report": {
+    "ml/artifacts/compact-v14/vs-heuristic/report.json": {
+      "checkpoint": "ml/artifacts/compact-v14/trained.pt",
+      "sha256": "3f1c602b297d3e8a1e45716828709eb6b9c26e9906559e5861cfcd74fed5fdc6",
+      "nn_weight": 0.25,
+      "quiet_only": true
+    }
+  },
+  "draw_policy": "Missed forced mate or >=150cp best move versus <=50cp played move, confirmed at 400ms. Cp advantage is not proof of a forced win.",
+  "source_sha256": {
+    "ml/artifacts/compact-v14/vs-heuristic/report.json": "d53694c02db6b9d1908b0b20bb88c69528ea46977f842025f15ea8bac6e8af99"
+  },
+  "games": [
+    {
+      "opening": "Frozen book start 01",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 10,
+      "result": "loss",
+      "best_screened_advantage_cp": 44,
+      "first_costly_move": {
+        "ply": 19,
+        "fen": "r2q1rk1/pppn2bp/3pp1p1/8/4PB2/2N2QP1/PPP2P1P/3RR1K1 w - - 2 15",
+        "played": "g3g4",
+        "played_san": "g4",
+        "best_move": "f3e3",
+        "best_san": "Qe3",
+        "best_score": {
+          "cp": -4,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -686,
+          "mate": null
+        },
+        "best_pv": [
+          "Qe3",
+          "Qc8",
+          "h4",
+          "Rf7",
+          "e5",
+          "Bxe5",
+          "Bxe5",
+          "Nxe5",
+          "f4",
+          "Nc4",
+          "Qxe6",
+          "Qxe6"
+        ],
+        "played_pv": [
+          "g4",
+          "Bxc3",
+          "Qxc3",
+          "Rxf4",
+          "e5",
+          "d5",
+          "h3",
+          "Qh4",
+          "Qg3",
+          "Qxg3+",
+          "fxg3",
+          "Rff8"
+        ],
+        "best_depth": 17,
+        "played_depth": 22,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 682,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 68,
+        "nn_static_bad_cp": 93,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "f3g4",
+        "probe_review": {
+          "best_move": "f3e3",
+          "best_san": "Qe3",
+          "best_score": {
+            "cp": -4,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -13,
+            "mate": null
+          },
+          "best_pv": [
+            "Qe3",
+            "Qc8",
+            "h4",
+            "Rf7",
+            "e5",
+            "Bxe5",
+            "Bxe5",
+            "Nxe5",
+            "f4",
+            "Nc4",
+            "Qxe6",
+            "Qxe6"
+          ],
+          "played_pv": [
+            "Qg4",
+            "Qe7",
+            "Nb5",
+            "Rf7",
+            "Bg5",
+            "Ne5",
+            "Bxe7",
+            "Nxg4",
+            "Nxc7",
+            "Rc8",
+            "Bxd6",
+            "Nxf2"
+          ],
+          "best_depth": 17,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 9,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 1,
+      "result": "loss",
+      "best_screened_advantage_cp": 6,
+      "first_costly_move": {
+        "ply": 2,
+        "fen": "rnbq1rk1/ppp1bppp/4pn2/2Pp4/3P1N2/P1N1P3/1P3PPP/R1BQKB1R b KQ - 2 8",
+        "played": "g7g5",
+        "played_san": "g5",
+        "best_move": "c7c6",
+        "best_san": "c6",
+        "best_score": {
+          "cp": 2,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -127,
+          "mate": null
+        },
+        "best_pv": [
+          "c6",
+          "b4",
+          "Nbd7",
+          "Nd3",
+          "a5",
+          "Bb2",
+          "b6",
+          "Be2",
+          "Qc7",
+          "O-O",
+          "Ba6",
+          "Nf4"
+        ],
+        "played_pv": [
+          "g5",
+          "Nd3",
+          "b6",
+          "b4",
+          "bxc5",
+          "dxc5",
+          "a5",
+          "b5",
+          "c6",
+          "Bb2",
+          "cxb5",
+          "h4"
+        ],
+        "best_depth": 21,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 129,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -105,
+        "nn_static_bad_cp": -94,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "g7g5",
+        "probe_review": {
+          "best_move": "c7c6",
+          "best_san": "c6",
+          "best_score": {
+            "cp": 2,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -127,
+            "mate": null
+          },
+          "best_pv": [
+            "c6",
+            "b4",
+            "Nbd7",
+            "Nd3",
+            "a5",
+            "Bb2",
+            "b6",
+            "Be2",
+            "Qc7",
+            "O-O",
+            "Ba6",
+            "Nf4"
+          ],
+          "played_pv": [
+            "g5",
+            "Nd3",
+            "b6",
+            "b4",
+            "bxc5",
+            "dxc5",
+            "a5",
+            "b5",
+            "c6",
+            "Bb2",
+            "cxb5",
+            "h4"
+          ],
+          "best_depth": 21,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 129,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 11,
+      "result": "draw",
+      "best_screened_advantage_cp": 523,
+      "first_costly_move": {
+        "ply": 21,
+        "fen": "r1b2rk1/p1p3qp/2p1p3/2Pp2BQ/3Pp3/P1P5/5PPP/R3K2R w KQ - 0 18",
+        "played": "a1b1",
+        "played_san": "Rb1",
+        "best_move": "g5h6",
+        "best_san": "Bh6",
+        "best_score": {
+          "cp": 438,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -27,
+          "mate": null
+        },
+        "best_pv": [
+          "Bh6",
+          "Rf5",
+          "Qe8+",
+          "Rf8",
+          "Qxf8+",
+          "Kxf8",
+          "Bxg7+",
+          "Kxg7",
+          "O-O",
+          "Ba6",
+          "Rfb1",
+          "Kf6"
+        ],
+        "played_pv": [
+          "Rb1",
+          "Ba6",
+          "Rg1",
+          "Bd3",
+          "Bh6",
+          "Qg6",
+          "Qxg6+",
+          "hxg6",
+          "Bxf8",
+          "Bxb1",
+          "Bh6",
+          "Rb8"
+        ],
+        "best_depth": 18,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 465,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -23,
+        "nn_static_bad_cp": 28,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a1b1",
+        "probe_review": {
+          "best_move": "g5h6",
+          "best_san": "Bh6",
+          "best_score": {
+            "cp": 438,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -27,
+            "mate": null
+          },
+          "best_pv": [
+            "Bh6",
+            "Rf5",
+            "Qe8+",
+            "Rf8",
+            "Qxf8+",
+            "Kxf8",
+            "Bxg7+",
+            "Kxg7",
+            "O-O",
+            "Ba6",
+            "Rfb1",
+            "Kf6"
+          ],
+          "played_pv": [
+            "Rb1",
+            "Ba6",
+            "Rg1",
+            "Bd3",
+            "Bh6",
+            "Qg6",
+            "Qxg6+",
+            "hxg6",
+            "Bxf8",
+            "Bxb1",
+            "Bh6",
+            "Rb8"
+          ],
+          "best_depth": 18,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 465,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 16,
+      "result": "draw",
+      "best_screened_advantage_cp": 678,
+      "first_costly_move": {
+        "ply": 31,
+        "fen": "r1b3k1/ppq2p2/1nn1p1p1/1R1pP1Np/2pP1Q2/P1P2B2/2P2PPP/1R4K1 w - - 16 23",
+        "played": "f3e2",
+        "played_san": "Be2",
+        "best_move": "b1e1",
+        "best_san": "Re1",
+        "best_score": {
+          "cp": 557,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "best_pv": [
+          "Re1",
+          "f5",
+          "Re3",
+          "Qe7",
+          "Bxh5",
+          "gxh5",
+          "Rh3",
+          "Bd7",
+          "Rxh5",
+          "Be8",
+          "Rh6",
+          "Nd8"
+        ],
+        "played_pv": [
+          "Be2"
+        ],
+        "best_depth": 18,
+        "played_depth": 245,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 557,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 273,
+        "nn_static_bad_cp": 276,
+        "original_depth": 1,
+        "probe_depth": 3,
+        "probe_move": "f4g3",
+        "probe_review": {
+          "best_move": "b1e1",
+          "best_san": "Re1",
+          "best_score": {
+            "cp": 553,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 507,
+            "mate": null
+          },
+          "best_pv": [
+            "Re1",
+            "Qe7",
+            "Rbb1",
+            "Bd7",
+            "Re3",
+            "Kg7",
+            "a4",
+            "Rh8",
+            "g4",
+            "h4",
+            "Bg2",
+            "Rf8"
+          ],
+          "played_pv": [
+            "Qg3",
+            "Na4",
+            "Bxh5",
+            "Qe7",
+            "h4",
+            "a6",
+            "R5b4",
+            "Nxb4",
+            "cxb4",
+            "Bd7",
+            "Be2",
+            "Kg7"
+          ],
+          "best_depth": 18,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 46,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 04",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 20,
+      "first_costly_move": {
+        "ply": 18,
+        "fen": "r1b1k2r/pp2bppp/2n5/q2Qp3/2p1P3/4BNP1/PPP2PBP/R4RK1 b kq - 1 14",
+        "played": "a5d5",
+        "played_san": "Qxd5",
+        "best_move": "c4c3",
+        "best_san": "c3",
+        "best_score": {
+          "cp": -32,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -194,
+          "mate": null
+        },
+        "best_pv": [
+          "c3",
+          "b3",
+          "Qa6",
+          "Rfd1",
+          "O-O",
+          "Bf1",
+          "Qa3",
+          "Nxe5",
+          "Be6",
+          "Nxc6",
+          "Bxd5",
+          "Nxe7+"
+        ],
+        "played_pv": [
+          "Qxd5",
+          "exd5",
+          "Nb4",
+          "Nxe5",
+          "Nxc2",
+          "Rad1",
+          "Nxe3",
+          "fxe3",
+          "f6",
+          "Nxc4",
+          "Rb8",
+          "Rf4"
+        ],
+        "best_depth": 16,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 162,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -60,
+        "nn_static_bad_cp": 886,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a5c7",
+        "probe_review": {
+          "best_move": "c4c3",
+          "best_san": "c3",
+          "best_score": {
+            "cp": -32,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -76,
+            "mate": null
+          },
+          "best_pv": [
+            "c3",
+            "b3",
+            "Qa6",
+            "Rfd1",
+            "O-O",
+            "Bf1",
+            "Qa3",
+            "Nxe5",
+            "Be6",
+            "Nxc6",
+            "Bxd5",
+            "Nxe7+"
+          ],
+          "played_pv": [
+            "Qc7",
+            "Qxc4",
+            "Be6",
+            "Qe2",
+            "O-O",
+            "c3",
+            "h6",
+            "Rfd1",
+            "Rad8",
+            "Qb5",
+            "Rxd1+",
+            "Rxd1"
+          ],
+          "best_depth": 16,
+          "played_depth": 21,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 44,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 04",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 5,
+      "result": "loss",
+      "best_screened_advantage_cp": 97,
+      "first_costly_move": {
+        "ply": 9,
+        "fen": "r1bqk2r/1p3ppp/p1nbpn2/2p5/2Np4/3P1NP1/PPP1PPBP/R1BQ1RK1 w kq - 4 10",
+        "played": "c1f4",
+        "played_san": "Bf4",
+        "best_move": "f3d2",
+        "best_san": "Nfd2",
+        "best_score": {
+          "cp": 89,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -78,
+          "mate": null
+        },
+        "best_pv": [
+          "Nfd2",
+          "Bc7",
+          "Nb3",
+          "Qe7",
+          "Bxc6+",
+          "bxc6",
+          "Bg5",
+          "h6",
+          "Bxf6",
+          "Qxf6",
+          "f4",
+          "O-O"
+        ],
+        "played_pv": [
+          "Bf4",
+          "Bxf4",
+          "gxf4",
+          "Nd5",
+          "Qd2",
+          "b5",
+          "Nfe5",
+          "Nxe5",
+          "Nxe5",
+          "f6",
+          "Nf3",
+          "Qc7"
+        ],
+        "best_depth": 18,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 167,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -61,
+        "nn_static_bad_cp": 15,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "c1d2",
+        "probe_review": {
+          "best_move": "f3d2",
+          "best_san": "Nfd2",
+          "best_score": {
+            "cp": 89,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 15,
+            "mate": null
+          },
+          "best_pv": [
+            "Nfd2",
+            "Bc7",
+            "Nb3",
+            "Qe7",
+            "Bxc6+",
+            "bxc6",
+            "Bg5",
+            "h6",
+            "Bxf6",
+            "Qxf6",
+            "f4",
+            "O-O"
+          ],
+          "played_pv": [
+            "Bd2",
+            "Bc7",
+            "e3",
+            "O-O",
+            "exd4",
+            "cxd4",
+            "Qe2",
+            "Bd7",
+            "a4",
+            "Rc8",
+            "Rfc1",
+            "h6"
+          ],
+          "best_depth": 18,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 74,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 2,
+      "result": "loss",
+      "best_screened_advantage_cp": 62,
+      "first_costly_move": {
+        "ply": 3,
+        "fen": "rnbqkb1r/p4pp1/2p1pn1p/1p2P1B1/2pP4/2N2N2/PP3PPP/R2QKB1R w KQkq - 0 8",
+        "played": "g5f6",
+        "played_san": "Bxf6",
+        "best_move": "g5h4",
+        "best_san": "Bh4",
+        "best_score": {
+          "cp": 54,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -55,
+          "mate": null
+        },
+        "best_pv": [
+          "Bh4",
+          "g5",
+          "Nxg5",
+          "hxg5",
+          "Bxg5",
+          "Nbd7",
+          "g3",
+          "Rg8",
+          "h4",
+          "Rxg5",
+          "hxg5",
+          "Nd5"
+        ],
+        "played_pv": [
+          "Bxf6",
+          "gxf6",
+          "g3",
+          "Nd7",
+          "Bg2",
+          "Bg7",
+          "O-O",
+          "O-O",
+          "exf6",
+          "Qxf6",
+          "Re1",
+          "Bb7"
+        ],
+        "best_depth": 18,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 109,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 35,
+        "nn_static_bad_cp": 443,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "g5h4",
+        "probe_review": {
+          "best_move": "g5h4",
+          "best_san": "Bh4",
+          "best_score": {
+            "cp": 68,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 68,
+            "mate": null
+          },
+          "best_pv": [
+            "Bh4",
+            "g5",
+            "Nxg5",
+            "hxg5",
+            "Bxg5",
+            "Nbd7",
+            "g3",
+            "Bb7",
+            "Bg2",
+            "Qb6",
+            "exf6",
+            "c5"
+          ],
+          "played_pv": [
+            "Bh4",
+            "g5",
+            "Nxg5",
+            "hxg5",
+            "Bxg5",
+            "Nbd7",
+            "g3",
+            "Bb7",
+            "Bg2",
+            "Qb6",
+            "exf6",
+            "c5"
+          ],
+          "best_depth": 20,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 3,
+      "result": "loss",
+      "best_screened_advantage_cp": 91,
+      "first_costly_move": {
+        "ply": 6,
+        "fen": "r1bqkb1r/p2n1p1p/2p1pp2/1p6/2pPP3/2N2N2/PPQ1BPPP/R3K2R b KQkq - 3 9",
+        "played": "b5b4",
+        "played_san": "b4",
+        "best_move": "c8b7",
+        "best_san": "Bb7",
+        "best_score": {
+          "cp": 69,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -77,
+          "mate": null
+        },
+        "best_pv": [
+          "Bb7",
+          "O-O",
+          "a6",
+          "a4",
+          "Qc7",
+          "Rfd1",
+          "Rd8",
+          "Nb1",
+          "Qb6",
+          "b3",
+          "cxb3",
+          "Qxb3"
+        ],
+        "played_pv": [
+          "b4",
+          "Nd1",
+          "Nb6",
+          "Ne3",
+          "c5",
+          "d5",
+          "exd5",
+          "exd5",
+          "Bh6",
+          "Bxc4",
+          "O-O",
+          "O-O"
+        ],
+        "best_depth": 16,
+        "played_depth": 15,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 146,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -27,
+        "nn_static_bad_cp": -64,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "f8d6",
+        "probe_review": {
+          "best_move": "c8b7",
+          "best_san": "Bb7",
+          "best_score": {
+            "cp": 69,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 22,
+            "mate": null
+          },
+          "best_pv": [
+            "Bb7",
+            "O-O",
+            "a6",
+            "a4",
+            "Qc7",
+            "Rfd1",
+            "Rd8",
+            "Nb1",
+            "Qb6",
+            "b3",
+            "cxb3",
+            "Qxb3"
+          ],
+          "played_pv": [
+            "Bd6",
+            "a4",
+            "Qb6",
+            "O-O",
+            "Bb7",
+            "b3",
+            "cxb3",
+            "Qxb3",
+            "a6",
+            "Rfd1",
+            "Rc8",
+            "e5"
+          ],
+          "best_depth": 16,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 47,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 06",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 5,
+      "result": "loss",
+      "best_screened_advantage_cp": -12,
+      "first_costly_move": {
+        "ply": 10,
+        "fen": "r3k2r/pb1p1ppp/n2b1p2/q1pP4/1p2P3/1P1B1N2/PNP2PPP/R2QK2R b KQkq - 4 11",
+        "played": "a6c7",
+        "played_san": "Nc7",
+        "best_move": "e8g8",
+        "best_san": "O-O",
+        "best_score": {
+          "cp": -217,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -734,
+          "mate": null
+        },
+        "best_pv": [
+          "O-O",
+          "Nc4",
+          "Qc7",
+          "O-O",
+          "Rfe8",
+          "h4",
+          "Bf8",
+          "Nfd2",
+          "Qd8",
+          "Qf3",
+          "Nc7",
+          "a4"
+        ],
+        "played_pv": [
+          "Nc7",
+          "Nc4",
+          "Qa6",
+          "a3",
+          "Bf8",
+          "axb4",
+          "Qb5",
+          "Nd6+",
+          "Bxd6",
+          "Bxb5",
+          "Nxb5",
+          "Qd3"
+        ],
+        "best_depth": 19,
+        "played_depth": 14,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 517,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -49,
+        "nn_static_bad_cp": -27,
+        "original_depth": 2,
+        "probe_depth": 4,
+        "probe_move": "d6e5",
+        "probe_review": {
+          "best_move": "e8g8",
+          "best_san": "O-O",
+          "best_score": {
+            "cp": -217,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -514,
+            "mate": null
+          },
+          "best_pv": [
+            "O-O",
+            "Nc4",
+            "Qc7",
+            "O-O",
+            "Rfe8",
+            "h4",
+            "Bf8",
+            "Nfd2",
+            "Qd8",
+            "Qf3",
+            "Nc7",
+            "a4"
+          ],
+          "played_pv": [
+            "Be5",
+            "Nxe5",
+            "fxe5",
+            "Qg4",
+            "O-O",
+            "Qxd7",
+            "Qc7",
+            "Qxc7",
+            "Nxc7",
+            "f3",
+            "a5",
+            "Na4"
+          ],
+          "best_depth": 19,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 297,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 653,
+      "first_costly_move": {
+        "ply": 17,
+        "fen": "r7/pp1qpkbp/2n3p1/3p1p2/3PnB2/3Q2P1/PPP1PPBP/R4RK1 w - - 2 14",
+        "played": "g2e4",
+        "played_san": "Bxe4",
+        "best_move": "c2c3",
+        "best_san": "c3",
+        "best_score": {
+          "cp": 640,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 435,
+          "mate": null
+        },
+        "best_pv": [
+          "c3",
+          "Nf6",
+          "f3",
+          "Nh5",
+          "Bd2",
+          "e5",
+          "g4",
+          "Nf4",
+          "Bxf4",
+          "exf4",
+          "e4",
+          "fxe3"
+        ],
+        "played_pv": [
+          "Bxe4",
+          "fxe4",
+          "Qd2",
+          "Nxd4",
+          "c3",
+          "Ne6",
+          "Be3",
+          "b6",
+          "f3",
+          "exf3",
+          "Rxf3+",
+          "Kg8"
+        ],
+        "best_depth": 19,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 205,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 255,
+        "nn_static_bad_cp": 674,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "e2e3",
+        "probe_review": {
+          "best_move": "c2c3",
+          "best_san": "c3",
+          "best_score": {
+            "cp": 640,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 495,
+            "mate": null
+          },
+          "best_pv": [
+            "c3",
+            "Nf6",
+            "f3",
+            "Nh5",
+            "Bd2",
+            "e5",
+            "g4",
+            "Nf4",
+            "Bxf4",
+            "exf4",
+            "e4",
+            "fxe3"
+          ],
+          "played_pv": [
+            "e3",
+            "g5",
+            "f3",
+            "Nc5",
+            "dxc5",
+            "gxf4",
+            "gxf4",
+            "e6",
+            "Kh1",
+            "Qc7",
+            "c3",
+            "Ne7"
+          ],
+          "best_depth": 19,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 145,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 3,
+      "result": "loss",
+      "best_screened_advantage_cp": -17,
+      "first_costly_move": {
+        "ply": 6,
+        "fen": "r1bq1rk1/pppnp1bp/5np1/3p1pN1/3P1B2/2N3P1/PPP1PPBP/R2Q1RK1 b - - 3 8",
+        "played": "h7h6",
+        "played_san": "h6",
+        "best_move": "d7b6",
+        "best_san": "Nb6",
+        "best_score": {
+          "cp": -21,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -752,
+          "mate": null
+        },
+        "best_pv": [
+          "Nb6",
+          "Nf3",
+          "a5",
+          "Nb5",
+          "Ne8",
+          "Qc1",
+          "c6",
+          "Na3",
+          "Nd6",
+          "Rd1",
+          "a4",
+          "b3"
+        ],
+        "played_pv": [
+          "h6",
+          "Ne6",
+          "Qe8",
+          "Nxc7",
+          "Qf7",
+          "Nxa8",
+          "g5",
+          "Bc1",
+          "Ne4",
+          "f3",
+          "Nxc3",
+          "bxc3"
+        ],
+        "best_depth": 18,
+        "played_depth": 15,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 731,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -113,
+        "nn_static_bad_cp": -116,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "d7b6",
+        "probe_review": {
+          "best_move": "d7b6",
+          "best_san": "Nb6",
+          "best_score": {
+            "cp": -21,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -21,
+            "mate": null
+          },
+          "best_pv": [
+            "Nb6",
+            "Nf3",
+            "a5",
+            "Nb5",
+            "Ne8",
+            "Qc1",
+            "c6",
+            "Na3",
+            "Nd6",
+            "Rd1",
+            "a4",
+            "b3"
+          ],
+          "played_pv": [
+            "Nb6",
+            "Nf3",
+            "a5",
+            "Nb5",
+            "Ne8",
+            "Qc1",
+            "c6",
+            "Na3",
+            "Nd6",
+            "Rd1",
+            "a4",
+            "b3"
+          ],
+          "best_depth": 18,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 4,
+      "result": "loss",
+      "best_screened_advantage_cp": 148,
+      "first_costly_move": {
+        "ply": 7,
+        "fen": "r3k2r/ppp1n1pp/2nppq2/2b5/2B1P3/N1P1B3/PP3PPP/R2QK2R w KQkq - 0 10",
+        "played": "d1h5",
+        "played_san": "Qh5+",
+        "best_move": "e3c5",
+        "best_san": "Bxc5",
+        "best_score": {
+          "cp": 135,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 8,
+          "mate": null
+        },
+        "best_pv": [
+          "Bxc5",
+          "dxc5",
+          "O-O",
+          "Ng6",
+          "f4",
+          "Nxf4",
+          "g3",
+          "Nh3+",
+          "Kg2",
+          "Qh6",
+          "Nb5",
+          "Rd8"
+        ],
+        "played_pv": [
+          "Qh5+",
+          "g6",
+          "Qg5",
+          "Qxg5",
+          "Bxg5",
+          "h6",
+          "Bd2",
+          "Bxa3",
+          "bxa3",
+          "Kd7",
+          "O-O",
+          "Nc8"
+        ],
+        "best_depth": 17,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 127,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 349,
+        "nn_static_bad_cp": -4,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "e3c5",
+        "probe_review": {
+          "best_move": "e3c5",
+          "best_san": "Bxc5",
+          "best_score": {
+            "cp": 135,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 135,
+            "mate": null
+          },
+          "best_pv": [
+            "Bxc5",
+            "dxc5",
+            "O-O",
+            "Ng6",
+            "f4",
+            "Nxf4",
+            "g3",
+            "Nh3+",
+            "Kg2",
+            "Qh6",
+            "Nb5",
+            "Rd8"
+          ],
+          "played_pv": [
+            "Bxc5",
+            "dxc5",
+            "O-O",
+            "Ng6",
+            "f4",
+            "Nxf4",
+            "g3",
+            "Nh3+",
+            "Kg2",
+            "Qh6",
+            "Nb5",
+            "Rd8"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "black",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 163,
+      "result": "draw",
+      "best_screened_advantage_cp": 38,
+      "first_costly_move": null
+    },
+    {
+      "opening": "Frozen book start 10",
+      "color": "white",
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "screened_moves": 178,
+      "result": "draw",
+      "best_screened_advantage_cp": 78,
+      "first_costly_move": null
+    }
+  ],
+  "pairs": [
+    {
+      "good_fen": "r2q1rk1/pppn2bp/3pp1p1/8/4PB2/2N1Q1P1/PPP2P1P/3RR1K1 b - - 3 15",
+      "bad_fen": "r2q1rk1/pppn2bp/3pp1p1/8/4PBP1/2N2Q2/PPP2P1P/3RR1K1 b - - 0 15",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 0,
+      "cp_loss": 682
+    },
+    {
+      "good_fen": "rnbq1rk1/pp2bppp/2p1pn2/2Pp4/3P1N2/P1N1P3/1P3PPP/R1BQKB1R w KQ - 0 9",
+      "bad_fen": "rnbq1rk1/ppp1bp1p/4pn2/2Pp2p1/3P1N2/P1N1P3/1P3PPP/R1BQKB1R w KQ - 0 9",
+      "sign": -1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 1,
+      "cp_loss": 129
+    },
+    {
+      "good_fen": "r1b2rk1/p1p3qp/2p1p2B/2Pp3Q/3Pp3/P1P5/5PPP/R3K2R b KQ - 1 18",
+      "bad_fen": "r1b2rk1/p1p3qp/2p1p3/2Pp2BQ/3Pp3/P1P5/5PPP/1R2K2R b K - 1 18",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 2,
+      "cp_loss": 465
+    },
+    {
+      "good_fen": "r1b3k1/ppq2p2/1nn1p1p1/1R1pP1Np/2pP1Q2/P1P2B2/2P2PPP/4R1K1 b - - 17 23",
+      "bad_fen": "r1b3k1/ppq2p2/1nn1p1p1/1R1pP1Np/2pP1Q2/P1P5/2P1BPPP/1R4K1 b - - 17 23",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 3,
+      "cp_loss": 557
+    },
+    {
+      "good_fen": "r1b1k2r/pp2bppp/2n5/q2Qp3/4P3/2p1BNP1/PPP2PBP/R4RK1 w kq - 0 15",
+      "bad_fen": "r1b1k2r/pp2bppp/2n5/3qp3/2p1P3/4BNP1/PPP2PBP/R4RK1 w kq - 0 15",
+      "sign": -1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 4,
+      "cp_loss": 162
+    },
+    {
+      "good_fen": "r1bqk2r/1p3ppp/p1nbpn2/2p5/2Np4/3P2P1/PPPNPPBP/R1BQ1RK1 b kq - 5 10",
+      "bad_fen": "r1bqk2r/1p3ppp/p1nbpn2/2p5/2Np1B2/3P1NP1/PPP1PPBP/R2Q1RK1 b kq - 5 10",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 5,
+      "cp_loss": 167
+    },
+    {
+      "good_fen": "rnbqkb1r/p4pp1/2p1pn1p/1p2P3/2pP3B/2N2N2/PP3PPP/R2QKB1R b KQkq - 1 8",
+      "bad_fen": "rnbqkb1r/p4pp1/2p1pB1p/1p2P3/2pP4/2N2N2/PP3PPP/R2QKB1R b KQkq - 0 8",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 6,
+      "cp_loss": 109
+    },
+    {
+      "good_fen": "r2qkb1r/pb1n1p1p/2p1pp2/1p6/2pPP3/2N2N2/PPQ1BPPP/R3K2R w KQkq - 4 10",
+      "bad_fen": "r1bqkb1r/p2n1p1p/2p1pp2/8/1ppPP3/2N2N2/PPQ1BPPP/R3K2R w KQkq - 0 10",
+      "sign": -1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 7,
+      "cp_loss": 146
+    },
+    {
+      "good_fen": "r4rk1/pb1p1ppp/n2b1p2/q1pP4/1p2P3/1P1B1N2/PNP2PPP/R2QK2R w KQ - 5 12",
+      "bad_fen": "r3k2r/pbnp1ppp/3b1p2/q1pP4/1p2P3/1P1B1N2/PNP2PPP/R2QK2R w KQkq - 5 12",
+      "sign": -1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 8,
+      "cp_loss": 517
+    },
+    {
+      "good_fen": "r7/pp1qpkbp/2n3p1/3p1p2/3PnB2/2PQ2P1/PP2PPBP/R4RK1 b - - 0 14",
+      "bad_fen": "r7/pp1qpkbp/2n3p1/3p1p2/3PBB2/3Q2P1/PPP1PP1P/R4RK1 b - - 0 14",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 9,
+      "cp_loss": 205
+    },
+    {
+      "good_fen": "r1bq1rk1/ppp1p1bp/1n3np1/3p1pN1/3P1B2/2N3P1/PPP1PPBP/R2Q1RK1 w - - 4 9",
+      "bad_fen": "r1bq1rk1/pppnp1b1/5npp/3p1pN1/3P1B2/2N3P1/PPP1PPBP/R2Q1RK1 w - - 0 9",
+      "sign": -1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 10,
+      "cp_loss": 731
+    },
+    {
+      "good_fen": "r3k2r/ppp1n1pp/2nppq2/2B5/2B1P3/N1P5/PP3PPP/R2QK2R b KQkq - 0 10",
+      "bad_fen": "r3k2r/ppp1n1pp/2nppq2/2b4Q/2B1P3/N1P1B3/PP3PPP/R3K2R b KQkq - 1 10",
+      "sign": 1,
+      "source": "ml/artifacts/compact-v14/vs-heuristic/report.json",
+      "game": 11,
+      "cp_loss": 127
+    }
+  ],
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "summary": {
+    "games": 14,
+    "draws_reviewed": 4,
+    "draws_with_confirmed_conversion_loss": 2,
+    "confirmed": 12,
+    "extra_time_recovered": 8,
+    "wrong_static_ranking": 9
+  }
+}
