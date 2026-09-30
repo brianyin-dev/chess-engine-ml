@@ -1,0 +1,22 @@
+{
+  "seed": 461,
+  "counts": {
+    "train": {
+      "base": 25478,
+      "search": 799
+    },
+    "val": {
+      "base": 3190,
+      "search": 799
+    },
+    "test": {
+      "base": 3298,
+      "search": 797
+    }
+  },
+  "depth": 3,
+  "label_depth": 10,
+  "policy": "Whole-game inherited splits; canonical FEN and color-mirror aliases excluded across splits. Search calls are not all quiet leaves.",
+  "source_manifest_sha256": "c579ed19cb7425575ef1575f21114b3c0787414ed384a091ba71629c28cd0b88",
+  "checkpoint_sha256": "bf00b91eb3e173f281fb97c92622a9c6abf2e6449586ecf91726ca157352b0cf"
+}

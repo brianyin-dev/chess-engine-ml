@@ -233,6 +233,12 @@ training and engine inference. Its prediction advantage also largely disappeared
 on positions sampled from actual search. These checks must improve before another
 architecture experiment or promotion to the app.
 
+The [search-informed, color-consistent experiment](ml/RESULTS-v6.md) enforces
+color symmetry, bounds neural corrections, and adds 2,395 independently labeled
+search positions with split isolation. Both candidates pass the repeated consistency
+checks, but scored 1–7 (material) and 2–6 (heuristic correction) in local paired
+matches against the heuristic. The app keeps the classical evaluator.
+
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
@@ -444,7 +450,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **75 tests**, including optional neural-path checks.
+The full suite now passes **77 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 

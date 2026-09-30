@@ -14,9 +14,12 @@ MODEL_VERSION = 3
 
 
 class ChessNet(nn.Module):
-    def __init__(self, input_size=INPUT_SIZE, correction_limit_cp=None):
+    def __init__(self, input_size=INPUT_SIZE, correction_limit_cp=None, color_consistent=False):
         super().__init__()
         self.correction_limit_cp = correction_limit_cp
+        if color_consistent and input_size != INPUT_SIZE:
+            raise ValueError("color consistency requires current features")
+        self.color_consistent = color_consistent
         self.net = nn.Sequential(
             nn.Linear(input_size, 64),
             nn.ReLU(),
@@ -26,11 +29,24 @@ class ChessNet(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        sign = 1
+        if self.color_consistent:
+            # Canonicalize to the mover as White; restore White-perspective sign.
+            mirrored = x.clone()
+            planes = x[..., :768].reshape(*x.shape[:-1], 2, 6, 8, 8)
+            mirrored[..., :768] = planes.flip((-4, -2)).reshape(*x.shape[:-1], 768)
+            mirrored[..., 768] = 1 - x[..., 768]
+            mirrored[..., 769:773] = x[..., [771, 772, 769, 770]]
+            mirrored[..., 782:792] = x[..., [787, 788, 789, 790, 791, 782, 783, 784, 785, 786]]
+            mirrored[..., 792] = -x[..., 792]
+            white = x[..., 768] > .5
+            sign = torch.where(white, 1., -1.)
+            x = torch.where(white.unsqueeze(-1), x, mirrored)
         score = self.net(x).squeeze(-1)
         if self.correction_limit_cp is not None:
             limit = self.correction_limit_cp / SCORE_SCALE
             score = limit * torch.tanh(score / limit)
-        return score
+        return score * sign
 
 
 def material_score(board: chess.Board) -> int:

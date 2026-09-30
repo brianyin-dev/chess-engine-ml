@@ -13,6 +13,19 @@ HAS_TORCH = importlib.util.find_spec("torch") is not None
 
 
 class DataSplitTests(unittest.TestCase):
+    @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional")
+    def test_search_split_key_groups_color_mirrors_and_move_counters(self):
+        from ml.generate_search_data import key
+        board = chess.Board()
+        board.push_uci('e2e4')
+        self.assertEqual(key(board.fen()), key(board.mirror().fen()))
+        alternate = board.copy()
+        alternate.fullmove_number = 42
+        alternate.halfmove_clock = 3
+        self.assertEqual(key(board.fen()), key(alternate.fen()))
+        alternate.push_uci('c7c5')
+        self.assertNotEqual(key(board.fen()), key(alternate.fen()))
+
     def test_whole_games_have_disjoint_splits(self):
         self.assertEqual([split_for_game(i) for i in range(10)].count("train"), 8)
         self.assertEqual(split_for_game(8), "val")
@@ -180,3 +193,38 @@ class NeuralEvaluatorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+@unittest.skipUnless(HAS_TORCH, 'ML dependencies are optional')
+class ColorConsistencyTests(unittest.TestCase):
+    def test_mirror_inference_parity_and_material_direction(self):
+        import torch
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE, board_to_tensor, material_score
+        from ml.evaluator import NeuralEvaluator
+        torch.manual_seed(461)
+        model = ChessNet(correction_limit_cp=45, color_consistent=True)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'symmetric.pt'
+            torch.save({'version': MODEL_VERSION, 'input_size': INPUT_SIZE,
+                        'score_scale': SCORE_SCALE, 'target_mode': 'material',
+                        'correction_limit_cp': 45, 'color_consistent': True,
+                        'state_dict': model.state_dict()}, path)
+            evaluator = NeuralEvaluator(path)
+            boards = [chess.Board()]
+            for move in ('e2e4', 'c7c5', 'g1f3', 'd7d6', 'd2d4'):
+                board = boards[-1].copy()
+                board.push_uci(move)
+                boards.append(board)
+            for board in boards + [b.mirror() for b in boards]:
+                self.assertEqual(evaluator(board), -evaluator(board.mirror()))
+                with torch.inference_mode():
+                    expected = round(material_score(board) + model(board_to_tensor(board)).item() * SCORE_SCALE)
+                self.assertEqual(evaluator(board), expected)
+                for color in chess.COLORS:
+                    for square in board.pieces(chess.PAWN, color):
+                        changed = board.copy()
+                        changed.remove_piece_at(square)
+                        sign = 1 if color == chess.BLACK else -1
+                        self.assertGreater(sign * (evaluator(changed) - evaluator(board)), 0)
+            features = torch.stack([board_to_tensor(b) for b in boards])
+            mirrors = torch.stack([board_to_tensor(b.mirror()) for b in boards])
+            self.assertTrue(torch.equal(model(features), -model(mirrors)))

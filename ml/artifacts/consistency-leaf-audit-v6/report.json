@@ -1,0 +1,894 @@
+{
+  "seed": 419,
+  "material_seed": 431,
+  "leaf_seed": 443,
+  "policy": "Fixed depth-three search, reservoir sample of actual static evaluator calls at quiescence stand-pat nodes; these are not necessarily final quiet leaves. Sampling adds overhead, so no speed claims are made from these searches. Mirror tests swap colors and flip ranks. Material tests remove a piece from legal positions and check the color-relative gain. Stockfish labels use depth ten and \u00b11500cp clipping, matching training. Unsaturated results exclude mate and clipped labels.",
+  "checkpoint_sha256": {
+    "ml/artifacts/search-material-v6.pt": "198a7d8bfb8efc4a4253cfe34781e38a2b2f33e3810ad519911fd6141f3c1f0a",
+    "ml/artifacts/search-residual-v6.pt": "560e71913a824bb526425e829bb02d6ba32de90a7d3eec00370770c0ad3a2595"
+  },
+  "games_sha256": {
+    "ml/artifacts/book-deviations-v4-residual-vs-heuristic-250ms/report.json": "2f64ad576a78bcfb7fa416fca29423398927fc63fdb0101bdae40c1397a68677",
+    "ml/artifacts/book-deviations-v4-residual-vs-heuristic-live-250ms/report.json": "cfb7b4eacec000919408781f4502a57fb6f0fd38eba8f665eea3103ff1814c6d"
+  },
+  "data_manifest_sha256": "6cee0f5e4d8240b08f082bd7aff33e43e586d7f5cbaa8f8d1b803b0cadc156e7",
+  "consistency": {
+    "heuristic": {
+      "symmetry": {
+        "n": 512,
+        "mean": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0,
+        "over_25_cp_pct": 0,
+        "examples": [
+          {
+            "fen": "6k1/2Brqppn/8/R2p3p/Q7/7P/5PP1/6K1 b - - 13 43",
+            "score_cp": -32,
+            "mirrored_score_cp": 32,
+            "error_cp": 0
+          },
+          {
+            "fen": "5k2/3b2pp/ppB1pp2/2b1B3/8/1P4P1/P3PP1P/6K1 b - - 1 27",
+            "score_cp": 22,
+            "mirrored_score_cp": -22,
+            "error_cp": 0
+          },
+          {
+            "fen": "r4k2/5pbp/p2P2p1/1p6/2pn1B2/P3NP2/1P4PP/4RK2 b - - 1 31",
+            "score_cp": 116,
+            "mirrored_score_cp": -116,
+            "error_cp": 0
+          },
+          {
+            "fen": "4r3/5k2/6p1/3PR2p/b7/5B1P/6P1/2r1B1K1 w - - 1 35",
+            "score_cp": 4,
+            "mirrored_score_cp": -4,
+            "error_cp": 0
+          },
+          {
+            "fen": "rnbqk2r/1p3ppp/p1p1pn2/3p4/1bPP4/1PN1PN2/P4PPP/R1BQKB1R w KQkq - 1 7",
+            "score_cp": 51,
+            "mirrored_score_cp": -51,
+            "error_cp": 0
+          }
+        ]
+      },
+      "material": {
+        "pawn": {
+          "n": 196,
+          "mean": 108.17,
+          "median": 105.0,
+          "p95": 135.0,
+          "max": 250,
+          "minimum_gain_cp": 41,
+          "positive_gain_pct": 100
+        },
+        "knight": {
+          "n": 149,
+          "mean": 352.91,
+          "median": 361,
+          "p95": 385.0,
+          "max": 393,
+          "minimum_gain_cp": 272,
+          "positive_gain_pct": 100
+        },
+        "bishop": {
+          "n": 172,
+          "mean": 366.87,
+          "median": 367.5,
+          "p95": 399.0,
+          "max": 419,
+          "minimum_gain_cp": 315,
+          "positive_gain_pct": 100
+        },
+        "rook": {
+          "n": 148,
+          "mean": 523.79,
+          "median": 521.5,
+          "p95": 557.65,
+          "max": 569,
+          "minimum_gain_cp": 490,
+          "positive_gain_pct": 100
+        },
+        "queen": {
+          "n": 121,
+          "mean": 911.22,
+          "median": 909,
+          "p95": 945.0,
+          "max": 955,
+          "minimum_gain_cp": 869,
+          "positive_gain_pct": 100
+        }
+      },
+      "training_inference_parity": null,
+      "tactical_search": [
+        {
+          "id": "mate-white",
+          "move": "f7f8",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "mate-black",
+          "move": "f2h2",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "poisoned-pawn",
+          "move": "d1h5",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "hanging-queen",
+          "move": "e1e2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "capture-promotion",
+          "move": "a7b8q",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "check-evasion",
+          "move": "a1b2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "en-passant",
+          "move": "e5d6",
+          "passed": true,
+          "depth": 3
+        }
+      ],
+      "hanging_static_example": {
+        "white_queen_hanging_cp": 411,
+        "white_queen_safe_cp": 393,
+        "black_queen_hanging_cp": -411,
+        "black_queen_safe_cp": -393
+      }
+    },
+    "search-material-v6": {
+      "symmetry": {
+        "n": 512,
+        "mean": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0,
+        "over_25_cp_pct": 0,
+        "examples": [
+          {
+            "fen": "6k1/2Brqppn/8/R2p3p/Q7/7P/5PP1/6K1 b - - 13 43",
+            "score_cp": -135,
+            "mirrored_score_cp": 135,
+            "error_cp": 0
+          },
+          {
+            "fen": "5k2/3b2pp/ppB1pp2/2b1B3/8/1P4P1/P3PP1P/6K1 b - - 1 27",
+            "score_cp": -45,
+            "mirrored_score_cp": 45,
+            "error_cp": 0
+          },
+          {
+            "fen": "r4k2/5pbp/p2P2p1/1p6/2pn1B2/P3NP2/1P4PP/4RK2 b - - 1 31",
+            "score_cp": -45,
+            "mirrored_score_cp": 45,
+            "error_cp": 0
+          },
+          {
+            "fen": "4r3/5k2/6p1/3PR2p/b7/5B1P/6P1/2r1B1K1 w - - 1 35",
+            "score_cp": -25,
+            "mirrored_score_cp": 25,
+            "error_cp": 0
+          },
+          {
+            "fen": "rnbqk2r/1p3ppp/p1p1pn2/3p4/1bPP4/1PN1PN2/P4PPP/R1BQKB1R w KQkq - 1 7",
+            "score_cp": 45,
+            "mirrored_score_cp": -45,
+            "error_cp": 0
+          }
+        ]
+      },
+      "material": {
+        "pawn": {
+          "n": 196,
+          "mean": 100.1,
+          "median": 100.0,
+          "p95": 100.0,
+          "max": 128,
+          "minimum_gain_cp": 88,
+          "positive_gain_pct": 100
+        },
+        "knight": {
+          "n": 149,
+          "mean": 319.99,
+          "median": 320,
+          "p95": 320.0,
+          "max": 320,
+          "minimum_gain_cp": 319,
+          "positive_gain_pct": 100
+        },
+        "bishop": {
+          "n": 172,
+          "mean": 329.87,
+          "median": 330.0,
+          "p95": 330.0,
+          "max": 330,
+          "minimum_gain_cp": 319,
+          "positive_gain_pct": 100
+        },
+        "rook": {
+          "n": 148,
+          "mean": 499.93,
+          "median": 500.0,
+          "p95": 500.0,
+          "max": 502,
+          "minimum_gain_cp": 493,
+          "positive_gain_pct": 100
+        },
+        "queen": {
+          "n": 121,
+          "mean": 899.98,
+          "median": 900,
+          "p95": 900.0,
+          "max": 900,
+          "minimum_gain_cp": 899,
+          "positive_gain_pct": 100
+        }
+      },
+      "training_inference_parity": {
+        "n": 512,
+        "mean": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0,
+        "different_integer_scores": 0
+      },
+      "tactical_search": [
+        {
+          "id": "mate-white",
+          "move": "f7f8",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "mate-black",
+          "move": "f2h2",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "poisoned-pawn",
+          "move": "d1h5",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "hanging-queen",
+          "move": "e1e2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "capture-promotion",
+          "move": "a7b8q",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "check-evasion",
+          "move": "a1b2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "en-passant",
+          "move": "e5d6",
+          "passed": true,
+          "depth": 3
+        }
+      ],
+      "hanging_static_example": {
+        "white_queen_hanging_cp": 367,
+        "white_queen_safe_cp": 374,
+        "black_queen_hanging_cp": -367,
+        "black_queen_safe_cp": -374
+      }
+    },
+    "search-residual-v6": {
+      "symmetry": {
+        "n": 512,
+        "mean": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0,
+        "over_25_cp_pct": 0,
+        "examples": [
+          {
+            "fen": "6k1/2Brqppn/8/R2p3p/Q7/7P/5PP1/6K1 b - - 13 43",
+            "score_cp": -47,
+            "mirrored_score_cp": 47,
+            "error_cp": 0
+          },
+          {
+            "fen": "5k2/3b2pp/ppB1pp2/2b1B3/8/1P4P1/P3PP1P/6K1 b - - 1 27",
+            "score_cp": -23,
+            "mirrored_score_cp": 23,
+            "error_cp": 0
+          },
+          {
+            "fen": "r4k2/5pbp/p2P2p1/1p6/2pn1B2/P3NP2/1P4PP/4RK2 b - - 1 31",
+            "score_cp": 71,
+            "mirrored_score_cp": -71,
+            "error_cp": 0
+          },
+          {
+            "fen": "4r3/5k2/6p1/3PR2p/b7/5B1P/6P1/2r1B1K1 w - - 1 35",
+            "score_cp": 49,
+            "mirrored_score_cp": -49,
+            "error_cp": 0
+          },
+          {
+            "fen": "rnbqk2r/1p3ppp/p1p1pn2/3p4/1bPP4/1PN1PN2/P4PPP/R1BQKB1R w KQkq - 1 7",
+            "score_cp": 6,
+            "mirrored_score_cp": -6,
+            "error_cp": 0
+          }
+        ]
+      },
+      "material": {
+        "pawn": {
+          "n": 196,
+          "mean": 103.53,
+          "median": 105.0,
+          "p95": 137.5,
+          "max": 253,
+          "minimum_gain_cp": 7,
+          "positive_gain_pct": 100
+        },
+        "knight": {
+          "n": 149,
+          "mean": 347.24,
+          "median": 357,
+          "p95": 384.6,
+          "max": 393,
+          "minimum_gain_cp": 272,
+          "positive_gain_pct": 100
+        },
+        "bishop": {
+          "n": 172,
+          "mean": 360.89,
+          "median": 363.5,
+          "p95": 396.0,
+          "max": 415,
+          "minimum_gain_cp": 289,
+          "positive_gain_pct": 100
+        },
+        "rook": {
+          "n": 148,
+          "mean": 515.23,
+          "median": 517.0,
+          "p95": 556.65,
+          "max": 563,
+          "minimum_gain_cp": 424,
+          "positive_gain_pct": 100
+        },
+        "queen": {
+          "n": 121,
+          "mean": 904.34,
+          "median": 907,
+          "p95": 943.0,
+          "max": 955,
+          "minimum_gain_cp": 814,
+          "positive_gain_pct": 100
+        }
+      },
+      "training_inference_parity": {
+        "n": 512,
+        "mean": 0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0,
+        "different_integer_scores": 0
+      },
+      "tactical_search": [
+        {
+          "id": "mate-white",
+          "move": "f7f8",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "mate-black",
+          "move": "f2h2",
+          "passed": true,
+          "depth": 1
+        },
+        {
+          "id": "poisoned-pawn",
+          "move": "d1h5",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "hanging-queen",
+          "move": "e1e2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "capture-promotion",
+          "move": "a7b8q",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "check-evasion",
+          "move": "a1b2",
+          "passed": true,
+          "depth": 3
+        },
+        {
+          "id": "en-passant",
+          "move": "e5d6",
+          "passed": true,
+          "depth": 3
+        }
+      ],
+      "hanging_static_example": {
+        "white_queen_hanging_cp": 366,
+        "white_queen_safe_cp": 348,
+        "black_queen_hanging_cp": -366,
+        "black_queen_safe_cp": -348
+      }
+    }
+  },
+  "training_distribution": {
+    "positions": 26277,
+    "piece_count": {
+      "n": 26277,
+      "mean": 19.27,
+      "median": 19,
+      "p95": 30.0,
+      "max": 32
+    },
+    "absolute_material_cp": {
+      "n": 26277,
+      "mean": 99.61,
+      "median": 60,
+      "p95": 400.0,
+      "max": 2000
+    },
+    "halfmove_clock": {
+      "n": 26277,
+      "mean": 2.57,
+      "median": 1,
+      "p95": 10.0,
+      "max": 40
+    },
+    "has_legal_capture_pct": 81.29,
+    "in_check_pct": 5.47,
+    "low_material_pct": 21.12
+  },
+  "search_roots": [
+    {
+      "fen": "r1bqk2r/1pppbppp/p1n5/4p3/Q1P5/3PBN2/PP3PPP/RN3RK1 b kq - 0 9",
+      "opening": "Ruy Lopez",
+      "game_ply": 7,
+      "depth": 3,
+      "nodes": 1907,
+      "evaluation_calls": 1614,
+      "move": "h8g8"
+    },
+    {
+      "fen": "4k2r/1pp1bppp/2n5/1p3b2/5B2/2Np4/5PPP/4N1RK b k - 1 20",
+      "opening": "Ruy Lopez",
+      "game_ply": 29,
+      "depth": 3,
+      "nodes": 2039,
+      "evaluation_calls": 1461,
+      "move": "b5b4"
+    },
+    {
+      "fen": "4r3/1ppk1ppp/2n5/5b2/8/8/5BPP/7K b - - 1 33",
+      "opening": "Ruy Lopez",
+      "game_ply": 55,
+      "depth": 3,
+      "nodes": 2781,
+      "evaluation_calls": 2066,
+      "move": "e8h8"
+    },
+    {
+      "fen": "r1bqk2r/2pp1pp1/p1n2n1p/1p2p3/1b2P3/1BNP1N2/PPP2PPP/R1BQ1RK1 w kq - 0 9",
+      "opening": "Ruy Lopez",
+      "game_ply": 6,
+      "depth": 3,
+      "nodes": 4125,
+      "evaluation_calls": 2913,
+      "move": "c3e2"
+    },
+    {
+      "fen": "r2q1rk1/2pp1pp1/b6p/QN2p3/1PP5/3PPN2/1P4PP/R4RK1 w - - 3 19",
+      "opening": "Ruy Lopez",
+      "game_ply": 26,
+      "depth": 3,
+      "nodes": 3142,
+      "evaluation_calls": 2038,
+      "move": "b5c7"
+    },
+    {
+      "fen": "6k1/2N3p1/7p/R7/1P2p3/2K1P3/1P4PP/8 w - - 2 31",
+      "opening": "Ruy Lopez",
+      "game_ply": 50,
+      "depth": 3,
+      "nodes": 1100,
+      "evaluation_calls": 683,
+      "move": "a5e5"
+    },
+    {
+      "fen": "r1b1k1nr/pp3pp1/2n1p2p/q2pP3/3P1B2/2QB1N2/PP3PPP/R3K2R b KQkq - 0 11",
+      "opening": "French Advance",
+      "game_ply": 13,
+      "depth": 3,
+      "nodes": 1859,
+      "evaluation_calls": 1231,
+      "move": "a5c3"
+    },
+    {
+      "fen": "4k3/1R6/4p2p/4Pp2/3P2r1/3K4/P4P1P/7R w - - 3 31",
+      "opening": "French Advance",
+      "game_ply": 52,
+      "depth": 3,
+      "nodes": 1856,
+      "evaluation_calls": 1344,
+      "move": "h1c1"
+    },
+    {
+      "fen": "2k5/1R6/1R6/4P3/3P4/3K4/P4P1P/3r4 w - - 9 54",
+      "opening": "French Advance",
+      "game_ply": 98,
+      "depth": 3,
+      "nodes": 222,
+      "evaluation_calls": 132,
+      "move": "d3e4"
+    },
+    {
+      "fen": "r3k1nr/1p1Q1ppp/p3p3/2bpn3/8/2P5/PP3PPP/RNB2KNR b kq - 0 10",
+      "opening": "French Advance",
+      "game_ply": 11,
+      "depth": 3,
+      "nodes": 332,
+      "evaluation_calls": 282,
+      "move": "e8d7"
+    },
+    {
+      "fen": "r5r1/3k1ppp/p3p3/np1p4/8/7P/6R1/N3N2K w - - 0 28",
+      "opening": "French Advance",
+      "game_ply": 46,
+      "depth": 3,
+      "nodes": 1116,
+      "evaluation_calls": 725,
+      "move": "e1f3"
+    },
+    {
+      "fen": "6r1/5rpp/R7/1pkp4/4p2P/4N3/5p2/7K b - - 3 48",
+      "opening": "French Advance",
+      "game_ply": 87,
+      "depth": 3,
+      "nodes": 1904,
+      "evaluation_calls": 1181,
+      "move": "f2f1r"
+    },
+    {
+      "fen": "r1bqk2r/ppp2pp1/2n1pb1p/2Pp4/3P4/2N2N2/PP2PPPP/R2QKBR1 b Qkq - 0 8",
+      "opening": "QGD Exchange setup",
+      "game_ply": 5,
+      "depth": 3,
+      "nodes": 1854,
+      "evaluation_calls": 1399,
+      "move": "h8g8"
+    },
+    {
+      "fen": "r4rk1/p1p2pp1/1pPq3p/1P2b3/1n1pP3/2N2N1P/1P3PP1/R2QK1R1 w Q - 0 17",
+      "opening": "QGD Exchange setup",
+      "game_ply": 22,
+      "depth": 3,
+      "nodes": 2795,
+      "evaluation_calls": 1991,
+      "move": "c3e2"
+    },
+    {
+      "fen": "r2r2k1/p1q2pp1/1pP4p/1P6/7P/2Kp4/1P3PP1/Q3R3 w - - 2 27",
+      "opening": "QGD Exchange setup",
+      "game_ply": 42,
+      "depth": 3,
+      "nodes": 2414,
+      "evaluation_calls": 1605,
+      "move": "a1a4"
+    },
+    {
+      "fen": "rnbqk2r/ppp2pp1/5b1p/4P3/2P1N3/5N2/PP3PPP/R2QKB1R b KQkq - 0 9",
+      "opening": "QGD Exchange setup",
+      "game_ply": 7,
+      "depth": 3,
+      "nodes": 816,
+      "evaluation_calls": 549,
+      "move": "d8d1"
+    },
+    {
+      "fen": "r4k2/ppp2bp1/n4p1p/3N4/2P5/6N1/PP2BPPP/R3K2R w KQ - 15 21",
+      "opening": "QGD Exchange setup",
+      "game_ply": 30,
+      "depth": 3,
+      "nodes": 2503,
+      "evaluation_calls": 1930,
+      "move": "d5f4"
+    },
+    {
+      "fen": "5k2/p1n5/7p/2N3p1/2P2K2/8/PR2BPbP/R7 w - - 0 34",
+      "opening": "QGD Exchange setup",
+      "game_ply": 56,
+      "depth": 3,
+      "nodes": 618,
+      "evaluation_calls": 505,
+      "move": "f4g3"
+    },
+    {
+      "fen": "rnbqk1nr/1p3ppp/p3p3/2b5/4p3/1N3N2/PPP2PPP/R1BQKB1R w KQkq - 0 7",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 2,
+      "depth": 3,
+      "nodes": 1195,
+      "evaluation_calls": 747,
+      "move": "b3c5"
+    },
+    {
+      "fen": "rnbk3r/5ppp/pp2pn2/8/4N3/5P2/PPP2P1P/R1B1KBR1 b Q - 1 11",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 11,
+      "depth": 3,
+      "nodes": 922,
+      "evaluation_calls": 679,
+      "move": "f6e4"
+    },
+    {
+      "fen": "rn4r1/1b3ppp/ppk1p3/8/4PB2/8/PPP2PBP/3RK1R1 b - - 8 16",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 21,
+      "depth": 3,
+      "nodes": 872,
+      "evaluation_calls": 635,
+      "move": "a8a7"
+    },
+    {
+      "fen": "rnb1k1nr/1p3ppp/p3p3/2q5/4p3/2P2N2/PP3PPP/R1BQKB1R w KQkq - 0 9",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 6,
+      "depth": 3,
+      "nodes": 3655,
+      "evaluation_calls": 2561,
+      "move": "d1a4"
+    },
+    {
+      "fen": "r3k2r/1p5p/p1n1bp2/8/3pp3/7P/PP2BPP1/1K1R2R1 b kq - 1 19",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 27,
+      "depth": 3,
+      "nodes": 2047,
+      "evaluation_calls": 1523,
+      "move": "e8f8"
+    },
+    {
+      "fen": "3r4/1p5R/p1nkb3/P7/4p3/2P4p/3p1P2/K2B4 b - - 0 31",
+      "opening": "French Tarrasch sideline",
+      "game_ply": 51,
+      "depth": 3,
+      "nodes": 1469,
+      "evaluation_calls": 1071,
+      "move": "c6a5"
+    }
+  ],
+  "leaf_accuracy": {
+    "heuristic": {
+      "heldout_training_distribution": {
+        "absolute_error_cp": {
+          "n": 512,
+          "mean": 208.59,
+          "median": 98.5,
+          "p95": 798.8,
+          "max": 1657
+        },
+        "clipped_prediction_error_cp": {
+          "n": 512,
+          "mean": 205.69,
+          "median": 97.5,
+          "p95": 790.4,
+          "max": 1657
+        }
+      },
+      "search_calls": {
+        "absolute_error_cp": {
+          "n": 480,
+          "mean": 303.75,
+          "median": 255.5,
+          "p95": 774.2,
+          "max": 1193
+        },
+        "clipped_prediction_error_cp": {
+          "n": 480,
+          "mean": 301.41,
+          "median": 253.0,
+          "p95": 774.2,
+          "max": 1193
+        }
+      },
+      "quiet_unsaturated_search_calls": {
+        "absolute_error_cp": {
+          "n": 121,
+          "mean": 242.61,
+          "median": 223,
+          "p95": 573.0,
+          "max": 702
+        },
+        "clipped_prediction_error_cp": {
+          "n": 121,
+          "mean": 234.13,
+          "median": 217,
+          "p95": 547.0,
+          "max": 639
+        }
+      }
+    },
+    "search-material-v6": {
+      "heldout_training_distribution": {
+        "absolute_error_cp": {
+          "n": 512,
+          "mean": 188.19,
+          "median": 74.5,
+          "p95": 739.25,
+          "max": 1594
+        },
+        "clipped_prediction_error_cp": {
+          "n": 512,
+          "mean": 185.79,
+          "median": 73.0,
+          "p95": 728.75,
+          "max": 1594
+        }
+      },
+      "search_calls": {
+        "absolute_error_cp": {
+          "n": 480,
+          "mean": 283.52,
+          "median": 235.5,
+          "p95": 733.05,
+          "max": 1118
+        },
+        "clipped_prediction_error_cp": {
+          "n": 480,
+          "mean": 282.51,
+          "median": 234.0,
+          "p95": 733.05,
+          "max": 1118
+        }
+      },
+      "quiet_unsaturated_search_calls": {
+        "absolute_error_cp": {
+          "n": 121,
+          "mean": 188.52,
+          "median": 178,
+          "p95": 421.0,
+          "max": 598
+        },
+        "clipped_prediction_error_cp": {
+          "n": 121,
+          "mean": 184.51,
+          "median": 174,
+          "p95": 417.0,
+          "max": 524
+        }
+      }
+    },
+    "search-residual-v6": {
+      "heldout_training_distribution": {
+        "absolute_error_cp": {
+          "n": 512,
+          "mean": 196.25,
+          "median": 88.5,
+          "p95": 753.8,
+          "max": 1612
+        },
+        "clipped_prediction_error_cp": {
+          "n": 512,
+          "mean": 193.49,
+          "median": 87.5,
+          "p95": 747.6,
+          "max": 1612
+        }
+      },
+      "search_calls": {
+        "absolute_error_cp": {
+          "n": 480,
+          "mean": 287.01,
+          "median": 239.0,
+          "p95": 729.2,
+          "max": 1148
+        },
+        "clipped_prediction_error_cp": {
+          "n": 480,
+          "mean": 285.22,
+          "median": 238.5,
+          "p95": 729.2,
+          "max": 1148
+        }
+      },
+      "quiet_unsaturated_search_calls": {
+        "absolute_error_cp": {
+          "n": 121,
+          "mean": 227.33,
+          "median": 192,
+          "p95": 528.0,
+          "max": 657
+        },
+        "clipped_prediction_error_cp": {
+          "n": 121,
+          "mean": 220.71,
+          "median": 190,
+          "p95": 502.0,
+          "max": 627
+        }
+      }
+    }
+  },
+  "search_sampling_model": "search-material-v6",
+  "search_leaf_distribution": {
+    "positions": 480,
+    "piece_count": {
+      "n": 480,
+      "mean": 20.1,
+      "median": 21.0,
+      "p95": 29.0,
+      "max": 32
+    },
+    "absolute_material_cp": {
+      "n": 480,
+      "mean": 538.08,
+      "median": 480.0,
+      "p95": 1120.0,
+      "max": 2030
+    },
+    "halfmove_clock": {
+      "n": 480,
+      "mean": 1.5,
+      "median": 0.0,
+      "p95": 6.0,
+      "max": 18
+    },
+    "has_legal_capture_pct": 73.33,
+    "in_check_pct": 0,
+    "low_material_pct": 12.08
+  },
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "hanging_reference": {
+    "hanging": {
+      "cp": -489,
+      "mate": null,
+      "score_cp": -489
+    },
+    "safe": {
+      "cp": 220,
+      "mate": null,
+      "score_cp": 220
+    }
+  },
+  "search_label_saturated_pct": 0
+}

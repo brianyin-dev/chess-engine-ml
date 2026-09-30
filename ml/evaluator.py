@@ -28,7 +28,10 @@ class NeuralEvaluator:
             raise ValueError('material mode requires material features')
         if self.correction_limit_cp is not None and self.correction_limit_cp <= 0:
             raise ValueError('correction limit must be positive')
-        self.model = ChessNet(self.input_size, self.correction_limit_cp)
+        self.color_consistent = saved.get('color_consistent', False)
+        if self.color_consistent and self.input_size != INPUT_SIZE:
+            raise ValueError('color consistency requires current features')
+        self.model = ChessNet(self.input_size, self.correction_limit_cp, self.color_consistent)
         self.model.load_state_dict(saved["state_dict"])
         self.model.eval()
         torch.set_num_threads(1)
@@ -37,13 +40,15 @@ class NeuralEvaluator:
         self.biases = tuple(layer.bias.detach().numpy() for layer in linear)
 
     def __call__(self, board: chess.Board) -> int:
-        x = board_to_array(board, self.input_size)
-        material = float(x[792]) * 4000 if self.target_mode == 'material' else 0
+        sign = -1 if self.color_consistent and board.turn == chess.BLACK else 1
+        encoded_board = board.mirror() if sign == -1 else board
+        x = board_to_array(encoded_board, self.input_size)
+        material = sign * float(x[792]) * 4000 if self.target_mode == 'material' else 0
         for weight, bias in zip(self.weights[:-1], self.biases[:-1]):
             x = np.maximum(weight @ x + bias, 0)
         correction = float((self.weights[-1] @ x + self.biases[-1])[0])
         if self.correction_limit_cp is not None:
             limit = self.correction_limit_cp / SCORE_SCALE
             correction = limit * np.tanh(correction / limit)
-        score = (evaluate(board) if self.target_mode == "residual" else material) + correction * SCORE_SCALE
+        score = (evaluate(board) if self.target_mode == "residual" else material) + sign * correction * SCORE_SCALE
         return round(score)
