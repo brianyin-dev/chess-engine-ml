@@ -1,0 +1,212 @@
+{
+  "depth": 3,
+  "positions": [
+    {
+      "id": "poisoned-pawn",
+      "full_window": [
+        {
+          "seconds": 0.03145762503845617,
+          "visited_nodes": 2337,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.03138654102804139,
+          "visited_nodes": 2337,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.031191457994282246,
+          "visited_nodes": 2337,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.03175925003597513,
+          "visited_nodes": 2337,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.03086749999783933,
+          "visited_nodes": 2337,
+          "score": 722,
+          "move": "d1h5"
+        }
+      ],
+      "pvs": [
+        {
+          "seconds": 0.03140162501949817,
+          "visited_nodes": 2236,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.029731957998592407,
+          "visited_nodes": 2236,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.03125195897882804,
+          "visited_nodes": 2236,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.031196249998174608,
+          "visited_nodes": 2236,
+          "score": 722,
+          "move": "d1h5"
+        },
+        {
+          "seconds": 0.03058495797449723,
+          "visited_nodes": 2236,
+          "score": 722,
+          "move": "d1h5"
+        }
+      ],
+      "full_window_median_seconds": 0.03138654102804139,
+      "pvs_median_seconds": 0.031196249998174608
+    },
+    {
+      "id": "starting-position",
+      "full_window": [
+        {
+          "seconds": 0.029747291991952807,
+          "visited_nodes": 1158,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.0301253329962492,
+          "visited_nodes": 1158,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.029284958029165864,
+          "visited_nodes": 1158,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.029673791956156492,
+          "visited_nodes": 1158,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.02858150005340576,
+          "visited_nodes": 1158,
+          "score": 98,
+          "move": "g1f3"
+        }
+      ],
+      "pvs": [
+        {
+          "seconds": 0.02959583402844146,
+          "visited_nodes": 1156,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.02929629199206829,
+          "visited_nodes": 1156,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.02893374999985099,
+          "visited_nodes": 1156,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.029302916023880243,
+          "visited_nodes": 1156,
+          "score": 98,
+          "move": "g1f3"
+        },
+        {
+          "seconds": 0.028952249966096133,
+          "visited_nodes": 1156,
+          "score": 98,
+          "move": "g1f3"
+        }
+      ],
+      "full_window_median_seconds": 0.029673791956156492,
+      "pvs_median_seconds": 0.02929629199206829
+    },
+    {
+      "id": "middlegame",
+      "full_window": [
+        {
+          "seconds": 0.3912592090200633,
+          "visited_nodes": 16954,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.38066754199098796,
+          "visited_nodes": 16954,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.3809254170046188,
+          "visited_nodes": 16954,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.3837663329904899,
+          "visited_nodes": 16954,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.381597250001505,
+          "visited_nodes": 16954,
+          "score": 13,
+          "move": "c1e3"
+        }
+      ],
+      "pvs": [
+        {
+          "seconds": 0.27650041598826647,
+          "visited_nodes": 13390,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.27341612498275936,
+          "visited_nodes": 13390,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.2756107089808211,
+          "visited_nodes": 13390,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.2748861670261249,
+          "visited_nodes": 13390,
+          "score": 13,
+          "move": "c1e3"
+        },
+        {
+          "seconds": 0.2746626249863766,
+          "visited_nodes": 13390,
+          "score": 13,
+          "move": "c1e3"
+        }
+      ],
+      "full_window_median_seconds": 0.381597250001505,
+      "pvs_median_seconds": 0.2748861670261249
+    }
+  ]
+}

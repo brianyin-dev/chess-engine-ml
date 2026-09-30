@@ -85,6 +85,7 @@ class _Search:
         self.history = {}
         self.nodes = self.qnodes = self.tt_hits = 0
         self.root_candidate = None
+        self.use_pvs = True
         # FEN alone cannot reconstruct repetitions. Preserve supplied move history.
         replay = board.copy(stack=True)
         self.counts = Counter({_position_key(replay): 1})
@@ -226,10 +227,17 @@ class _Search:
                 return score
         best_score, best = -INF, None
         preferred = entry.move if entry else self.move_hints.get(_position_key(board))
-        for move in self.ordered(board, moves, preferred, ply=ply):
+        for index, move in enumerate(self.ordered(board, moves, preferred, ply=ply)):
             quiet = not board.is_capture(move) and not move.promotion
             with self.pushed(board, move):
-                score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
+                if self.use_pvs and index > 0 and beta > alpha + 1:
+                    # Probe later moves cheaply. A move that improves alpha
+                    # inside the window needs a full search before accepting it.
+                    score = -self.negamax(board, depth - 1, -alpha - 1, -alpha, ply + 1)
+                    if alpha < score < beta:
+                        score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
+                else:
+                    score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
             if score > best_score:
                 best_score, best = score, move
                 if ply == 0:

@@ -463,7 +463,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **86 tests**, including optional neural-path checks.
+The full suite now passes **87 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 
@@ -499,3 +499,13 @@ engine settings, not human ratings; the deployed 250 ms configuration is not a
 reliable 1200-strength claim. Hard uses a longer 3-second budget, which reached
 roughly the laptop's 250 ms depth/node count in one sample position, but has not
 been rated by a full match.
+
+## Local strength target
+
+The current development target is **at least 60 points in 100 completed local
+games against Stockfish 19 configured at UCI_Elo 1320**, with 250 ms per move
+and paired colors. Stockfish 19 does not support a 1200 setting. Principal
+variation search passed 87 tests and scored 7 wins and 1 draw in an eight-game
+pilot; the fresh 100-game evaluation is running. These settings and small pilot
+results do not establish a human Elo or a neural playing-strength improvement.
+See the [protocol and results](benchmarks/results/strength-target-v9/RESULTS.md).

@@ -11,6 +11,27 @@ DUTCH = 'rn1q1rk1/pp1bb2p/4p3/2ppNpp1/3PnB2/2NQP1P1/PPP2PBP/R4RK1 w - - 0 11'
 
 
 class SearchRoundTests(unittest.TestCase):
+    def test_pvs_matches_full_window_and_restores_history(self):
+        boards = [chess.Board(), chess.Board(DUTCH),
+                  chess.Board('3r3k/8/8/3p4/8/8/8/K2Q4 w - - 0 1'),
+                  chess.Board('7k/8/8/3pP3/8/8/8/K7 w - d6 0 1')]
+        repeated = chess.Board()
+        for move in ['g1f3', 'g8f6', 'f3g1', 'f6g8'] * 2:
+            repeated.push_uci(move)
+        boards.append(repeated)
+        for board in boards:
+            before = board.fen(), list(board.move_stack)
+            for use_tt in [False, True]:
+                scores = []
+                for use_pvs in [False, True]:
+                    worker = _Search(board, evaluate, None, use_tt)
+                    worker.use_pvs = use_pvs
+                    for depth in [1, 2, 3]:
+                        score = worker.negamax(board, depth, -INF, INF, 0)
+                    scores.append(score)
+                    self.assertEqual((board.fen(), list(board.move_stack)), before)
+                self.assertEqual(scores[0], scores[1])
+
     def test_tactical_generation_matches_full_legal_filter(self):
         rng = random.Random(42)
         boards = [chess.Board(), chess.Board('1r5k/P7/8/8/8/8/8/7K w - - 0 1'),

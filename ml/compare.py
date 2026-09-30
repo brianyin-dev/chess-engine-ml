@@ -73,9 +73,9 @@ def main():
     args.output.mkdir(parents=True)
     report = {
         "started_at": datetime.now(timezone.utc).isoformat(),
-        "policy": ("NN is current; local opponent. Equal visited-node budgets including quiescence; "
+        "policy": ("Candidate is current; local opponent. Equal visited-node budgets including quiescence; "
                    "fallback static evaluations are reported separately. No clock limit. "
-                   if args.nodes else "NN is current; selected opponent. Equal cooperative per-move clock budgets. ") +
+                   if args.nodes else "Candidate is current; selected opponent. Equal cooperative per-move clock budgets. ") +
                   "No opening book, sequential paired colors. Ply-limit games are unfinished. No Elo inference.",
         "config": {"pairs": args.pairs, "time_ms": args.time_ms,
                    "max_plies": args.max_plies, "depth_cap": 8, "node_limit": args.nodes,
@@ -85,6 +85,9 @@ def main():
                    'correction_limit_cp': evaluator.correction_limit_cp},
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
         "openings_sha256": hashlib.sha256(args.openings.read_bytes()).hexdigest(),
+        "engine_sources_sha256": {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                                  for path in sorted((ROOT / 'engine').glob('*.py'))},
+        "candidate": "weighted-neural" if args.nn_weight else "heuristic",
         "games": [],
     }
     if uci:
@@ -102,7 +105,7 @@ def main():
                 if uci:
                     uci.new_game()
                 print(f"Game {len(report['games']) + 1}/{args.pairs * 2}: "
-                      f"{opening['name']}, NN as {'White' if color else 'Black'}", flush=True)
+                      f"{opening['name']}, candidate as {'White' if color else 'Black'}", flush=True)
                 game, pgn = play_game(opening, color, args.time_ms / 1000,
                                       args.max_plies, depth_cap=8, selector=select,
                                       pair_id=pair_id, opponent=opponent)
