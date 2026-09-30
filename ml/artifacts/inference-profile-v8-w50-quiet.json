@@ -1,0 +1,41 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python": "3.13.1",
+  "positions_sha256": "aa3d682fed280b4f7d09ce2c88e15e1461d2da80b66a35e6a4b9e4f1f8442c10",
+  "sample": 250,
+  "rounds": 10,
+  "nn_weight": 0.5,
+  "quiet_only": true,
+  "evaluators": {
+    "heuristic": {
+      "median_ms_per_position": 0.03265,
+      "rounds_ms_per_position": [
+        0.03209,
+        0.03357,
+        0.03325,
+        0.03394,
+        0.03347,
+        0.03308,
+        0.03223,
+        0.03208,
+        0.0321,
+        0.03198
+      ]
+    },
+    "quiet-ranking-v8": {
+      "median_ms_per_position": 0.08872,
+      "rounds_ms_per_position": [
+        0.08826,
+        0.08887,
+        0.09087,
+        0.09115,
+        0.09152,
+        0.09088,
+        0.08856,
+        0.08823,
+        0.08812,
+        0.0881
+      ]
+    }
+  }
+}

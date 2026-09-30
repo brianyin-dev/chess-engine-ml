@@ -21,6 +21,8 @@ def main():
     parser.add_argument("--sample", type=int, default=250)
     parser.add_argument("--rounds", type=int, default=10)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument('--nn-weight', type=float, default=1)
+    parser.add_argument('--quiet-only', action='store_true')
     args = parser.parse_args()
     if args.sample < 1 or args.rounds < 1 or args.output.exists():
         parser.error("sample and rounds must be positive; output must be new")
@@ -31,10 +33,11 @@ def main():
     boards = [chess.Board(records[i]["fen"]) for i in indices]
     evaluators = {"heuristic": evaluate}
     for path in args.checkpoint:
-        evaluators[path.stem] = NeuralEvaluator(path)
+        evaluators[path.stem] = NeuralEvaluator(path, args.nn_weight, args.quiet_only)
     result = {"platform": platform.platform(), "python": platform.python_version(),
               "positions_sha256": hashlib.sha256(args.positions.read_bytes()).hexdigest(),
-              "sample": args.sample, "rounds": args.rounds, "evaluators": {}}
+              "sample": args.sample, "rounds": args.rounds,
+              "nn_weight": args.nn_weight, "quiet_only": args.quiet_only, "evaluators": {}}
     for name, evaluator in evaluators.items():
         for board in boards:
             evaluator(board)

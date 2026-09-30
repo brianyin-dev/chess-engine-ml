@@ -1,0 +1,172 @@
+{
+  "created_at": "2026-09-30T04:50:10.694271+00:00",
+  "torch": "2.11.0",
+  "seed": 42,
+  "search_weight": 1,
+  "features": "relationships",
+  "input_size": 892,
+  "target_mode": "residual",
+  "correction_limit_cp": 250.0,
+  "color_consistent": true,
+  "data_manifest_sha256": "7298dcf34f304b2aaba6c3a4a9ffb8e8a0a12b30b5656debd4e29d5dbd1b3bae",
+  "rows": {
+    "train": 9711,
+    "val": 1481,
+    "test": 1503
+  },
+  "best_epoch": 2,
+  "validation_mae_cp": 160.27,
+  "selection_policy": "validation ranking accuracy, then MAE for ties",
+  "rank_margin_cp": 10.0,
+  "hard_pair_weight": 4.0,
+  "initial_checkpoint_sha256": "15a8d13fe8868c922e7c6b11f54dcb6fa8fc24be214482e6f7c117ec066aed96",
+  "test_rank_accuracy": 0.8025,
+  "rank_weight": 1.0,
+  "pair_manifest_sha256": "547eb6a39adc1ce7853d07aaaeeaedc953041f3f002ef99a5203f7b6dd26c3cb",
+  "test_mae_cp": 149.26,
+  "heuristic_test_mae_cp": 152.16,
+  "test_breakdown": {
+    "early_ply_8_29": {
+      "positions": 138,
+      "network_mae_cp": 129.05,
+      "heuristic_mae_cp": 137.09
+    },
+    "middle_ply_30_59": {
+      "positions": 250,
+      "network_mae_cp": 148.27,
+      "heuristic_mae_cp": 142.4
+    },
+    "late_ply_60_plus": {
+      "positions": 1115,
+      "network_mae_cp": 151.98,
+      "heuristic_mae_cp": 156.22
+    },
+    "low_material_12_pieces_or_fewer": {
+      "positions": 783,
+      "network_mae_cp": 153.55,
+      "heuristic_mae_cp": 159.76
+    },
+    "search_stand_pat": {
+      "positions": 346,
+      "network_mae_cp": 175.18,
+      "heuristic_mae_cp": 182.27
+    },
+    "self_play": {
+      "positions": 1157,
+      "network_mae_cp": 141.51,
+      "heuristic_mae_cp": 143.16
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_mae_cp": 130.22,
+      "val_mae_cp": 160.39,
+      "val_rank_accuracy": 0.7275,
+      "selection_score": 187.6359431996368,
+      "selection_key": [
+        0.27249999999999996,
+        160.3859431996368
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_mae_cp": 120.78,
+      "val_mae_cp": 160.27,
+      "val_rank_accuracy": 0.7375,
+      "selection_score": 186.51633106156993,
+      "selection_key": [
+        0.26249999999999996,
+        160.26633106156993
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_mae_cp": 114.07,
+      "val_mae_cp": 163.3,
+      "val_rank_accuracy": 0.735,
+      "selection_score": 189.80450381241,
+      "selection_key": [
+        0.265,
+        163.30450381241
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_mae_cp": 106.0,
+      "val_mae_cp": 166.64,
+      "val_rank_accuracy": 0.7325,
+      "selection_score": 193.393548317651,
+      "selection_key": [
+        0.26749999999999996,
+        166.643548317651
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_mae_cp": 99.11,
+      "val_mae_cp": 167.96,
+      "val_rank_accuracy": 0.7175,
+      "selection_score": 196.20924171895936,
+      "selection_key": [
+        0.2825,
+        167.95924171895936
+      ]
+    },
+    {
+      "epoch": 6,
+      "train_mae_cp": 93.35,
+      "val_mae_cp": 168.81,
+      "val_rank_accuracy": 0.6825,
+      "selection_score": 200.56216140633737,
+      "selection_key": [
+        0.3175,
+        168.81216140633737
+      ]
+    },
+    {
+      "epoch": 7,
+      "train_mae_cp": 88.09,
+      "val_mae_cp": 170.38,
+      "val_rank_accuracy": 0.6875,
+      "selection_score": 201.6337305206773,
+      "selection_key": [
+        0.3125,
+        170.3837305206773
+      ]
+    },
+    {
+      "epoch": 8,
+      "train_mae_cp": 82.81,
+      "val_mae_cp": 171.48,
+      "val_rank_accuracy": 0.695,
+      "selection_score": 201.97686357517486,
+      "selection_key": [
+        0.30500000000000005,
+        171.47686357517486
+      ]
+    },
+    {
+      "epoch": 9,
+      "train_mae_cp": 80.2,
+      "val_mae_cp": 174.2,
+      "val_rank_accuracy": 0.695,
+      "selection_score": 204.69909136589922,
+      "selection_key": [
+        0.30500000000000005,
+        174.19909136589922
+      ]
+    },
+    {
+      "epoch": 10,
+      "train_mae_cp": 78.29,
+      "val_mae_cp": 175.35,
+      "val_rank_accuracy": 0.6975,
+      "selection_score": 205.60017890595327,
+      "selection_key": [
+        0.3025,
+        175.35017890595327
+      ]
+    }
+  ]
+}

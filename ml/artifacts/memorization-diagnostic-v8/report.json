@@ -1,0 +1,32 @@
+{
+  "policy": "Training-set memorization diagnostic only. No held-out claim; never promoted to app.",
+  "pairs": 8,
+  "steps": 12,
+  "margin_cp": 20,
+  "correct_before": 2,
+  "correct_after": 8,
+  "all_margins_reached": true,
+  "before_cp": [
+    -0.5281620025634766,
+    -300.3774108886719,
+    58.093788146972656,
+    -0.3702327609062195,
+    -6.151671886444092,
+    -4.49503755569458,
+    -14.005380630493164,
+    70.25028228759766
+  ],
+  "after_cp": [
+    103.8031005859375,
+    87.3758773803711,
+    176.18690490722656,
+    23.378164291381836,
+    214.90415954589844,
+    94.37822723388672,
+    252.4874725341797,
+    49.91689682006836
+  ],
+  "seed": 819,
+  "initial_checkpoint_sha256": "15a8d13fe8868c922e7c6b11f54dcb6fa8fc24be214482e6f7c117ec066aed96",
+  "analysis_sha256": "6bc439ed40ed1494733e364636f80396ccf7a3f37cb923ea50b53c45faad8fb2"
+}

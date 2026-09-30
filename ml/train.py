@@ -97,7 +97,15 @@ def main():
     parser.add_argument('--correction-limit-cp', type=float, default=None)
     parser.add_argument('--search-weight', type=float, default=1, help='Training sampling weight for search-derived rows')
     parser.add_argument('--features', choices=('board', 'relationships'), default='board')
+    parser.add_argument('--rank-margin-cp', type=float, default=100)
+    parser.add_argument('--hard-pair-weight', type=float, default=1)
+    parser.add_argument('--selection', choices=('combined', 'ranking'), default='combined')
+    parser.add_argument('--initial-checkpoint', type=Path)
     args = parser.parse_args()
+    if args.rank_margin_cp <= 0 or args.hard_pair_weight < 1:
+        parser.error('positive rank margin and hard-pair weight at least one required')
+    if args.selection == 'ranking' and not args.pairs:
+        parser.error('ranking selection requires pairs')
     input_size = RELATIONAL_INPUT_SIZE if args.features == 'relationships' else INPUT_SIZE
     version = RELATIONAL_MODEL_VERSION if args.features == 'relationships' else MODEL_VERSION
     if args.search_weight <= 0:
@@ -130,6 +138,11 @@ def main():
     if correction_limit is None and args.target == 'material':
         correction_limit = 250
     model = ChessNet(input_size=input_size, correction_limit_cp=correction_limit, color_consistent=args.color_consistent)
+    if args.initial_checkpoint:
+        saved = torch.load(args.initial_checkpoint, map_location='cpu', weights_only=True)
+        if saved.get('input_size') != input_size or saved.get('target_mode') != args.target or saved.get('diagnostic_only'):
+            raise ValueError('initial checkpoint must match features/target and cannot be diagnostic-only')
+        model.load_state_dict(saved['state_dict'])
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
     loss_fn = nn.HuberLoss(delta=1.0)
     weights = [args.search_weight if 'search' in r.get('source', '') else 1
@@ -156,7 +169,7 @@ def main():
         if any(combined[a] & combined[b] for a, b in
                (('train', 'val'), ('train', 'test'), ('val', 'test'))):
             raise ValueError('candidate pairs overlap across data splits')
-    best_state, best_val, stale = None, float("inf"), 0
+    best_state, best_key, stale = None, None, 0
     history = []
     for epoch in range(1, args.epochs + 1):
         model.train()
@@ -167,19 +180,22 @@ def main():
             if pairs is not None:
                 good, bad, base_difference, sign = next(pairs)
                 delta = sign * (model(good) - model(bad) + base_difference)
-                loss = loss + args.rank_weight * torch.relu(.25 - delta).mean()
+                pair_weights = torch.where(sign * base_difference <= 0, args.hard_pair_weight, 1.)
+                rank_loss = torch.relu(args.rank_margin_cp / SCORE_SCALE - delta)
+                loss = loss + args.rank_weight * (rank_loss * pair_weights).sum() / pair_weights.sum()
             loss.backward()
             optimizer.step()
         train_mae = mean_absolute_error_cp(model, datasets["train"], args.batch_size)
         val_mae = mean_absolute_error_cp(model, datasets["val"], args.batch_size)
         val_rank = ranking_accuracy(model, pair_loaders['val']) if pair_loaders else None
         selection_score = val_mae + 100 * (1 - val_rank) if val_rank is not None else val_mae
+        selection_key = ((1 - val_rank, val_mae) if args.selection == 'ranking' else (selection_score, 0))
         history.append({"epoch": epoch, "train_mae_cp": round(train_mae, 2),
                         "val_mae_cp": round(val_mae, 2), 'val_rank_accuracy': val_rank,
-                        'selection_score': selection_score})
+                        'selection_score': selection_score, 'selection_key': selection_key})
         print(f"Epoch {epoch}: train MAE {train_mae:.1f} cp, val MAE {val_mae:.1f} cp", flush=True)
-        if selection_score < best_val:
-            best_val = selection_score
+        if best_key is None or selection_key < best_key:
+            best_key = selection_key
             best_state = {key: value.detach().clone() for key, value in model.state_dict().items()}
             stale = 0
         else:
@@ -207,9 +223,12 @@ def main():
         'color_consistent': args.color_consistent,
         "data_manifest_sha256": hashlib.sha256((args.data / "manifest.json").read_bytes()).hexdigest(),
         "rows": {split: len(data) for split, data in rows.items()},
-        "best_epoch": min(history, key=lambda item: item['selection_score'])["epoch"],
+        "best_epoch": min(history, key=lambda item: item['selection_key'])["epoch"],
         "validation_mae_cp": round(mean_absolute_error_cp(model, datasets['val'], args.batch_size), 2),
-        'selection_policy': 'validation MAE + 100cp times pair error rate' if pair_loaders else 'validation MAE',
+        'selection_policy': ('validation ranking accuracy, then MAE for ties' if args.selection == 'ranking'
+                             else 'validation MAE + 100cp times pair error rate' if pair_loaders else 'validation MAE'),
+        'rank_margin_cp': args.rank_margin_cp, 'hard_pair_weight': args.hard_pair_weight,
+        'initial_checkpoint_sha256': hashlib.sha256(args.initial_checkpoint.read_bytes()).hexdigest() if args.initial_checkpoint else None,
         'test_rank_accuracy': ranking_accuracy(model, pair_loaders['test']) if pair_loaders else None,
         'rank_weight': args.rank_weight if pair_loaders else 0,
         'pair_manifest_sha256': hashlib.sha256((args.pairs / 'manifest.json').read_bytes()).hexdigest()

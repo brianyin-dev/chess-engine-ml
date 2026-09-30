@@ -269,3 +269,68 @@ class RelationshipEvaluatorTests(unittest.TestCase):
         self.assertEqual(before[44], 1/8)
         self.assertEqual(after[44], 0)
         self.assertEqual(after[43], 1/8)
+
+@unittest.skipUnless(HAS_TORCH, 'ML dependencies are optional')
+class WeightedCorrectionTests(unittest.TestCase):
+    def checkpoint(self, directory):
+        import torch
+        from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE
+        model=ChessNet(color_consistent=True)
+        for parameter in model.parameters():
+            parameter.data.zero_()
+        model.net[-1].bias.data.fill_(1)
+        path=Path(directory)/'weighted.pt'
+        torch.save({'version':MODEL_VERSION,'input_size':INPUT_SIZE,'score_scale':SCORE_SCALE,
+                    'target_mode':'residual','color_consistent':True,'state_dict':model.state_dict()},path)
+        return path
+
+    def test_zero_weight_skips_neural_encoding_and_matches_heuristic(self):
+        from ml.evaluator import NeuralEvaluator
+        from engine.evaluation import evaluate
+        with tempfile.TemporaryDirectory() as directory:
+            e=NeuralEvaluator(self.checkpoint(directory),0)
+            for board in (chess.Board(),chess.Board().mirror()):
+                expected=evaluate(board)
+                with patch('ml.evaluator.board_to_array',side_effect=AssertionError('should skip')):
+                    self.assertEqual(e(board),expected)
+
+    def test_scaled_correction_and_color_symmetry(self):
+        from ml.evaluator import NeuralEvaluator
+        from engine.evaluation import evaluate
+        with tempfile.TemporaryDirectory() as directory:
+            path=self.checkpoint(directory)
+            for weight in (.1,.25,.5):
+                e=NeuralEvaluator(path,weight)
+                board=chess.Board()
+                self.assertEqual(e(board),evaluate(board)+round(400*weight))
+                self.assertEqual(e(board),-e(board.mirror()))
+
+    def test_quiet_gate_skips_captures_and_check(self):
+        from ml.evaluator import NeuralEvaluator
+        from engine.evaluation import evaluate
+        board=chess.Board();board.push_uci('e2e4');board.push_uci('d7d5')
+        checking=chess.Board('4k3/8/8/8/8/8/8/4R1K1 b - - 0 1')
+        with tempfile.TemporaryDirectory() as directory:
+            e=NeuralEvaluator(self.checkpoint(directory),.25,quiet_only=True)
+            for b in (board,checking):
+                expected=evaluate(b)
+                with patch('ml.evaluator.board_to_array',side_effect=AssertionError('should skip')):
+                    self.assertEqual(e(b),expected)
+            self.assertEqual(e(chess.Board()),evaluate(chess.Board())+100)
+
+    def test_invalid_correction_weights_are_rejected(self):
+        from ml.evaluator import NeuralEvaluator
+        with tempfile.TemporaryDirectory() as directory:
+            path=self.checkpoint(directory)
+            for weight in (-.1,1.1,float('nan'),float('inf'),True):
+                with self.assertRaises(ValueError):NeuralEvaluator(path,weight)
+
+    def test_settling_follows_capture_promotion_and_check_evasion(self):
+        from ml.generate_quiet_rankings import is_tactical
+        board=chess.Board();board.push_uci('e2e4');board.push_uci('d7d5')
+        self.assertTrue(is_tactical(board,chess.Move.from_uci('e4d5')))
+        self.assertFalse(is_tactical(board,chess.Move.from_uci('g1f3')))
+        promotion=chess.Board('7k/P7/8/8/8/8/8/K7 w - - 0 1')
+        self.assertTrue(is_tactical(promotion,chess.Move.from_uci('a7a8q')))
+        checking=chess.Board('4k3/8/8/8/8/8/8/4R1K1 b - - 0 1')
+        self.assertTrue(is_tactical(checking,next(iter(checking.legal_moves))))

@@ -1,0 +1,10 @@
+[
+ {"name":"Petrov Classical center","moves":["e2e4","e7e5","g1f3","g8f6","f3e5","d7d6","e5f3","f6e4","d2d4","d6d5","f1d3","f8e7"]},
+ {"name":"Queens Indian fianchetto","moves":["d2d4","g8f6","c2c4","e7e6","g1f3","b7b6","g2g3","c8b7","f1g2","f8e7","e1g1","e8g8"]},
+ {"name":"Pirc Austrian development","moves":["e2e4","d7d6","d2d4","g8f6","b1c3","g7g6","f2f4","f8g7","g1f3","e8g8","f1e2","c7c5"]},
+ {"name":"Ruy Lopez Exchange center","moves":["e2e4","e7e5","g1f3","b8c6","f1b5","a7a6","b5c6","d7c6","e1g1","f7f6","d2d4","e5d4"]},
+ {"name":"Trompowsky bishop retreat","moves":["d2d4","g8f6","c1g5","f6e4","g5f4","d7d5","e2e3","c7c5","f1d3","b8c6"]},
+ {"name":"Scandinavian queen retreat","moves":["e2e4","d7d5","e4d5","d8d5","b1c3","d5a5","d2d4","g8f6","g1f3","c7c6"]},
+ {"name":"Modern Benoni fianchetto","moves":["d2d4","g8f6","c2c4","c7c5","d4d5","e7e6","b1c3","e6d5","c4d5","d7d6","e2e4","g7g6"]},
+ {"name":"Evans Gambit center","moves":["e2e4","e7e5","g1f3","b8c6","f1c4","f8c5","b2b4","c5b4","c2c3","b4a5","d2d4","e5d4"]}
+]

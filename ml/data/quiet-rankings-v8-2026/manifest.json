@@ -1,0 +1,41 @@
+{
+  "seed": 829,
+  "counts": {
+    "train": {
+      "pairs": 2000,
+      "score_rows": 9711,
+      "reused_score_rows": 6614,
+      "roots": 1479,
+      "refined_roots": 500,
+      "heuristic_wrong_pairs": 494,
+      "tactical_plies_settled": 2884
+    },
+    "val": {
+      "pairs": 400,
+      "score_rows": 1481,
+      "reused_score_rows": 874,
+      "roots": 295,
+      "refined_roots": 100,
+      "heuristic_wrong_pairs": 106,
+      "tactical_plies_settled": 616
+    },
+    "test": {
+      "pairs": 400,
+      "score_rows": 1503,
+      "reused_score_rows": 880,
+      "roots": 299,
+      "refined_roots": 100,
+      "heuristic_wrong_pairs": 87,
+      "tactical_plies_settled": 621
+    }
+  },
+  "requested_nodes": 38018800,
+  "cached_analyses": 5352,
+  "elapsed_seconds": 156.51662929198937,
+  "policy": "Whole-game source splits; canonical FEN/color-mirror aliases excluded across splits including pairs. Settling follows teacher-selected captures, promotions and check evasions until its best continuation is quiet. Other legal captures may remain. No terminal/mate-saturated endpoint pairs. Existing capture-free score labels reused.",
+  "extra_compute_policy": "Up to quarter-quota roots refined when shallow heuristic and NN moves disagree or are confirmed failures. Quotas refer to pairs; some roots yield several pairs.",
+  "source_manifest_sha256": "4a79b1cc0585732bf123469cd35c07d000e9fe004f70b046bafaff6ca6078873",
+  "failures_sha256": "6bc439ed40ed1494733e364636f80396ccf7a3f37cb923ea50b53c45faad8fb2",
+  "student_sha256": "15a8d13fe8868c922e7c6b11f54dcb6fa8fc24be214482e6f7c117ec066aed96",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5"
+}

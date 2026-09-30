@@ -245,6 +245,13 @@ optimization reduces inference cost by 35%, and score prediction improves, but
 the candidate loses all completed equal-node games (0–6, two unfinished) and
 all eight equal-time games. This candidate is also rejected for app use.
 
+The [quiet-ranking and correction-weight experiment](ml/RESULTS-v8.md) learns
+8/8 known failures as a diagnostic, expands ranking splits to 2,000/400/400,
+and compares tactically settled positions. A 25% correction ranks 80.75% of
+held-out pairs correctly versus 78.25% for the heuristic, but 10%, 25%, and
+quiet-gated 50% blends all lose their local game comparisons. The app remains
+classical; the memorization-only model is excluded from match candidates.
+
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
@@ -456,7 +463,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **81 tests**, including optional neural-path checks.
+The full suite now passes **86 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 

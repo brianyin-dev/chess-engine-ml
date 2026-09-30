@@ -28,6 +28,8 @@ def main():
     parser.add_argument('--opponent-checkpoint', type=Path, help='Neural baseline instead of the heuristic')
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument('--nodes', type=int, help='Equal visited-node budgets, including quiescence; no clock limit')
+    parser.add_argument('--nn-weight', type=float, default=1.0)
+    parser.add_argument('--quiet-only', action='store_true', help='Apply correction only outside check with no legal capture')
     args = parser.parse_args()
     if args.nodes is not None and (args.nodes < 1 or args.stockfish):
         parser.error('positive node budget requires a local opponent')
@@ -42,14 +44,16 @@ def main():
         parser.error('choose either Stockfish or a neural baseline')
     if args.output.exists():
         parser.error("output directory already exists")
-    evaluator = NeuralEvaluator(args.checkpoint)
+    evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only)
+    if evaluator.diagnostic_only:
+        parser.error("memorization-only checkpoints are excluded from match candidates")
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
     neural_baseline = NeuralEvaluator(args.opponent_checkpoint) if args.opponent_checkpoint else None
     opponent = (f"stockfish-elo-{args.stockfish_elo}" if args.stockfish_elo is not None
                 else "stockfish" if uci else 'neural-baseline' if neural_baseline else "classical")
 
     def select(name, board, time_limit, depth_cap):
-        selected = evaluator if name == 'current' else neural_baseline
+        selected = (evaluator if args.nn_weight else None) if name == 'current' else neural_baseline
         if selected is not None or args.nodes is not None:
             result = search(board, depth=depth_cap, eval_fn=selected,
                             time_limit=None if args.nodes else time_limit,
@@ -76,6 +80,7 @@ def main():
         "config": {"pairs": args.pairs, "time_ms": args.time_ms,
                    "max_plies": args.max_plies, "depth_cap": 8, "node_limit": args.nodes,
                    "opponent_depth_cap": 64 if uci else 8,
+                   "nn_weight": args.nn_weight, "quiet_only": args.quiet_only,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
                    'correction_limit_cp': evaluator.correction_limit_cp},
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),

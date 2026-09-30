@@ -73,6 +73,8 @@ def main():
     parser.add_argument('--games', action='append', type=Path, required=True)
     parser.add_argument('--stockfish', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--nn-weight', type=float, default=1)
+    parser.add_argument('--quiet-only', action='store_true')
     args = parser.parse_args()
     if args.output.exists():
         parser.error('output directory must be new')
@@ -83,7 +85,7 @@ def main():
     boards = [chess.Board(r['fen']) for r in sampled]
     training = [chess.Board(json.loads(l)['fen'])
                 for l in (args.data / 'train.jsonl').read_text().splitlines()]
-    models = {p.stem: NeuralEvaluator(p) for p in args.checkpoint}
+    models = {p.stem: NeuralEvaluator(p, args.nn_weight, args.quiet_only) for p in args.checkpoint}
     evaluators = {'heuristic': evaluate, **models}
     # Use identical legal perturbations for every evaluator.
     material_rng = random.Random(431)
@@ -111,6 +113,7 @@ def main():
               'checkpoint_sha256': {str(p): hashlib.sha256(p.read_bytes()).hexdigest()
                                     for p in args.checkpoint},
               'games_sha256': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in args.games},
+              'nn_weight': args.nn_weight, 'quiet_only': args.quiet_only,
               'data_manifest_sha256': hashlib.sha256((args.data / 'manifest.json').read_bytes()).hexdigest(),
               'consistency': {}, 'training_distribution': characteristics(training),
               'search_roots': [], 'leaf_accuracy': {}}
@@ -137,7 +140,8 @@ def main():
                     features = torch.from_numpy(board_to_array(b, model.input_size))
                     base = evaluate(b) if model.target_mode == 'residual' else (
                            material_score(b) if model.target_mode == 'material' else 0)
-                    expected = round(base + model.model(features).item() * SCORE_SCALE)
+                    use_nn = not (model.quiet_only and (b.is_check() or next(b.generate_legal_captures(), None)))
+                    expected = round(base + model.model(features).item() * SCORE_SCALE * model.correction_weight) if use_nn else base
                     differences.append(abs(expected - model(b)))
             parity = {**quantiles(differences), 'different_integer_scores': sum(x != 0 for x in differences)}
         tactics = []
