@@ -200,3 +200,22 @@ class SearchTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class NodeBudgetTests(unittest.TestCase):
+    def test_node_budget_restores_position_and_counts_quiescence(self):
+        from engine.search import search
+        board = chess.Board()
+        board.push_uci('e2e4')
+        original = board.fen(), list(board.move_stack)
+        result = search(board, depth=8, node_limit=100)
+        self.assertLessEqual(result.nodes, 100)
+        self.assertEqual(result.stop_reason, 'node_limit')
+        self.assertFalse(result.timed_out)
+        self.assertIn(result.move, board.legal_moves)
+        self.assertEqual((board.fen(), list(board.move_stack)), original)
+
+    def test_invalid_node_budgets_are_rejected(self):
+        from engine.search import search
+        for limit in (0, -1, True, 1.5):
+            with self.assertRaises(ValueError):
+                search(chess.Board(), node_limit=limit)

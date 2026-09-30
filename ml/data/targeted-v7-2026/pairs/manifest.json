@@ -1,0 +1,8 @@
+{
+  "counts": {
+    "train": 205,
+    "val": 19,
+    "test": 22
+  },
+  "parent_manifest_sha256": "4a79b1cc0585732bf123469cd35c07d000e9fe004f70b046bafaff6ca6078873"
+}

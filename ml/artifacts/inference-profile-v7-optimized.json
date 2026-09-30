@@ -1,0 +1,54 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python": "3.13.1",
+  "positions_sha256": "ae209dfe1acdbbd37d27d7863763883dea04a823ef8771580e1243b33dfe4137",
+  "sample": 250,
+  "rounds": 10,
+  "evaluators": {
+    "heuristic": {
+      "median_ms_per_position": 0.0353,
+      "rounds_ms_per_position": [
+        0.03559,
+        0.03528,
+        0.03527,
+        0.03525,
+        0.03515,
+        0.03524,
+        0.03564,
+        0.03544,
+        0.03531,
+        0.03533
+      ]
+    },
+    "relational-v7": {
+      "median_ms_per_position": 0.11369,
+      "rounds_ms_per_position": [
+        0.11392,
+        0.11293,
+        0.11276,
+        0.11339,
+        0.11347,
+        0.11343,
+        0.11392,
+        0.1148,
+        0.11672,
+        0.11753
+      ]
+    },
+    "board-control-v7": {
+      "median_ms_per_position": 0.07067,
+      "rounds_ms_per_position": [
+        0.07387,
+        0.07441,
+        0.07264,
+        0.06958,
+        0.06924,
+        0.0707,
+        0.07039,
+        0.07063,
+        0.07057,
+        0.07106
+      ]
+    }
+  }
+}

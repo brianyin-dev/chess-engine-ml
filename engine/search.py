@@ -71,9 +71,10 @@ def _tactical_moves(board):
 
 
 class _Search:
-    def __init__(self, board, eval_fn, deadline, use_tt):
+    def __init__(self, board, eval_fn, deadline, use_tt, node_limit=None):
         self.eval_fn = eval_fn
         self.deadline = deadline
+        self.node_limit = node_limit
         self.use_tt = use_tt
         self.table = {}
         self.static_cache = {}
@@ -115,6 +116,8 @@ class _Search:
             board.pop()
 
     def visit(self, ply, quiescence=False):
+        if self.node_limit is not None and self.nodes >= self.node_limit:
+            raise _SearchLimit("node_limit")
         if self.deadline is not None and perf_counter() >= self.deadline:
             raise _SearchLimit("time_limit")
         # Abort the iteration rather than treating an unresolved checking line as quiet.
@@ -284,12 +287,15 @@ class _Search:
 
 
 def search(board: chess.Board, depth: int = 3, eval_fn=None,
-           time_limit: float | None = None, use_tt: bool = True) -> SearchResult:
+           time_limit: float | None = None, use_tt: bool = True,
+           node_limit: int | None = None) -> SearchResult:
     """Search up to depth plies; return the last fully completed iteration.
 
     eval_fn returns integer centipawns from White's perspective. time_limit is
     seconds, checked cooperatively between nodes. Even a tiny limit returns a
-    legal fallback move. The caller's board is restored, including on exceptions.
+    legal fallback move. node_limit counts main and quiescence visits; fallback
+    static evaluations are separately recorded and are not visited nodes.
+    The caller's board is restored, including on exceptions.
     """
     if isinstance(depth, bool) or not isinstance(depth, int) or not 1 <= depth <= 64:
         raise ValueError("depth must be an integer between 1 and 64")
@@ -297,11 +303,14 @@ def search(board: chess.Board, depth: int = 3, eval_fn=None,
             or not isinstance(time_limit, (int, float))
             or not math.isfinite(time_limit) or time_limit <= 0):
         raise ValueError("time_limit must be a positive finite number of seconds")
+    if node_limit is not None and (isinstance(node_limit, bool)
+            or not isinstance(node_limit, int) or node_limit < 1):
+        raise ValueError("node_limit must be a positive integer")
     if not board.is_valid():
         raise ValueError("invalid chess position")
     start = perf_counter()
     worker = _Search(board, evaluate if eval_fn is None else eval_fn,
-                     None if time_limit is None else start + time_limit, use_tt)
+                     None if time_limit is None else start + time_limit, use_tt, node_limit)
     moves = list(board.legal_moves)
     terminal = worker.terminal(board, moves, 0)
     if terminal is not None:

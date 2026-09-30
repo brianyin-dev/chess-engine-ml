@@ -239,6 +239,12 @@ search positions with split isolation. Both candidates pass the repeated consist
 checks, but scored 1–7 (material) and 2–6 (heuristic correction) in local paired
 matches against the heuristic. The app keeps the classical evaluator.
 
+The [king-aware, targeted-data experiment](ml/RESULTS-v7.md) adds 98 relationship
+features and 10,000 training positions with selective Stockfish labeling. Feature
+optimization reduces inference cost by 35%, and score prediction improves, but
+the candidate loses all completed equal-node games (0–6, two unfinished) and
+all eight equal-time games. This candidate is also rejected for app use.
+
 To reproduce or extend the experiment, install `requirements.txt` and provide a
 local Stockfish UCI binary. Each command writes to a new path to preserve results:
 
@@ -450,7 +456,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **77 tests**, including optional neural-path checks.
+The full suite now passes **81 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 

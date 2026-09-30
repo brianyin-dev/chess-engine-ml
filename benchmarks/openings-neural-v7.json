@@ -1,0 +1,8 @@
+[
+  {"name":"Scotch Four Knights structure","moves":["e2e4","e7e5","g1f3","b8c6","d2d4","e5d4","f3d4","g8f6","b1c3","f8b4"]},
+  {"name":"French Tarrasch open center","moves":["e2e4","e7e6","d2d4","d7d5","b1d2","c7c5","e4d5","e6d5","g1f3","b8c6"]},
+  {"name":"Catalan closed center","moves":["d2d4","g8f6","c2c4","e7e6","g2g3","d7d5","f1g2","f8e7","g1f3","e8g8","e1g1"]},
+  {"name":"Caro Kann Advance short setup","moves":["e2e4","c7c6","d2d4","d7d5","e4e5","c8f5","g1f3","e7e6","f1e2","c6c5"]},
+  {"name":"English reversed Sicilian","moves":["c2c4","e7e5","b1c3","g8f6","g2g3","d7d5","c4d5","f6d5","f1g2","d5b6"]},
+  {"name":"Queens Gambit Exchange development","moves":["d2d4","d7d5","c2c4","e7e6","b1c3","g8f6","c4d5","e6d5","c1g5","f8e7","e2e3","e8g8"]}
+]

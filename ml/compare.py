@@ -27,7 +27,10 @@ def main():
     parser.add_argument("--stockfish-elo", type=int, help="Stockfish limited-strength setting")
     parser.add_argument('--opponent-checkpoint', type=Path, help='Neural baseline instead of the heuristic')
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument('--nodes', type=int, help='Equal visited-node budgets, including quiescence; no clock limit')
     args = parser.parse_args()
+    if args.nodes is not None and (args.nodes < 1 or args.stockfish):
+        parser.error('positive node budget requires a local opponent')
     openings = json.loads(args.openings.read_text())
     for opening in openings:
         opening_board(opening)
@@ -47,12 +50,15 @@ def main():
 
     def select(name, board, time_limit, depth_cap):
         selected = evaluator if name == 'current' else neural_baseline
-        if selected is not None:
-            result = search(board, depth=depth_cap, eval_fn=selected, time_limit=time_limit)
+        if selected is not None or args.nodes is not None:
+            result = search(board, depth=depth_cap, eval_fn=selected,
+                            time_limit=None if args.nodes else time_limit,
+                            node_limit=args.nodes)
             stats = asdict(result)
             stats.pop("move")
-            stats["budget_seconds"] = time_limit
-            stats["overrun_seconds"] = max(0, result.elapsed - time_limit)
+            stats["budget_seconds"] = None if args.nodes else time_limit
+            stats["budget_nodes"] = args.nodes
+            stats["overrun_seconds"] = 0 if args.nodes else max(0, result.elapsed - time_limit)
             return result.move, stats
         # The NN search retains the app's depth-eight cap. A UCI opponent must
         # be free to use its full clock; capping Stockfish at eight can make a
@@ -63,11 +69,12 @@ def main():
     args.output.mkdir(parents=True)
     report = {
         "started_at": datetime.now(timezone.utc).isoformat(),
-        "policy": "NN is current, selected local engine is opponent. Equal per-move "
-                  "cooperative budgets, no opening book, sequential paired colors. "
-                  "Ply-limit games are unfinished. No Elo inference.",
+        "policy": ("NN is current; local opponent. Equal visited-node budgets including quiescence; "
+                   "fallback static evaluations are reported separately. No clock limit. "
+                   if args.nodes else "NN is current; selected opponent. Equal cooperative per-move clock budgets. ") +
+                  "No opening book, sequential paired colors. Ply-limit games are unfinished. No Elo inference.",
         "config": {"pairs": args.pairs, "time_ms": args.time_ms,
-                   "max_plies": args.max_plies, "depth_cap": 8,
+                   "max_plies": args.max_plies, "depth_cap": 8, "node_limit": args.nodes,
                    "opponent_depth_cap": 64 if uci else 8,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
                    'correction_limit_cp': evaluator.correction_limit_cp},

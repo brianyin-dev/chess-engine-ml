@@ -1,0 +1,51 @@
+{
+  "seed": 719,
+  "counts": {
+    "train": {
+      "base": 26277,
+      "new": 10000,
+      "pairs": 205,
+      "refined": 2500,
+      "roots": 560,
+      "sources": {
+        "quiet_search": 552,
+        "search_stand_pat": 4336,
+        "teacher_candidate": 1055,
+        "endgame_search": 4057
+      }
+    },
+    "val": {
+      "base": 3989,
+      "new": 1000,
+      "pairs": 19,
+      "refined": 250,
+      "roots": 56,
+      "sources": {
+        "quiet_search": 59,
+        "search_stand_pat": 447,
+        "teacher_candidate": 105,
+        "endgame_search": 389
+      }
+    },
+    "test": {
+      "base": 4095,
+      "new": 1000,
+      "pairs": 22,
+      "refined": 250,
+      "roots": 57,
+      "sources": {
+        "search_stand_pat": 461,
+        "teacher_candidate": 102,
+        "quiet_search": 36,
+        "endgame_search": 401
+      }
+    }
+  },
+  "elapsed_seconds": 277.970200791955,
+  "requested_stockfish_nodes": 43402000,
+  "label_policy": "500 then 1500 nodes; additional 6000 for unstable, close or student-disagreement examples, at most 25% of new quota. Node budgets are cooperative.",
+  "split_policy": "Inherited whole-game splits; canonical FEN/color-mirror owners exclude cross-split aliases, including ranking pairs.",
+  "source_manifest_sha256": "6cee0f5e4d8240b08f082bd7aff33e43e586d7f5cbaa8f8d1b803b0cadc156e7",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "student_sha256": "560e71913a824bb526425e829bb02d6ba32de90a7d3eec00370770c0ad3a2595"
+}

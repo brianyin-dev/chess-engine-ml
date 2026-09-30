@@ -7,7 +7,9 @@ import numpy as np
 import torch
 
 from engine.evaluation import evaluate
-from ml.model import ChessNet, INPUT_SIZE, LEGACY_INPUT_SIZE, MODEL_VERSION, SCORE_SCALE, board_to_array
+from ml.model import (ChessNet, INPUT_SIZE, LEGACY_INPUT_SIZE, MODEL_VERSION,
+                      RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION,
+                      SCORE_SCALE, board_to_array)
 
 
 class NeuralEvaluator:
@@ -16,7 +18,8 @@ class NeuralEvaluator:
     def __init__(self, checkpoint: str | Path):
         saved = torch.load(checkpoint, map_location="cpu", weights_only=True)
         if ((saved.get("version"), saved.get("input_size")) not in
-                ((2, LEGACY_INPUT_SIZE), (MODEL_VERSION, INPUT_SIZE))
+                ((2, LEGACY_INPUT_SIZE), (MODEL_VERSION, INPUT_SIZE),
+                 (RELATIONAL_MODEL_VERSION, RELATIONAL_INPUT_SIZE))
                 or saved.get("score_scale") != SCORE_SCALE):
             raise ValueError("checkpoint is incompatible with this evaluator")
         self.target_mode = saved.get("target_mode", "residual")
@@ -24,12 +27,12 @@ class NeuralEvaluator:
             raise ValueError("checkpoint has an unknown target mode")
         self.input_size = saved['input_size']
         self.correction_limit_cp = saved.get('correction_limit_cp')
-        if self.target_mode == 'material' and self.input_size != INPUT_SIZE:
+        if self.target_mode == 'material' and self.input_size not in (INPUT_SIZE, RELATIONAL_INPUT_SIZE):
             raise ValueError('material mode requires material features')
         if self.correction_limit_cp is not None and self.correction_limit_cp <= 0:
             raise ValueError('correction limit must be positive')
         self.color_consistent = saved.get('color_consistent', False)
-        if self.color_consistent and self.input_size != INPUT_SIZE:
+        if self.color_consistent and self.input_size not in (INPUT_SIZE, RELATIONAL_INPUT_SIZE):
             raise ValueError('color consistency requires current features')
         self.model = ChessNet(self.input_size, self.correction_limit_cp, self.color_consistent)
         self.model.load_state_dict(saved["state_dict"])

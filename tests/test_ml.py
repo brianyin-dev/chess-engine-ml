@@ -228,3 +228,44 @@ class ColorConsistencyTests(unittest.TestCase):
             features = torch.stack([board_to_tensor(b) for b in boards])
             mirrors = torch.stack([board_to_tensor(b.mirror()) for b in boards])
             self.assertTrue(torch.equal(model(features), -model(mirrors)))
+
+@unittest.skipUnless(HAS_TORCH, 'ML dependencies are optional')
+class RelationshipEvaluatorTests(unittest.TestCase):
+    def test_relational_features_color_mirror_and_inference_parity(self):
+        import torch
+        import numpy as np
+        from ml.model import (ChessNet, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION,
+                              SCORE_SCALE, board_to_tensor, board_to_array)
+        from ml.evaluator import NeuralEvaluator
+        from engine.evaluation import evaluate
+        torch.manual_seed(719)
+        model = ChessNet(RELATIONAL_INPUT_SIZE, 200, True)
+        boards = [chess.Board(), chess.Board('4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 1'),
+                  chess.Board('r3k2r/pp3ppp/8/8/8/8/PP3PPP/R3K2R b KQkq - 0 1')]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'relationships.pt'
+            torch.save({'version': RELATIONAL_MODEL_VERSION, 'input_size': RELATIONAL_INPUT_SIZE,
+                        'score_scale': SCORE_SCALE, 'target_mode': 'residual',
+                        'correction_limit_cp': 200, 'color_consistent': True,
+                        'state_dict': model.state_dict()}, path)
+            evaluator = NeuralEvaluator(path)
+            for board in boards:
+                x = board_to_array(board, RELATIONAL_INPUT_SIZE)[794:].reshape(2,49)
+                mirror = board_to_array(board.mirror(), RELATIONAL_INPUT_SIZE)[794:].reshape(2,49)
+                np.testing.assert_array_equal(x, mirror[::-1])
+                for b in (board, board.mirror()):
+                    self.assertEqual(evaluator(b), -evaluator(b.mirror()))
+                    with torch.inference_mode():
+                        expected = round(evaluate(b) + model(board_to_tensor(b,RELATIONAL_INPUT_SIZE)).item()*SCORE_SCALE)
+                    self.assertEqual(evaluator(b), expected)
+
+    def test_attacked_undefended_feature_changes_with_defender(self):
+        from ml.model import relationship_features
+        hanging = chess.Board('3r3k/8/8/3Q4/8/8/8/K7 b - - 0 1')
+        defended = hanging.copy()
+        defended.set_piece_at(chess.E4, chess.Piece(chess.PAWN, chess.WHITE))
+        before, after = relationship_features(hanging), relationship_features(defended)
+        # White queen attack/defense/undefended is the final three piece-count features.
+        self.assertEqual(before[44], 1/8)
+        self.assertEqual(after[44], 0)
+        self.assertEqual(after[43], 1/8)

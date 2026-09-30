@@ -15,18 +15,19 @@ from torch.utils.data import DataLoader
 
 from engine.evaluation import evaluate
 from ml.dataset import ChessEvalDataset, load_rows
-from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE, board_to_tensor, material_score
+from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, SCORE_SCALE, board_to_tensor, material_score
 
 
-def pair_loader(path, shuffle):
+def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material"):
     records = [json.loads(l) for l in path.read_text().splitlines() if l]
     if not records:
         raise ValueError('pair split is empty')
     good = [chess.Board(r['good_fen']) for r in records]
     bad = [chess.Board(r['bad_fen']) for r in records]
-    tensors = (torch.stack([board_to_tensor(b) for b in good]),
-               torch.stack([board_to_tensor(b) for b in bad]),
-               torch.tensor([(material_score(g) - material_score(b)) / SCORE_SCALE
+    baseline = material_score if target_mode == "material" else evaluate
+    tensors = (torch.stack([board_to_tensor(b, input_size) for b in good]),
+               torch.stack([board_to_tensor(b, input_size) for b in bad]),
+               torch.tensor([(baseline(g) - baseline(b)) / SCORE_SCALE
                              for g, b in zip(good, bad)]),
                torch.tensor([r['sign'] for r in records], dtype=torch.float32))
     return DataLoader(torch.utils.data.TensorDataset(*tensors), batch_size=64, shuffle=shuffle)
@@ -69,7 +70,7 @@ def heldout_breakdown(model, dataset, rows, batch_size: int, target_mode: str) -
         key = ("early_ply_8_29" if ply < 30 else
                "middle_ply_30_59" if ply < 60 else "late_ply_60_plus")
         groups[key].append(item)
-        groups["search_stand_pat" if row.get("source") == "search_stand_pat"
+        groups["search_stand_pat" if 'search' in row.get('source', '')
                else "self_play"].append(item)
         if len(chess.Board(row["fen"]).piece_map()) <= 12:
             groups["low_material_12_pieces_or_fewer"].append(item)
@@ -90,12 +91,15 @@ def main():
     parser.add_argument("--patience", type=int, default=8)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--target", choices=("residual", "absolute", "material"), default="residual")
-    parser.add_argument('--pairs', type=Path, help='Candidate pair split directory; material mode only')
+    parser.add_argument('--pairs', type=Path, help='Candidate pair split directory; material or residual mode')
     parser.add_argument('--rank-weight', type=float, default=.2)
     parser.add_argument('--color-consistent', action='store_true')
     parser.add_argument('--correction-limit-cp', type=float, default=None)
     parser.add_argument('--search-weight', type=float, default=1, help='Training sampling weight for search-derived rows')
+    parser.add_argument('--features', choices=('board', 'relationships'), default='board')
     args = parser.parse_args()
+    input_size = RELATIONAL_INPUT_SIZE if args.features == 'relationships' else INPUT_SIZE
+    version = RELATIONAL_MODEL_VERSION if args.features == 'relationships' else MODEL_VERSION
     if args.search_weight <= 0:
         parser.error('search weight must be positive')
     if args.correction_limit_cp is not None and args.correction_limit_cp <= 0:
@@ -104,8 +108,8 @@ def main():
         parser.error("positive epochs, batch-size, learning-rate, and patience required")
     if args.checkpoint.exists() or args.metrics.exists():
         parser.error("choose new checkpoint and metrics paths to preserve prior results")
-    if args.pairs and args.target != 'material':
-        parser.error('ranking currently requires material target mode')
+    if args.pairs and args.target == 'absolute':
+        parser.error('ranking requires material or residual target mode')
     torch.set_num_threads(1)
     torch.manual_seed(args.seed)
     rows = {split: load_rows(args.data / f"{split}.jsonl") for split in ("train", "val", "test")}
@@ -121,22 +125,29 @@ def main():
         if any(canonical[a] & canonical[b] for a, b in
                (('train', 'val'), ('train', 'test'), ('val', 'test'))):
             raise ValueError('color-mirrored or equivalent positions overlap across splits')
-    datasets = {split: ChessEvalDataset(data, args.target) for split, data in rows.items()}
+    datasets = {split: ChessEvalDataset(data, args.target, input_size) for split, data in rows.items()}
     correction_limit = args.correction_limit_cp
     if correction_limit is None and args.target == 'material':
         correction_limit = 250
-    model = ChessNet(correction_limit_cp=correction_limit, color_consistent=args.color_consistent)
+    model = ChessNet(input_size=input_size, correction_limit_cp=correction_limit, color_consistent=args.color_consistent)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
     loss_fn = nn.HuberLoss(delta=1.0)
-    weights = [args.search_weight if r.get('source') == 'search_stand_pat' else 1
+    weights = [args.search_weight if 'search' in r.get('source', '') else 1
                for r in rows['train']]
     sampler = (torch.utils.data.WeightedRandomSampler(weights, len(weights), replacement=True)
                if args.search_weight != 1 else None)
     loader = DataLoader(datasets["train"], batch_size=args.batch_size,
                         shuffle=sampler is None, sampler=sampler)
-    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train')
+    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train', input_size, args.target)
                     for s in ('train', 'val', 'test')} if args.pairs else None)
     if args.pairs:
+        pair_records = {s: [json.loads(l) for l in (args.pairs / f'{s}.jsonl').read_text().splitlines()]
+                        for s in positions}
+        combined_games = {s: game_sets[s] | {r['game_id'] for r in records if 'game_id' in r}
+                          for s, records in pair_records.items()}
+        if any(combined_games[a] & combined_games[b] for a, b in
+               (('train', 'val'), ('train', 'test'), ('val', 'test'))):
+            raise ValueError('candidate-pair game IDs overlap across splits')
         combined = {s: positions[s] | {r[k] for r in
                     [json.loads(l) for l in (args.pairs / f'{s}.jsonl').read_text().splitlines()]
                     for k in ('good_fen', 'bad_fen')} for s in positions}
@@ -178,7 +189,7 @@ def main():
     model.load_state_dict(best_state)
     args.checkpoint.parent.mkdir(parents=True, exist_ok=True)
     args.metrics.parent.mkdir(parents=True, exist_ok=True)
-    torch.save({"version": MODEL_VERSION, "input_size": INPUT_SIZE,
+    torch.save({"version": version, "input_size": input_size,
                 "score_scale": SCORE_SCALE, "target_mode": args.target,
                 'correction_limit_cp': correction_limit,
                 'color_consistent': args.color_consistent,
@@ -190,6 +201,7 @@ def main():
         "created_at": datetime.now(timezone.utc).isoformat(),
         "torch": torch.__version__, "seed": args.seed,
         "search_weight": args.search_weight,
+        "features": args.features, "input_size": input_size,
         "target_mode": args.target,
         'correction_limit_cp': correction_limit,
         'color_consistent': args.color_consistent,
