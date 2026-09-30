@@ -22,14 +22,17 @@ def main():
     parser.add_argument('--checkpoint', type=Path, required=True)
     parser.add_argument('--stockfish', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--nn-weight', type=float, default=1)
+    parser.add_argument('--quiet-only', action='store_true')
     args = parser.parse_args()
     if args.output.exists():
         parser.error('output must be new')
-    evaluator = NeuralEvaluator(args.checkpoint)
+    evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only)
     result = {'policy': 'First >=100cp loss or mate deterioration, screened at 100ms and '
               'confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, '
               'not a definitive cause. Scores are from the root mover perspective.',
               'checkpoint_sha256': hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
+              'nn_weight': args.nn_weight, 'quiet_only': args.quiet_only,
               'source_sha256': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in args.report},
               'games': [], 'pairs': []}
     args.output.parent.mkdir(parents=True, exist_ok=True)

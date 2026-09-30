@@ -34,6 +34,22 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_mistake_importance_is_training_only(self):
+        import json
+        from ml.train import pair_loader
+        board = chess.Board()
+        row = {'good_fen': board.fen(), 'bad_fen': board.mirror().fen(),
+               'sign': 1, 'training_weight': 4}
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'pairs.jsonl'
+            path.write_text(json.dumps(row) + '\n')
+            self.assertEqual(next(iter(pair_loader(path, True)))[-1].item(), 4)
+            self.assertEqual(next(iter(pair_loader(path, False)))[-1].item(), 1)
+            row['training_weight'] = -1
+            path.write_text(json.dumps(row) + '\n')
+            with self.assertRaises(ValueError):
+                pair_loader(path, True)
+
     def test_candidate_ranking_uses_root_mover_perspective(self):
         import json
         from ml.model import ChessNet
@@ -272,6 +288,26 @@ class RelationshipEvaluatorTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, 'ML dependencies are optional')
 class WeightedCorrectionTests(unittest.TestCase):
+    def test_leaf_fast_path_preserves_scores_and_skips_terminal_recheck(self):
+        from ml.evaluator import NeuralEvaluator
+        from engine.search import search
+        with tempfile.TemporaryDirectory() as directory:
+            path = self.checkpoint(directory)
+            fast = NeuralEvaluator(path, .25, quiet_only=True)
+            reference = NeuralEvaluator(path, .25, quiet_only=True, optimized=False)
+            board = chess.Board()
+            for move in ['e2e4', 'e7e5', 'g1f3', 'b8c6', 'f1b5', 'a7a6']:
+                board.push_uci(move)
+                expected = reference(board)
+                with patch('ml.evaluator.evaluate', side_effect=AssertionError('terminal recheck')):
+                    self.assertEqual(fast.evaluate_position(board), expected)
+            before = board.fen(), list(board.move_stack)
+            a = search(board, depth=3, eval_fn=fast)
+            b = search(board, depth=3, eval_fn=reference)
+            self.assertEqual((a.move, a.score, a.nodes, a.qnodes),
+                             (b.move, b.score, b.nodes, b.qnodes))
+            self.assertEqual((board.fen(), list(board.move_stack)), before)
+
     def checkpoint(self, directory):
         import torch
         from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, SCORE_SCALE

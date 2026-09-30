@@ -11,6 +11,7 @@ import chess
 
 from benchmarks.match import UciOpponent, choose_move, opening_board, play_game, summarize
 from engine.search import search
+from benchmarks.nn_baseline_v10.search import search as frozen_search
 from ml.evaluator import NeuralEvaluator
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,8 @@ def main():
     parser.add_argument('--nodes', type=int, help='Equal visited-node budgets, including quiescence; no clock limit')
     parser.add_argument('--nn-weight', type=float, default=1.0)
     parser.add_argument('--quiet-only', action='store_true', help='Apply correction only outside check with no legal capture')
+    parser.add_argument('--reference-inference', action='store_true', help='Disable the NN search-leaf fast path')
+    parser.add_argument('--frozen-heuristic', action='store_true', help='Use the heuristic search frozen at 9e23b7c as local opponent')
     args = parser.parse_args()
     if args.nodes is not None and (args.nodes < 1 or args.stockfish):
         parser.error('positive node budget requires a local opponent')
@@ -42,9 +45,12 @@ def main():
         parser.error("stockfish-elo requires --stockfish")
     if args.stockfish and args.opponent_checkpoint:
         parser.error('choose either Stockfish or a neural baseline')
+    if args.frozen_heuristic and (args.stockfish or args.opponent_checkpoint):
+        parser.error('frozen-heuristic requires a local heuristic opponent')
     if args.output.exists():
         parser.error("output directory already exists")
-    evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only)
+    evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only,
+                                optimized=not args.reference_inference)
     if evaluator.diagnostic_only:
         parser.error("memorization-only checkpoints are excluded from match candidates")
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
@@ -54,8 +60,9 @@ def main():
 
     def select(name, board, time_limit, depth_cap):
         selected = (evaluator if args.nn_weight else None) if name == 'current' else neural_baseline
-        if selected is not None or args.nodes is not None:
-            result = search(board, depth=depth_cap, eval_fn=selected,
+        if selected is not None or args.nodes is not None or (args.frozen_heuristic and name != 'current' and not uci):
+            search_fn = frozen_search if args.frozen_heuristic and name != 'current' else search
+            result = search_fn(board, depth=depth_cap, eval_fn=selected,
                             time_limit=None if args.nodes else time_limit,
                             node_limit=args.nodes)
             stats = asdict(result)
@@ -81,6 +88,8 @@ def main():
                    "max_plies": args.max_plies, "depth_cap": 8, "node_limit": args.nodes,
                    "opponent_depth_cap": 64 if uci else 8,
                    "nn_weight": args.nn_weight, "quiet_only": args.quiet_only,
+                   "reference_inference": args.reference_inference,
+                   "frozen_heuristic": args.frozen_heuristic,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
                    'correction_limit_cp': evaluator.correction_limit_cp},
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
@@ -97,6 +106,11 @@ def main():
         report['opponent'] = {'checkpoint_sha256': hashlib.sha256(args.opponent_checkpoint.read_bytes()).hexdigest(),
                               'target_mode': neural_baseline.target_mode,
                               'input_size': neural_baseline.input_size}
+    elif args.frozen_heuristic:
+        frozen_path = ROOT / 'benchmarks/nn_baseline_v10/search.py'
+        report['opponent'] = {'search_frozen_at': '9e23b7c',
+                              'search_sha256': hashlib.sha256(frozen_path.read_bytes()).hexdigest(),
+                              'evaluation_sha256': hashlib.sha256((ROOT / 'benchmarks/nn_baseline_v10/evaluation.py').read_bytes()).hexdigest()}
     pgns = []
     try:
         for pair_id, opening in enumerate(openings[:args.pairs], 1):

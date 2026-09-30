@@ -1,0 +1,87 @@
+{
+  "phase": "completed",
+  "matches": {
+    "v8-reference": {
+      "games": 8,
+      "completed": 8,
+      "wins": 5,
+      "draws": 1,
+      "losses": 2,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.6875,
+      "complete_pairs": 4,
+      "score_fraction_complete_pairs": 0.6875,
+      "timing": {
+        "classical": {
+          "moves": 434,
+          "mean_elapsed": 0.24137464496720162,
+          "max_overrun_seconds": 0.02694991702446714,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 435,
+          "mean_elapsed": 0.24568324472297562,
+          "max_overrun_seconds": 0.05577187496237457,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "v8-fast": {
+      "games": 8,
+      "completed": 8,
+      "wins": 5,
+      "draws": 1,
+      "losses": 2,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.6875,
+      "complete_pairs": 4,
+      "score_fraction_complete_pairs": 0.6875,
+      "timing": {
+        "classical": {
+          "moves": 449,
+          "mean_elapsed": 0.24160975581610614,
+          "max_overrun_seconds": 0.03872820799006149,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 451,
+          "mean_elapsed": 0.24459990170851925,
+          "max_overrun_seconds": 0.02184404100989923,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "v10-trained": {
+      "games": 8,
+      "completed": 8,
+      "wins": 3,
+      "draws": 3,
+      "losses": 2,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.5625,
+      "complete_pairs": 4,
+      "score_fraction_complete_pairs": 0.5625,
+      "timing": {
+        "classical": {
+          "moves": 570,
+          "mean_elapsed": 0.24392126530690708,
+          "max_overrun_seconds": 0.052435334015171975,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 572,
+          "mean_elapsed": 0.2466108009424321,
+          "max_overrun_seconds": 0.013557415979448706,
+          "fallback_moves": 0
+        }
+      }
+    }
+  },
+  "policy": "Three fixed ablations at 250ms vs frozen 9e23b7c heuristic. Eight games each are screening evidence; no automatic promotion or Elo inference. Four additional paired opening starts remain reserved."
+}

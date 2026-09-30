@@ -31,6 +31,7 @@ def main():
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--train-pairs',type=int,default=2000)
     p.add_argument('--heldout-pairs',type=int,default=400)
+    p.add_argument('--failure-id-offset',type=int,default=1000000)
     args = p.parse_args()
     if args.output.exists() or min(args.train_pairs,args.heldout_pairs)<1:
         p.error('fresh output and positive quotas required')
@@ -91,7 +92,7 @@ def main():
                 for i,g in enumerate(failures['games']):
                     failure=g.get('first_costly_move')
                     if failure:
-                        known.append({'fen':failure['fen'],'game_id':1000000+i,'ply':chess.Board(failure['fen']).ply(),
+                        known.append({'fen':failure['fen'],'game_id':args.failure_id_offset+i,'ply':chess.Board(failure['fen']).ply(),
                                       'bad_move':failure['played'],'source':'confirmed_failure'})
             def compare(root,board,good_move,bad_move,deep=False):
                 nonlocal hard,settled_plies

@@ -1,0 +1,43 @@
+{
+  "boards": 1024,
+  "rounded_score_mismatches": 0,
+  "policy": "Nonterminal search-leaf scores; alternating five trials; same v8 checkpoint, .25 quiet correction.",
+  "trials_ms_per_evaluation": {
+    "reference": [
+      0.10866874214343625,
+      0.10602136228499148,
+      0.10559887692807024,
+      0.10354951956514924,
+      0.104818278316543
+    ],
+    "fast": [
+      0.09814941410013489,
+      0.09541463180084975,
+      0.0949353027408506,
+      0.09256429103743358,
+      0.09489318847499817
+    ]
+  },
+  "median_ms_per_evaluation": {
+    "reference": 0.10559887692807024,
+    "fast": 0.0949353027408506
+  },
+  "fixed_depth_search": [
+    {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "reference_seconds": 0.07481187500525266,
+      "fast_seconds": 0.07297762500820681,
+      "score": 89,
+      "move": "g1f3",
+      "visited_nodes": 1155
+    },
+    {
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 4 7",
+      "reference_seconds": 0.37430591601878405,
+      "fast_seconds": 0.34533441602252424,
+      "score": 13,
+      "move": "c1e3",
+      "visited_nodes": 13404
+    }
+  ]
+}

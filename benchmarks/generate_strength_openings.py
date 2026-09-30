@@ -21,7 +21,10 @@ def main():
         parser.error('use a new output path and positive pair count')
     excluded = set()
     for path in Path('benchmarks').glob('openings*.json'):
-        for item in json.loads(path.read_text()):
+        items = json.loads(path.read_text())
+        if not isinstance(items, list):
+            continue  # Manifests and other benchmark configurations are not starts.
+        for item in items:
             board = opening_board(item)
             excluded.add(' '.join(board.fen().split()[:4]))
     rng = random.Random(args.seed)

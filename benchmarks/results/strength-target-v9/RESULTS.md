@@ -45,7 +45,9 @@ The candidate is frozen for the full run. Report JSON records engine source,
 opening file, checkpoint, and Stockfish hashes, options, per-move search statistics,
 and complete move histories. PGNs are written after each game.
 
-The 100-game run is in progress. Results are saved incrementally at
+The run terminated with process exit 143 before finishing. Its saved checkpoint
+contains 66 completed games (48 wins, 2 draws, 16 losses) and one interrupted
+game. The full 100-game target is unverified. Partial results are saved at
 `ml/artifacts/strength-target-v9-100games-1320-250ms/report.json`.
 Success requires at least 60 points (wins + half draws) across all 100 completed
 games. The 1000-ply limit is an operational safeguard; unfinished/error games

@@ -1,0 +1,27 @@
+{
+  "policy": "Canonical-FEN deduplication within each split; new labels win ties. Prior rankings retained. Training only: 4x confirmed >=100cp failures; 2x remaining >=100cp v8 ranking mistakes. Validation/test unweighted. Trainer enforces cross-split position and whole-game separation.",
+  "sources": {
+    "ml/data/quiet-rankings-v8-2026": "7298dcf34f304b2aaba6c3a4a9ffb8e8a0a12b30b5656debd4e29d5dbd1b3bae",
+    "ml/data/mistakes-v10-2026": "e654e22db46baa0f23dadb026477ac91ef03550c20f39ac61ded8759107f86c5"
+  },
+  "counts": {
+    "train": {
+      "score_rows": 11230,
+      "pairs": 2988,
+      "weighted_training_pairs": 536,
+      "confirmed_failure_pairs": 33
+    },
+    "val": {
+      "score_rows": 1776,
+      "pairs": 596,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    },
+    "test": {
+      "score_rows": 1799,
+      "pairs": 592,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    }
+  }
+}

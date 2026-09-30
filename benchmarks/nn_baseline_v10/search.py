@@ -7,7 +7,7 @@ from time import perf_counter
 
 import chess
 
-from engine.evaluation import MATERIAL, MATE_SCORE, evaluate, evaluate_position
+from benchmarks.nn_baseline_v10.evaluation import MATERIAL, MATE_SCORE, evaluate, evaluate_position
 
 INF = 10_000_000
 MAX_PLY = 96
@@ -156,8 +156,7 @@ class _Search:
                 self.static_cache_hits += 1
                 score = self.static_cache[key]
             else:
-                position_evaluator = getattr(self.eval_fn, 'evaluate_position', self.eval_fn)
-                score = int(position_evaluator(board))
+                score = int(self.eval_fn(board))
                 if len(self.static_cache) >= 20_000:
                     self.static_cache.clear()
                 self.static_cache[key] = score

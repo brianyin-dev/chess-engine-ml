@@ -1,0 +1,32 @@
+{
+  "counts": {
+    "train": {
+      "pairs": 1000,
+      "score_rows": 9149,
+      "reused_score_rows": 7618,
+      "roots": 972,
+      "refined_roots": 250,
+      "heuristic_wrong_pairs": 345,
+      "tactical_plies_settled": 915
+    },
+    "val": {
+      "pairs": 200,
+      "score_rows": 1355,
+      "reused_score_rows": 1058,
+      "roots": 162,
+      "refined_roots": 50,
+      "heuristic_wrong_pairs": 69,
+      "tactical_plies_settled": 213
+    },
+    "test": {
+      "pairs": 200,
+      "score_rows": 1387,
+      "reused_score_rows": 1086,
+      "roots": 185,
+      "refined_roots": 50,
+      "heuristic_wrong_pairs": 67,
+      "tactical_plies_settled": 213
+    }
+  },
+  "parent_sha256": "e654e22db46baa0f23dadb026477ac91ef03550c20f39ac61ded8759107f86c5"
+}

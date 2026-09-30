@@ -7,7 +7,7 @@ import chess
 import numpy as np
 import torch
 
-from engine.evaluation import evaluate
+from engine.evaluation import evaluate, evaluate_position
 from ml.model import (ChessNet, INPUT_SIZE, LEGACY_INPUT_SIZE, MODEL_VERSION,
                       RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION,
                       SCORE_SCALE, board_to_array)
@@ -16,7 +16,7 @@ from ml.model import (ChessNet, INPUT_SIZE, LEGACY_INPUT_SIZE, MODEL_VERSION,
 class NeuralEvaluator:
     cacheable_by_fen = True
 
-    def __init__(self, checkpoint: str | Path, correction_weight=1.0, quiet_only=False):
+    def __init__(self, checkpoint: str | Path, correction_weight=1.0, quiet_only=False, optimized=True):
         saved = torch.load(checkpoint, map_location="cpu", weights_only=True)
         if ((saved.get("version"), saved.get("input_size")) not in
                 ((2, LEGACY_INPUT_SIZE), (MODEL_VERSION, INPUT_SIZE),
@@ -32,6 +32,7 @@ class NeuralEvaluator:
             raise ValueError('weighted/gated correction requires a residual checkpoint')
         self.correction_weight = correction_weight
         self.quiet_only = quiet_only
+        self.optimized = optimized
         self.diagnostic_only = saved.get('diagnostic_only', False)
         self.input_size = saved['input_size']
         self.correction_limit_cp = saved.get('correction_limit_cp')
@@ -52,6 +53,20 @@ class NeuralEvaluator:
 
     def __call__(self, board: chess.Board) -> int:
         baseline = evaluate(board) if self.target_mode == 'residual' else 0
+        return self._score(board, baseline)
+
+    def evaluate_position(self, board: chess.Board) -> int:
+        """Search-only evaluation after terminal and repetition checks.
+
+        Avoid repeating legal-move generation and replaying repetition history
+        at every leaf. Public calls retain the original evaluation semantics.
+        """
+        if not self.optimized:
+            return self(board)
+        baseline = evaluate_position(board) if self.target_mode == 'residual' else 0
+        return self._score(board, baseline)
+
+    def _score(self, board, baseline):
         if self.target_mode == 'residual' and (self.correction_weight == 0 or
                 self.quiet_only and (board.is_check() or next(board.generate_legal_captures(), None))):
             return baseline

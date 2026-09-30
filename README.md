@@ -463,7 +463,7 @@ but retained several known tactical mistakes. See the [feature and results repor
 for the measurements, limits, and artifact links. The six reserved openings have
 now been used; no engine tuning followed this validation run.
 
-The full suite now passes **87 tests**, including optional neural-path checks.
+The full suite now passes **89 tests**, including optional neural-path checks.
 
 ## Deployment evaluation and profiling
 
@@ -506,6 +506,18 @@ The current development target is **at least 60 points in 100 completed local
 games against Stockfish 19 configured at UCI_Elo 1320**, with 250 ms per move
 and paired colors. Stockfish 19 does not support a 1200 setting. Principal
 variation search passed 87 tests and scored 7 wins and 1 draw in an eight-game
-pilot; the fresh 100-game evaluation is running. These settings and small pilot
+pilot. The 100-game run terminated early with 66 completed games (48 wins,
+2 draws, 16 losses) and one interrupted game. The target remains unverified. These settings and small pilot
 results do not establish a human Elo or a neural playing-strength improvement.
 See the [protocol and results](benchmarks/results/strength-target-v9/RESULTS.md).
+
+## Neural inference and targeted-learning experiment
+
+The NN search path now skips terminal/repetition checks already handled by search,
+with exact score parity and **89 passing tests**. A targeted retraining round added
+1000 training ranking pairs and retained prior supervision, for 2988 training pairs.
+At 250 ms per move against a frozen heuristic, the old NN scored 5 wins/1 draw/2 losses
+with either inference path; the retrained NN scored 3 wins/3 draws/2 losses. Another
+local benchmark overlapped these preliminary matches, so neither strength nor the
+observed 10% evaluation-time reduction is an isolated performance claim. The app
+keeps the heuristic default. See [the experiment report](ml/RESULTS-v10.md).

@@ -30,14 +30,17 @@ def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material"):
                torch.tensor([(baseline(g) - baseline(b)) / SCORE_SCALE
                              for g, b in zip(good, bad)]),
                torch.tensor([r['sign'] for r in records], dtype=torch.float32))
-    return DataLoader(torch.utils.data.TensorDataset(*tensors), batch_size=64, shuffle=shuffle)
+    importance = torch.tensor([r.get('training_weight', 1) if shuffle else 1 for r in records], dtype=torch.float32)
+    if not torch.isfinite(importance).all() or (importance < 1).any():
+        raise ValueError('pair training weights must be finite and at least one')
+    return DataLoader(torch.utils.data.TensorDataset(*tensors, importance), batch_size=64, shuffle=shuffle)
 
 
 def ranking_accuracy(model, loader):
     correct = total = 0
     model.eval()
     with torch.inference_mode():
-        for good, bad, base_difference, sign in loader:
+        for good, bad, base_difference, sign, _ in loader:
             delta = sign * (model(good) - model(bad) + base_difference)
             correct += (delta > 0).sum().item()
             total += len(delta)
@@ -178,9 +181,9 @@ def main():
             optimizer.zero_grad()
             loss = loss_fn(model(features), targets)
             if pairs is not None:
-                good, bad, base_difference, sign = next(pairs)
+                good, bad, base_difference, sign, importance = next(pairs)
                 delta = sign * (model(good) - model(bad) + base_difference)
-                pair_weights = torch.where(sign * base_difference <= 0, args.hard_pair_weight, 1.)
+                pair_weights = importance * torch.where(sign * base_difference <= 0, args.hard_pair_weight, 1.)
                 rank_loss = torch.relu(args.rank_margin_cp / SCORE_SCALE - delta)
                 loss = loss + args.rank_weight * (rank_loss * pair_weights).sum() / pair_weights.sum()
             loss.backward()
@@ -231,6 +234,7 @@ def main():
         'initial_checkpoint_sha256': hashlib.sha256(args.initial_checkpoint.read_bytes()).hexdigest() if args.initial_checkpoint else None,
         'test_rank_accuracy': ranking_accuracy(model, pair_loaders['test']) if pair_loaders else None,
         'rank_weight': args.rank_weight if pair_loaders else 0,
+        'weighted_training_pairs': sum(r.get('training_weight', 1) > 1 for r in pair_records['train']) if args.pairs else 0,
         'pair_manifest_sha256': hashlib.sha256((args.pairs / 'manifest.json').read_bytes()).hexdigest()
                                 if args.pairs else None,
         "test_mae_cp": round(test_mae, 2),

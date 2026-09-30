@@ -1,0 +1,603 @@
+{
+  "policy": "First >=100cp loss or mate deterioration, screened at 100ms and confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, not a definitive cause. Scores are from the root mover perspective.",
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "nn_weight": 0.25,
+  "quiet_only": false,
+  "source_sha256": {
+    "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json": "0333c36d6e82110a5c6bc6cdc2b79f3976dc501a38fe0d9c7d57b86d07535919"
+  },
+  "games": [
+    {
+      "opening": "Petrov Classical center",
+      "color": "white",
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "screened_moves": 6,
+      "first_costly_move": {
+        "ply": 11,
+        "fen": "r3k2r/pppqbppp/4b3/3pP3/8/2PBB3/P1P2PPP/R2QK2R w KQkq - 3 12",
+        "played": "d1h5",
+        "played_san": "Qh5",
+        "best_move": "e1g1",
+        "best_san": "O-O",
+        "best_score": {
+          "cp": 35,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -779,
+          "mate": null
+        },
+        "best_pv": [
+          "O-O",
+          "f6",
+          "Re1",
+          "O-O",
+          "Qh5",
+          "f5",
+          "a4",
+          "c5",
+          "f4",
+          "Rac8",
+          "a5",
+          "d4"
+        ],
+        "played_pv": [
+          "Qh5",
+          "Bg4",
+          "e6",
+          "Qxe6",
+          "Bf5",
+          "Bxf5",
+          "Qe2",
+          "O-O",
+          "O-O",
+          "Be4",
+          "f3",
+          "Bf5"
+        ],
+        "best_depth": 17,
+        "played_depth": 15,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 814,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 39,
+        "nn_static_bad_cp": 43,
+        "original_depth": 2,
+        "probe_depth": 2,
+        "probe_move": "d1h5",
+        "probe_review": {
+          "best_move": "e1g1",
+          "best_san": "O-O",
+          "best_score": {
+            "cp": 35,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -779,
+            "mate": null
+          },
+          "best_pv": [
+            "O-O",
+            "f6",
+            "Re1",
+            "O-O",
+            "Qh5",
+            "f5",
+            "a4",
+            "c5",
+            "f4",
+            "Rac8",
+            "a5",
+            "d4"
+          ],
+          "played_pv": [
+            "Qh5",
+            "Bg4",
+            "e6",
+            "Qxe6",
+            "Bf5",
+            "Bxf5",
+            "Qe2",
+            "O-O",
+            "O-O",
+            "Be4",
+            "f3",
+            "Bf5"
+          ],
+          "best_depth": 17,
+          "played_depth": 15,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 814,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Queens Indian fianchetto",
+      "color": "black",
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "screened_moves": 16,
+      "first_costly_move": {
+        "ply": 32,
+        "fen": "5rk1/p1p3pp/1pb1p3/4P1q1/3PPb2/PBNQ4/1P5P/5R1K b - - 4 22",
+        "played": "g5g4",
+        "played_san": "Qg4",
+        "best_move": "c6d7",
+        "best_san": "Bd7",
+        "best_score": {
+          "cp": 86,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -154,
+          "mate": null
+        },
+        "best_pv": [
+          "Bd7",
+          "Ne2",
+          "Qh4",
+          "Nxf4",
+          "Rxf4",
+          "Rxf4",
+          "Qxf4",
+          "Kg2",
+          "h6",
+          "Bc4",
+          "b5",
+          "Bb3"
+        ],
+        "played_pv": [
+          "Qg4",
+          "h3",
+          "Qh4",
+          "Bxe6+",
+          "Kh8",
+          "d5",
+          "Bb7",
+          "Ne2",
+          "g6",
+          "Bd7",
+          "Bh6",
+          "Rxf8+"
+        ],
+        "best_depth": 17,
+        "played_depth": 16,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 240,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -72,
+        "nn_static_bad_cp": -27,
+        "original_depth": 2,
+        "probe_depth": 2,
+        "probe_move": "g5g4",
+        "probe_review": {
+          "best_move": "c6d7",
+          "best_san": "Bd7",
+          "best_score": {
+            "cp": 86,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -154,
+            "mate": null
+          },
+          "best_pv": [
+            "Bd7",
+            "Ne2",
+            "Qh4",
+            "Nxf4",
+            "Rxf4",
+            "Rxf4",
+            "Qxf4",
+            "Kg2",
+            "h6",
+            "Bc4",
+            "b5",
+            "Bb3"
+          ],
+          "played_pv": [
+            "Qg4",
+            "h3",
+            "Qh4",
+            "Bxe6+",
+            "Kh8",
+            "d5",
+            "Bb7",
+            "Ne2",
+            "g6",
+            "Bd7",
+            "Bh6",
+            "Rxf8+"
+          ],
+          "best_depth": 17,
+          "played_depth": 16,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 240,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Queens Indian fianchetto",
+      "color": "white",
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "screened_moves": 6,
+      "first_costly_move": {
+        "ply": 11,
+        "fen": "r2q1rk1/pbp1bppp/1p6/3pn3/3PNB2/6P1/PP2PPBP/R2Q1RK1 w - - 0 12",
+        "played": "e4c5",
+        "played_san": "Nc5",
+        "best_move": "d4e5",
+        "best_san": "dxe5",
+        "best_score": {
+          "cp": 153,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 17,
+          "mate": null
+        },
+        "best_pv": [
+          "dxe5",
+          "dxe4",
+          "Qc2",
+          "Bc5",
+          "Bxe4",
+          "Bxe4",
+          "Qxe4",
+          "Qe7",
+          "h4",
+          "a5",
+          "Rfd1",
+          "Rae8"
+        ],
+        "played_pv": [
+          "Nc5",
+          "bxc5",
+          "Bxe5",
+          "cxd4",
+          "Qxd4",
+          "c5",
+          "Qg4",
+          "Bf6",
+          "Bxf6",
+          "Qxf6",
+          "Rac1",
+          "Rac8"
+        ],
+        "best_depth": 19,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 136,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 344,
+        "nn_static_bad_cp": -1,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "e4c5",
+        "probe_review": {
+          "best_move": "d4e5",
+          "best_san": "dxe5",
+          "best_score": {
+            "cp": 153,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 17,
+            "mate": null
+          },
+          "best_pv": [
+            "dxe5",
+            "dxe4",
+            "Qc2",
+            "Bc5",
+            "Bxe4",
+            "Bxe4",
+            "Qxe4",
+            "Qe7",
+            "h4",
+            "a5",
+            "Rfd1",
+            "Rae8"
+          ],
+          "played_pv": [
+            "Nc5",
+            "bxc5",
+            "Bxe5",
+            "cxd4",
+            "Qxd4",
+            "c5",
+            "Qg4",
+            "Bf6",
+            "Bxf6",
+            "Qxf6",
+            "Rac1",
+            "Rac8"
+          ],
+          "best_depth": 19,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 136,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Pirc Austrian development",
+      "color": "white",
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "screened_moves": 2,
+      "first_costly_move": {
+        "ply": 3,
+        "fen": "rnbq1rk1/pp2ppbp/5np1/2p1p3/3P1P2/2N2N2/PPP1B1PP/R1BQK2R w KQ - 0 8",
+        "played": "f4e5",
+        "played_san": "fxe5",
+        "best_move": "d4e5",
+        "best_san": "dxe5",
+        "best_score": {
+          "cp": 109,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -65,
+          "mate": null
+        },
+        "best_pv": [
+          "dxe5",
+          "Qxd1+",
+          "Bxd1",
+          "Ne8",
+          "Be3",
+          "b6",
+          "Nd5",
+          "Nc6",
+          "Be2",
+          "Bb7",
+          "Bb5",
+          "Kh8"
+        ],
+        "played_pv": [
+          "fxe5",
+          "Ng4",
+          "d5",
+          "Nd7",
+          "e6",
+          "fxe6",
+          "h3",
+          "Nge5",
+          "O-O",
+          "Nb6",
+          "dxe6",
+          "Bxe6"
+        ],
+        "best_depth": 18,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 174,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 63,
+        "nn_static_bad_cp": 99,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "d4e5",
+        "probe_review": {
+          "best_move": "d4e5",
+          "best_san": "dxe5",
+          "best_score": {
+            "cp": 96,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 96,
+            "mate": null
+          },
+          "best_pv": [
+            "dxe5",
+            "Qxd1+",
+            "Bxd1",
+            "Ne8",
+            "Be3",
+            "b6",
+            "Nd5",
+            "Nc6",
+            "Be2",
+            "Bb7",
+            "Bb5",
+            "Kh8"
+          ],
+          "played_pv": [
+            "dxe5",
+            "Qxd1+",
+            "Bxd1",
+            "Ne8",
+            "Be3",
+            "b6",
+            "Nd5",
+            "Nc6",
+            "Be2",
+            "Bb7",
+            "Bb5",
+            "Kh8"
+          ],
+          "best_depth": 20,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Ruy Lopez Exchange center",
+      "color": "white",
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "screened_moves": 5,
+      "first_costly_move": {
+        "ply": 9,
+        "fen": "r1b1k2r/1pp1n1pp/pbp2p2/8/4P3/1NN5/PPP2PPP/R1B2RK1 w kq - 5 11",
+        "played": "c1e3",
+        "played_san": "Be3",
+        "best_move": "c3a4",
+        "best_san": "Na4",
+        "best_score": {
+          "cp": 21,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -86,
+          "mate": null
+        },
+        "best_pv": [
+          "Na4",
+          "Bd7",
+          "Nxb6",
+          "cxb6",
+          "a4",
+          "c5",
+          "a5",
+          "c4",
+          "Nd4",
+          "Nc6",
+          "Nxc6",
+          "Bxc6"
+        ],
+        "played_pv": [
+          "Be3",
+          "Bxe3",
+          "fxe3",
+          "Ng6",
+          "Nd4",
+          "Rf8",
+          "Nce2",
+          "Rf7",
+          "Nf4",
+          "Ne5",
+          "Nd3",
+          "Re7"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 107,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -27,
+        "nn_static_bad_cp": 74,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "c1e3",
+        "probe_review": {
+          "best_move": "c3a4",
+          "best_san": "Na4",
+          "best_score": {
+            "cp": 21,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -86,
+            "mate": null
+          },
+          "best_pv": [
+            "Na4",
+            "Bd7",
+            "Nxb6",
+            "cxb6",
+            "a4",
+            "c5",
+            "a5",
+            "c4",
+            "Nd4",
+            "Nc6",
+            "Nxc6",
+            "Bxc6"
+          ],
+          "played_pv": [
+            "Be3",
+            "Bxe3",
+            "fxe3",
+            "Ng6",
+            "Nd4",
+            "Rf8",
+            "Nce2",
+            "Rf7",
+            "Nf4",
+            "Ne5",
+            "Nd3",
+            "Re7"
+          ],
+          "best_depth": 20,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 107,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "good_fen": "r3k2r/pppqbppp/4b3/3pP3/8/2PBB3/P1P2PPP/R2Q1RK1 b kq - 4 12",
+      "bad_fen": "r3k2r/pppqbppp/4b3/3pP2Q/8/2PBB3/P1P2PPP/R3K2R b KQkq - 4 12",
+      "sign": 1,
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "game": 0,
+      "cp_loss": 814
+    },
+    {
+      "good_fen": "5rk1/p1pb2pp/1p2p3/4P1q1/3PPb2/PBNQ4/1P5P/5R1K w - - 5 23",
+      "bad_fen": "5rk1/p1p3pp/1pb1p3/4P3/3PPbq1/PBNQ4/1P5P/5R1K w - - 5 23",
+      "sign": -1,
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "game": 1,
+      "cp_loss": 240
+    },
+    {
+      "good_fen": "r2q1rk1/pbp1bppp/1p6/3pP3/4NB2/6P1/PP2PPBP/R2Q1RK1 b - - 0 12",
+      "bad_fen": "r2q1rk1/pbp1bppp/1p6/2Npn3/3P1B2/6P1/PP2PPBP/R2Q1RK1 b - - 1 12",
+      "sign": 1,
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "game": 2,
+      "cp_loss": 136
+    },
+    {
+      "good_fen": "rnbq1rk1/pp2ppbp/5np1/2p1P3/5P2/2N2N2/PPP1B1PP/R1BQK2R b KQ - 0 8",
+      "bad_fen": "rnbq1rk1/pp2ppbp/5np1/2p1P3/3P4/2N2N2/PPP1B1PP/R1BQK2R b KQ - 0 8",
+      "sign": 1,
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "game": 3,
+      "cp_loss": 174
+    },
+    {
+      "good_fen": "r1b1k2r/1pp1n1pp/pbp2p2/8/N3P3/1N6/PPP2PPP/R1B2RK1 b kq - 6 11",
+      "bad_fen": "r1b1k2r/1pp1n1pp/pbp2p2/8/4P3/1NN1B3/PPP2PPP/R4RK1 b kq - 6 11",
+      "sign": 1,
+      "source": "ml/artifacts/quiet-ranking-v8-w25-vs-heuristic-250ms/report.json",
+      "game": 4,
+      "cp_loss": 107
+    }
+  ],
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "summary": {
+    "games": 5,
+    "confirmed": 5,
+    "extra_time_recovered": 1,
+    "wrong_static_ranking": 4
+  }
+}

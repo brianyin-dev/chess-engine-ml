@@ -1,0 +1,517 @@
+waiting-for-stockfish-100-game-benchmark
+tests
+----------------------------------------------------------------------
+Ran 89 tests in 5.923s
+
+OK
+inference-profile
+{
+  "boards": 1024,
+  "rounded_score_mismatches": 0,
+  "policy": "Nonterminal search-leaf scores; alternating five trials; same v8 checkpoint, .25 quiet correction.",
+  "trials_ms_per_evaluation": {
+    "reference": [
+      0.10866874214343625,
+      0.10602136228499148,
+      0.10559887692807024,
+      0.10354951956514924,
+      0.104818278316543
+    ],
+    "fast": [
+      0.09814941410013489,
+      0.09541463180084975,
+      0.0949353027408506,
+      0.09256429103743358,
+      0.09489318847499817
+    ]
+  },
+  "median_ms_per_evaluation": {
+    "reference": 0.10559887692807024,
+    "fast": 0.0949353027408506
+  },
+  "fixed_depth_search": [
+    {
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "reference_seconds": 0.07481187500525266,
+      "fast_seconds": 0.07297762500820681,
+      "score": 89,
+      "move": "g1f3",
+      "visited_nodes": 1155
+    },
+    {
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 4 7",
+      "reference_seconds": 0.37430591601878405,
+      "fast_seconds": 0.34533441602252424,
+      "score": 13,
+      "move": "c1e3",
+      "visited_nodes": 13404
+    }
+  ]
+}
+confirm-recent-blunders
+Reviewed 1 games: Qh5
+Reviewed 2 games: Qg4
+Reviewed 3 games: Nc5
+Reviewed 4 games: fxe5
+Reviewed 5 games: Be3
+{'games': 5, 'confirmed': 5, 'extra_time_recovered': 1, 'wrong_static_ranking': 4}
+settled-mistake-data
+train: 55/1000 pairs, 22 heuristic-wrong, 30 refined roots
+train: 109/1000 pairs, 40 heuristic-wrong, 62 refined roots
+train: 143/1000 pairs, 53 heuristic-wrong, 94 refined roots
+train: 202/1000 pairs, 73 heuristic-wrong, 124 refined roots
+train: 256/1000 pairs, 88 heuristic-wrong, 160 refined roots
+train: 307/1000 pairs, 116 heuristic-wrong, 193 refined roots
+train: 359/1000 pairs, 135 heuristic-wrong, 223 refined roots
+train: 410/1000 pairs, 151 heuristic-wrong, 250 refined roots
+train: 455/1000 pairs, 168 heuristic-wrong, 250 refined roots
+train: 507/1000 pairs, 193 heuristic-wrong, 250 refined roots
+train: 567/1000 pairs, 206 heuristic-wrong, 250 refined roots
+train: 623/1000 pairs, 224 heuristic-wrong, 250 refined roots
+train: 681/1000 pairs, 252 heuristic-wrong, 250 refined roots
+train: 735/1000 pairs, 270 heuristic-wrong, 250 refined roots
+train: 786/1000 pairs, 287 heuristic-wrong, 250 refined roots
+train: 832/1000 pairs, 301 heuristic-wrong, 250 refined roots
+train: 876/1000 pairs, 316 heuristic-wrong, 250 refined roots
+train: 919/1000 pairs, 327 heuristic-wrong, 250 refined roots
+train: 977/1000 pairs, 340 heuristic-wrong, 250 refined roots
+train {'pairs': 1000, 'score_rows': 9149, 'reused_score_rows': 7618, 'roots': 972, 'refined_roots': 250, 'heuristic_wrong_pairs': 345, 'tactical_plies_settled': 915}
+val: 56/200 pairs, 18 heuristic-wrong, 31 refined roots
+val: 125/200 pairs, 42 heuristic-wrong, 50 refined roots
+val: 187/200 pairs, 64 heuristic-wrong, 50 refined roots
+val {'pairs': 200, 'score_rows': 1355, 'reused_score_rows': 1058, 'roots': 162, 'refined_roots': 50, 'heuristic_wrong_pairs': 69, 'tactical_plies_settled': 213}
+test: 49/200 pairs, 17 heuristic-wrong, 32 refined roots
+test: 102/200 pairs, 32 heuristic-wrong, 50 refined roots
+test: 158/200 pairs, 47 heuristic-wrong, 50 refined roots
+test {'pairs': 200, 'score_rows': 1387, 'reused_score_rows': 1086, 'roots': 185, 'refined_roots': 50, 'heuristic_wrong_pairs': 67, 'tactical_plies_settled': 213}
+retain-old-supervision
+{
+  "policy": "Canonical-FEN deduplication within each split; new labels win ties. Prior rankings retained. Training only: 4x confirmed >=100cp failures; 2x remaining >=100cp v8 ranking mistakes. Validation/test unweighted. Trainer enforces cross-split position and whole-game separation.",
+  "sources": {
+    "ml/data/quiet-rankings-v8-2026": "7298dcf34f304b2aaba6c3a4a9ffb8e8a0a12b30b5656debd4e29d5dbd1b3bae",
+    "ml/data/mistakes-v10-2026": "e654e22db46baa0f23dadb026477ac91ef03550c20f39ac61ded8759107f86c5"
+  },
+  "counts": {
+    "train": {
+      "score_rows": 11230,
+      "pairs": 2988,
+      "weighted_training_pairs": 536,
+      "confirmed_failure_pairs": 33
+    },
+    "val": {
+      "score_rows": 1776,
+      "pairs": 596,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    },
+    "test": {
+      "score_rows": 1799,
+      "pairs": 592,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    }
+  }
+}
+train
+Epoch 1: train MAE 127.8 cp, val MAE 169.9 cp
+Epoch 2: train MAE 123.1 cp, val MAE 170.5 cp
+Epoch 3: train MAE 119.1 cp, val MAE 172.6 cp
+Epoch 4: train MAE 114.5 cp, val MAE 173.1 cp
+Epoch 5: train MAE 110.5 cp, val MAE 173.4 cp
+Epoch 6: train MAE 106.8 cp, val MAE 174.7 cp
+Epoch 7: train MAE 103.2 cp, val MAE 176.0 cp
+Held-out test MAE: NN 156.4 cp; heuristic 159.3 cp
+heldout-ranking
+{
+  "policy": "Fixed weights and gates evaluated. Gate selected per weight using validation ranking only; ties prefer gated. Test never selects a configuration. All test comparisons reported.",
+  "checkpoint_sha256": "e54a5bfbc07bf41e729cbbc51eed797ef30fb5d3f05ad2a377f2d28a985fcefb",
+  "manifest_sha256": "d1531b9ec4f5867ba796d0efbab09cd5cb7f49cc984f5f9b7aafb0f9d73e12c4",
+  "heuristic": {
+    "val": {
+      "pairs": 596,
+      "correct": 425,
+      "accuracy": 0.7130872483221476,
+      "hard_pairs": 171,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "test": {
+      "pairs": 592,
+      "correct": 442,
+      "accuracy": 0.7466216216216216,
+      "hard_pairs": 150,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    }
+  },
+  "previous_full": {
+    "val": {
+      "pairs": 596,
+      "correct": 426,
+      "accuracy": 0.714765100671141,
+      "hard_pairs": 171,
+      "hard_correct": 68,
+      "previously_correct_regressions": 67
+    },
+    "test": {
+      "pairs": 592,
+      "correct": 437,
+      "accuracy": 0.7381756756756757,
+      "hard_pairs": 150,
+      "hard_correct": 63,
+      "previously_correct_regressions": 68
+    }
+  },
+  "configurations": {
+    "w0-all": {
+      "weight": 0,
+      "quiet_only": false,
+      "val": {
+        "pairs": 596,
+        "correct": 425,
+        "accuracy": 0.7130872483221476,
+        "hard_pairs": 171,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 442,
+        "accuracy": 0.7466216216216216,
+        "hard_pairs": 150,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "w0-quiet": {
+      "weight": 0,
+      "quiet_only": true,
+      "val": {
+        "pairs": 596,
+        "correct": 425,
+        "accuracy": 0.7130872483221476,
+        "hard_pairs": 171,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 442,
+        "accuracy": 0.7466216216216216,
+        "hard_pairs": 150,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "w0.1-all": {
+      "weight": 0.1,
+      "quiet_only": false,
+      "val": {
+        "pairs": 596,
+        "correct": 426,
+        "accuracy": 0.714765100671141,
+        "hard_pairs": 171,
+        "hard_correct": 12,
+        "previously_correct_regressions": 11
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 442,
+        "accuracy": 0.7466216216216216,
+        "hard_pairs": 150,
+        "hard_correct": 12,
+        "previously_correct_regressions": 12
+      }
+    },
+    "w0.1-quiet": {
+      "weight": 0.1,
+      "quiet_only": true,
+      "val": {
+        "pairs": 596,
+        "correct": 427,
+        "accuracy": 0.7164429530201343,
+        "hard_pairs": 171,
+        "hard_correct": 4,
+        "previously_correct_regressions": 2
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 446,
+        "accuracy": 0.7533783783783784,
+        "hard_pairs": 150,
+        "hard_correct": 8,
+        "previously_correct_regressions": 4
+      }
+    },
+    "w0.25-all": {
+      "weight": 0.25,
+      "quiet_only": false,
+      "val": {
+        "pairs": 596,
+        "correct": 431,
+        "accuracy": 0.7231543624161074,
+        "hard_pairs": 171,
+        "hard_correct": 26,
+        "previously_correct_regressions": 20
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 451,
+        "accuracy": 0.7618243243243243,
+        "hard_pairs": 150,
+        "hard_correct": 30,
+        "previously_correct_regressions": 21
+      }
+    },
+    "w0.25-quiet": {
+      "weight": 0.25,
+      "quiet_only": true,
+      "val": {
+        "pairs": 596,
+        "correct": 428,
+        "accuracy": 0.7181208053691275,
+        "hard_pairs": 171,
+        "hard_correct": 9,
+        "previously_correct_regressions": 6
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 448,
+        "accuracy": 0.7567567567567568,
+        "hard_pairs": 150,
+        "hard_correct": 17,
+        "previously_correct_regressions": 11
+      }
+    },
+    "w0.5-all": {
+      "weight": 0.5,
+      "quiet_only": false,
+      "val": {
+        "pairs": 596,
+        "correct": 432,
+        "accuracy": 0.7248322147651006,
+        "hard_pairs": 171,
+        "hard_correct": 45,
+        "previously_correct_regressions": 38
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 457,
+        "accuracy": 0.7719594594594594,
+        "hard_pairs": 150,
+        "hard_correct": 53,
+        "previously_correct_regressions": 38
+      }
+    },
+    "w0.5-quiet": {
+      "weight": 0.5,
+      "quiet_only": true,
+      "val": {
+        "pairs": 596,
+        "correct": 432,
+        "accuracy": 0.7248322147651006,
+        "hard_pairs": 171,
+        "hard_correct": 18,
+        "previously_correct_regressions": 11
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 455,
+        "accuracy": 0.768581081081081,
+        "hard_pairs": 150,
+        "hard_correct": 29,
+        "previously_correct_regressions": 16
+      }
+    },
+    "w1-all": {
+      "weight": 1,
+      "quiet_only": false,
+      "val": {
+        "pairs": 596,
+        "correct": 428,
+        "accuracy": 0.7181208053691275,
+        "hard_pairs": 171,
+        "hard_correct": 68,
+        "previously_correct_regressions": 65
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 446,
+        "accuracy": 0.7533783783783784,
+        "hard_pairs": 150,
+        "hard_correct": 72,
+        "previously_correct_regressions": 68
+      }
+    },
+    "w1-quiet": {
+      "weight": 1,
+      "quiet_only": true,
+      "val": {
+        "pairs": 596,
+        "correct": 426,
+        "accuracy": 0.714765100671141,
+        "hard_pairs": 171,
+        "hard_correct": 26,
+        "previously_correct_regressions": 25
+      },
+      "test": {
+        "pairs": 592,
+        "correct": 451,
+        "accuracy": 0.7618243243243243,
+        "hard_pairs": 150,
+        "hard_correct": 36,
+        "previously_correct_regressions": 27
+      }
+    }
+  },
+  "selected_for_games": [
+    {
+      "name": "w0.1-quiet",
+      "weight": 0.1,
+      "quiet_only": true
+    },
+    {
+      "name": "w0.25-all",
+      "weight": 0.25,
+      "quiet_only": false
+    },
+    {
+      "name": "w0.5-quiet",
+      "weight": 0.5,
+      "quiet_only": true
+    }
+  ]
+}
+v8-reference
+Game 1/8: Frozen book start 01, candidate as White
+  0-1 (checkmate, 120 plies)
+Game 2/8: Frozen book start 01, candidate as Black
+  0-1 (checkmate, 134 plies)
+Game 3/8: Frozen book start 02, candidate as Black
+  0-1 (checkmate, 120 plies)
+Game 4/8: Frozen book start 02, candidate as White
+  1-0 (checkmate, 87 plies)
+Game 5/8: Frozen book start 03, candidate as White
+  1/2-1/2 (fivefold_repetition, 114 plies)
+Game 6/8: Frozen book start 03, candidate as Black
+  1-0 (checkmate, 67 plies)
+Game 7/8: Frozen book start 04, candidate as Black
+  0-1 (checkmate, 88 plies)
+Game 8/8: Frozen book start 04, candidate as White
+  1-0 (checkmate, 139 plies)
+{
+  "games": 8,
+  "completed": 8,
+  "wins": 5,
+  "draws": 1,
+  "losses": 2,
+  "unfinished": 0,
+  "errors": 0,
+  "interrupted": 0,
+  "score_fraction_completed": 0.6875,
+  "complete_pairs": 4,
+  "score_fraction_complete_pairs": 0.6875,
+  "timing": {
+    "classical": {
+      "moves": 434,
+      "mean_elapsed": 0.24137464496720162,
+      "max_overrun_seconds": 0.02694991702446714,
+      "fallback_moves": 0
+    },
+    "current": {
+      "moves": 435,
+      "mean_elapsed": 0.24568324472297562,
+      "max_overrun_seconds": 0.05577187496237457,
+      "fallback_moves": 0
+    }
+  }
+}
+v8-fast
+Game 1/8: Frozen book start 01, candidate as White
+  0-1 (checkmate, 120 plies)
+Game 2/8: Frozen book start 01, candidate as Black
+  0-1 (checkmate, 124 plies)
+Game 3/8: Frozen book start 02, candidate as Black
+  0-1 (checkmate, 116 plies)
+Game 4/8: Frozen book start 02, candidate as White
+  1-0 (checkmate, 175 plies)
+Game 5/8: Frozen book start 03, candidate as White
+  1/2-1/2 (fivefold_repetition, 67 plies)
+Game 6/8: Frozen book start 03, candidate as Black
+  0-1 (checkmate, 56 plies)
+Game 7/8: Frozen book start 04, candidate as Black
+  1-0 (checkmate, 103 plies)
+Game 8/8: Frozen book start 04, candidate as White
+  1-0 (checkmate, 139 plies)
+{
+  "games": 8,
+  "completed": 8,
+  "wins": 5,
+  "draws": 1,
+  "losses": 2,
+  "unfinished": 0,
+  "errors": 0,
+  "interrupted": 0,
+  "score_fraction_completed": 0.6875,
+  "complete_pairs": 4,
+  "score_fraction_complete_pairs": 0.6875,
+  "timing": {
+    "classical": {
+      "moves": 449,
+      "mean_elapsed": 0.24160975581610614,
+      "max_overrun_seconds": 0.03872820799006149,
+      "fallback_moves": 0
+    },
+    "current": {
+      "moves": 451,
+      "mean_elapsed": 0.24459990170851925,
+      "max_overrun_seconds": 0.02184404100989923,
+      "fallback_moves": 0
+    }
+  }
+}
+v10-trained
+Game 1/8: Frozen book start 01, candidate as White
+  1-0 (checkmate, 153 plies)
+Game 2/8: Frozen book start 01, candidate as Black
+  1-0 (checkmate, 111 plies)
+Game 3/8: Frozen book start 02, candidate as Black
+  0-1 (checkmate, 34 plies)
+Game 4/8: Frozen book start 02, candidate as White
+  1/2-1/2 (seventyfive_moves, 453 plies)
+Game 5/8: Frozen book start 03, candidate as White
+  0-1 (checkmate, 78 plies)
+Game 6/8: Frozen book start 03, candidate as Black
+  1/2-1/2 (fivefold_repetition, 46 plies)
+Game 7/8: Frozen book start 04, candidate as Black
+  1/2-1/2 (insufficient_material, 136 plies)
+Game 8/8: Frozen book start 04, candidate as White
+  1-0 (checkmate, 131 plies)
+{
+  "games": 8,
+  "completed": 8,
+  "wins": 3,
+  "draws": 3,
+  "losses": 2,
+  "unfinished": 0,
+  "errors": 0,
+  "interrupted": 0,
+  "score_fraction_completed": 0.5625,
+  "complete_pairs": 4,
+  "score_fraction_complete_pairs": 0.5625,
+  "timing": {
+    "classical": {
+      "moves": 570,
+      "mean_elapsed": 0.24392126530690708,
+      "max_overrun_seconds": 0.052435334015171975,
+      "fallback_moves": 0
+    },
+    "current": {
+      "moves": 572,
+      "mean_elapsed": 0.2466108009424321,
+      "max_overrun_seconds": 0.013557415979448706,
+      "fallback_moves": 0
+    }
+  }
+}
+completed
