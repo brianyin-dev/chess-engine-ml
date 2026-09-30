@@ -1,0 +1,44 @@
+{
+  "seed": 829,
+  "counts": {
+    "train": {
+      "pairs": 800,
+      "score_rows": 9589,
+      "reused_score_rows": 8657,
+      "roots": 734,
+      "refined_roots": 182,
+      "heuristic_wrong_pairs": 294,
+      "tactical_plies_settled": 785
+    },
+    "val": {
+      "pairs": 120,
+      "score_rows": 1433,
+      "reused_score_rows": 1247,
+      "roots": 109,
+      "refined_roots": 20,
+      "heuristic_wrong_pairs": 41,
+      "tactical_plies_settled": 160
+    },
+    "test": {
+      "pairs": 120,
+      "score_rows": 1492,
+      "reused_score_rows": 1309,
+      "roots": 105,
+      "refined_roots": 30,
+      "heuristic_wrong_pairs": 41,
+      "tactical_plies_settled": 141
+    }
+  },
+  "requested_nodes": 12994000,
+  "cached_analyses": 2125,
+  "elapsed_seconds": 55.71235558297485,
+  "disagreement_nn_weight": 0.25,
+  "disagreement_quiet_only": true,
+  "policy": "Whole-game source splits; canonical FEN/color-mirror aliases excluded across splits including pairs. Settling follows teacher-selected captures, promotions and check evasions until its best continuation is quiet. Other legal captures may remain. No terminal/mate-saturated endpoint pairs. Existing capture-free score labels reused.",
+  "extra_compute_policy": "Up to quarter-quota roots refined when shallow heuristic and NN moves disagree or are confirmed failures. Quotas refer to pairs; some roots yield several pairs.",
+  "source_manifest_sha256": "c0b63b0de37df084c533b609f56b4e2c9ee94e8275112e77bad7514411edafbc",
+  "failures_sha256": "026aa5dbef6c53fe972504a8b624aa59bd3c59a73f8ae4b9bb518ca7685a4e38",
+  "reserved_positions_sha256": "8e37c3bdc03bc00579a7219c24ccceb4c0db2745e1aa754dac8f71e5bc95417d",
+  "student_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5"
+}

@@ -1,0 +1,19 @@
+{
+  "policy": "Depth3, no clock; actual reviewed failure positions, selected sample, teacher confirmation400ms. FEN replay diagnostics retain original game history within searches. Separate mate flags from centipawn regret; no general strength inference.",
+  "summary": {
+    "heuristic": {
+      "positions": 19,
+      "cp_comparable": 19,
+      "mean_cp_loss": 178.26315789473685,
+      "allows_mate": 0,
+      "missed_forced_mate": 0
+    },
+    "NN": {
+      "positions": 19,
+      "cp_comparable": 19,
+      "mean_cp_loss": 200.26315789473685,
+      "allows_mate": 0,
+      "missed_forced_mate": 0
+    }
+  }
+}

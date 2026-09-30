@@ -1,0 +1,5 @@
+{
+  "training": "Unchanged v8 architecture, .25 quiet-only residual blend, rounded full endpoint scores with straight-through gradients. Retain prior labels/rankings, prioritize confirmed errors, protect heuristic-correct rankings and anchor original corrections. One candidate only.",
+  "validation": "If initial quiet-only holdout has fewer than30 pairs per split, expand teacher sampling with fixed random alternatives and at leastone quiet endpoint, excluding all training aliases, before candidate scoring. No retraining. Fresh teacher self-play from 30 book starts; opening-separated val/test; prior data/reviewed game aliases excluded. Freeze before training and reserve from new labels. Strict validation ranking gain, no extra regressions; test nonregression. No tuning on fresh test.",
+  "games": "Only after fresh gate passes: 20 paired games against optimized 0%, then 20 against unchanged old nonincremental .25 quiet NN, same fresh starts, 250ms, depth8, 1000maxplies. If >=60% vs0 and >50% vsold with all complete/noerrors, extend vs0 to100 total games on40 fresh pairs. Report pilot and extension separately. No Stockfish or app promotion."
+}

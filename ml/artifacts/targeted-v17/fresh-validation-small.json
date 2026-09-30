@@ -1,0 +1,62 @@
+{
+  "policy": "Fixed .25 quiet-only hybrid, incremental inference, rounded integer scores. Independent positions frozen before training and excluded from data generation. Strict fresh-validation accuracy improvement with no extra heuristic-correct regressions; test accuracy and regressions must not worsen. No retraining after reading this holdout.",
+  "metrics": {
+    "heuristic": {
+      "val": {
+        "pairs": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "old": {
+      "val": {
+        "pairs": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "candidate": {
+      "val": {
+        "pairs": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "hard_pairs": 0,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    }
+  },
+  "eligible_for_games": false,
+  "candidate_sha256": "821adaff98b3318952706e1b9b848a0d2fb748d0d0f23ba2445fddc9deac16ab",
+  "holdout_sha256": "8e37c3bdc03bc00579a7219c24ccceb4c0db2745e1aa754dac8f71e5bc95417d"
+}

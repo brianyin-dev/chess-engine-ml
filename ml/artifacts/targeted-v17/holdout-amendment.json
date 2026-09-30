@@ -1,0 +1,5 @@
+{
+  "recorded_at": "2026-09-30T21:05:19.480425+00:00",
+  "reason": "Initial strict capture-free holdout produced only2 val/3 test pairs. Automatic first validation completed while expansion was being implemented; preserve result. Candidate is fixed and will not be retrained. Supplementary frozen holdout uses60 independent starts, seed170002, teacher24k root/12k settling nodes, top3 plus3 seeded random legal alternatives, at leastone capture-free endpoint, >=50cpgap. All expanded training aliases excluded. Require >=30pairs/split; same improvement/nonregression gate as before. Report as supplementary evidence, not untouched first test.",
+  "candidate_changed": false
+}

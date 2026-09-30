@@ -1,0 +1,97 @@
+{
+  "policy": "Training diagnostics only, not generalization. Attainable means bounded corrections could reverse handcrafted ranking under the exact quiet gate; ignores representation capacity. New train pairs only.",
+  "groups": {
+    "all-new-training": {
+      "pairs": 800,
+      "metrics": {
+        "heuristic": {
+          "pairs": 800,
+          "correct": 506,
+          "accuracy": 0.6325,
+          "hard_pairs": 294,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        },
+        "old": {
+          "pairs": 800,
+          "correct": 521,
+          "accuracy": 0.65125,
+          "hard_pairs": 294,
+          "hard_correct": 35,
+          "previously_correct_regressions": 20
+        },
+        "candidate": {
+          "pairs": 800,
+          "correct": 648,
+          "accuracy": 0.81,
+          "hard_pairs": 294,
+          "hard_correct": 143,
+          "previously_correct_regressions": 1
+        }
+      }
+    },
+    "new-confirmed-failures": {
+      "pairs": 46,
+      "metrics": {
+        "heuristic": {
+          "pairs": 46,
+          "correct": 27,
+          "accuracy": 0.5869565217391305,
+          "hard_pairs": 19,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        },
+        "old": {
+          "pairs": 46,
+          "correct": 27,
+          "accuracy": 0.5869565217391305,
+          "hard_pairs": 19,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        },
+        "candidate": {
+          "pairs": 46,
+          "correct": 30,
+          "accuracy": 0.6521739130434783,
+          "hard_pairs": 19,
+          "hard_correct": 3,
+          "previously_correct_regressions": 0
+        }
+      }
+    },
+    "attainable-heuristic-mistakes": {
+      "pairs": 145,
+      "metrics": {
+        "heuristic": {
+          "pairs": 145,
+          "correct": 0,
+          "accuracy": 0.0,
+          "hard_pairs": 145,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        },
+        "old": {
+          "pairs": 145,
+          "correct": 35,
+          "accuracy": 0.2413793103448276,
+          "hard_pairs": 145,
+          "hard_correct": 35,
+          "previously_correct_regressions": 0
+        },
+        "candidate": {
+          "pairs": 145,
+          "correct": 143,
+          "accuracy": 0.9862068965517241,
+          "hard_pairs": 145,
+          "hard_correct": 143,
+          "previously_correct_regressions": 0
+        }
+      }
+    }
+  },
+  "hard_pair_capacity": {
+    "hard_pairs": 294,
+    "attainable": 145,
+    "unattainable": 149
+  }
+}

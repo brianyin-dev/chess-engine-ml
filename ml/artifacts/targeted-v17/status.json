@@ -1,0 +1,72 @@
+{
+  "phase": "completed",
+  "fresh_validation": {
+    "policy": "Fixed .25 quiet-only hybrid, incremental inference, rounded integer scores. Initial tiny holdout frozen before training, scored automatically and preserved separately. Larger supplementary holdout frozen after training and initial tiny evaluation, with candidate unchanged; all training aliases excluded. Strict validation accuracy gain and no extra heuristic-correct regressions; test nonregression. No retraining after either evaluation.",
+    "metrics": {
+      "heuristic": {
+        "val": {
+          "pairs": 68,
+          "correct": 62,
+          "accuracy": 0.9117647058823529,
+          "hard_pairs": 6,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        },
+        "test": {
+          "pairs": 60,
+          "correct": 52,
+          "accuracy": 0.8666666666666667,
+          "hard_pairs": 8,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        }
+      },
+      "old": {
+        "val": {
+          "pairs": 68,
+          "correct": 60,
+          "accuracy": 0.8823529411764706,
+          "hard_pairs": 6,
+          "hard_correct": 0,
+          "previously_correct_regressions": 2
+        },
+        "test": {
+          "pairs": 60,
+          "correct": 52,
+          "accuracy": 0.8666666666666667,
+          "hard_pairs": 8,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        }
+      },
+      "candidate": {
+        "val": {
+          "pairs": 68,
+          "correct": 59,
+          "accuracy": 0.8676470588235294,
+          "hard_pairs": 6,
+          "hard_correct": 1,
+          "previously_correct_regressions": 4
+        },
+        "test": {
+          "pairs": 60,
+          "correct": 52,
+          "accuracy": 0.8666666666666667,
+          "hard_pairs": 8,
+          "hard_correct": 0,
+          "previously_correct_regressions": 0
+        }
+      }
+    },
+    "eligible_for_games": false,
+    "candidate_sha256": "821adaff98b3318952706e1b9b848a0d2fb748d0d0f23ba2445fddc9deac16ab",
+    "holdout_sha256": "064e580e6020b446eeef74bafe8d375e00c90c000313223f5f2195f23c790fc4"
+  },
+  "games_skipped": "Independent improvement gate failed",
+  "protocol": {
+    "training": "Unchanged v8 architecture, .25 quiet-only residual blend, rounded full endpoint scores with straight-through gradients. Retain prior labels/rankings, prioritize confirmed errors, protect heuristic-correct rankings and anchor original corrections. One candidate only.",
+    "validation": "If initial quiet-only holdout has fewer than30 pairs per split, expand teacher sampling with fixed random alternatives and at leastone quiet endpoint, excluding all training aliases, before candidate scoring. No retraining. Fresh teacher self-play from 30 book starts; opening-separated val/test; prior data/reviewed game aliases excluded. Freeze before training and reserve from new labels. Strict validation ranking gain, no extra regressions; test nonregression. No tuning on fresh test. Actual execution: automatic initial tiny holdout evaluation completed before expansion; preserved in fresh-validation-small.json. Expansion was supplementary after training, without changing candidate. See holdout-amendment.json.",
+    "games": "Only after fresh gate passes: 20 paired games against optimized 0%, then 20 against unchanged old nonincremental .25 quiet NN, same fresh starts, 250ms, depth8, 1000maxplies. If >=60% vs0 and >50% vsold with all complete/noerrors, extend vs0 to100 total games on40 fresh pairs. Report pilot and extension separately. No Stockfish or app promotion."
+  },
+  "app_promoted": false
+}

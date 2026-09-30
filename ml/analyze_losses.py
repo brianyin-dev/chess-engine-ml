@@ -65,10 +65,14 @@ def main():
         for source in args.report:
             recorded = json.loads(source.read_text())
             checkpoint = report_checkpoint(recorded, args.checkpoint)
-            evaluator = NeuralEvaluator(checkpoint, args.nn_weight, args.quiet_only)
+            config = recorded.get('config', {})
+            evaluator = NeuralEvaluator(checkpoint, config.get('nn_weight', args.nn_weight),
+                                        config.get('quiet_only', args.quiet_only),
+                                        incremental=config.get('incremental', False))
             result['models_by_report'][str(source)] = {'checkpoint': str(checkpoint),
                 'sha256': hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
-                'nn_weight': args.nn_weight, 'quiet_only': args.quiet_only}
+                'nn_weight': evaluator.correction_weight, 'quiet_only': evaluator.quiet_only,
+                'incremental': evaluator.incremental}
             for game in recorded['games']:
                 drawn = game['current_result'] == 'draw'
                 if game['current_result'] != 'loss' and not (args.include_draws and drawn):
@@ -103,7 +107,15 @@ def main():
                                 probe_review = review(engine, board, probe.move, .4)
                                 def mover_score(position):
                                     return evaluator(position) * (1 if board.turn else -1)
-                                first = {'ply': ply, 'fen': board.fen(), 'played': move.uci(),
+                                equal_depth = {}
+                                for name, evaluation in [('heuristic', NeuralEvaluator(checkpoint, 0, True, incremental=True)),
+                                                         ('NN', evaluator)]:
+                                    depth_probe = search(board.copy(stack=True), depth=3, eval_fn=evaluation)
+                                    depth_review = review(engine, board, depth_probe.move, .4)
+                                    equal_depth[name] = {'move': depth_probe.move.uci(), 'depth': depth_probe.depth,
+                                                         'nodes': depth_probe.nodes, 'qnodes': depth_probe.qnodes,
+                                                         'review': depth_review}
+                                first = {'equal_depth': equal_depth, 'ply': ply, 'fen': board.fen(), 'played': move.uci(),
                                          'played_san': board.san(move), **row,
                                          'nn_static_good_cp': mover_score(good),
                                          'nn_static_bad_cp': mover_score(bad),

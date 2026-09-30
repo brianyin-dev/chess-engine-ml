@@ -34,6 +34,7 @@ def main():
     p.add_argument('--failure-id-offset',type=int,default=1000000)
     p.add_argument('--nn-weight',type=float,default=None,help='Disagreement-screening blend; defaults to the reviewed match setting')
     p.add_argument('--quiet-only',action=argparse.BooleanOptionalAction,default=None)
+    p.add_argument('--reserved-positions', type=Path, help='Frozen external holdout with rows by split; never reuse roots or endpoints')
     args = p.parse_args()
     if args.output.exists() or min(args.train_pairs,args.heldout_pairs)<1:
         p.error('fresh output and positive quotas required')
@@ -43,11 +44,19 @@ def main():
     owners={key(r['fen']):s for s,rows in base.items() for r in rows}
     for split in base:
         for r in [json.loads(l) for l in (args.data/'pairs'/f'{split}.jsonl').read_text().splitlines()]:
-            for name in ('good_fen','bad_fen'):
+            for name in ('good_fen','bad_fen','root_fen'):
+                if name not in r: continue
                 k=key(r[name])
                 if k in owners and owners[k]!=split:
                     raise ValueError('source pair alias crosses splits')
                 owners[k]=split
+    if args.reserved_positions:
+        for records in json.loads(args.reserved_positions.read_text())['rows'].values():
+            for row in records:
+                for field in ('root_fen', 'good_fen', 'bad_fen'):
+                    owners[key(row[field])] = '__reserved__'
+        base = {split: [r for r in rows if owners.get(key(r['fen'])) == split]
+                for split, rows in base.items()}
     reviewed=json.loads(args.failures.read_text())
     nn_weight=reviewed.get('nn_weight',1.) if args.nn_weight is None else args.nn_weight
     quiet_only=reviewed.get('quiet_only',False) if args.quiet_only is None else args.quiet_only
@@ -113,9 +122,11 @@ def main():
                 if gap<50 or abs(good_cp)>=1500 or abs(bad_cp)>=1500:
                     return
                 keys=key(good.fen()),key(bad.fen())
+                if owners.get(key(board.fen()), split) != split: return
                 if keys[0]==keys[1] or keys in seen or any(owners.get(k,split)!=split for k in keys):
                     return
                 seen.add(keys)
+                owners[key(board.fen())] = split
                 base_gap=sign*(evaluate(good)-evaluate(bad));hard+=base_gap<=0
                 settled_plies+=len(good_line)+len(bad_line)
                 pairs.append({'good_fen':good.fen(),'bad_fen':bad.fen(),'sign':sign,
@@ -135,6 +146,7 @@ def main():
                     raise RuntimeError('could not reach ranking quota within root budget')
                 root=known.pop(0) if known else rng.choice(endings if roots%4==0 and endings else eligible)
                 board=chess.Board(root['fen'])
+                if owners.get(key(board.fen()), split) != split: continue
                 heuristic=search(board,depth=2,node_limit=250)
                 neural=search(board,depth=2,node_limit=250,eval_fn=model)
                 disagreement=heuristic.move!=neural.move
@@ -166,6 +178,7 @@ def main():
               'extra_compute_policy':'Up to quarter-quota roots refined when shallow heuristic and NN moves disagree or are confirmed failures. Quotas refer to pairs; some roots yield several pairs.',
               'source_manifest_sha256':hashlib.sha256((args.data/'manifest.json').read_bytes()).hexdigest(),
               'failures_sha256':hashlib.sha256(args.failures.read_bytes()).hexdigest(),
+              'reserved_positions_sha256': hashlib.sha256(args.reserved_positions.read_bytes()).hexdigest() if args.reserved_positions else None,
               'student_sha256':hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
               'stockfish_sha256':hashlib.sha256(args.stockfish.read_bytes()).hexdigest()}
     (args.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

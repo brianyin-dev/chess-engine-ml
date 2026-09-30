@@ -1,0 +1,16 @@
+{
+  "canonical_alias_overlap_with_training": 0,
+  "cross_split_alias_overlap": 0,
+  "cross_split_game_overlap": 0,
+  "fresh_pairs": {
+    "val": 68,
+    "test": 60
+  },
+  "fresh_source_games": {
+    "val": 28,
+    "test": 28
+  },
+  "inference_positions_checked": 256,
+  "torch_runtime_integer_disagreements": 0,
+  "policy": "Compare complete gated hybrid predictions using separate NumPy inference and Torch training model; at most1cp tolerated at floating-point rounding boundaries."
+}

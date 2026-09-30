@@ -20,7 +20,13 @@ from ml.dataset import ChessEvalDataset, load_rows, correction_factor
 from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, SCORE_SCALE, board_to_tensor, material_score
 
 
-def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material", correction_weight=1., quiet_only=False):
+def rounded_score(baseline, correction, straight_through=False):
+    score = baseline + correction * SCORE_SCALE
+    rounded = torch.round(score)
+    return score + (rounded - score).detach() if straight_through else rounded
+
+
+def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material", correction_weight=1., quiet_only=False, include_baselines=False):
     records = [json.loads(l) for l in path.read_text().splitlines() if l]
     if not records:
         raise ValueError('pair split is empty')
@@ -37,14 +43,23 @@ def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material", co
         raise ValueError('pair training weights must be finite and at least one')
     good_factors = torch.tensor([correction_factor(b, correction_weight, quiet_only) for b in good])
     bad_factors = torch.tensor([correction_factor(b, correction_weight, quiet_only) for b in bad])
-    return DataLoader(torch.utils.data.TensorDataset(*tensors, good_factors, bad_factors, importance), batch_size=64, shuffle=shuffle)
+    endpoints = (torch.tensor([baseline(b) for b in good], dtype=torch.float32),
+                 torch.tensor([baseline(b) for b in bad], dtype=torch.float32)) if include_baselines else ()
+    return DataLoader(torch.utils.data.TensorDataset(*tensors, good_factors, bad_factors, *endpoints, importance), batch_size=64, shuffle=shuffle)
 
 
 def ranking_accuracy(model, loader):
     correct = total = 0
     model.eval()
     with torch.inference_mode():
-        for good, bad, base_difference, sign, good_factors, bad_factors, _ in loader:
+        for batch in loader:
+            good, bad, base_difference, sign, good_factors, bad_factors = batch[:6]
+            if len(batch) == 9:
+                delta = sign * (rounded_score(batch[6], good_factors * model(good))
+                                - rounded_score(batch[7], bad_factors * model(bad)))
+                correct += (delta > 0).sum().item()
+                total += len(delta)
+                continue
             # Runtime rounds each endpoint to integer centipawns before search.
             delta = sign * (torch.round(good_factors * model(good) * SCORE_SCALE)
                             - torch.round(bad_factors * model(bad) * SCORE_SCALE)
@@ -175,10 +190,10 @@ def main():
                for r in rows['train']]
     sampler = (torch.utils.data.WeightedRandomSampler(weights, len(weights), replacement=True)
                if args.search_weight != 1 else None)
-    training_tensors = torch.utils.data.TensorDataset(datasets['train'].features, datasets['train'].targets, datasets['train'].output_factors)
+    training_tensors = torch.utils.data.TensorDataset(datasets['train'].features, datasets['train'].targets, datasets['train'].output_factors, datasets['train'].target_baselines)
     loader = DataLoader(training_tensors, batch_size=args.batch_size,
                         shuffle=sampler is None, sampler=sampler)
-    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train', input_size, args.target, args.correction_weight, args.quiet_only)
+    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train', input_size, args.target, args.correction_weight, args.quiet_only, include_baselines=True)
                     for s in ('train', 'val', 'test')} if args.pairs else None)
     if args.pairs:
         pair_records = {s: [json.loads(l) for l in (args.pairs / f'{s}.jsonl').read_text().splitlines()]
@@ -190,7 +205,7 @@ def main():
             raise ValueError('candidate-pair game IDs overlap across splits')
         combined = {s: positions[s] | {r[k] for r in
                     [json.loads(l) for l in (args.pairs / f'{s}.jsonl').read_text().splitlines()]
-                    for k in ('good_fen', 'bad_fen')} for s in positions}
+                    for k in ('good_fen', 'bad_fen', 'root_fen') if k in r} for s in positions}
         if args.color_consistent:
             combined = {s: {key(fen) for fen in fens} for s, fens in combined.items()}
         if any(combined[a] & combined[b] for a, b in
@@ -209,17 +224,18 @@ def main():
     for epoch in range(1, args.epochs + 1):
         model.train()
         pairs = cycle(pair_loaders['train']) if pair_loaders else None
-        for features, targets, factors in loader:
+        for features, targets, factors, baselines in loader:
             optimizer.zero_grad()
-            predictions = factors * model(features)
+            predictions = (rounded_score(baselines, factors * model(features), True) - baselines) / SCORE_SCALE
             loss = args.score_weight * loss_fn(predictions, targets)
             if anchor is not None:
                 with torch.no_grad():
                     reference = factors * anchor(features)
                 loss = loss + args.anchor_weight * nn.functional.mse_loss(predictions, reference)
             if pairs is not None:
-                good, bad, base_difference, sign, good_factors, bad_factors, importance = next(pairs)
-                delta = sign * (good_factors * model(good) - bad_factors * model(bad) + base_difference)
+                good, bad, base_difference, sign, good_factors, bad_factors, good_base, bad_base, importance = next(pairs)
+                delta = sign * (rounded_score(good_base, good_factors * model(good), True)
+                                - rounded_score(bad_base, bad_factors * model(bad), True)) / SCORE_SCALE
                 pair_weights = importance * torch.where(sign * base_difference <= 0, args.hard_pair_weight, args.protected_pair_weight)
                 if correction_limit is not None:
                     attainable = sign * base_difference + correction_limit / SCORE_SCALE * (good_factors + bad_factors)
@@ -271,6 +287,7 @@ def main():
         'color_consistent': args.color_consistent,
         'training_correction_weight': args.correction_weight,
         'training_quiet_only': args.quiet_only,
+        'rounding_policy': 'Round full endpoint scores in training with straight-through gradients; validation uses rounded full endpoint scores.',
         'ranking_policy': 'Exclude margins outside bounded correction capacity; regression, ranking, and validation use deployed blend/gate.',
         "data_manifest_sha256": hashlib.sha256((args.data / "manifest.json").read_bytes()).hexdigest(),
         "rows": {split: len(data) for split, data in rows.items()},

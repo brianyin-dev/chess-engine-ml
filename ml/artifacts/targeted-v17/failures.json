@@ -1,0 +1,4244 @@
+{
+  "policy": "First >=100cp loss or mate deterioration, screened at 100ms and confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, not a definitive cause. Scores are from the root mover perspective.",
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "nn_weight": 0.25,
+  "quiet_only": true,
+  "include_draws": true,
+  "models_by_report": {
+    "ml/artifacts/weight-control-v16/weight-25/report.json": {
+      "checkpoint": "ml/artifacts/quiet-ranking-v8.pt",
+      "sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+      "nn_weight": 0.25,
+      "quiet_only": true,
+      "incremental": true
+    },
+    "ml/artifacts/weight-control-v16/old-NN-25/report.json": {
+      "checkpoint": "ml/artifacts/quiet-ranking-v8.pt",
+      "sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+      "nn_weight": 0.25,
+      "quiet_only": true,
+      "incremental": false
+    }
+  },
+  "draw_policy": "Missed forced mate or >=150cp best move versus <=50cp played move, confirmed at 400ms. Cp advantage is not proof of a forced win.",
+  "source_sha256": {
+    "ml/artifacts/weight-control-v16/weight-25/report.json": "8eb2e4a8e8b5e2358595e79d32871bd39a4f9b0fbd70801bfcc3607db3d8b0a8",
+    "ml/artifacts/weight-control-v16/old-NN-25/report.json": "cf115a86c1df58b31e28f42e32622214d33fecbe01268e6ec81c90fbabe7e768"
+  },
+  "games": [
+    {
+      "opening": "Frozen book start 01",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 11,
+      "result": "loss",
+      "best_screened_advantage_cp": 1150,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "h7h8",
+            "depth": 3,
+            "nodes": 8106,
+            "qnodes": 7854,
+            "review": {
+              "best_move": "h7h6",
+              "best_san": "Qh6+",
+              "best_score": {
+                "cp": 1266,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 396,
+                "mate": null
+              },
+              "best_pv": [
+                "Qh6+",
+                "Ke7",
+                "Nxe6",
+                "c6",
+                "Qf6+",
+                "Kd7",
+                "Nxd8",
+                "Kc7",
+                "Nxf7",
+                "Be7",
+                "Qd6+",
+                "Bxd6"
+              ],
+              "played_pv": [
+                "Qh8+",
+                "Ke7",
+                "Qh7",
+                "Bxd4",
+                "cxd4",
+                "Rh8",
+                "Qg7",
+                "Kd7",
+                "f4",
+                "Rg8",
+                "Qh6",
+                "gxf4"
+              ],
+              "best_depth": 23,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 870,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "h7h8",
+            "depth": 3,
+            "nodes": 8106,
+            "qnodes": 7854,
+            "review": {
+              "best_move": "h7h6",
+              "best_san": "Qh6+",
+              "best_score": {
+                "cp": 1266,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 396,
+                "mate": null
+              },
+              "best_pv": [
+                "Qh6+",
+                "Ke7",
+                "Nxe6",
+                "c6",
+                "Qf6+",
+                "Kd7",
+                "Nxd8",
+                "Kc7",
+                "Nxf7",
+                "Be7",
+                "Qd6+",
+                "Bxd6"
+              ],
+              "played_pv": [
+                "Qh8+",
+                "Ke7",
+                "Qh7",
+                "Bxd4",
+                "cxd4",
+                "Rh8",
+                "Qg7",
+                "Kd7",
+                "f4",
+                "Rg8",
+                "Qh6",
+                "gxf4"
+              ],
+              "best_depth": 23,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 870,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 21,
+        "fen": "1r1qrk2/ppp2p1Q/4b3/2bpP1p1/3N4/2PB3P/P1P2PP1/1R3RK1 w - - 1 18",
+        "played": "f1e1",
+        "played_san": "Rfe1",
+        "best_move": "h7h6",
+        "best_san": "Qh6+",
+        "best_score": {
+          "cp": 1266,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 588,
+          "mate": null
+        },
+        "best_pv": [
+          "Qh6+",
+          "Ke7",
+          "Nxe6",
+          "c6",
+          "Qf6+",
+          "Kd7",
+          "Nxd8",
+          "Kc7",
+          "Nxf7",
+          "Be7",
+          "Qd6+",
+          "Bxd6"
+        ],
+        "played_pv": [
+          "Rfe1",
+          "Bxd4",
+          "Qh6+",
+          "Ke7",
+          "Qxg5+",
+          "Kd7",
+          "Qxd8+",
+          "Rexd8",
+          "cxd4",
+          "f5",
+          "exf6",
+          "Rf8"
+        ],
+        "best_depth": 23,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 678,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 131,
+        "nn_static_bad_cp": 150,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "h7h8",
+        "probe_review": {
+          "best_move": "h7h6",
+          "best_san": "Qh6+",
+          "best_score": {
+            "cp": 1234,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 396,
+            "mate": null
+          },
+          "best_pv": [
+            "Qh6+",
+            "Ke7",
+            "Nxe6",
+            "c6",
+            "Qf6+",
+            "Kd7",
+            "Nxd8",
+            "Kc7",
+            "Nxf7",
+            "b6",
+            "Rb3",
+            "Be7"
+          ],
+          "played_pv": [
+            "Qh8+",
+            "Ke7",
+            "Qh7",
+            "Bxd4",
+            "cxd4",
+            "Rh8",
+            "Qg7",
+            "Kd7",
+            "f4",
+            "Rg8",
+            "Qh6",
+            "gxf4"
+          ],
+          "best_depth": 22,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 838,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 16,
+      "result": "loss",
+      "best_screened_advantage_cp": 91,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "b6c5",
+            "depth": 3,
+            "nodes": 3199,
+            "qnodes": 3010,
+            "review": {
+              "best_move": "b7c8",
+              "best_san": "Bc8",
+              "best_score": {
+                "cp": -12,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -141,
+                "mate": null
+              },
+              "best_pv": [
+                "Bc8",
+                "Qe2",
+                "Qe8",
+                "Nb3",
+                "a5",
+                "Nd2",
+                "a4",
+                "c4",
+                "Rha5",
+                "Rfe1",
+                "Ba6",
+                "a3"
+              ],
+              "played_pv": [
+                "bxc5",
+                "Rxb7",
+                "Rd8",
+                "e5",
+                "fxe5",
+                "dxe5",
+                "Rf5",
+                "Rxa7",
+                "g5",
+                "fxg5",
+                "Rxf1+",
+                "Qxf1"
+              ],
+              "best_depth": 17,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 129,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "b6c5",
+            "depth": 3,
+            "nodes": 3201,
+            "qnodes": 3012,
+            "review": {
+              "best_move": "b7c8",
+              "best_san": "Bc8",
+              "best_score": {
+                "cp": -12,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -141,
+                "mate": null
+              },
+              "best_pv": [
+                "Bc8",
+                "Qe2",
+                "Qe8",
+                "Nb3",
+                "a5",
+                "Nd2",
+                "a4",
+                "c4",
+                "Rha5",
+                "Rfe1",
+                "Ba6",
+                "a3"
+              ],
+              "played_pv": [
+                "bxc5",
+                "Rxb7",
+                "Rd8",
+                "e5",
+                "fxe5",
+                "dxe5",
+                "Rf5",
+                "Rxa7",
+                "g5",
+                "fxg5",
+                "Rxf1+",
+                "Qxf1"
+              ],
+              "best_depth": 17,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 129,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 32,
+        "fen": "r5k1/pbp1q1p1/1p2pp1p/2N4r/2QPPP2/2P5/P5PP/1R3RK1 b - - 4 23",
+        "played": "b6c5",
+        "played_san": "bxc5",
+        "best_move": "b7c8",
+        "best_san": "Bc8",
+        "best_score": {
+          "cp": -12,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -141,
+          "mate": null
+        },
+        "best_pv": [
+          "Bc8",
+          "Qe2",
+          "Qe8",
+          "Nb3",
+          "a5",
+          "Nd2",
+          "a4",
+          "c4",
+          "Rha5",
+          "Rfe1",
+          "Ba6",
+          "a3"
+        ],
+        "played_pv": [
+          "bxc5",
+          "Rxb7",
+          "Rd8",
+          "e5",
+          "fxe5",
+          "dxe5",
+          "Rf5",
+          "Rxa7",
+          "g5",
+          "fxg5",
+          "Rxf1+",
+          "Qxf1"
+        ],
+        "best_depth": 17,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 129,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -125,
+        "nn_static_bad_cp": 311,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "b6c5",
+        "probe_review": {
+          "best_move": "b7c8",
+          "best_san": "Bc8",
+          "best_score": {
+            "cp": -12,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -141,
+            "mate": null
+          },
+          "best_pv": [
+            "Bc8",
+            "Qe2",
+            "Qe8",
+            "Nb3",
+            "a5",
+            "Nd2",
+            "a4",
+            "c4",
+            "Rha5",
+            "Rfe1",
+            "Ba6",
+            "a3"
+          ],
+          "played_pv": [
+            "bxc5",
+            "Rxb7",
+            "Rd8",
+            "e5",
+            "fxe5",
+            "dxe5",
+            "Rf5",
+            "Rxa7",
+            "g5",
+            "fxg5",
+            "Rxf1+",
+            "Qxf1"
+          ],
+          "best_depth": 17,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 129,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 04",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 141,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e7d6",
+            "depth": 3,
+            "nodes": 9370,
+            "qnodes": 8781,
+            "review": {
+              "best_move": "b7b6",
+              "best_san": "b6",
+              "best_score": {
+                "cp": 153,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 61,
+                "mate": null
+              },
+              "best_pv": [
+                "b6",
+                "Rhc1",
+                "a5",
+                "Qd3",
+                "Ba6",
+                "c4",
+                "c5",
+                "Qa3",
+                "Qb7",
+                "dxc5",
+                "Qxe4+",
+                "Qe3"
+              ],
+              "played_pv": [
+                "Qd6",
+                "Qc5",
+                "Qa6+",
+                "Qb5",
+                "Qa3",
+                "Qb4",
+                "Qxa2+",
+                "Ke3",
+                "Qa6",
+                "Ra1",
+                "Qc6",
+                "Qc5"
+              ],
+              "best_depth": 19,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 92,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "e7d6",
+            "depth": 3,
+            "nodes": 9345,
+            "qnodes": 8753,
+            "review": {
+              "best_move": "b7b6",
+              "best_san": "b6",
+              "best_score": {
+                "cp": 153,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 61,
+                "mate": null
+              },
+              "best_pv": [
+                "b6",
+                "Rhc1",
+                "a5",
+                "Qd3",
+                "Ba6",
+                "c4",
+                "c5",
+                "Qa3",
+                "Qb7",
+                "dxc5",
+                "Qxe4+",
+                "Qe3"
+              ],
+              "played_pv": [
+                "Qd6",
+                "Qc5",
+                "Qa6+",
+                "Qb5",
+                "Qa3",
+                "Qb4",
+                "Qxa2+",
+                "Ke3",
+                "Qa6",
+                "Ra1",
+                "Qc6",
+                "Qc5"
+              ],
+              "best_depth": 19,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 92,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 18,
+        "fen": "r1br2k1/ppp1qpp1/4p2p/8/2QPP3/2P2N2/P3KPPP/1R5R b - - 2 17",
+        "played": "d8d5",
+        "played_san": "Rd5",
+        "best_move": "b7b6",
+        "best_san": "b6",
+        "best_score": {
+          "cp": 153,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 4,
+          "mate": null
+        },
+        "best_pv": [
+          "b6",
+          "Rhc1",
+          "a5",
+          "Qd3",
+          "Ba6",
+          "c4",
+          "c5",
+          "Qa3",
+          "Qb7",
+          "dxc5",
+          "Qxe4+",
+          "Qe3"
+        ],
+        "played_pv": [
+          "Rd5",
+          "Qb4",
+          "c5",
+          "Qb5",
+          "Rd6",
+          "Qxc5",
+          "b6",
+          "Qa3",
+          "Qc7",
+          "Rhe1",
+          "Rc6",
+          "Rbc1"
+        ],
+        "best_depth": 19,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 149,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -76,
+        "nn_static_bad_cp": -56,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "e7d6",
+        "probe_review": {
+          "best_move": "b7b6",
+          "best_san": "b6",
+          "best_score": {
+            "cp": 153,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 61,
+            "mate": null
+          },
+          "best_pv": [
+            "b6",
+            "Rhc1",
+            "a5",
+            "Qd3",
+            "Ba6",
+            "c4",
+            "c5",
+            "Qa3",
+            "Qb7",
+            "dxc5",
+            "Qxe4+",
+            "Qe3"
+          ],
+          "played_pv": [
+            "Qd6",
+            "Qc5",
+            "Qa6+",
+            "Qb5",
+            "Qa3",
+            "Qb4",
+            "Qxa2+",
+            "Ke3",
+            "Qa6",
+            "Ra1",
+            "Qc6",
+            "Qc5"
+          ],
+          "best_depth": 19,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 92,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 397,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "d1b3",
+            "depth": 3,
+            "nodes": 5248,
+            "qnodes": 5081,
+            "review": {
+              "best_move": "a1c1",
+              "best_san": "Rc1",
+              "best_score": {
+                "cp": 429,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 305,
+                "mate": null
+              },
+              "best_pv": [
+                "Rc1",
+                "Qb8",
+                "Ba3",
+                "O-O",
+                "Be2",
+                "Rd8",
+                "Nd2",
+                "Bd5",
+                "Qa4",
+                "e5",
+                "Rfd1",
+                "Qb7"
+              ],
+              "played_pv": [
+                "Qb3",
+                "Qb7",
+                "Bxe4",
+                "Nxe4",
+                "Qa3",
+                "O-O",
+                "Ne1",
+                "Ndf6",
+                "Nd3",
+                "Rab8",
+                "Bxd6",
+                "Nxd6"
+              ],
+              "best_depth": 21,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 124,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "d1b3",
+            "depth": 3,
+            "nodes": 5248,
+            "qnodes": 5081,
+            "review": {
+              "best_move": "a1c1",
+              "best_san": "Rc1",
+              "best_score": {
+                "cp": 429,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 305,
+                "mate": null
+              },
+              "best_pv": [
+                "Rc1",
+                "Qb8",
+                "Ba3",
+                "O-O",
+                "Be2",
+                "Rd8",
+                "Nd2",
+                "Bd5",
+                "Qa4",
+                "e5",
+                "Rfd1",
+                "Qb7"
+              ],
+              "played_pv": [
+                "Qb3",
+                "Qb7",
+                "Bxe4",
+                "Nxe4",
+                "Qa3",
+                "O-O",
+                "Ne1",
+                "Ndf6",
+                "Nd3",
+                "Rab8",
+                "Bxd6",
+                "Nxd6"
+              ],
+              "best_depth": 21,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 124,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 17,
+        "fen": "r3k2r/2qn1ppp/p2ppn2/P7/1B1Pb3/3BPN2/1P3PPP/R2Q1RK1 w kq - 1 15",
+        "played": "d1b3",
+        "played_san": "Qb3",
+        "best_move": "a1c1",
+        "best_san": "Rc1",
+        "best_score": {
+          "cp": 429,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 305,
+          "mate": null
+        },
+        "best_pv": [
+          "Rc1",
+          "Qb8",
+          "Ba3",
+          "O-O",
+          "Be2",
+          "Rd8",
+          "Nd2",
+          "Bd5",
+          "Qa4",
+          "e5",
+          "Rfd1",
+          "Qb7"
+        ],
+        "played_pv": [
+          "Qb3",
+          "Qb7",
+          "Bxe4",
+          "Nxe4",
+          "Qa3",
+          "O-O",
+          "Ne1",
+          "Ndf6",
+          "Nd3",
+          "Rab8",
+          "Bxd6",
+          "Nxd6"
+        ],
+        "best_depth": 21,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 124,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 180,
+        "nn_static_bad_cp": 189,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "d1b3",
+        "probe_review": {
+          "best_move": "a1c1",
+          "best_san": "Rc1",
+          "best_score": {
+            "cp": 429,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 305,
+            "mate": null
+          },
+          "best_pv": [
+            "Rc1",
+            "Qb8",
+            "Ba3",
+            "O-O",
+            "Be2",
+            "Rd8",
+            "Nd2",
+            "Bd5",
+            "Qa4",
+            "e5",
+            "Rfd1",
+            "Qb7"
+          ],
+          "played_pv": [
+            "Qb3",
+            "Qb7",
+            "Bxe4",
+            "Nxe4",
+            "Qa3",
+            "O-O",
+            "Ne1",
+            "Ndf6",
+            "Nd3",
+            "Rab8",
+            "Bxd6",
+            "Nxd6"
+          ],
+          "best_depth": 21,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 124,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 06",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 8,
+      "result": "draw",
+      "best_screened_advantage_cp": 189,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e4e5",
+            "depth": 3,
+            "nodes": 4601,
+            "qnodes": 4429,
+            "review": {
+              "best_move": "c3d5",
+              "best_san": "Nd5",
+              "best_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 24,
+                "mate": null
+              },
+              "best_pv": [
+                "Nd5",
+                "Nxd5",
+                "exd5",
+                "Bg4",
+                "Rc1",
+                "Kh8",
+                "Rfe1",
+                "Qd7",
+                "Qxc7",
+                "Rad8",
+                "Qc4",
+                "h6"
+              ],
+              "played_pv": [
+                "e5",
+                "dxc3",
+                "exf6",
+                "Qxf6",
+                "bxc3",
+                "c6",
+                "Rfe1",
+                "Qf7",
+                "Be4",
+                "Bf5",
+                "Bxf5",
+                "Qxf5"
+              ],
+              "best_depth": 18,
+              "played_depth": 21,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 189,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "e4e5",
+            "depth": 3,
+            "nodes": 4601,
+            "qnodes": 4429,
+            "review": {
+              "best_move": "c3d5",
+              "best_san": "Nd5",
+              "best_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 24,
+                "mate": null
+              },
+              "best_pv": [
+                "Nd5",
+                "Nxd5",
+                "exd5",
+                "Bg4",
+                "Rc1",
+                "Kh8",
+                "Rfe1",
+                "Qd7",
+                "Qxc7",
+                "Rad8",
+                "Qc4",
+                "h6"
+              ],
+              "played_pv": [
+                "e5",
+                "dxc3",
+                "exf6",
+                "Qxf6",
+                "bxc3",
+                "c6",
+                "Rfe1",
+                "Qf7",
+                "Be4",
+                "Bf5",
+                "Bxf5",
+                "Qxf5"
+              ],
+              "best_depth": 18,
+              "played_depth": 21,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 189,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 15,
+        "fen": "r4rk1/ppp1q1pp/1n2bb2/8/3pPB2/2N3P1/PPQ2PBP/3R1RK1 w - - 4 16",
+        "played": "e4e5",
+        "played_san": "e5",
+        "best_move": "c3d5",
+        "best_san": "Nd5",
+        "best_score": {
+          "cp": 205,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 24,
+          "mate": null
+        },
+        "best_pv": [
+          "Nd5",
+          "Nxd5",
+          "exd5",
+          "Bg4",
+          "Rc1",
+          "Qb4",
+          "Be4",
+          "h6",
+          "Bxc7",
+          "Rae8",
+          "Bd3",
+          "Qe7"
+        ],
+        "played_pv": [
+          "e5",
+          "dxc3",
+          "exf6",
+          "Qxf6",
+          "bxc3",
+          "c6",
+          "Rfe1",
+          "Qf7",
+          "Be4",
+          "Bf5",
+          "Bxf5",
+          "Qxf5"
+        ],
+        "best_depth": 16,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 181,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 9,
+        "nn_static_bad_cp": 15,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "e4e5",
+        "probe_review": {
+          "best_move": "c3d5",
+          "best_san": "Nd5",
+          "best_score": {
+            "cp": 213,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 24,
+            "mate": null
+          },
+          "best_pv": [
+            "Nd5",
+            "Nxd5",
+            "exd5",
+            "Bg4",
+            "Rc1",
+            "Kh8",
+            "Rfe1",
+            "Qd7",
+            "Qxc7",
+            "Rad8",
+            "Qc4",
+            "h6"
+          ],
+          "played_pv": [
+            "e5",
+            "dxc3",
+            "exf6",
+            "Qxf6",
+            "bxc3",
+            "c6",
+            "Rfe1",
+            "Qf7",
+            "Be4",
+            "Bf5",
+            "Bxf5",
+            "Qxf5"
+          ],
+          "best_depth": 18,
+          "played_depth": 21,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 189,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 16,
+      "result": "loss",
+      "best_screened_advantage_cp": 137,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "c3e2",
+            "depth": 3,
+            "nodes": 6340,
+            "qnodes": 6079,
+            "review": {
+              "best_move": "c3e2",
+              "best_san": "Ne2",
+              "best_score": {
+                "cp": -26,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -26,
+                "mate": null
+              },
+              "best_pv": [
+                "Ne2",
+                "Be6",
+                "Bxe6",
+                "fxe6",
+                "Kf3",
+                "Bb2",
+                "a4",
+                "Ba3",
+                "Rxd8",
+                "Rxd8",
+                "Rb1",
+                "Rd2"
+              ],
+              "played_pv": [
+                "Ne2",
+                "Be6",
+                "Bxe6",
+                "fxe6",
+                "Kf3",
+                "Bb2",
+                "a4",
+                "Ba3",
+                "Rxd8",
+                "Rxd8",
+                "Rb1",
+                "Rd2"
+              ],
+              "best_depth": 19,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "c3e2",
+            "depth": 3,
+            "nodes": 6340,
+            "qnodes": 6079,
+            "review": {
+              "best_move": "c3e2",
+              "best_san": "Ne2",
+              "best_score": {
+                "cp": -26,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -26,
+                "mate": null
+              },
+              "best_pv": [
+                "Ne2",
+                "Be6",
+                "Bxe6",
+                "fxe6",
+                "Kf3",
+                "Bb2",
+                "a4",
+                "Ba3",
+                "Rxd8",
+                "Rxd8",
+                "Rb1",
+                "Rd2"
+              ],
+              "played_pv": [
+                "Ne2",
+                "Be6",
+                "Bxe6",
+                "fxe6",
+                "Kf3",
+                "Bb2",
+                "a4",
+                "Ba3",
+                "Rxd8",
+                "Rxd8",
+                "Rb1",
+                "Rd2"
+              ],
+              "best_depth": 19,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 31,
+        "fen": "3r2r1/pp1bkp1p/2p5/2P1bp2/1PB5/P1N1P3/5KPP/3R2R1 w - - 0 22",
+        "played": "d1d3",
+        "played_san": "Rd3",
+        "best_move": "c3e2",
+        "best_san": "Ne2",
+        "best_score": {
+          "cp": -26,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -177,
+          "mate": null
+        },
+        "best_pv": [
+          "Ne2",
+          "Be6",
+          "Bxe6",
+          "fxe6",
+          "Kf3",
+          "Bb2",
+          "a4",
+          "Ba3",
+          "Rxd8",
+          "Rxd8",
+          "Rb1",
+          "Rd2"
+        ],
+        "played_pv": [
+          "Rd3",
+          "Be6",
+          "Rxd8",
+          "Rxd8",
+          "Bxe6",
+          "fxe6",
+          "Ne2",
+          "Rd3",
+          "b5",
+          "cxb5",
+          "Rb1",
+          "Kd7"
+        ],
+        "best_depth": 19,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 151,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -45,
+        "nn_static_bad_cp": -20,
+        "original_depth": 2,
+        "probe_depth": 4,
+        "probe_move": "c3e2",
+        "probe_review": {
+          "best_move": "c3e2",
+          "best_san": "Ne2",
+          "best_score": {
+            "cp": -26,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -26,
+            "mate": null
+          },
+          "best_pv": [
+            "Ne2",
+            "Be6",
+            "Bxe6",
+            "fxe6",
+            "Kf3",
+            "Bb2",
+            "a4",
+            "Ba3",
+            "Rxd8",
+            "Rxd8",
+            "Rb1",
+            "Rd2"
+          ],
+          "played_pv": [
+            "Ne2",
+            "Be6",
+            "Bxe6",
+            "fxe6",
+            "Kf3",
+            "Bb2",
+            "a4",
+            "Ba3",
+            "Rxd8",
+            "Rxd8",
+            "Rb1",
+            "Rd2"
+          ],
+          "best_depth": 19,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 30,
+      "result": "draw",
+      "best_screened_advantage_cp": 34,
+      "first_costly_move": null
+    },
+    {
+      "opening": "Frozen book start 08",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 13,
+      "result": "loss",
+      "best_screened_advantage_cp": 491,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 5365,
+            "qnodes": 5215,
+            "review": {
+              "best_move": "a1d1",
+              "best_san": "Rad1",
+              "best_score": {
+                "cp": 394,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 278,
+                "mate": null
+              },
+              "best_pv": [
+                "Rad1",
+                "Qd6",
+                "cxb5",
+                "axb5",
+                "Ng5",
+                "Rd8",
+                "Rc1",
+                "Qe7",
+                "Ne4",
+                "Bh6",
+                "Rcd1",
+                "c5"
+              ],
+              "played_pv": [
+                "a4",
+                "b4",
+                "c5",
+                "a5",
+                "h4",
+                "Qd5",
+                "Rac1",
+                "c6",
+                "Qc4",
+                "Qxc4",
+                "Rxc4",
+                "e4"
+              ],
+              "best_depth": 17,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 116,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 5367,
+            "qnodes": 5217,
+            "review": {
+              "best_move": "a1d1",
+              "best_san": "Rad1",
+              "best_score": {
+                "cp": 394,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 278,
+                "mate": null
+              },
+              "best_pv": [
+                "Rad1",
+                "Qd6",
+                "cxb5",
+                "axb5",
+                "Ng5",
+                "Rd8",
+                "Rc1",
+                "Qe7",
+                "Ne4",
+                "Bh6",
+                "Rcd1",
+                "c5"
+              ],
+              "played_pv": [
+                "a4",
+                "b4",
+                "c5",
+                "a5",
+                "h4",
+                "Qd5",
+                "Rac1",
+                "c6",
+                "Qc4",
+                "Qxc4",
+                "Rxc4",
+                "e4"
+              ],
+              "best_depth": 17,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 116,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 25,
+        "fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/2P5/3P1N2/PPQ2PPP/R3R1K1 w - - 1 21",
+        "played": "a2a4",
+        "played_san": "a4",
+        "best_move": "a1d1",
+        "best_san": "Rad1",
+        "best_score": {
+          "cp": 394,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 278,
+          "mate": null
+        },
+        "best_pv": [
+          "Rad1",
+          "Qd6",
+          "cxb5",
+          "axb5",
+          "Ng5",
+          "Rd8",
+          "Rc1",
+          "Qe7",
+          "Ne4",
+          "Bh6",
+          "Rcd1",
+          "c5"
+        ],
+        "played_pv": [
+          "a4",
+          "b4",
+          "c5",
+          "a5",
+          "h4",
+          "Qd5",
+          "Rac1",
+          "c6",
+          "Qc4",
+          "Qxc4",
+          "Rxc4",
+          "e4"
+        ],
+        "best_depth": 17,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 116,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 168,
+        "nn_static_bad_cp": 166,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "a2a4",
+        "probe_review": {
+          "best_move": "a1d1",
+          "best_san": "Rad1",
+          "best_score": {
+            "cp": 394,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 244,
+            "mate": null
+          },
+          "best_pv": [
+            "Rad1",
+            "Qd6",
+            "cxb5",
+            "axb5",
+            "Ng5",
+            "Rd8",
+            "Rc1",
+            "Qe7",
+            "Ne4",
+            "Bh6",
+            "Rcd1",
+            "c5"
+          ],
+          "played_pv": [
+            "a4",
+            "b4",
+            "c5",
+            "a5",
+            "Nd2",
+            "Ra8",
+            "Nb3",
+            "Nf8",
+            "Qc4",
+            "Ne6",
+            "Qe4",
+            "Qe8"
+          ],
+          "best_depth": 17,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 150,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 8,
+      "result": "loss",
+      "best_screened_advantage_cp": -43,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e6d5",
+            "depth": 3,
+            "nodes": 4551,
+            "qnodes": 4401,
+            "review": {
+              "best_move": "c8d7",
+              "best_san": "Bd7",
+              "best_score": {
+                "cp": -70,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -184,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd7",
+                "h3",
+                "exd5",
+                "cxd5",
+                "Qd6",
+                "Nb5",
+                "Bxb5",
+                "Qxb5",
+                "c6",
+                "dxc6",
+                "Rxa2",
+                "O-O"
+              ],
+              "played_pv": [
+                "exd5",
+                "Nxc8",
+                "Rdxc8",
+                "cxd5",
+                "c6",
+                "dxc6",
+                "Rxc6",
+                "O-O",
+                "Ng4",
+                "Bd2",
+                "Bh6",
+                "Bc3"
+              ],
+              "best_depth": 19,
+              "played_depth": 20,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 114,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "e6d5",
+            "depth": 3,
+            "nodes": 4544,
+            "qnodes": 4394,
+            "review": {
+              "best_move": "c8d7",
+              "best_san": "Bd7",
+              "best_score": {
+                "cp": -70,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -184,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd7",
+                "h3",
+                "exd5",
+                "cxd5",
+                "Qd6",
+                "Nb5",
+                "Bxb5",
+                "Qxb5",
+                "c6",
+                "dxc6",
+                "Rxa2",
+                "O-O"
+              ],
+              "played_pv": [
+                "exd5",
+                "Nxc8",
+                "Rdxc8",
+                "cxd5",
+                "c6",
+                "dxc6",
+                "Rxc6",
+                "O-O",
+                "Ng4",
+                "Bd2",
+                "Bh6",
+                "Bc3"
+              ],
+              "best_depth": 19,
+              "played_depth": 20,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 114,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 16,
+        "fen": "r1br2k1/Npp1qpbp/4pnp1/3Pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R b KQ - 0 13",
+        "played": "e6d5",
+        "played_san": "exd5",
+        "best_move": "c8d7",
+        "best_san": "Bd7",
+        "best_score": {
+          "cp": -70,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -184,
+          "mate": null
+        },
+        "best_pv": [
+          "Bd7",
+          "h3",
+          "exd5",
+          "cxd5",
+          "Qd6",
+          "Nb5",
+          "Bxb5",
+          "Qxb5",
+          "c6",
+          "dxc6",
+          "Rxa2",
+          "O-O"
+        ],
+        "played_pv": [
+          "exd5",
+          "Nxc8",
+          "Rdxc8",
+          "cxd5",
+          "c6",
+          "dxc6",
+          "Rxc6",
+          "O-O",
+          "Ng4",
+          "Bd2",
+          "Bh6",
+          "Bc3"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 114,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -43,
+        "nn_static_bad_cp": 79,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "e6d5",
+        "probe_review": {
+          "best_move": "c8d7",
+          "best_san": "Bd7",
+          "best_score": {
+            "cp": -70,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -184,
+            "mate": null
+          },
+          "best_pv": [
+            "Bd7",
+            "h3",
+            "exd5",
+            "cxd5",
+            "Qd6",
+            "Nb5",
+            "Bxb5",
+            "Qxb5",
+            "c6",
+            "dxc6",
+            "Rxa2",
+            "O-O"
+          ],
+          "played_pv": [
+            "exd5",
+            "Nxc8",
+            "Rdxc8",
+            "cxd5",
+            "c6",
+            "dxc6",
+            "Rxc6",
+            "O-O",
+            "Ng4",
+            "Bd2",
+            "Bh6",
+            "Bc3"
+          ],
+          "best_depth": 19,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 114,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 10",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "screened_moves": 6,
+      "result": "loss",
+      "best_screened_advantage_cp": 74,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "h7h6",
+            "depth": 3,
+            "nodes": 7912,
+            "qnodes": 7482,
+            "review": {
+              "best_move": "b4d6",
+              "best_san": "Bd6",
+              "best_score": {
+                "cp": 50,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 1,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd6",
+                "Ne2",
+                "Qe7",
+                "Ne4",
+                "b6",
+                "a4",
+                "a5",
+                "Nf6+",
+                "Kf8",
+                "Qxc6",
+                "Nxf6",
+                "Qxa8"
+              ],
+              "played_pv": [
+                "h6",
+                "Ne4",
+                "Qg7",
+                "c3",
+                "Be7",
+                "Qe3",
+                "f5",
+                "Nd2",
+                "Nf6",
+                "Bc4",
+                "Bd6",
+                "Re1"
+              ],
+              "best_depth": 20,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 49,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "h7h6",
+            "depth": 3,
+            "nodes": 7921,
+            "qnodes": 7491,
+            "review": {
+              "best_move": "b4d6",
+              "best_san": "Bd6",
+              "best_score": {
+                "cp": 50,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -3,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd6",
+                "Ne2",
+                "Qe7",
+                "Ne4",
+                "b6",
+                "a4",
+                "a5",
+                "Nf6+",
+                "Kf8",
+                "Qxc6",
+                "Nxf6",
+                "Qxa8"
+              ],
+              "played_pv": [
+                "h6",
+                "Ne4",
+                "Qg7",
+                "c3",
+                "Be7",
+                "Qe3",
+                "f5",
+                "Nd2",
+                "Nb6",
+                "Bc4",
+                "Bd6",
+                "Ngf3"
+              ],
+              "best_depth": 20,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 53,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 12,
+        "fen": "r1b1k2r/pp1n1p1p/2p1pqp1/6N1/1b1P1P2/3B1Q2/PPP2P1P/R4KNR b kq - 1 12",
+        "played": "f6d4",
+        "played_san": "Qxd4",
+        "best_move": "b4d6",
+        "best_san": "Bd6",
+        "best_score": {
+          "cp": 50,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -329,
+          "mate": null
+        },
+        "best_pv": [
+          "Bd6",
+          "Ne2",
+          "Qe7",
+          "Ne4",
+          "b6",
+          "a4",
+          "a5",
+          "Nf6+",
+          "Kf8",
+          "Qxc6",
+          "Nxf6",
+          "Qxa8"
+        ],
+        "played_pv": [
+          "Qxd4",
+          "c3",
+          "Qg7",
+          "cxb4",
+          "Qxb2",
+          "Rb1",
+          "Qxa2",
+          "Qe3",
+          "Nf6",
+          "Ne2",
+          "O-O",
+          "Nc3"
+        ],
+        "best_depth": 20,
+        "played_depth": 16,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 379,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -16,
+        "nn_static_bad_cp": 110,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "h7h6",
+        "probe_review": {
+          "best_move": "b4d6",
+          "best_san": "Bd6",
+          "best_score": {
+            "cp": 50,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 1,
+            "mate": null
+          },
+          "best_pv": [
+            "Bd6",
+            "Ne2",
+            "Qe7",
+            "Ne4",
+            "b6",
+            "a4",
+            "a5",
+            "Nf6+",
+            "Kf8",
+            "Qxc6",
+            "Nxf6",
+            "Qxa8"
+          ],
+          "played_pv": [
+            "h6",
+            "Ne4",
+            "Qg7",
+            "c3",
+            "Be7",
+            "Qe3",
+            "f5",
+            "Nd2",
+            "Nf6",
+            "Bc4",
+            "Bd6",
+            "Re1"
+          ],
+          "best_depth": 20,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 49,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 01",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 212,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "h3g4",
+            "depth": 3,
+            "nodes": 5943,
+            "qnodes": 5731,
+            "review": {
+              "best_move": "h3g4",
+              "best_san": "hxg4",
+              "best_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "best_pv": [
+                "hxg4",
+                "Bxg4",
+                "Qf4",
+                "Be6",
+                "Ng5",
+                "h6",
+                "Nh7",
+                "Rxh7",
+                "Bxh7",
+                "Qg5",
+                "g3",
+                "Qh5"
+              ],
+              "played_pv": [
+                "hxg4",
+                "Bxg4",
+                "Qf4",
+                "Be6",
+                "Ng5",
+                "h6",
+                "Nh7",
+                "Rxh7",
+                "Bxh7",
+                "Qg5",
+                "g3",
+                "Qh5"
+              ],
+              "best_depth": 17,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "h3g4",
+            "depth": 3,
+            "nodes": 5943,
+            "qnodes": 5731,
+            "review": {
+              "best_move": "h3g4",
+              "best_san": "hxg4",
+              "best_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 213,
+                "mate": null
+              },
+              "best_pv": [
+                "hxg4",
+                "Bxg4",
+                "Qf4",
+                "Be6",
+                "Ng5",
+                "h6",
+                "Nh7",
+                "Rxh7",
+                "Bxh7",
+                "Qg5",
+                "g3",
+                "Qh5"
+              ],
+              "played_pv": [
+                "hxg4",
+                "Bxg4",
+                "Qf4",
+                "Be6",
+                "Ng5",
+                "h6",
+                "Nh7",
+                "Rxh7",
+                "Bxh7",
+                "Qg5",
+                "g3",
+                "Qh5"
+              ],
+              "best_depth": 17,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 17,
+        "fen": "1r1qk2r/ppp2p1p/4b3/2bpP3/6p1/2PB1N1P/P1PQ1PP1/1R3RK1 w k - 0 16",
+        "played": "d3b5",
+        "played_san": "Bb5+",
+        "best_move": "h3g4",
+        "best_san": "hxg4",
+        "best_score": {
+          "cp": 213,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -395,
+          "mate": null
+        },
+        "best_pv": [
+          "hxg4",
+          "Bxg4",
+          "Qf4",
+          "Be6",
+          "Ng5",
+          "h6",
+          "Nh7",
+          "Rxh7",
+          "Bxh7",
+          "Qg5",
+          "g3",
+          "Qh5"
+        ],
+        "played_pv": [
+          "Bb5+",
+          "c6",
+          "Bxc6+",
+          "bxc6",
+          "hxg4",
+          "Rg8",
+          "g5",
+          "Rb6",
+          "Rfe1",
+          "Kd7",
+          "a4",
+          "Qb8"
+        ],
+        "best_depth": 17,
+        "played_depth": 14,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 608,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 127,
+        "nn_static_bad_cp": 24,
+        "original_depth": 2,
+        "probe_depth": 4,
+        "probe_move": "h3g4",
+        "probe_review": {
+          "best_move": "h3g4",
+          "best_san": "hxg4",
+          "best_score": {
+            "cp": 213,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 213,
+            "mate": null
+          },
+          "best_pv": [
+            "hxg4",
+            "Bxg4",
+            "Qf4",
+            "Be6",
+            "Ng5",
+            "h6",
+            "Nh7",
+            "Rxh7",
+            "Bxh7",
+            "Qg5",
+            "g3",
+            "Qh5"
+          ],
+          "played_pv": [
+            "hxg4",
+            "Bxg4",
+            "Qf4",
+            "Be6",
+            "Ng5",
+            "h6",
+            "Nh7",
+            "Rxh7",
+            "Bxh7",
+            "Qg5",
+            "g3",
+            "Qh5"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 7,
+      "result": "loss",
+      "best_screened_advantage_cp": 420,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "c4b3",
+            "depth": 3,
+            "nodes": 8081,
+            "qnodes": 7643,
+            "review": {
+              "best_move": "c4d3",
+              "best_san": "Bd3",
+              "best_score": {
+                "cp": 469,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 95,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd3",
+                "Qd5",
+                "Qxc6",
+                "Qxc6",
+                "Rxc6",
+                "Bb8",
+                "Bxb5",
+                "Bb7",
+                "Rcc1",
+                "Bxe4",
+                "Bxd7",
+                "Bxf3"
+              ],
+              "played_pv": [
+                "Bb3",
+                "Bb7",
+                "Qd3",
+                "Qg6",
+                "Bd1",
+                "e5",
+                "Nh4",
+                "Qe6",
+                "Bc2",
+                "exd4"
+              ],
+              "best_depth": 20,
+              "played_depth": 16,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 374,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "c4b3",
+            "depth": 3,
+            "nodes": 8081,
+            "qnodes": 7643,
+            "review": {
+              "best_move": "c4d3",
+              "best_san": "Bd3",
+              "best_score": {
+                "cp": 469,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 95,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd3",
+                "Qd5",
+                "Qxc6",
+                "Qxc6",
+                "Rxc6",
+                "Bb8",
+                "Bxb5",
+                "Bb7",
+                "Rcc1",
+                "Bxe4",
+                "Bxd7",
+                "Bxf3"
+              ],
+              "played_pv": [
+                "Bb3",
+                "Bb7",
+                "Qd3",
+                "Qg6",
+                "Bd1",
+                "e5",
+                "Nh4",
+                "Qe6",
+                "Bc2",
+                "exd4"
+              ],
+              "best_depth": 20,
+              "played_depth": 16,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 374,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 13,
+        "fen": "r1b2rk1/p1bn1pp1/2p1p2p/1p3q2/2BPN3/P3PN2/1PQ2PPP/R1R3K1 w - - 0 15",
+        "played": "f3h4",
+        "played_san": "Nh4",
+        "best_move": "c4d3",
+        "best_san": "Bd3",
+        "best_score": {
+          "cp": 469,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 93,
+          "mate": null
+        },
+        "best_pv": [
+          "Bd3",
+          "Qd5",
+          "Qxc6",
+          "Qxc6",
+          "Rxc6",
+          "Bb8",
+          "Bxb5",
+          "Bb7",
+          "Rcc1",
+          "Bxe4",
+          "Bxd7",
+          "Bxf3"
+        ],
+        "played_pv": [
+          "Nh4",
+          "Qg4",
+          "Be2",
+          "Bxh2+",
+          "Kxh2",
+          "Qxh4+",
+          "Kg1",
+          "Nf6",
+          "Nxf6+",
+          "Qxf6",
+          "Qxc6",
+          "Rb8"
+        ],
+        "best_depth": 20,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 376,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 94,
+        "nn_static_bad_cp": 73,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "c4b3",
+        "probe_review": {
+          "best_move": "c4d3",
+          "best_san": "Bd3",
+          "best_score": {
+            "cp": 469,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 95,
+            "mate": null
+          },
+          "best_pv": [
+            "Bd3",
+            "Qd5",
+            "Qxc6",
+            "Qxc6",
+            "Rxc6",
+            "Bb8",
+            "Bxb5",
+            "Bb7",
+            "Rcc1",
+            "Bxe4",
+            "Bxd7",
+            "Bxf3"
+          ],
+          "played_pv": [
+            "Bb3",
+            "Bb7",
+            "Qd3",
+            "Qg6",
+            "Bd1",
+            "e5",
+            "Nh4",
+            "Qe6",
+            "Bc2",
+            "exd4"
+          ],
+          "best_depth": 20,
+          "played_depth": 16,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 374,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 10,
+      "result": "loss",
+      "best_screened_advantage_cp": 141,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e7d6",
+            "depth": 3,
+            "nodes": 9370,
+            "qnodes": 8781,
+            "review": {
+              "best_move": "b7b6",
+              "best_san": "b6",
+              "best_score": {
+                "cp": 153,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 61,
+                "mate": null
+              },
+              "best_pv": [
+                "b6",
+                "Rhc1",
+                "a5",
+                "Qd3",
+                "Ba6",
+                "c4",
+                "c5",
+                "Qa3",
+                "Qb7",
+                "dxc5",
+                "Qxe4+",
+                "Qe3"
+              ],
+              "played_pv": [
+                "Qd6",
+                "Qc5",
+                "Qa6+",
+                "Qb5",
+                "Qa3",
+                "Qb4",
+                "Qxa2+",
+                "Ke3",
+                "Qa6",
+                "Ra1",
+                "Qc6",
+                "Qc5"
+              ],
+              "best_depth": 19,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 92,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "e7d6",
+            "depth": 3,
+            "nodes": 9345,
+            "qnodes": 8753,
+            "review": {
+              "best_move": "b7b6",
+              "best_san": "b6",
+              "best_score": {
+                "cp": 153,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 61,
+                "mate": null
+              },
+              "best_pv": [
+                "b6",
+                "Rhc1",
+                "a5",
+                "Qd3",
+                "Ba6",
+                "c4",
+                "c5",
+                "Qa3",
+                "Qb7",
+                "dxc5",
+                "Qxe4+",
+                "Qe3"
+              ],
+              "played_pv": [
+                "Qd6",
+                "Qc5",
+                "Qa6+",
+                "Qb5",
+                "Qa3",
+                "Qb4",
+                "Qxa2+",
+                "Ke3",
+                "Qa6",
+                "Ra1",
+                "Qc6",
+                "Qc5"
+              ],
+              "best_depth": 19,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 92,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 20,
+        "fen": "r1br2k1/ppp1qpp1/4p2p/8/2QPP3/2P2N2/P3KPPP/1R5R b - - 2 17",
+        "played": "d8d5",
+        "played_san": "Rd5",
+        "best_move": "b7b6",
+        "best_san": "b6",
+        "best_score": {
+          "cp": 153,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 21,
+          "mate": null
+        },
+        "best_pv": [
+          "b6",
+          "Rhc1",
+          "a5",
+          "Qd3",
+          "Ba6",
+          "c4",
+          "c5",
+          "Qa3",
+          "Qb7",
+          "dxc5",
+          "Qxe4+",
+          "Qe3"
+        ],
+        "played_pv": [
+          "Rd5",
+          "Qb4",
+          "Rd6",
+          "Rhe1",
+          "b6",
+          "Kf1",
+          "Rd7",
+          "Ne5",
+          "c5",
+          "dxc5",
+          "bxc5"
+        ],
+        "best_depth": 19,
+        "played_depth": 21,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 132,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -76,
+        "nn_static_bad_cp": -56,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "e7d6",
+        "probe_review": {
+          "best_move": "b7b6",
+          "best_san": "b6",
+          "best_score": {
+            "cp": 153,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 61,
+            "mate": null
+          },
+          "best_pv": [
+            "b6",
+            "Rhc1",
+            "a5",
+            "Qd3",
+            "Ba6",
+            "c4",
+            "c5",
+            "Qa3",
+            "Qb7",
+            "dxc5",
+            "Qxe4+",
+            "Qe3"
+          ],
+          "played_pv": [
+            "Qd6",
+            "Qc5",
+            "Qa6+",
+            "Qb5",
+            "Qa3",
+            "Qb4",
+            "Qxa2+",
+            "Ke3",
+            "Qa6",
+            "Ra1",
+            "Qc6",
+            "Qc5"
+          ],
+          "best_depth": 19,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 92,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 6,
+      "result": "loss",
+      "best_screened_advantage_cp": -17,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "a6a5",
+            "depth": 3,
+            "nodes": 7030,
+            "qnodes": 6657,
+            "review": {
+              "best_move": "a6a5",
+              "best_san": "a5",
+              "best_score": {
+                "cp": -21,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -21,
+                "mate": null
+              },
+              "best_pv": [
+                "a5",
+                "Qe2",
+                "Ne4",
+                "Rfc1",
+                "h6",
+                "Be1",
+                "O-O",
+                "Rc2",
+                "Qb6",
+                "Rac1",
+                "Ndf6",
+                "Bb5"
+              ],
+              "played_pv": [
+                "a5",
+                "Qe2",
+                "Ne4",
+                "Rfc1",
+                "h6",
+                "Be1",
+                "O-O",
+                "Rc2",
+                "Qb6",
+                "Rac1",
+                "Ndf6",
+                "Bb5"
+              ],
+              "best_depth": 18,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "a6a5",
+            "depth": 3,
+            "nodes": 7221,
+            "qnodes": 6848,
+            "review": {
+              "best_move": "a6a5",
+              "best_san": "a5",
+              "best_score": {
+                "cp": -21,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -21,
+                "mate": null
+              },
+              "best_pv": [
+                "a5",
+                "Qe2",
+                "Ne4",
+                "Rfc1",
+                "h6",
+                "Be1",
+                "O-O",
+                "Rc2",
+                "Qb6",
+                "Rac1",
+                "Ndf6",
+                "Bb5"
+              ],
+              "played_pv": [
+                "a5",
+                "Qe2",
+                "Ne4",
+                "Rfc1",
+                "h6",
+                "Be1",
+                "O-O",
+                "Rc2",
+                "Qb6",
+                "Rac1",
+                "Ndf6",
+                "Bb5"
+              ],
+              "best_depth": 18,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 12,
+        "fen": "r2qk2r/1b1n1ppp/p2ppn2/8/Pp1P4/3BPN2/1P1B1PPP/R2Q1RK1 b kq - 1 12",
+        "played": "d8b6",
+        "played_san": "Qb6",
+        "best_move": "a6a5",
+        "best_san": "a5",
+        "best_score": {
+          "cp": -21,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -374,
+          "mate": null
+        },
+        "best_pv": [
+          "a5",
+          "Qe2",
+          "Ne4",
+          "Rfc1",
+          "h6",
+          "Be1",
+          "O-O",
+          "Rc2",
+          "Qb6",
+          "Rac1",
+          "Ndf6",
+          "Bb5"
+        ],
+        "played_pv": [
+          "Qb6",
+          "a5",
+          "Qc7",
+          "Bxb4",
+          "O-O",
+          "Rc1",
+          "Bc6",
+          "Qe2",
+          "Nd5",
+          "Ba3",
+          "N7f6",
+          "Qd2"
+        ],
+        "best_depth": 18,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 353,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -74,
+        "nn_static_bad_cp": -55,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a6a5",
+        "probe_review": {
+          "best_move": "a6a5",
+          "best_san": "a5",
+          "best_score": {
+            "cp": -21,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -21,
+            "mate": null
+          },
+          "best_pv": [
+            "a5",
+            "Qe2",
+            "Ne4",
+            "Rfc1",
+            "h6",
+            "Be1",
+            "O-O",
+            "Rc2",
+            "Qb6",
+            "Rac1",
+            "Ndf6",
+            "Bb5"
+          ],
+          "played_pv": [
+            "a5",
+            "Qe2",
+            "Ne4",
+            "Rfc1",
+            "h6",
+            "Be1",
+            "O-O",
+            "Rc2",
+            "Qb6",
+            "Rac1",
+            "Ndf6",
+            "Bb5"
+          ],
+          "best_depth": 18,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 151,
+      "result": "draw",
+      "best_screened_advantage_cp": 119,
+      "first_costly_move": null
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 29,
+      "result": "loss",
+      "best_screened_advantage_cp": 31,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "b2e5",
+            "depth": 3,
+            "nodes": 2672,
+            "qnodes": 2394,
+            "review": {
+              "best_move": "b2e5",
+              "best_san": "Be5",
+              "best_score": {
+                "cp": 0,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 0,
+                "mate": null
+              },
+              "best_pv": [
+                "Be5"
+              ],
+              "played_pv": [
+                "Be5"
+              ],
+              "best_depth": 65,
+              "played_depth": 65,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 0,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "b2c1",
+            "depth": 3,
+            "nodes": 2382,
+            "qnodes": 2162,
+            "review": {
+              "best_move": "b2e5",
+              "best_san": "Be5",
+              "best_score": {
+                "cp": 0,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -429,
+                "mate": null
+              },
+              "best_pv": [
+                "Be5"
+              ],
+              "played_pv": [
+                "Bc1",
+                "Rb3",
+                "Rg4",
+                "Ke2",
+                "Rxf4",
+                "exf4",
+                "Bxf4",
+                "Rh3",
+                "Ke6",
+                "Kd1",
+                "Kf6",
+                "Rd3"
+              ],
+              "best_depth": 65,
+              "played_depth": 19,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 429,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 58,
+        "fen": "6r1/1p2kp2/p1p4p/2P2p2/1P3N2/P2RPK2/1b4PP/8 b - - 15 35",
+        "played": "b2c1",
+        "played_san": "Bc1",
+        "best_move": "b2e5",
+        "best_san": "Be5",
+        "best_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -429,
+          "mate": null
+        },
+        "best_pv": [
+          "Be5"
+        ],
+        "played_pv": [
+          "Bc1",
+          "Rb3",
+          "Rg4",
+          "Ke2",
+          "Rxf4",
+          "exf4",
+          "Bxf4",
+          "Rh3",
+          "Ke6",
+          "Kd1",
+          "Kf6",
+          "Rd3"
+        ],
+        "best_depth": 65,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 429,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 21,
+        "nn_static_bad_cp": -14,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "g8g4",
+        "probe_review": {
+          "best_move": "b2e5",
+          "best_san": "Be5",
+          "best_score": {
+            "cp": 0,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -23,
+            "mate": null
+          },
+          "best_pv": [
+            "Be5"
+          ],
+          "played_pv": [
+            "Rg4",
+            "Ne2",
+            "Be5",
+            "Nd4",
+            "Kf6",
+            "h3",
+            "Rg8",
+            "Nb3",
+            "Rg3+",
+            "Kf2",
+            "f4",
+            "Na5"
+          ],
+          "best_depth": 65,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 23,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 08",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 14,
+      "result": "loss",
+      "best_screened_advantage_cp": 99,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "f8d8",
+            "depth": 3,
+            "nodes": 7379,
+            "qnodes": 6847,
+            "review": {
+              "best_move": "f6g4",
+              "best_san": "Ng4",
+              "best_score": {
+                "cp": 91,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 8,
+                "mate": null
+              },
+              "best_pv": [
+                "Ng4",
+                "Bg5",
+                "f6",
+                "Bh4",
+                "h5",
+                "Bg3",
+                "Nh6",
+                "d4",
+                "g5",
+                "h4",
+                "a5",
+                "dxe5"
+              ],
+              "played_pv": [
+                "Rfd8",
+                "d4",
+                "a5",
+                "dxe5",
+                "dxe5",
+                "Nc5",
+                "Ng4",
+                "Nxd7",
+                "Nxe3",
+                "Rxe3",
+                "Qxd7",
+                "a4"
+              ],
+              "best_depth": 18,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 83,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "f8d8",
+            "depth": 3,
+            "nodes": 7277,
+            "qnodes": 6749,
+            "review": {
+              "best_move": "f6g4",
+              "best_san": "Ng4",
+              "best_score": {
+                "cp": 91,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 8,
+                "mate": null
+              },
+              "best_pv": [
+                "Ng4",
+                "Bg5",
+                "f6",
+                "Bh4",
+                "h5",
+                "Bg3",
+                "Nh6",
+                "d4",
+                "g5",
+                "h4",
+                "a5",
+                "dxe5"
+              ],
+              "played_pv": [
+                "Rfd8",
+                "d4",
+                "a5",
+                "dxe5",
+                "dxe5",
+                "Nc5",
+                "Ng4",
+                "Nxd7",
+                "Nxe3",
+                "Rxe3",
+                "Qxd7",
+                "a4"
+              ],
+              "best_depth": 18,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 83,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 28,
+        "fen": "r4rk1/2pbqpbp/p2p1np1/1p2p3/4P3/1NPPBN2/PPQ2PPP/R3R1K1 b - - 21 22",
+        "played": "d6d5",
+        "played_san": "d5",
+        "best_move": "f6g4",
+        "best_san": "Ng4",
+        "best_score": {
+          "cp": 91,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -476,
+          "mate": null
+        },
+        "best_pv": [
+          "Ng4",
+          "Bg5",
+          "f6",
+          "Bh4",
+          "h5",
+          "Bg3",
+          "Nh6",
+          "d4",
+          "g5",
+          "h4",
+          "a5",
+          "dxe5"
+        ],
+        "played_pv": [
+          "d5",
+          "Bc5",
+          "Qe6",
+          "Bxf8",
+          "Rxf8",
+          "exd5",
+          "Nxd5",
+          "Nc5",
+          "Qd6",
+          "Nxd7",
+          "Qxd7",
+          "Nxe5"
+        ],
+        "best_depth": 18,
+        "played_depth": 16,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 567,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -62,
+        "nn_static_bad_cp": -15,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "f8d8",
+        "probe_review": {
+          "best_move": "f6g4",
+          "best_san": "Ng4",
+          "best_score": {
+            "cp": 91,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 11,
+            "mate": null
+          },
+          "best_pv": [
+            "Ng4",
+            "Bg5",
+            "f6",
+            "Bh4",
+            "h5",
+            "Bg3",
+            "Nh6",
+            "d4",
+            "g5",
+            "h4",
+            "a5",
+            "dxe5"
+          ],
+          "played_pv": [
+            "Rfd8",
+            "d4",
+            "a5",
+            "dxe5",
+            "dxe5",
+            "Nc5",
+            "Ng4",
+            "Nxd7",
+            "Nxe3",
+            "Rxe3",
+            "Qxd7",
+            "a4"
+          ],
+          "best_depth": 18,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 80,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 08",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 13,
+      "result": "loss",
+      "best_screened_advantage_cp": 491,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 5365,
+            "qnodes": 5215,
+            "review": {
+              "best_move": "a1d1",
+              "best_san": "Rad1",
+              "best_score": {
+                "cp": 394,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 278,
+                "mate": null
+              },
+              "best_pv": [
+                "Rad1",
+                "Qd6",
+                "cxb5",
+                "axb5",
+                "Ng5",
+                "Rd8",
+                "Rc1",
+                "Qe7",
+                "Ne4",
+                "Bh6",
+                "Rcd1",
+                "c5"
+              ],
+              "played_pv": [
+                "a4",
+                "b4",
+                "c5",
+                "a5",
+                "h4",
+                "Qd5",
+                "Rac1",
+                "c6",
+                "Qc4",
+                "Qxc4",
+                "Rxc4",
+                "e4"
+              ],
+              "best_depth": 17,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 116,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 5367,
+            "qnodes": 5217,
+            "review": {
+              "best_move": "a1d1",
+              "best_san": "Rad1",
+              "best_score": {
+                "cp": 404,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 278,
+                "mate": null
+              },
+              "best_pv": [
+                "Rad1",
+                "Qd6",
+                "cxb5",
+                "axb5",
+                "Rc1",
+                "c5",
+                "Qb3",
+                "b4",
+                "Ng5",
+                "Qe7",
+                "Ne4",
+                "Bh6"
+              ],
+              "played_pv": [
+                "a4",
+                "b4",
+                "c5",
+                "a5",
+                "h4",
+                "Qd5",
+                "Rac1",
+                "c6",
+                "Qc4",
+                "Qxc4",
+                "Rxc4",
+                "e4"
+              ],
+              "best_depth": 16,
+              "played_depth": 17,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 126,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 25,
+        "fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/2P5/3P1N2/PPQ2PPP/R3R1K1 w - - 1 21",
+        "played": "a2a4",
+        "played_san": "a4",
+        "best_move": "a1d1",
+        "best_san": "Rad1",
+        "best_score": {
+          "cp": 394,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 278,
+          "mate": null
+        },
+        "best_pv": [
+          "Rad1",
+          "Qd6",
+          "cxb5",
+          "axb5",
+          "Ng5",
+          "Rd8",
+          "Rc1",
+          "Qe7",
+          "Ne4",
+          "Bh6",
+          "Rcd1",
+          "c5"
+        ],
+        "played_pv": [
+          "a4",
+          "b4",
+          "c5",
+          "a5",
+          "h4",
+          "Qd5",
+          "Rac1",
+          "c6",
+          "Qc4",
+          "Qxc4",
+          "Rxc4",
+          "e4"
+        ],
+        "best_depth": 17,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 116,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 168,
+        "nn_static_bad_cp": 166,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a2a4",
+        "probe_review": {
+          "best_move": "a1d1",
+          "best_san": "Rad1",
+          "best_score": {
+            "cp": 394,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 278,
+            "mate": null
+          },
+          "best_pv": [
+            "Rad1",
+            "Qd6",
+            "cxb5",
+            "axb5",
+            "Ng5",
+            "Rd8",
+            "Rc1",
+            "Qe7",
+            "Ne4",
+            "Bh6",
+            "Rcd1",
+            "c5"
+          ],
+          "played_pv": [
+            "a4",
+            "b4",
+            "c5",
+            "a5",
+            "h4",
+            "Qd5",
+            "Rac1",
+            "c6",
+            "Qc4",
+            "Qxc4",
+            "Rxc4",
+            "e4"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 116,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "white",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 48,
+      "result": "draw",
+      "best_screened_advantage_cp": 507,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "b4c4",
+            "depth": 3,
+            "nodes": 188,
+            "qnodes": 140,
+            "review": {
+              "best_move": "b4a5",
+              "best_san": "Ka5",
+              "best_score": {
+                "cp": 701,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 0,
+                "mate": null
+              },
+              "best_pv": [
+                "Ka5",
+                "Kd7",
+                "Kb5",
+                "Kd8",
+                "Kc6",
+                "Ke7",
+                "Kc7",
+                "f5",
+                "exf5",
+                "e4",
+                "f6+",
+                "Kxf6"
+              ],
+              "played_pv": [
+                "Kc4",
+                "Kb6",
+                "Kb4",
+                "Ka6",
+                "Ka4",
+                "Kb6"
+              ],
+              "best_depth": 28,
+              "played_depth": 58,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 701,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "b4c4",
+            "depth": 3,
+            "nodes": 190,
+            "qnodes": 142,
+            "review": {
+              "best_move": "b4a5",
+              "best_san": "Ka5",
+              "best_score": {
+                "cp": 676,
+                "mate": null
+              },
+              "played_score": {
+                "cp": 0,
+                "mate": null
+              },
+              "best_pv": [
+                "Ka5",
+                "Kd7",
+                "Kb6",
+                "Kd8",
+                "Kc6",
+                "Ke7",
+                "Kc7",
+                "f5",
+                "exf5",
+                "e4",
+                "Kc6",
+                "h4"
+              ],
+              "played_pv": [
+                "Kc4",
+                "Kb6",
+                "Kb4",
+                "Ka6",
+                "Ka4",
+                "Kb6"
+              ],
+              "best_depth": 27,
+              "played_depth": 57,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 676,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 95,
+        "fen": "8/2k5/3p1p2/3Pp2p/1K2P1p1/6P1/5P1P/8 w - - 2 53",
+        "played": "b4c3",
+        "played_san": "Kc3",
+        "best_move": "b4a5",
+        "best_san": "Ka5",
+        "best_score": {
+          "cp": 676,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "best_pv": [
+          "Ka5",
+          "Kd7",
+          "Kb6",
+          "Kd8",
+          "Kc6",
+          "Ke7",
+          "Kc7",
+          "f5",
+          "exf5",
+          "e4",
+          "Kc6",
+          "h4"
+        ],
+        "played_pv": [
+          "Kc3",
+          "Kb6",
+          "Kb4",
+          "Ka6",
+          "Kc4",
+          "Ka5",
+          "Kb3",
+          "Kb5",
+          "Ka3",
+          "Kc5",
+          "Ka4",
+          "Kd4"
+        ],
+        "best_depth": 27,
+        "played_depth": 54,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 676,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 20,
+        "nn_static_bad_cp": 66,
+        "original_depth": 5,
+        "probe_depth": 7,
+        "probe_move": "b4c3",
+        "probe_review": {
+          "best_move": "b4a5",
+          "best_san": "Ka5",
+          "best_score": {
+            "cp": 653,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 0,
+            "mate": null
+          },
+          "best_pv": [
+            "Ka5",
+            "Kd7",
+            "Kb5",
+            "Kd8",
+            "Kc6",
+            "Ke7",
+            "Kc7",
+            "f5",
+            "exf5",
+            "e4",
+            "f6+",
+            "Kf7"
+          ],
+          "played_pv": [
+            "Kc3",
+            "Kb6",
+            "Kb4",
+            "Ka6",
+            "Kc4",
+            "Ka5",
+            "Kb3",
+            "Kb5",
+            "Ka3",
+            "Kc5",
+            "Ka4",
+            "Kd4"
+          ],
+          "best_depth": 26,
+          "played_depth": 54,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 653,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 8,
+      "result": "loss",
+      "best_screened_advantage_cp": -43,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "e6d5",
+            "depth": 3,
+            "nodes": 4551,
+            "qnodes": 4401,
+            "review": {
+              "best_move": "c8d7",
+              "best_san": "Bd7",
+              "best_score": {
+                "cp": -70,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -184,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd7",
+                "h3",
+                "exd5",
+                "cxd5",
+                "Qd6",
+                "Nb5",
+                "Bxb5",
+                "Qxb5",
+                "c6",
+                "dxc6",
+                "Rxa2",
+                "O-O"
+              ],
+              "played_pv": [
+                "exd5",
+                "Nxc8",
+                "Rdxc8",
+                "cxd5",
+                "c6",
+                "dxc6",
+                "Rxc6",
+                "O-O",
+                "Ng4",
+                "Bd2",
+                "Bh6",
+                "Bc3"
+              ],
+              "best_depth": 19,
+              "played_depth": 20,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 114,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "e6d5",
+            "depth": 3,
+            "nodes": 4544,
+            "qnodes": 4394,
+            "review": {
+              "best_move": "c8d7",
+              "best_san": "Bd7",
+              "best_score": {
+                "cp": -70,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -184,
+                "mate": null
+              },
+              "best_pv": [
+                "Bd7",
+                "h3",
+                "exd5",
+                "cxd5",
+                "Qd6",
+                "Nb5",
+                "Bxb5",
+                "Qxb5",
+                "c6",
+                "dxc6",
+                "Rxa2",
+                "O-O"
+              ],
+              "played_pv": [
+                "exd5",
+                "Nxc8",
+                "Rdxc8",
+                "cxd5",
+                "c6",
+                "dxc6",
+                "Rxc6",
+                "O-O",
+                "Ng4",
+                "Bd2",
+                "Bh6",
+                "Bc3"
+              ],
+              "best_depth": 19,
+              "played_depth": 20,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 114,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 16,
+        "fen": "r1br2k1/Npp1qpbp/4pnp1/3Pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R b KQ - 0 13",
+        "played": "e6d5",
+        "played_san": "exd5",
+        "best_move": "c8d7",
+        "best_san": "Bd7",
+        "best_score": {
+          "cp": -70,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -184,
+          "mate": null
+        },
+        "best_pv": [
+          "Bd7",
+          "h3",
+          "exd5",
+          "cxd5",
+          "Qd6",
+          "Nb5",
+          "Bxb5",
+          "Qxb5",
+          "c6",
+          "dxc6",
+          "Rxa2",
+          "O-O"
+        ],
+        "played_pv": [
+          "exd5",
+          "Nxc8",
+          "Rdxc8",
+          "cxd5",
+          "c6",
+          "dxc6",
+          "Rxc6",
+          "O-O",
+          "Ng4",
+          "Bd2",
+          "Bh6",
+          "Bc3"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 114,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -43,
+        "nn_static_bad_cp": 79,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "e6d5",
+        "probe_review": {
+          "best_move": "c8d7",
+          "best_san": "Bd7",
+          "best_score": {
+            "cp": -70,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -184,
+            "mate": null
+          },
+          "best_pv": [
+            "Bd7",
+            "h3",
+            "exd5",
+            "cxd5",
+            "Qd6",
+            "Nb5",
+            "Bxb5",
+            "Qxb5",
+            "c6",
+            "dxc6",
+            "Rxa2",
+            "O-O"
+          ],
+          "played_pv": [
+            "exd5",
+            "Nxc8",
+            "Rdxc8",
+            "cxd5",
+            "c6",
+            "dxc6",
+            "Rxc6",
+            "O-O",
+            "Ng4",
+            "Bd2",
+            "Bh6",
+            "Bc3"
+          ],
+          "best_depth": 19,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 114,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 10",
+      "color": "black",
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "screened_moves": 5,
+      "result": "loss",
+      "best_screened_advantage_cp": -9,
+      "first_costly_move": {
+        "equal_depth": {
+          "heuristic": {
+            "move": "g7g5",
+            "depth": 3,
+            "nodes": 7193,
+            "qnodes": 6680,
+            "review": {
+              "best_move": "f8e7",
+              "best_san": "Be7",
+              "best_score": {
+                "cp": -135,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -359,
+                "mate": null
+              },
+              "best_pv": [
+                "Be7",
+                "Ne5",
+                "c5",
+                "Qf3",
+                "O-O",
+                "Rad1",
+                "Nd5",
+                "Bxh6",
+                "gxh6",
+                "Qg3+",
+                "Kh8",
+                "c4"
+              ],
+              "played_pv": [
+                "g5",
+                "Be5",
+                "Bg7",
+                "Nd2",
+                "O-O",
+                "f4",
+                "g4",
+                "Nc4",
+                "Qb4",
+                "Nd6",
+                "Rd8",
+                "Rb1"
+              ],
+              "best_depth": 16,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 224,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          },
+          "NN": {
+            "move": "g7g5",
+            "depth": 3,
+            "nodes": 7132,
+            "qnodes": 6622,
+            "review": {
+              "best_move": "f8e7",
+              "best_san": "Be7",
+              "best_score": {
+                "cp": -135,
+                "mate": null
+              },
+              "played_score": {
+                "cp": -359,
+                "mate": null
+              },
+              "best_pv": [
+                "Be7",
+                "Ne5",
+                "c5",
+                "Qf3",
+                "O-O",
+                "Rad1",
+                "Nd5",
+                "Bxh6",
+                "gxh6",
+                "Qg3+",
+                "Kh8",
+                "c4"
+              ],
+              "played_pv": [
+                "g5",
+                "Be5",
+                "Bg7",
+                "Nd2",
+                "O-O",
+                "f4",
+                "g4",
+                "Nc4",
+                "Qb4",
+                "Nd6",
+                "Rd8",
+                "Rb1"
+              ],
+              "best_depth": 16,
+              "played_depth": 18,
+              "analysis_seconds_per_search": 0.4,
+              "cp_loss": 224,
+              "allows_mate": false,
+              "missed_forced_mate": false
+            }
+          }
+        },
+        "ply": 10,
+        "fen": "r1b1kb1r/pp3pp1/2p1pn1p/8/3P1B2/3B1N2/PqP2PPP/R2Q1RK1 b kq - 1 11",
+        "played": "f8b4",
+        "played_san": "Bb4",
+        "best_move": "f8e7",
+        "best_san": "Be7",
+        "best_score": {
+          "cp": -135,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -248,
+          "mate": null
+        },
+        "best_pv": [
+          "Be7",
+          "Ne5",
+          "c5",
+          "Qf3",
+          "O-O",
+          "Rad1",
+          "Nd5",
+          "Bxh6",
+          "gxh6",
+          "Qg3+",
+          "Kh8",
+          "c4"
+        ],
+        "played_pv": [
+          "Bb4",
+          "Rb1",
+          "Qa3",
+          "c4",
+          "Be7",
+          "Re1",
+          "Qa5",
+          "Ne5",
+          "Qd8",
+          "Bc2",
+          "c5",
+          "Ba4+"
+        ],
+        "best_depth": 16,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 113,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -30,
+        "nn_static_bad_cp": -13,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "g7g5",
+        "probe_review": {
+          "best_move": "f8e7",
+          "best_san": "Be7",
+          "best_score": {
+            "cp": -135,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -359,
+            "mate": null
+          },
+          "best_pv": [
+            "Be7",
+            "Ne5",
+            "c5",
+            "Qf3",
+            "O-O",
+            "Rad1",
+            "Nd5",
+            "Bxh6",
+            "gxh6",
+            "Qg3+",
+            "Kh8",
+            "c4"
+          ],
+          "played_pv": [
+            "g5",
+            "Be5",
+            "Bg7",
+            "Nd2",
+            "O-O",
+            "f4",
+            "g4",
+            "Nc4",
+            "Qb4",
+            "Nd6",
+            "Rd8",
+            "Rb1"
+          ],
+          "best_depth": 16,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 224,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "good_fen": "1r1qrk2/ppp2p2/4b2Q/2bpP1p1/3N4/2PB3P/P1P2PP1/1R3RK1 b - - 2 18",
+      "bad_fen": "1r1qrk2/ppp2p1Q/4b3/2bpP1p1/3N4/2PB3P/P1P2PP1/1R2R1K1 b - - 2 18",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 0,
+      "cp_loss": 678
+    },
+    {
+      "good_fen": "r1b3k1/p1p1q1p1/1p2pp1p/2N4r/2QPPP2/2P5/P5PP/1R3RK1 w - - 5 24",
+      "bad_fen": "r5k1/pbp1q1p1/4pp1p/2p4r/2QPPP2/2P5/P5PP/1R3RK1 w - - 0 24",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 1,
+      "cp_loss": 129
+    },
+    {
+      "good_fen": "r1br2k1/p1p1qpp1/1p2p2p/8/2QPP3/2P2N2/P3KPPP/1R5R w - - 0 18",
+      "bad_fen": "r1b3k1/ppp1qpp1/4p2p/3r4/2QPP3/2P2N2/P3KPPP/1R5R w - - 3 18",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 2,
+      "cp_loss": 149
+    },
+    {
+      "good_fen": "r3k2r/2qn1ppp/p2ppn2/P7/1B1Pb3/3BPN2/1P3PPP/2RQ1RK1 b kq - 2 15",
+      "bad_fen": "r3k2r/2qn1ppp/p2ppn2/P7/1B1Pb3/1Q1BPN2/1P3PPP/R4RK1 b kq - 2 15",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 3,
+      "cp_loss": 124
+    },
+    {
+      "good_fen": "r4rk1/ppp1q1pp/1n2bb2/3N4/3pPB2/6P1/PPQ2PBP/3R1RK1 b - - 5 16",
+      "bad_fen": "r4rk1/ppp1q1pp/1n2bb2/4P3/3p1B2/2N3P1/PPQ2PBP/3R1RK1 b - - 0 16",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 4,
+      "cp_loss": 181
+    },
+    {
+      "good_fen": "3r2r1/pp1bkp1p/2p5/2P1bp2/1PB5/P3P3/4NKPP/3R2R1 b - - 1 22",
+      "bad_fen": "3r2r1/pp1bkp1p/2p5/2P1bp2/1PB5/P1NRP3/5KPP/6R1 b - - 1 22",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 5,
+      "cp_loss": 151
+    },
+    {
+      "good_fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/2P5/3P1N2/PPQ2PPP/3RR1K1 b - - 2 21",
+      "bad_fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/P1P5/3P1N2/1PQ2PPP/R3R1K1 b - - 0 21",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 7,
+      "cp_loss": 116
+    },
+    {
+      "good_fen": "r2r2k1/Nppbqpbp/4pnp1/3Pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R w KQ - 1 14",
+      "bad_fen": "r1br2k1/Npp1qpbp/5np1/3pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R w KQ - 0 14",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 8,
+      "cp_loss": 114
+    },
+    {
+      "good_fen": "r1b1k2r/pp1n1p1p/2pbpqp1/6N1/3P1P2/3B1Q2/PPP2P1P/R4KNR w kq - 2 13",
+      "bad_fen": "r1b1k2r/pp1n1p1p/2p1p1p1/6N1/1b1q1P2/3B1Q2/PPP2P1P/R4KNR w kq - 0 13",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/weight-25/report.json",
+      "game": 9,
+      "cp_loss": 379
+    },
+    {
+      "good_fen": "1r1qk2r/ppp2p1p/4b3/2bpP3/6P1/2PB1N2/P1PQ1PP1/1R3RK1 b k - 0 16",
+      "bad_fen": "1r1qk2r/ppp2p1p/4b3/1BbpP3/6p1/2P2N1P/P1PQ1PP1/1R3RK1 b k - 1 16",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 10,
+      "cp_loss": 608
+    },
+    {
+      "good_fen": "r1b2rk1/p1bn1pp1/2p1p2p/1p3q2/3PN3/P2BPN2/1PQ2PPP/R1R3K1 b - - 1 15",
+      "bad_fen": "r1b2rk1/p1bn1pp1/2p1p2p/1p3q2/2BPN2N/P3P3/1PQ2PPP/R1R3K1 b - - 1 15",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 11,
+      "cp_loss": 376
+    },
+    {
+      "good_fen": "r1br2k1/p1p1qpp1/1p2p2p/8/2QPP3/2P2N2/P3KPPP/1R5R w - - 0 18",
+      "bad_fen": "r1b3k1/ppp1qpp1/4p2p/3r4/2QPP3/2P2N2/P3KPPP/1R5R w - - 3 18",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 12,
+      "cp_loss": 132
+    },
+    {
+      "good_fen": "r2qk2r/1b1n1ppp/3ppn2/p7/Pp1P4/3BPN2/1P1B1PPP/R2Q1RK1 w kq - 0 13",
+      "bad_fen": "r3k2r/1b1n1ppp/pq1ppn2/8/Pp1P4/3BPN2/1P1B1PPP/R2Q1RK1 w kq - 2 13",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 13,
+      "cp_loss": 353
+    },
+    {
+      "good_fen": "6r1/1p2kp2/p1p4p/2P1bp2/1P3N2/P2RPK2/6PP/8 w - - 16 36",
+      "bad_fen": "6r1/1p2kp2/p1p4p/2P2p2/1P3N2/P2RPK2/6PP/2b5 w - - 16 36",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 15,
+      "cp_loss": 429
+    },
+    {
+      "good_fen": "r4rk1/2pbqpbp/p2p2p1/1p2p3/4P1n1/1NPPBN2/PPQ2PPP/R3R1K1 w - - 22 23",
+      "bad_fen": "r4rk1/2pbqpbp/p4np1/1p1pp3/4P3/1NPPBN2/PPQ2PPP/R3R1K1 w - - 0 23",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 16,
+      "cp_loss": 567
+    },
+    {
+      "good_fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/2P5/3P1N2/PPQ2PPP/3RR1K1 b - - 2 21",
+      "bad_fen": "5rk1/2pn1pbp/p1q3p1/1p2p3/P1P5/3P1N2/1PQ2PPP/R3R1K1 b - - 0 21",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 17,
+      "cp_loss": 116
+    },
+    {
+      "good_fen": "8/2k5/3p1p2/K2Pp2p/4P1p1/6P1/5P1P/8 b - - 3 53",
+      "bad_fen": "8/2k5/3p1p2/3Pp2p/4P1p1/2K3P1/5P1P/8 b - - 3 53",
+      "sign": 1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 18,
+      "cp_loss": 676
+    },
+    {
+      "good_fen": "r2r2k1/Nppbqpbp/4pnp1/3Pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R w KQ - 1 14",
+      "bad_fen": "r1br2k1/Npp1qpbp/5np1/3pp3/2P1P3/1Q2B1P1/PP3PBP/R3K2R w KQ - 0 14",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 19,
+      "cp_loss": 114
+    },
+    {
+      "good_fen": "r1b1k2r/pp2bpp1/2p1pn1p/8/3P1B2/3B1N2/PqP2PPP/R2Q1RK1 w kq - 2 12",
+      "bad_fen": "r1b1k2r/pp3pp1/2p1pn1p/8/1b1P1B2/3B1N2/PqP2PPP/R2Q1RK1 w kq - 2 12",
+      "sign": -1,
+      "source": "ml/artifacts/weight-control-v16/old-NN-25/report.json",
+      "game": 20,
+      "cp_loss": 113
+    }
+  ],
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "summary": {
+    "games": 21,
+    "draws_reviewed": 4,
+    "draws_with_confirmed_conversion_loss": 2,
+    "confirmed": 19,
+    "extra_time_recovered": 8,
+    "wrong_static_ranking": 14
+  }
+}

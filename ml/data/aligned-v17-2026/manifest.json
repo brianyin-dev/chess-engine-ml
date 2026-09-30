@@ -1,0 +1,27 @@
+{
+  "policy": "Canonical-FEN deduplication within each split; new labels win ties. Prior rankings retained. Training only: 4x confirmed >=100cp failures; 2x remaining >=100cp v8 ranking mistakes. Validation/test unweighted. Trainer enforces cross-split position and whole-game separation.",
+  "sources": {
+    "ml/data/aligned-v11-2026": "c0b63b0de37df084c533b609f56b4e2c9ee94e8275112e77bad7514411edafbc",
+    "ml/data/confirmed-v17-2026": "4a8c77c9019bfc9eb1797c15d9cfc131f177ae07c9c43e4e1b177f99a54e567d"
+  },
+  "counts": {
+    "train": {
+      "score_rows": 12497,
+      "pairs": 3848,
+      "weighted_training_pairs": 762,
+      "confirmed_failure_pairs": 120
+    },
+    "val": {
+      "score_rows": 2094,
+      "pairs": 808,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    },
+    "test": {
+      "score_rows": 2116,
+      "pairs": 795,
+      "weighted_training_pairs": 0,
+      "confirmed_failure_pairs": 0
+    }
+  }
+}

@@ -147,6 +147,16 @@ class NeuralEvaluatorTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ChessNet(hidden_sizes=(32, 0))
 
+    def test_rounded_training_scores_match_full_runtime_and_keep_gradient(self):
+        import torch
+        from ml.train import rounded_score
+        correction = torch.tensor([.5 / 400, -.5 / 400, .4 / 400], requires_grad=True)
+        baseline = torch.tensor([1., 1., 0.])
+        result = rounded_score(baseline, correction, True)
+        self.assertEqual(result.tolist(), [2., 0., 0.])
+        result.sum().backward()
+        self.assertEqual(correction.grad.tolist(), [400., 400., 400.])
+
     def test_validation_ranking_uses_integer_search_scores(self):
         import torch
         from ml.train import ranking_accuracy
