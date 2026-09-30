@@ -32,6 +32,8 @@ def main():
     p.add_argument('--train-pairs',type=int,default=2000)
     p.add_argument('--heldout-pairs',type=int,default=400)
     p.add_argument('--failure-id-offset',type=int,default=1000000)
+    p.add_argument('--nn-weight',type=float,default=None,help='Disagreement-screening blend; defaults to the reviewed match setting')
+    p.add_argument('--quiet-only',action=argparse.BooleanOptionalAction,default=None)
     args = p.parse_args()
     if args.output.exists() or min(args.train_pairs,args.heldout_pairs)<1:
         p.error('fresh output and positive quotas required')
@@ -46,7 +48,10 @@ def main():
                 if k in owners and owners[k]!=split:
                     raise ValueError('source pair alias crosses splits')
                 owners[k]=split
-    model=NeuralEvaluator(args.checkpoint)
+    reviewed=json.loads(args.failures.read_text())
+    nn_weight=reviewed.get('nn_weight',1.) if args.nn_weight is None else args.nn_weight
+    quiet_only=reviewed.get('quiet_only',False) if args.quiet_only is None else args.quiet_only
+    model=NeuralEvaluator(args.checkpoint,nn_weight,quiet_only)
     args.output.mkdir(parents=True)
     pairdir=args.output/'pairs';pairdir.mkdir()
     cache={};stats={'requested_nodes':0,'cached_analyses':0}
@@ -156,6 +161,7 @@ def main():
                            'tactical_plies_settled':settled_plies}
             print(split,counts[split],flush=True)
     manifest={'seed':829,'counts':counts,**stats,'elapsed_seconds':time.monotonic()-started,
+              'disagreement_nn_weight':nn_weight,'disagreement_quiet_only':quiet_only,
               'policy':'Whole-game source splits; canonical FEN/color-mirror aliases excluded across splits including pairs. Settling follows teacher-selected captures, promotions and check evasions until its best continuation is quiet. Other legal captures may remain. No terminal/mate-saturated endpoint pairs. Existing capture-free score labels reused.',
               'extra_compute_policy':'Up to quarter-quota roots refined when shallow heuristic and NN moves disagree or are confirmed failures. Quotas refer to pairs; some roots yield several pairs.',
               'source_manifest_sha256':hashlib.sha256((args.data/'manifest.json').read_bytes()).hexdigest(),

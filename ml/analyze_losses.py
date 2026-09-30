@@ -16,6 +16,25 @@ def costly(row):
     return row['allows_mate'] or row['missed_forced_mate'] or (row['cp_loss'] or 0) >= 100
 
 
+def conversion_loss(row):
+    """Confirmed missed mate or loss of a substantial evaluated advantage."""
+    return row['missed_forced_mate'] or (
+        row['best_score']['cp'] is not None and row['best_score']['cp'] >= 150
+        and row['played_score']['cp'] is not None and row['played_score']['cp'] <= 50
+        and (row['cp_loss'] or 0) >= 100)
+
+
+def report_checkpoint(report, requested):
+    """Diagnose each source game using its actual model, verified by hash."""
+    expected = report.get('checkpoint_sha256')
+    if not expected or hashlib.sha256(requested.read_bytes()).hexdigest() == expected:
+        return requested
+    for path in (Path(__file__).resolve().parents[1] / 'ml/artifacts').glob('*.pt'):
+        if hashlib.sha256(path.read_bytes()).hexdigest() == expected:
+            return path
+    raise ValueError('source game checkpoint cannot be resolved; refusing mismatched NN diagnostics')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, action='append', required=True)
@@ -24,6 +43,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--nn-weight', type=float, default=1)
     parser.add_argument('--quiet-only', action='store_true')
+    parser.add_argument('--include-draws', action='store_true', help='Review draws for missed mate or >=150cp advantage lost to <=50cp')
     args = parser.parse_args()
     if args.output.exists():
         parser.error('output must be new')
@@ -33,6 +53,9 @@ def main():
               'not a definitive cause. Scores are from the root mover perspective.',
               'checkpoint_sha256': hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
               'nn_weight': args.nn_weight, 'quiet_only': args.quiet_only,
+              'include_draws': args.include_draws,
+              'models_by_report': {},
+              'draw_policy': 'Missed forced mate or >=150cp best move versus <=50cp played move, confirmed at 400ms. Cp advantage is not proof of a forced win.',
               'source_sha256': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in args.report},
               'games': [], 'pairs': []}
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -40,22 +63,34 @@ def main():
         engine.configure({'Threads': 1, 'Hash': 32})
         result['stockfish'] = engine.id
         for source in args.report:
-            for game in json.loads(source.read_text())['games']:
-                if game['current_result'] != 'loss':
+            recorded = json.loads(source.read_text())
+            checkpoint = report_checkpoint(recorded, args.checkpoint)
+            evaluator = NeuralEvaluator(checkpoint, args.nn_weight, args.quiet_only)
+            result['models_by_report'][str(source)] = {'checkpoint': str(checkpoint),
+                'sha256': hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
+                'nn_weight': args.nn_weight, 'quiet_only': args.quiet_only}
+            for game in recorded['games']:
+                drawn = game['current_result'] == 'draw'
+                if game['current_result'] != 'loss' and not (args.include_draws and drawn):
                     continue
                 board = chess.Board(game['initial_fen'])
                 for move in game['opening_moves']:
                     board.push_uci(move)
                 first = None
                 screened = 0
+                best_screened_cp = None
                 for ply, item in enumerate(game['moves'], 1):
                     move = chess.Move.from_uci(item['uci'])
                     if item['engine'] == 'current':
                         screened += 1
                         row = review(engine, board, move, .1)
-                        if costly(row):
+                        cp = row['best_score']['cp']
+                        if cp is not None:
+                            best_screened_cp = cp if best_screened_cp is None else max(cp, best_screened_cp)
+                        qualifies = conversion_loss if drawn else costly
+                        if qualifies(row):
                             row = review(engine, board, move, .4)
-                            if costly(row):
+                            if qualifies(row):
                                 alternative = chess.Move.from_uci(row['best_move'])
                                 good, bad = board.copy(), board.copy()
                                 good.push(alternative)
@@ -79,11 +114,15 @@ def main():
                     board.push(move)
                 result['games'].append({'opening': game['opening'], 'color': game['current_color'],
                                         'source': str(source), 'screened_moves': screened,
+                                        'result': game['current_result'],
+                                        'best_screened_advantage_cp': best_screened_cp,
                                         'first_costly_move': first})
                 args.output.write_text(json.dumps(result, indent=2) + '\n')
                 print(f"Reviewed {len(result['games'])} games: "
                       f"{first['played_san'] if first else 'no confirmed early mistake'}", flush=True)
     result['summary'] = {'games': len(result['games']),
+        'draws_reviewed': sum(g['result'] == 'draw' for g in result['games']),
+        'draws_with_confirmed_conversion_loss': sum(g['result'] == 'draw' and g['first_costly_move'] is not None for g in result['games']),
         'confirmed': sum(g['first_costly_move'] is not None for g in result['games']),
         'extra_time_recovered': sum(bool(g['first_costly_move'] and
             g['first_costly_move']['extra_time_recovered']) for g in result['games']),

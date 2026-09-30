@@ -1,0 +1,260 @@
+{
+  "policy": "Fixed weights and gates evaluated. Gate selected per weight using validation ranking only; ties prefer gated. Test never selects a configuration. All test comparisons reported.",
+  "checkpoint_sha256": "d8029cd425e5c694a3d4f01de03f836112f5f6475db6573594263c296165b1de",
+  "manifest_sha256": "c0b63b0de37df084c533b609f56b4e2c9ee94e8275112e77bad7514411edafbc",
+  "heuristic": {
+    "val": {
+      "pairs": 694,
+      "correct": 485,
+      "accuracy": 0.6988472622478387,
+      "hard_pairs": 209,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "test": {
+      "pairs": 683,
+      "correct": 502,
+      "accuracy": 0.7349926793557833,
+      "hard_pairs": 181,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    }
+  },
+  "previous_full": {
+    "val": {
+      "pairs": 694,
+      "correct": 493,
+      "accuracy": 0.7103746397694525,
+      "hard_pairs": 209,
+      "hard_correct": 87,
+      "previously_correct_regressions": 79
+    },
+    "test": {
+      "pairs": 683,
+      "correct": 497,
+      "accuracy": 0.7276720351390923,
+      "hard_pairs": 181,
+      "hard_correct": 78,
+      "previously_correct_regressions": 83
+    }
+  },
+  "configurations": {
+    "w0-all": {
+      "weight": 0,
+      "quiet_only": false,
+      "val": {
+        "pairs": 694,
+        "correct": 485,
+        "accuracy": 0.6988472622478387,
+        "hard_pairs": 209,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 502,
+        "accuracy": 0.7349926793557833,
+        "hard_pairs": 181,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "w0-quiet": {
+      "weight": 0,
+      "quiet_only": true,
+      "val": {
+        "pairs": 694,
+        "correct": 485,
+        "accuracy": 0.6988472622478387,
+        "hard_pairs": 209,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 502,
+        "accuracy": 0.7349926793557833,
+        "hard_pairs": 181,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "w0.1-all": {
+      "weight": 0.1,
+      "quiet_only": false,
+      "val": {
+        "pairs": 694,
+        "correct": 498,
+        "accuracy": 0.7175792507204611,
+        "hard_pairs": 209,
+        "hard_correct": 25,
+        "previously_correct_regressions": 12
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 515,
+        "accuracy": 0.7540263543191801,
+        "hard_pairs": 181,
+        "hard_correct": 31,
+        "previously_correct_regressions": 18
+      }
+    },
+    "w0.1-quiet": {
+      "weight": 0.1,
+      "quiet_only": true,
+      "val": {
+        "pairs": 694,
+        "correct": 487,
+        "accuracy": 0.7017291066282421,
+        "hard_pairs": 209,
+        "hard_correct": 8,
+        "previously_correct_regressions": 6
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 511,
+        "accuracy": 0.7481698389458272,
+        "hard_pairs": 181,
+        "hard_correct": 19,
+        "previously_correct_regressions": 10
+      }
+    },
+    "w0.25-all": {
+      "weight": 0.25,
+      "quiet_only": false,
+      "val": {
+        "pairs": 694,
+        "correct": 502,
+        "accuracy": 0.723342939481268,
+        "hard_pairs": 209,
+        "hard_correct": 49,
+        "previously_correct_regressions": 32
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 512,
+        "accuracy": 0.7496339677891655,
+        "hard_pairs": 181,
+        "hard_correct": 57,
+        "previously_correct_regressions": 47
+      }
+    },
+    "w0.25-quiet": {
+      "weight": 0.25,
+      "quiet_only": true,
+      "val": {
+        "pairs": 694,
+        "correct": 491,
+        "accuracy": 0.707492795389049,
+        "hard_pairs": 209,
+        "hard_correct": 21,
+        "previously_correct_regressions": 15
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 518,
+        "accuracy": 0.7584187408491947,
+        "hard_pairs": 181,
+        "hard_correct": 38,
+        "previously_correct_regressions": 22
+      }
+    },
+    "w0.5-all": {
+      "weight": 0.5,
+      "quiet_only": false,
+      "val": {
+        "pairs": 694,
+        "correct": 493,
+        "accuracy": 0.7103746397694525,
+        "hard_pairs": 209,
+        "hard_correct": 80,
+        "previously_correct_regressions": 72
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 518,
+        "accuracy": 0.7584187408491947,
+        "hard_pairs": 181,
+        "hard_correct": 88,
+        "previously_correct_regressions": 72
+      }
+    },
+    "w0.5-quiet": {
+      "weight": 0.5,
+      "quiet_only": true,
+      "val": {
+        "pairs": 694,
+        "correct": 485,
+        "accuracy": 0.6988472622478387,
+        "hard_pairs": 209,
+        "hard_correct": 32,
+        "previously_correct_regressions": 32
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 514,
+        "accuracy": 0.7525622254758418,
+        "hard_pairs": 181,
+        "hard_correct": 48,
+        "previously_correct_regressions": 36
+      }
+    },
+    "w1-all": {
+      "weight": 1,
+      "quiet_only": false,
+      "val": {
+        "pairs": 694,
+        "correct": 497,
+        "accuracy": 0.7161383285302594,
+        "hard_pairs": 209,
+        "hard_correct": 108,
+        "previously_correct_regressions": 96
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 488,
+        "accuracy": 0.7144948755490483,
+        "hard_pairs": 181,
+        "hard_correct": 101,
+        "previously_correct_regressions": 115
+      }
+    },
+    "w1-quiet": {
+      "weight": 1,
+      "quiet_only": true,
+      "val": {
+        "pairs": 694,
+        "correct": 486,
+        "accuracy": 0.7002881844380403,
+        "hard_pairs": 209,
+        "hard_correct": 44,
+        "previously_correct_regressions": 43
+      },
+      "test": {
+        "pairs": 683,
+        "correct": 504,
+        "accuracy": 0.7379209370424598,
+        "hard_pairs": 181,
+        "hard_correct": 56,
+        "previously_correct_regressions": 54
+      }
+    }
+  },
+  "selected_for_games": [
+    {
+      "name": "w0.1-all",
+      "weight": 0.1,
+      "quiet_only": false
+    },
+    {
+      "name": "w0.25-all",
+      "weight": 0.25,
+      "quiet_only": false
+    },
+    {
+      "name": "w0.5-all",
+      "weight": 0.5,
+      "quiet_only": false
+    }
+  ]
+}

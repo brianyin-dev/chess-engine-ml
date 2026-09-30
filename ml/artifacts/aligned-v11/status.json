@@ -1,0 +1,88 @@
+{
+  "phase": "completed",
+  "stockfish_skipped": "User requested skipping external games after candidate failed against heuristic. A just-started heuristic match was cancelled and excluded.",
+  "candidate_eligible_for_larger_validation": false,
+  "matches": {
+    "old-v8-verified-20": {
+      "games": 20,
+      "completed": 20,
+      "wins": 5,
+      "draws": 4,
+      "losses": 11,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.35,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.35,
+      "timing": {
+        "classical": {
+          "moves": 1094,
+          "mean_elapsed": 0.24219701604555205,
+          "max_overrun_seconds": 0.022166999988257885,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 1091,
+          "mean_elapsed": 0.24481791407053421,
+          "max_overrun_seconds": 0.019242541980929673,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "aligned-vs-heuristic": {
+      "games": 20,
+      "completed": 20,
+      "wins": 8,
+      "draws": 2,
+      "losses": 10,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.45,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.45,
+      "timing": {
+        "classical": {
+          "moves": 1262,
+          "mean_elapsed": 0.2427476941732518,
+          "max_overrun_seconds": 0.019261999987065792,
+          "fallback_moves": 0
+        },
+        "current": {
+          "moves": 1260,
+          "mean_elapsed": 0.2453694505235439,
+          "max_overrun_seconds": 0.03854891698574647,
+          "fallback_moves": 1
+        }
+      }
+    },
+    "aligned-vs-old-NN": {
+      "games": 20,
+      "completed": 20,
+      "wins": 4,
+      "draws": 1,
+      "losses": 15,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.225,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.225,
+      "timing": {
+        "current": {
+          "moves": 1053,
+          "mean_elapsed": 0.24390910453605752,
+          "max_overrun_seconds": 0.03356254199752584,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1059,
+          "mean_elapsed": 0.24318781929777458,
+          "max_overrun_seconds": 0.011272292002104223,
+          "fallback_moves": 0
+        }
+      }
+    }
+  }
+}

@@ -105,6 +105,23 @@ _KING_GEOMETRY = tuple(tuple((
     abs((sq & 7) - (king & 7)) / 7)
     for sq in range(64)) for king in range(64))
 
+# Immutable pawn geometry lets inference use bitboard intersections instead of
+# testing every pawn against every enemy pawn at each search leaf.
+_PASSED_MASKS = {
+    color: tuple(sum(chess.BB_SQUARES[e] for e in range(64)
+                     if abs((sq & 7) - (e & 7)) <= 1 and
+                     (1 if color else -1) * ((e >> 3) - (sq >> 3)) > 0)
+                 for sq in range(64))
+    for color in (chess.WHITE, chess.BLACK)
+}
+_SHIELD_MASKS = {
+    color: tuple(sum(chess.BB_SQUARES[sq] for sq in range(64)
+                     if abs((sq & 7) - (king & 7)) <= 1 and
+                     0 < (1 if color else -1) * ((sq >> 3) - (king >> 3)) <= 2)
+                 for king in range(64))
+    for color in (chess.WHITE, chess.BLACK)
+}
+
 
 def relationship_features(board):
     """49 normalized, mirror-equivariant relationship features per color.
@@ -142,16 +159,13 @@ def relationship_features(board):
             hanging = attacked & ~defended
             result.extend((attacked.bit_count() / 8, defended.bit_count() / 8, hanging.bit_count() / 8))
         pawns = pieces[0]
-        enemy = list(chess.scan_forward(board.pieces_mask(chess.PAWN, not color)))
+        enemy = board.pieces_mask(chess.PAWN, not color)
         files = [sq & 7 for sq in pawns]
         distinct = set(files)
         isolated = sum((f - 1) not in distinct and (f + 1) not in distinct for f in files)
         doubled = len(files) - len(distinct)
-        passed = sum(not any(abs((sq & 7) - (e & 7)) <= 1 and
-                            direction * ((e >> 3) - (sq >> 3)) > 0
-                            for e in enemy) for sq in pawns)
-        shield = sum(own_king is not None and abs((sq & 7) - (own_king & 7)) <= 1 and
-                     0 < direction * ((sq >> 3) - (own_king >> 3)) <= 2
-                     for sq in pawns)
+        passed = sum(not (enemy & _PASSED_MASKS[color][sq]) for sq in pawns)
+        shield = ((board.pieces_mask(chess.PAWN, color) & _SHIELD_MASKS[color][own_king]).bit_count()
+                  if own_king is not None else 0)
         result.extend((isolated / 8, doubled / 8, passed / 8, shield / 8))
     return np.asarray(result, dtype=np.float32)

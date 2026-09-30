@@ -11,6 +11,10 @@ from engine.evaluation import evaluate
 from ml.model import SCORE_SCALE, INPUT_SIZE, board_to_tensor, material_score
 
 
+def correction_factor(board, weight=1., quiet_only=False):
+    return 0. if quiet_only and (board.is_check() or next(board.generate_legal_captures(), None)) else weight
+
+
 def load_rows(path: str | Path) -> list[dict]:
     rows = [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
     if not rows:
@@ -26,10 +30,13 @@ def load_rows(path: str | Path) -> list[dict]:
 class ChessEvalDataset(Dataset):
     """Precompute encodings for residual or full-score training."""
 
-    def __init__(self, rows: list[dict], target_mode: str = "residual", input_size=INPUT_SIZE):
+    def __init__(self, rows: list[dict], target_mode: str = "residual", input_size=INPUT_SIZE,
+                 correction_weight=1., quiet_only=False):
         if target_mode not in ("residual", "absolute", "material"):
             raise ValueError("unknown target mode")
         boards = [chess.Board(row["fen"]) for row in rows]
+        self.output_factors = torch.tensor([correction_factor(b, correction_weight, quiet_only)
+                                            for b in boards], dtype=torch.float32)
         self.features = torch.stack([board_to_tensor(board, input_size) for board in boards])
         self.baselines = torch.tensor([evaluate(board) for board in boards], dtype=torch.float32)
         self.target_baselines = (self.baselines if target_mode == 'residual' else

@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--pairs', type=int, default=50)
     parser.add_argument('--seed', type=int, default=91320)
+    parser.add_argument('--exclude-data',type=Path,help='Exclude canonical aliases of labeled positions and ranking endpoints')
     args = parser.parse_args()
     if args.output.exists() or args.pairs < 1:
         parser.error('use a new output path and positive pair count')
@@ -28,6 +29,14 @@ def main():
             board = opening_board(item)
             excluded.add(' '.join(board.fen().split()[:4]))
     rng = random.Random(args.seed)
+    aliases = set()
+    if args.exclude_data:
+        from ml.generate_search_data import key
+        for path in args.exclude_data.glob('**/*.jsonl'):
+            for line in path.read_text().splitlines():
+                item=json.loads(line)
+                for field in ('fen','good_fen','bad_fen','root_fen'):
+                    if field in item:aliases.add(key(item[field]))
     openings = []
     for attempt in range(10000):
         board, moves = chess.Board(), []
@@ -41,6 +50,9 @@ def main():
         key = ' '.join(board.fen().split()[:4])
         if len(moves) != length or key in excluded or board.is_game_over():
             continue
+        if args.exclude_data:
+            from ml.generate_search_data import key as canonical_key
+            if canonical_key(board.fen()) in aliases:continue
         excluded.add(key)
         openings.append({'name': f'Frozen book start {len(openings) + 1:02d}', 'moves': moves})
         if len(openings) == args.pairs:
@@ -49,6 +61,7 @@ def main():
         raise RuntimeError('not enough unique book positions')
     args.output.write_text(json.dumps(openings, indent=2) + '\n')
     manifest = {'seed': args.seed, 'pairs': args.pairs, 'attempts': attempt + 1,
+                'excluded_labeled_position_aliases': len(aliases),
                 'book_sha256': hashlib.sha256(args.book.read_bytes()).hexdigest(),
                 'openings_sha256': hashlib.sha256(args.output.read_bytes()).hexdigest(),
                 'selection': 'Weighted book sampling; 10/12/14/16 plies; unique FENs; '

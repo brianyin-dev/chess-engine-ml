@@ -1,0 +1,31 @@
+{
+  "extension_threshold": ".6 score with all 20 games complete",
+  "extended_to_100": false,
+  "summary": {
+    "games": 20,
+    "completed": 20,
+    "wins": 5,
+    "draws": 4,
+    "losses": 11,
+    "unfinished": 0,
+    "errors": 0,
+    "interrupted": 0,
+    "score_fraction_completed": 0.35,
+    "complete_pairs": 10,
+    "score_fraction_complete_pairs": 0.35,
+    "timing": {
+      "classical": {
+        "moves": 1094,
+        "mean_elapsed": 0.24219701604555205,
+        "max_overrun_seconds": 0.022166999988257885,
+        "fallback_moves": 0
+      },
+      "current": {
+        "moves": 1091,
+        "mean_elapsed": 0.24481791407053421,
+        "max_overrun_seconds": 0.019242541980929673,
+        "fallback_moves": 0
+      }
+    }
+  }
+}

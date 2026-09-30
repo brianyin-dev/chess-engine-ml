@@ -13,18 +13,22 @@ from ml.model import board_to_tensor, SCORE_SCALE
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--data',type=Path,default=Path('ml/data/targeted-v10-2026'))
+    p.add_argument('--previous',type=Path,default=Path('ml/artifacts/quiet-ranking-v8.pt'))
+    p.add_argument('--checkpoint',type=Path,default=Path('ml/artifacts/targeted-ranking-v10.pt'))
+    p.add_argument('--recent-game-id',type=int,default=2000000)
     args=p.parse_args()
     if args.output.exists():p.error('output must be new')
-    data=Path('ml/data/targeted-v10-2026')
+    data=args.data
     pairs={s:[json.loads(l) for l in (data/'pairs'/f'{s}.jsonl').read_text().splitlines()]
            for s in ('train','val','test')}
     confirmed=[r for r in pairs['train'] if r.get('source')=='confirmed_failure']
-    recent=[r for r in confirmed if r['game_id']>=2000000]
+    recent=[r for r in confirmed if r['game_id']>=args.recent_game_id]
     boards=[chess.Board(json.loads(l)['fen']) for l in (data/'test.jsonl').read_text().splitlines()[:512]]
     report={'policy':'Training mistake diagnostics are not generalization evidence. '
                     'Same .25 quiet weight on all comparisons; no search or latency measurements.',
             'models':{}}
-    for name,path in [('v8','ml/artifacts/quiet-ranking-v8.pt'),('v10','ml/artifacts/targeted-ranking-v10.pt')]:
+    for name,path in [('previous',args.previous),('candidate',args.checkpoint)]:
         e=NeuralEvaluator(path,.25,quiet_only=True)
         parity=[];symmetry=[]
         with torch.inference_mode():

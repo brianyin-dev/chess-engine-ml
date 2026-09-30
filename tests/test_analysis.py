@@ -1,4 +1,5 @@
 import unittest
+import importlib.util
 from unittest.mock import MagicMock, patch
 
 import chess
@@ -9,6 +10,20 @@ from benchmarks.match import UciOpponent, play_game, summarize
 
 
 class AnalysisTests(unittest.TestCase):
+    @unittest.skipUnless(importlib.util.find_spec('torch') is not None, 'ML dependencies are optional')
+    def test_draw_conversion_review_requires_lost_advantage_or_missed_mate(self):
+        from ml.analyze_losses import conversion_loss
+        row = {'missed_forced_mate': False, 'best_score': {'cp': 200},
+               'played_score': {'cp': 20}, 'cp_loss': 180}
+        self.assertTrue(conversion_loss(row))
+        row['played_score']['cp'] = 100
+        self.assertFalse(conversion_loss(row))
+        row['best_score']['cp'] = 80
+        row['played_score']['cp'] = -50
+        self.assertFalse(conversion_loss(row))
+        row['missed_forced_mate'] = True
+        self.assertTrue(conversion_loss(row))
+
     def test_score_perspective(self):
         score = chess.engine.PovScore(chess.engine.Cp(150), chess.WHITE)
         self.assertEqual(score_data(score, chess.BLACK), {'cp': -150, 'mate': None})

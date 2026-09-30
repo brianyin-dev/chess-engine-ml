@@ -1,0 +1,2180 @@
+{
+  "policy": "First >=100cp loss or mate deterioration, screened at 100ms and confirmed at 400ms per root search. Longer NN probes diagnose time sensitivity, not a definitive cause. Scores are from the root mover perspective.",
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "nn_weight": 0.25,
+  "quiet_only": true,
+  "include_draws": true,
+  "models_by_report": {
+    "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json": {
+      "checkpoint": "ml/artifacts/quiet-ranking-v8.pt",
+      "sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+      "nn_weight": 0.25,
+      "quiet_only": true
+    },
+    "ml/artifacts/targeted-v10/v10-trained/report.json": {
+      "checkpoint": "/Users/brianyin/Downloads/chessengine/ml/artifacts/targeted-ranking-v10.pt",
+      "sha256": "e54a5bfbc07bf41e729cbbc51eed797ef30fb5d3f05ad2a377f2d28a985fcefb",
+      "nn_weight": 0.25,
+      "quiet_only": true
+    }
+  },
+  "draw_policy": "Missed forced mate or >=150cp best move versus <=50cp played move, confirmed at 400ms. Cp advantage is not proof of a forced win.",
+  "source_sha256": {
+    "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json": "e08ec1418e9797feca3d82c2db0a31dd93a835365cfba1e559979d415c2ac436",
+    "ml/artifacts/targeted-v10/v10-trained/report.json": "d42b77ccdfc174d2e111dd6cf22dc0fac6e6f9b3672c3b24ea42d8749fef435a"
+  },
+  "games": [
+    {
+      "opening": "Frozen book start 01",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 2,
+      "result": "loss",
+      "best_screened_advantage_cp": 6,
+      "first_costly_move": {
+        "ply": 4,
+        "fen": "rnbq1rk1/ppp1bppp/4pn2/2Pp4/3P1N2/P1N1P3/1P3PPP/R1BQKB1R b KQ - 2 8",
+        "played": "g7g5",
+        "played_san": "g5",
+        "best_move": "c7c6",
+        "best_san": "c6",
+        "best_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -127,
+          "mate": null
+        },
+        "best_pv": [
+          "c6",
+          "b4",
+          "Nbd7",
+          "Nd3",
+          "a5",
+          "Bb2",
+          "b6",
+          "Be2",
+          "Qc7",
+          "O-O",
+          "Ba6",
+          "Nf4"
+        ],
+        "played_pv": [
+          "g5",
+          "Nd3",
+          "b6",
+          "b4",
+          "bxc5",
+          "dxc5",
+          "a5",
+          "b5",
+          "c6",
+          "Bb2",
+          "cxb5",
+          "h4"
+        ],
+        "best_depth": 22,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 127,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -105,
+        "nn_static_bad_cp": -94,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "g7g5",
+        "probe_review": {
+          "best_move": "c7c6",
+          "best_san": "c6",
+          "best_score": {
+            "cp": 0,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -127,
+            "mate": null
+          },
+          "best_pv": [
+            "c6",
+            "b4",
+            "Nbd7",
+            "Nd3",
+            "a5",
+            "Bb2",
+            "b6",
+            "Be2",
+            "Qc7",
+            "O-O",
+            "Ba6",
+            "Nf4"
+          ],
+          "played_pv": [
+            "g5",
+            "Nd3",
+            "b6",
+            "b4",
+            "bxc5",
+            "dxc5",
+            "a5",
+            "b5",
+            "c6",
+            "Bb2",
+            "cxb5",
+            "h4"
+          ],
+          "best_depth": 22,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 127,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 1,
+      "result": "loss",
+      "best_screened_advantage_cp": 25,
+      "first_costly_move": {
+        "ply": 2,
+        "fen": "r1bqk2r/pppp1ppp/2n2n2/4p3/2BNP3/8/PPP2PPP/RNBQ1RK1 b kq - 0 6",
+        "played": "e5d4",
+        "played_san": "exd4",
+        "best_move": "c6d4",
+        "best_san": "Nxd4",
+        "best_score": {
+          "cp": 25,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -151,
+          "mate": null
+        },
+        "best_pv": [
+          "Nxd4",
+          "Be3",
+          "Nc6",
+          "f4",
+          "Qe7",
+          "Bb3",
+          "exf4",
+          "Bxf4",
+          "Qc5+",
+          "Kh1",
+          "d6",
+          "Bh6"
+        ],
+        "played_pv": [
+          "exd4",
+          "e5",
+          "d5",
+          "exf6",
+          "dxc4",
+          "fxg7",
+          "Rg8",
+          "Qh5",
+          "Qf6",
+          "Re1+",
+          "Be6",
+          "Bg5"
+        ],
+        "best_depth": 18,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 176,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 101,
+        "nn_static_bad_cp": 94,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "e5d4",
+        "probe_review": {
+          "best_move": "c6d4",
+          "best_san": "Nxd4",
+          "best_score": {
+            "cp": 25,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -151,
+            "mate": null
+          },
+          "best_pv": [
+            "Nxd4",
+            "Be3",
+            "Nc6",
+            "f4",
+            "Qe7",
+            "Bb3",
+            "exf4",
+            "Bxf4",
+            "Qc5+",
+            "Kh1",
+            "d6",
+            "Bh6"
+          ],
+          "played_pv": [
+            "exd4",
+            "e5",
+            "d5",
+            "exf6",
+            "dxc4",
+            "fxg7",
+            "Rg8",
+            "Qh5",
+            "Qf6",
+            "Re1+",
+            "Be6",
+            "Bg5"
+          ],
+          "best_depth": 18,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 176,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 3,
+      "result": "loss",
+      "best_screened_advantage_cp": 235,
+      "first_costly_move": {
+        "ply": 5,
+        "fen": "r1bqk2r/pppp1ppp/5n2/4n3/2Bp4/8/PPP2PPP/RNBQ1RK1 w kq - 0 8",
+        "played": "d1d4",
+        "played_san": "Qxd4",
+        "best_move": "f1e1",
+        "best_san": "Re1",
+        "best_score": {
+          "cp": 235,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -66,
+          "mate": null
+        },
+        "best_pv": [
+          "Re1",
+          "d6",
+          "f4",
+          "O-O",
+          "fxe5",
+          "Ng4",
+          "e6",
+          "Qh4",
+          "exf7+",
+          "Kh8",
+          "h3",
+          "Qf2+"
+        ],
+        "played_pv": [
+          "Qxd4",
+          "d6",
+          "Bb5+",
+          "Bd7",
+          "Be2",
+          "Nc6",
+          "Qh4",
+          "Qe7",
+          "Nc3",
+          "O-O-O",
+          "Bg5",
+          "Qe6"
+        ],
+        "best_depth": 15,
+        "played_depth": 16,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 301,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -140,
+        "nn_static_bad_cp": -62,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "f1e1",
+        "probe_review": {
+          "best_move": "f1e1",
+          "best_san": "Re1",
+          "best_score": {
+            "cp": 235,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 235,
+            "mate": null
+          },
+          "best_pv": [
+            "Re1",
+            "d6",
+            "f4",
+            "O-O",
+            "fxe5",
+            "Ng4",
+            "e6",
+            "Qh4",
+            "exf7+",
+            "Kh8",
+            "h3",
+            "Qf2+"
+          ],
+          "played_pv": [
+            "Re1",
+            "d6",
+            "f4",
+            "O-O",
+            "fxe5",
+            "Ng4",
+            "e6",
+            "Qh4",
+            "exf7+",
+            "Kh8",
+            "h3",
+            "Qf2+"
+          ],
+          "best_depth": 15,
+          "played_depth": 15,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 7,
+      "result": "loss",
+      "best_screened_advantage_cp": 235,
+      "first_costly_move": {
+        "ply": 13,
+        "fen": "r1b4r/1p2kppp/p1npp3/2q5/4P3/2NQ1N2/PPP2PPP/R2R2K1 w - - 2 15",
+        "played": "a2a3",
+        "played_san": "a3",
+        "best_move": "c3a4",
+        "best_san": "Na4",
+        "best_score": {
+          "cp": 237,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 81,
+          "mate": null
+        },
+        "best_pv": [
+          "Na4",
+          "Qb4",
+          "b3",
+          "Rd8",
+          "e5",
+          "b5",
+          "a3",
+          "Qf4",
+          "Nb6",
+          "Rb8",
+          "g3",
+          "Qf5"
+        ],
+        "played_pv": [
+          "a3",
+          "Rd8",
+          "b4",
+          "Qh5",
+          "Rd2",
+          "Ne5",
+          "Nxe5",
+          "Qxe5",
+          "Qe3",
+          "g5",
+          "Rad1",
+          "b5"
+        ],
+        "best_depth": 19,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 156,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 53,
+        "nn_static_bad_cp": 105,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "c3a4",
+        "probe_review": {
+          "best_move": "c3a4",
+          "best_san": "Na4",
+          "best_score": {
+            "cp": 237,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 237,
+            "mate": null
+          },
+          "best_pv": [
+            "Na4",
+            "Qb4",
+            "b3",
+            "Rd8",
+            "e5",
+            "b5",
+            "a3",
+            "Qf4",
+            "Nb6",
+            "Rb8",
+            "g3",
+            "Qf5"
+          ],
+          "played_pv": [
+            "Na4",
+            "Qb4",
+            "b3",
+            "Rd8",
+            "e5",
+            "b5",
+            "a3",
+            "Qf4",
+            "Nb6",
+            "Rb8",
+            "g3",
+            "Qf5"
+          ],
+          "best_depth": 19,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 04",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 8,
+      "result": "loss",
+      "best_screened_advantage_cp": 43,
+      "first_costly_move": {
+        "ply": 16,
+        "fen": "rn3rk1/pbp2ppp/1p1q1b2/3p4/3P4/PQNBPN2/1P3PPP/R3K2R b KQ - 11 15",
+        "played": "b8d7",
+        "played_san": "Nd7",
+        "best_move": "f8c8",
+        "best_san": "Rc8",
+        "best_score": {
+          "cp": -13,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -115,
+          "mate": null
+        },
+        "best_pv": [
+          "Rc8",
+          "O-O",
+          "c5",
+          "e4",
+          "c4",
+          "e5",
+          "cxb3",
+          "exd6",
+          "Rd8",
+          "Rfe1",
+          "Nc6",
+          "Nxd5"
+        ],
+        "played_pv": [
+          "Nd7",
+          "Qc2",
+          "c5",
+          "Bxh7+",
+          "Kh8",
+          "Bd3",
+          "a6",
+          "h4",
+          "b5",
+          "Ne2",
+          "Rac8",
+          "Qd1"
+        ],
+        "best_depth": 17,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 102,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -96,
+        "nn_static_bad_cp": -26,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "b8d7",
+        "probe_review": {
+          "best_move": "f8c8",
+          "best_san": "Rc8",
+          "best_score": {
+            "cp": -13,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -115,
+            "mate": null
+          },
+          "best_pv": [
+            "Rc8",
+            "O-O",
+            "c5",
+            "e4",
+            "c4",
+            "e5",
+            "cxb3",
+            "exd6",
+            "Rd8",
+            "Rfe1",
+            "Nc6",
+            "Nxd5"
+          ],
+          "played_pv": [
+            "Nd7",
+            "Qc2",
+            "c5",
+            "Bxh7+",
+            "Kh8",
+            "Bd3",
+            "a6",
+            "h4",
+            "b5",
+            "Ne2",
+            "Rac8",
+            "Qd1"
+          ],
+          "best_depth": 17,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 102,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 8,
+      "result": "draw",
+      "best_screened_advantage_cp": 473,
+      "first_costly_move": {
+        "ply": 15,
+        "fen": "r1b1k2r/1p1n1pp1/4p3/p1P3p1/1QP5/3BPN2/q4PPP/1R2K2R w Kkq - 0 16",
+        "played": "b4b5",
+        "played_san": "Qb5",
+        "best_move": "b4c3",
+        "best_san": "Qc3",
+        "best_score": {
+          "cp": 488,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -53,
+          "mate": null
+        },
+        "best_pv": [
+          "Qc3",
+          "Nxc5",
+          "Bc2",
+          "Na4",
+          "Qxg7",
+          "Rf8",
+          "Bxa4+",
+          "Qxa4",
+          "O-O",
+          "f6",
+          "Rfd1",
+          "Qxc4"
+        ],
+        "played_pv": [
+          "Qb5",
+          "Qa3",
+          "Be4",
+          "Rb8",
+          "Nxg5",
+          "Qxc5",
+          "Ra1",
+          "b6",
+          "Nf3",
+          "Rh5",
+          "Nd4",
+          "Qxb5"
+        ],
+        "best_depth": 17,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 541,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 90,
+        "nn_static_bad_cp": 76,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "b4b5",
+        "probe_review": {
+          "best_move": "b4c3",
+          "best_san": "Qc3",
+          "best_score": {
+            "cp": 488,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -53,
+            "mate": null
+          },
+          "best_pv": [
+            "Qc3",
+            "Nxc5",
+            "Bc2",
+            "Na4",
+            "Qxg7",
+            "Rf8",
+            "Bxa4+",
+            "Qxa4",
+            "O-O",
+            "f6",
+            "Rfd1",
+            "Qxc4"
+          ],
+          "played_pv": [
+            "Qb5",
+            "Qa3",
+            "Be4",
+            "Rb8",
+            "Nxg5",
+            "Qxc5",
+            "Ra1",
+            "b6",
+            "Nf3",
+            "Rh5",
+            "Nd4",
+            "Qxb5"
+          ],
+          "best_depth": 16,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 541,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 05",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 20,
+      "result": "draw",
+      "best_screened_advantage_cp": 393,
+      "first_costly_move": {
+        "ply": 40,
+        "fen": "4k2r/1R4p1/5p2/4p3/2b1P3/r4N1P/p4PP1/R3K3 b k - 1 28",
+        "played": "a3b3",
+        "played_san": "Rb3",
+        "best_move": "e8g8",
+        "best_san": "O-O",
+        "best_score": {
+          "cp": 241,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 2,
+          "mate": null
+        },
+        "best_pv": [
+          "O-O",
+          "Nd2",
+          "Bf7",
+          "f3",
+          "Raa8",
+          "Rb2",
+          "Rfb8",
+          "Rc2",
+          "Rc8",
+          "Rb2",
+          "Kh7",
+          "Kf2"
+        ],
+        "played_pv": [
+          "Rb3",
+          "Rxa2",
+          "Rxb7",
+          "Ra8+",
+          "Kf7",
+          "Rxh8",
+          "Rb1+",
+          "Kd2",
+          "Rf1",
+          "Ke3",
+          "Ra1",
+          "Rc8"
+        ],
+        "best_depth": 21,
+        "played_depth": 24,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 239,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 91,
+        "nn_static_bad_cp": 143,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "a3b3",
+        "probe_review": {
+          "best_move": "e8g8",
+          "best_san": "O-O",
+          "best_score": {
+            "cp": 241,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 2,
+            "mate": null
+          },
+          "best_pv": [
+            "O-O",
+            "Nd2",
+            "Bf7",
+            "f3",
+            "Raa8",
+            "Rb2",
+            "Rfb8",
+            "Rc2",
+            "Rc8",
+            "Rb2",
+            "Kh7",
+            "Kf2"
+          ],
+          "played_pv": [
+            "Rb3",
+            "Rxa2",
+            "Rxb7",
+            "Ra8+",
+            "Kf7",
+            "Rxh8",
+            "Rb1+",
+            "Kd2",
+            "Rf1",
+            "Ke3",
+            "Ra1",
+            "Rc8"
+          ],
+          "best_depth": 21,
+          "played_depth": 24,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 239,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 06",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 3,
+      "result": "loss",
+      "best_screened_advantage_cp": 57,
+      "first_costly_move": {
+        "ply": 6,
+        "fen": "r2qkb1r/p2p1ppp/1pn1pn2/2p5/2PPb3/1Q2BNP1/PP1NPPBP/R3K2R b KQkq - 5 9",
+        "played": "f8d6",
+        "played_san": "Bd6",
+        "best_move": "c5d4",
+        "best_san": "cxd4",
+        "best_score": {
+          "cp": 36,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -156,
+          "mate": null
+        },
+        "best_pv": [
+          "cxd4",
+          "Nxe4",
+          "Na5",
+          "Nxf6+",
+          "gxf6",
+          "Qd3",
+          "dxe3",
+          "Qxe3",
+          "Nxc4",
+          "Qb3",
+          "Rc8",
+          "O-O"
+        ],
+        "played_pv": [
+          "Bd6",
+          "Nxe4",
+          "Nxe4",
+          "Rd1",
+          "O-O",
+          "d5",
+          "exd5",
+          "Rxd5",
+          "Qe7",
+          "O-O",
+          "Rae8",
+          "a3"
+        ],
+        "best_depth": 18,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 192,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 116,
+        "nn_static_bad_cp": 30,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "f8d6",
+        "probe_review": {
+          "best_move": "c5d4",
+          "best_san": "cxd4",
+          "best_score": {
+            "cp": 36,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -156,
+            "mate": null
+          },
+          "best_pv": [
+            "cxd4",
+            "Nxe4",
+            "Na5",
+            "Nxf6+",
+            "gxf6",
+            "Qd3",
+            "dxe3",
+            "Qxe3",
+            "Nxc4",
+            "Qb3",
+            "Rc8",
+            "O-O"
+          ],
+          "played_pv": [
+            "Bd6",
+            "Nxe4",
+            "Nxe4",
+            "Rd1",
+            "O-O",
+            "d5",
+            "exd5",
+            "Rxd5",
+            "Qe7",
+            "O-O",
+            "Rae8",
+            "a3"
+          ],
+          "best_depth": 18,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 192,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 18,
+      "result": "loss",
+      "best_screened_advantage_cp": 292,
+      "first_costly_move": {
+        "ply": 35,
+        "fen": "3r2k1/p1pq2pp/1pb1r3/3p1p2/1P1P4/4PBP1/P1Q2P1P/R1R3K1 w - - 3 26",
+        "played": "c2f5",
+        "played_san": "Qxf5",
+        "best_move": "a2a4",
+        "best_san": "a4",
+        "best_score": {
+          "cp": 265,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 10,
+          "mate": null
+        },
+        "best_pv": [
+          "a4",
+          "a6",
+          "Be2",
+          "Ra8",
+          "Qxf5",
+          "Rf8",
+          "Qc2",
+          "Qe7",
+          "b5",
+          "Bd7",
+          "Qb3",
+          "Qf7"
+        ],
+        "played_pv": [
+          "Qxf5",
+          "Rf8",
+          "Qg4",
+          "Qf7",
+          "b5",
+          "Rf6",
+          "Rxc6",
+          "Rxf3",
+          "Qe6",
+          "Qxe6",
+          "Rxe6",
+          "Rxf2"
+        ],
+        "best_depth": 19,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 255,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 10,
+        "nn_static_bad_cp": 124,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "c2f5",
+        "probe_review": {
+          "best_move": "a2a4",
+          "best_san": "a4",
+          "best_score": {
+            "cp": 265,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 10,
+            "mate": null
+          },
+          "best_pv": [
+            "a4",
+            "a6",
+            "Be2",
+            "Ra8",
+            "Qxf5",
+            "Rf8",
+            "Qc2",
+            "Qe7",
+            "b5",
+            "Bd7",
+            "Qb3",
+            "Qf7"
+          ],
+          "played_pv": [
+            "Qxf5",
+            "Rf8",
+            "Qg4",
+            "Qf7",
+            "b5",
+            "Rf6",
+            "Rxc6",
+            "Rxf3",
+            "Qe6",
+            "Qxe6",
+            "Rxe6",
+            "Rxf2"
+          ],
+          "best_depth": 19,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 255,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 07",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 8,
+      "result": "loss",
+      "best_screened_advantage_cp": 59,
+      "first_costly_move": {
+        "ply": 16,
+        "fen": "r3r1k1/pbpq1ppp/1p1b4/3pB3/3P4/2Q1PBP1/PP3P1P/2R2RK1 b - - 2 16",
+        "played": "a8c8",
+        "played_san": "Rac8",
+        "best_move": "d6e5",
+        "best_san": "Bxe5",
+        "best_score": {
+          "cp": 26,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -89,
+          "mate": null
+        },
+        "best_pv": [
+          "Bxe5",
+          "dxe5",
+          "c5",
+          "Rfd1",
+          "Qe6",
+          "Rc2",
+          "d4",
+          "exd4",
+          "cxd4",
+          "Qd3",
+          "Bxf3",
+          "Qxf3"
+        ],
+        "played_pv": [
+          "Rac8",
+          "Bxd6",
+          "cxd6",
+          "Qa3",
+          "a5",
+          "Qb3",
+          "b5",
+          "Qa3",
+          "Ra8",
+          "Qc3",
+          "Rec8",
+          "Qd2"
+        ],
+        "best_depth": 19,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 115,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 359,
+        "nn_static_bad_cp": -21,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a8c8",
+        "probe_review": {
+          "best_move": "d6e5",
+          "best_san": "Bxe5",
+          "best_score": {
+            "cp": 26,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -89,
+            "mate": null
+          },
+          "best_pv": [
+            "Bxe5",
+            "dxe5",
+            "c5",
+            "Rfd1",
+            "Qe6",
+            "Rc2",
+            "d4",
+            "exd4",
+            "cxd4",
+            "Qd3",
+            "Bxf3",
+            "Qxf3"
+          ],
+          "played_pv": [
+            "Rac8",
+            "Bxd6",
+            "cxd6",
+            "Qa3",
+            "a5",
+            "Qb3",
+            "b5",
+            "Qa3",
+            "Ra8",
+            "Qc3",
+            "Rec8",
+            "Qd2"
+          ],
+          "best_depth": 18,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 115,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 08",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 6,
+      "result": "loss",
+      "best_screened_advantage_cp": -40,
+      "first_costly_move": {
+        "ply": 12,
+        "fen": "r4rk1/pp3pbp/3Nbnp1/q3p3/2P1P3/3QB3/PP2BPPP/R4RK1 b - - 0 13",
+        "played": "a5b4",
+        "played_san": "Qb4",
+        "best_move": "a5a6",
+        "best_san": "Qa6",
+        "best_score": {
+          "cp": -244,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -584,
+          "mate": null
+        },
+        "best_pv": [
+          "Qa6",
+          "Rfd1",
+          "Rfd8",
+          "c5",
+          "Qxd3",
+          "Rxd3",
+          "Rd7",
+          "Rad1",
+          "Bf8",
+          "f3",
+          "Ne8",
+          "Nxe8"
+        ],
+        "played_pv": [
+          "Qb4",
+          "a3",
+          "Qa4",
+          "Nxb7",
+          "Qc6",
+          "Nc5",
+          "Rfd8",
+          "Qc2",
+          "Ng4",
+          "Bxg4",
+          "Bxg4",
+          "b4"
+        ],
+        "best_depth": 17,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 340,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -150,
+        "nn_static_bad_cp": -136,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a5b4",
+        "probe_review": {
+          "best_move": "a5a6",
+          "best_san": "Qa6",
+          "best_score": {
+            "cp": -244,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -584,
+            "mate": null
+          },
+          "best_pv": [
+            "Qa6",
+            "Rfd1",
+            "Rfd8",
+            "c5",
+            "Qxd3",
+            "Rxd3",
+            "Rd7",
+            "Rad1",
+            "Bf8",
+            "f3",
+            "Ne8",
+            "Nxe8"
+          ],
+          "played_pv": [
+            "Qb4",
+            "a3",
+            "Qa4",
+            "Nxb7",
+            "Qc6",
+            "Nc5",
+            "Rfd8",
+            "Qc2",
+            "Ng4",
+            "Bxg4",
+            "Bxg4",
+            "b4"
+          ],
+          "best_depth": 17,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 340,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 5,
+      "result": "draw",
+      "best_screened_advantage_cp": 170,
+      "first_costly_move": {
+        "ply": 9,
+        "fen": "rn1q1rk1/p1p1bpp1/1pb1p2p/4P3/3P4/2NB1N2/PP3PPP/R2QK2R w KQ - 1 13",
+        "played": "d3e4",
+        "played_san": "Be4",
+        "best_move": "d3c2",
+        "best_san": "Bc2",
+        "best_score": {
+          "cp": 166,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -22,
+          "mate": null
+        },
+        "best_pv": [
+          "Bc2",
+          "f5",
+          "Bb3",
+          "Qd7",
+          "O-O",
+          "Kh7",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "a5",
+          "e6",
+          "Qd6"
+        ],
+        "played_pv": [
+          "Be4",
+          "Bxe4",
+          "Nxe4",
+          "Qd5",
+          "Nc3",
+          "Bb4",
+          "O-O",
+          "Bxc3",
+          "bxc3",
+          "Nc6",
+          "h3",
+          "Na5"
+        ],
+        "best_depth": 17,
+        "played_depth": 20,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 188,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 91,
+        "nn_static_bad_cp": 105,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "d3e4",
+        "probe_review": {
+          "best_move": "d3c2",
+          "best_san": "Bc2",
+          "best_score": {
+            "cp": 166,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -22,
+            "mate": null
+          },
+          "best_pv": [
+            "Bc2",
+            "f5",
+            "Bb3",
+            "Qd7",
+            "O-O",
+            "Kh7",
+            "d5",
+            "exd5",
+            "Nxd5",
+            "a5",
+            "e6",
+            "Qd6"
+          ],
+          "played_pv": [
+            "Be4",
+            "Bxe4",
+            "Nxe4",
+            "Qd5",
+            "Nc3",
+            "Bb4",
+            "O-O",
+            "Bxc3",
+            "bxc3",
+            "Nc6",
+            "h3",
+            "Na5"
+          ],
+          "best_depth": 17,
+          "played_depth": 20,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 188,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 09",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 12,
+      "result": "loss",
+      "best_screened_advantage_cp": 17,
+      "first_costly_move": {
+        "ply": 24,
+        "fen": "3r2k1/p1p1rpp1/1pR4p/8/3Pp3/4P3/PP2KPPP/7R b - - 2 20",
+        "played": "g8f8",
+        "played_san": "Kf8",
+        "best_move": "d8d6",
+        "best_san": "Rd6",
+        "best_score": {
+          "cp": -58,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -178,
+          "mate": null
+        },
+        "best_pv": [
+          "Rd6",
+          "Rc2",
+          "Rd5",
+          "b3",
+          "a5",
+          "Rhc1",
+          "Rdd7",
+          "g4",
+          "Kf8",
+          "a4"
+        ],
+        "played_pv": [
+          "Kf8",
+          "Rhc1",
+          "Rdd7",
+          "b4",
+          "Ke8",
+          "R6c3",
+          "Rd5",
+          "Rxc7",
+          "Rxc7",
+          "Rxc7",
+          "a5",
+          "Rc4"
+        ],
+        "best_depth": 16,
+        "played_depth": 17,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 120,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -16,
+        "nn_static_bad_cp": -12,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "g8f8",
+        "probe_review": {
+          "best_move": "d8d6",
+          "best_san": "Rd6",
+          "best_score": {
+            "cp": -58,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -178,
+            "mate": null
+          },
+          "best_pv": [
+            "Rd6",
+            "Rc2",
+            "Rd5",
+            "b3",
+            "a5",
+            "Rhc1",
+            "Rdd7",
+            "g4",
+            "Kf8",
+            "a4"
+          ],
+          "played_pv": [
+            "Kf8",
+            "Rhc1",
+            "Rdd7",
+            "b4",
+            "Ke8",
+            "R6c3",
+            "Rd5",
+            "Rxc7",
+            "Rxc7",
+            "Rxc7",
+            "a5",
+            "Rc4"
+          ],
+          "best_depth": 16,
+          "played_depth": 17,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 120,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 10",
+      "color": "black",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 9,
+      "result": "loss",
+      "best_screened_advantage_cp": 530,
+      "first_costly_move": {
+        "ply": 18,
+        "fen": "2kr1b1r/ppp2ppp/2n5/8/2PP2q1/1Q3N2/PB3PPP/R2KR3 b - - 0 15",
+        "played": "c6d4",
+        "played_san": "Nxd4",
+        "best_move": "f8c5",
+        "best_san": "Bc5",
+        "best_score": {
+          "cp": 518,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 308,
+          "mate": null
+        },
+        "best_pv": [
+          "Bc5",
+          "Kc1",
+          "Bxd4",
+          "Nxd4",
+          "Nxd4",
+          "Qh3",
+          "Qxh3",
+          "gxh3",
+          "Rd7",
+          "h4",
+          "Rhd8",
+          "Bc3"
+        ],
+        "played_pv": [
+          "Nxd4",
+          "Bxd4",
+          "Bc5",
+          "Ke2",
+          "Bxd4",
+          "Rab1",
+          "Rhe8+",
+          "Kf1",
+          "Rxe1+",
+          "Rxe1",
+          "Bc5",
+          "h3"
+        ],
+        "best_depth": 20,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 210,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 21,
+        "nn_static_bad_cp": 95,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "c6d4",
+        "probe_review": {
+          "best_move": "f8c5",
+          "best_san": "Bc5",
+          "best_score": {
+            "cp": 518,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 308,
+            "mate": null
+          },
+          "best_pv": [
+            "Bc5",
+            "Kc1",
+            "Bxd4",
+            "Nxd4",
+            "Nxd4",
+            "Qh3",
+            "Qxh3",
+            "gxh3",
+            "Rd7",
+            "h4",
+            "Rhd8",
+            "Bc3"
+          ],
+          "played_pv": [
+            "Nxd4",
+            "Bxd4",
+            "Bc5",
+            "Ke2",
+            "Bxd4",
+            "Rab1",
+            "Rhe8+",
+            "Kf1",
+            "Rxe1+",
+            "Rxe1",
+            "Bc5",
+            "h3"
+          ],
+          "best_depth": 20,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 210,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 10",
+      "color": "white",
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "screened_moves": 36,
+      "result": "draw",
+      "best_screened_advantage_cp": 35,
+      "first_costly_move": null
+    },
+    {
+      "opening": "Frozen book start 01",
+      "color": "black",
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "screened_moves": 8,
+      "result": "loss",
+      "best_screened_advantage_cp": 77,
+      "first_costly_move": {
+        "ply": 16,
+        "fen": "r4rk1/p1pqbppp/bpn1p3/4P1N1/3P1P2/2N5/PP3PBP/R2QR1K1 b - - 2 14",
+        "played": "a6c4",
+        "played_san": "Bc4",
+        "best_move": "c6d4",
+        "best_san": "Nxd4",
+        "best_score": {
+          "cp": 69,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -337,
+          "mate": null
+        },
+        "best_pv": [
+          "Nxd4",
+          "Bxa8",
+          "Rxa8",
+          "Qh5",
+          "Bxg5",
+          "fxg5",
+          "Bb7",
+          "Rad1",
+          "Qc6",
+          "Ne4",
+          "Qd5",
+          "f3"
+        ],
+        "played_pv": [
+          "Bc4",
+          "d5",
+          "Bxg5",
+          "dxc6",
+          "Qxd1",
+          "Raxd1",
+          "Bh4",
+          "Re4",
+          "b5",
+          "b3",
+          "b4",
+          "Rd7"
+        ],
+        "best_depth": 17,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 406,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": 65,
+        "nn_static_bad_cp": -30,
+        "original_depth": 2,
+        "probe_depth": 3,
+        "probe_move": "a6c4",
+        "probe_review": {
+          "best_move": "c6d4",
+          "best_san": "Nxd4",
+          "best_score": {
+            "cp": 69,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -337,
+            "mate": null
+          },
+          "best_pv": [
+            "Nxd4",
+            "Bxa8",
+            "Rxa8",
+            "Qh5",
+            "Bxg5",
+            "fxg5",
+            "Bb7",
+            "Rad1",
+            "Qc6",
+            "Ne4",
+            "Qd5",
+            "f3"
+          ],
+          "played_pv": [
+            "Bc4",
+            "d5",
+            "Bxg5",
+            "dxc6",
+            "Qxd1",
+            "Raxd1",
+            "Bh4",
+            "Re4",
+            "b5",
+            "b3",
+            "b4",
+            "Rd7"
+          ],
+          "best_depth": 17,
+          "played_depth": 19,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 406,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 02",
+      "color": "white",
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "screened_moves": 18,
+      "result": "draw",
+      "best_screened_advantage_cp": 513,
+      "first_costly_move": {
+        "ply": 35,
+        "fen": "3r2k1/3n1p1p/2pR2p1/8/b3p3/4B1P1/1P2P1BP/6K1 w - - 0 25",
+        "played": "g2e4",
+        "played_san": "Bxe4",
+        "best_move": "g2h3",
+        "best_san": "Bh3",
+        "best_score": {
+          "cp": 510,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 25,
+          "mate": null
+        },
+        "best_pv": [
+          "Bh3",
+          "f5",
+          "Bg5",
+          "Rb8",
+          "Rxd7",
+          "Rxb2",
+          "Bf1",
+          "Bb5",
+          "Kf2",
+          "c5",
+          "Rc7",
+          "c4"
+        ],
+        "played_pv": [
+          "Bxe4",
+          "Re8",
+          "Rxd7",
+          "Rxe4",
+          "Bh6",
+          "c5",
+          "Ra7",
+          "Be8",
+          "Kf2",
+          "Re5",
+          "h4",
+          "f6"
+        ],
+        "best_depth": 20,
+        "played_depth": 19,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 485,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -66,
+        "nn_static_bad_cp": 56,
+        "original_depth": 3,
+        "probe_depth": 4,
+        "probe_move": "e3g5",
+        "probe_review": {
+          "best_move": "g2h3",
+          "best_san": "Bh3",
+          "best_score": {
+            "cp": 510,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 488,
+            "mate": null
+          },
+          "best_pv": [
+            "Bh3",
+            "f5",
+            "Bg5",
+            "Rb8",
+            "Rxd7",
+            "Rxb2",
+            "Bf1",
+            "Bb5",
+            "Kf2",
+            "c5",
+            "Rc7",
+            "c4"
+          ],
+          "played_pv": [
+            "Bg5",
+            "f6",
+            "Bxf6",
+            "Nxf6",
+            "Rxd8+",
+            "Kf7",
+            "Ra8",
+            "Bb5",
+            "Kf2",
+            "h5",
+            "Ke1",
+            "Ke6"
+          ],
+          "best_depth": 20,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 22,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "white",
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "screened_moves": 11,
+      "result": "loss",
+      "best_screened_advantage_cp": 90,
+      "first_costly_move": {
+        "ply": 21,
+        "fen": "1r1r2k1/1ppbqppp/5n2/2pPp3/p1P1P1P1/2P2N1P/P1Q2PB1/1R1R2K1 w - - 1 19",
+        "played": "g4g5",
+        "played_san": "g5",
+        "best_move": "c2e2",
+        "best_san": "Qe2",
+        "best_score": {
+          "cp": -72,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -267,
+          "mate": null
+        },
+        "best_pv": [
+          "Qe2",
+          "Ne8",
+          "Nd2",
+          "f6",
+          "Qe3",
+          "b6",
+          "Bf1",
+          "Nd6",
+          "Bd3",
+          "Kf7",
+          "Rf1",
+          "g5"
+        ],
+        "played_pv": [
+          "g5",
+          "Ne8",
+          "Qc1",
+          "Nd6",
+          "Ne1",
+          "Nxc4",
+          "f4",
+          "f6",
+          "Nf3",
+          "b5",
+          "gxf6",
+          "gxf6"
+        ],
+        "best_depth": 19,
+        "played_depth": 18,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 195,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -6,
+        "nn_static_bad_cp": -5,
+        "original_depth": 3,
+        "probe_depth": 3,
+        "probe_move": "g4g5",
+        "probe_review": {
+          "best_move": "c2e2",
+          "best_san": "Qe2",
+          "best_score": {
+            "cp": -72,
+            "mate": null
+          },
+          "played_score": {
+            "cp": -267,
+            "mate": null
+          },
+          "best_pv": [
+            "Qe2",
+            "Ne8",
+            "Nd2",
+            "f6",
+            "Qe3",
+            "b6",
+            "Bf1",
+            "Nd6",
+            "Bd3",
+            "Kf7",
+            "Rf1",
+            "g5"
+          ],
+          "played_pv": [
+            "g5",
+            "Ne8",
+            "Qc1",
+            "Nd6",
+            "Ne1",
+            "Nxc4",
+            "f4",
+            "f6",
+            "Nf3",
+            "b5",
+            "gxf6",
+            "gxf6"
+          ],
+          "best_depth": 19,
+          "played_depth": 18,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 195,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": false
+      }
+    },
+    {
+      "opening": "Frozen book start 03",
+      "color": "black",
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "screened_moves": 23,
+      "result": "draw",
+      "best_screened_advantage_cp": 76,
+      "first_costly_move": null
+    },
+    {
+      "opening": "Frozen book start 04",
+      "color": "black",
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "screened_moves": 62,
+      "result": "draw",
+      "best_screened_advantage_cp": 545,
+      "first_costly_move": {
+        "ply": 124,
+        "fen": "8/8/4R3/6k1/3PKp2/8/6rP/8 b - - 0 68",
+        "played": "g2h2",
+        "played_san": "Rxh2",
+        "best_move": "g2e2",
+        "best_san": "Re2+",
+        "best_score": {
+          "cp": 653,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "best_pv": [
+          "Re2+",
+          "Kd5",
+          "Rxe6",
+          "Kxe6",
+          "f3",
+          "d5",
+          "f2",
+          "h4+",
+          "Kg4",
+          "d6",
+          "f1=Q",
+          "h5"
+        ],
+        "played_pv": [
+          "Rxh2",
+          "d5",
+          "Re2+",
+          "Kf3",
+          "Rxe6",
+          "dxe6",
+          "Kf6",
+          "Kxf4",
+          "Kxe6",
+          "Ke4",
+          "Kf6",
+          "Kd5"
+        ],
+        "best_depth": 33,
+        "played_depth": 36,
+        "analysis_seconds_per_search": 0.4,
+        "cp_loss": 653,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "nn_static_good_cp": -159,
+        "nn_static_bad_cp": -43,
+        "original_depth": 5,
+        "probe_depth": 6,
+        "probe_move": "g2e2",
+        "probe_review": {
+          "best_move": "g2e2",
+          "best_san": "Re2+",
+          "best_score": {
+            "cp": 653,
+            "mate": null
+          },
+          "played_score": {
+            "cp": 653,
+            "mate": null
+          },
+          "best_pv": [
+            "Re2+",
+            "Kd5",
+            "Rxe6",
+            "Kxe6",
+            "f3",
+            "d5",
+            "f2",
+            "h4+",
+            "Kg4",
+            "d6",
+            "f1=Q",
+            "h5"
+          ],
+          "played_pv": [
+            "Re2+",
+            "Kd5",
+            "Rxe6",
+            "Kxe6",
+            "f3",
+            "d5",
+            "f2",
+            "h4+",
+            "Kg4",
+            "d6",
+            "f1=Q",
+            "h5"
+          ],
+          "best_depth": 33,
+          "played_depth": 33,
+          "analysis_seconds_per_search": 0.4,
+          "cp_loss": 0,
+          "allows_mate": false,
+          "missed_forced_mate": false
+        },
+        "extra_time_recovered": true
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "good_fen": "rnbq1rk1/pp2bppp/2p1pn2/2Pp4/3P1N2/P1N1P3/1P3PPP/R1BQKB1R w KQ - 0 9",
+      "bad_fen": "rnbq1rk1/ppp1bp1p/4pn2/2Pp2p1/3P1N2/P1N1P3/1P3PPP/R1BQKB1R w KQ - 0 9",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 0,
+      "cp_loss": 127
+    },
+    {
+      "good_fen": "r1bqk2r/pppp1ppp/5n2/4p3/2BnP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "bad_fen": "r1bqk2r/pppp1ppp/2n2n2/8/2BpP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 1,
+      "cp_loss": 176
+    },
+    {
+      "good_fen": "r1bqk2r/pppp1ppp/5n2/4n3/2Bp4/8/PPP2PPP/RNBQR1K1 b kq - 1 8",
+      "bad_fen": "r1bqk2r/pppp1ppp/5n2/4n3/2BQ4/8/PPP2PPP/RNB2RK1 b kq - 0 8",
+      "sign": 1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 2,
+      "cp_loss": 301
+    },
+    {
+      "good_fen": "r1b4r/1p2kppp/p1npp3/2q5/N3P3/3Q1N2/PPP2PPP/R2R2K1 b - - 3 15",
+      "bad_fen": "r1b4r/1p2kppp/p1npp3/2q5/4P3/P1NQ1N2/1PP2PPP/R2R2K1 b - - 0 15",
+      "sign": 1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 3,
+      "cp_loss": 156
+    },
+    {
+      "good_fen": "rnr3k1/pbp2ppp/1p1q1b2/3p4/3P4/PQNBPN2/1P3PPP/R3K2R w KQ - 12 16",
+      "bad_fen": "r4rk1/pbpn1ppp/1p1q1b2/3p4/3P4/PQNBPN2/1P3PPP/R3K2R w KQ - 12 16",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 4,
+      "cp_loss": 102
+    },
+    {
+      "good_fen": "r1b1k2r/1p1n1pp1/4p3/p1P3p1/2P5/2QBPN2/q4PPP/1R2K2R b Kkq - 1 16",
+      "bad_fen": "r1b1k2r/1p1n1pp1/4p3/pQP3p1/2P5/3BPN2/q4PPP/1R2K2R b Kkq - 1 16",
+      "sign": 1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 5,
+      "cp_loss": 541
+    },
+    {
+      "good_fen": "5rk1/1R4p1/5p2/4p3/2b1P3/r4N1P/p4PP1/R3K3 w - - 2 29",
+      "bad_fen": "4k2r/1R4p1/5p2/4p3/2b1P3/1r3N1P/p4PP1/R3K3 w k - 2 29",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 6,
+      "cp_loss": 239
+    },
+    {
+      "good_fen": "r2qkb1r/p2p1ppp/1pn1pn2/8/2Ppb3/1Q2BNP1/PP1NPPBP/R3K2R w KQkq - 0 10",
+      "bad_fen": "r2qk2r/p2p1ppp/1pnbpn2/2p5/2PPb3/1Q2BNP1/PP1NPPBP/R3K2R w KQkq - 6 10",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 7,
+      "cp_loss": 192
+    },
+    {
+      "good_fen": "3r2k1/p1pq2pp/1pb1r3/3p1p2/PP1P4/4PBP1/2Q2P1P/R1R3K1 b - - 0 26",
+      "bad_fen": "3r2k1/p1pq2pp/1pb1r3/3p1Q2/1P1P4/4PBP1/P4P1P/R1R3K1 b - - 0 26",
+      "sign": 1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 8,
+      "cp_loss": 255
+    },
+    {
+      "good_fen": "r3r1k1/pbpq1ppp/1p6/3pb3/3P4/2Q1PBP1/PP3P1P/2R2RK1 w - - 0 17",
+      "bad_fen": "2r1r1k1/pbpq1ppp/1p1b4/3pB3/3P4/2Q1PBP1/PP3P1P/2R2RK1 w - - 3 17",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 9,
+      "cp_loss": 115
+    },
+    {
+      "good_fen": "r4rk1/pp3pbp/q2Nbnp1/4p3/2P1P3/3QB3/PP2BPPP/R4RK1 w - - 1 14",
+      "bad_fen": "r4rk1/pp3pbp/3Nbnp1/4p3/1qP1P3/3QB3/PP2BPPP/R4RK1 w - - 1 14",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 10,
+      "cp_loss": 340
+    },
+    {
+      "good_fen": "rn1q1rk1/p1p1bpp1/1pb1p2p/4P3/3P4/2N2N2/PPB2PPP/R2QK2R b KQ - 2 13",
+      "bad_fen": "rn1q1rk1/p1p1bpp1/1pb1p2p/4P3/3PB3/2N2N2/PP3PPP/R2QK2R b KQ - 2 13",
+      "sign": 1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 11,
+      "cp_loss": 188
+    },
+    {
+      "good_fen": "6k1/p1p1rpp1/1pRr3p/8/3Pp3/4P3/PP2KPPP/7R w - - 3 21",
+      "bad_fen": "3r1k2/p1p1rpp1/1pR4p/8/3Pp3/4P3/PP2KPPP/7R w - - 3 21",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 12,
+      "cp_loss": 120
+    },
+    {
+      "good_fen": "2kr3r/ppp2ppp/2n5/2b5/2PP2q1/1Q3N2/PB3PPP/R2KR3 w - - 1 16",
+      "bad_fen": "2kr1b1r/ppp2ppp/8/8/2Pn2q1/1Q3N2/PB3PPP/R2KR3 w - - 0 16",
+      "sign": -1,
+      "source": "/Users/brianyin/Downloads/chessengine/ml/artifacts/aligned-v11/old-v8-verified-20/report.json",
+      "game": 13,
+      "cp_loss": 210
+    },
+    {
+      "good_fen": "r4rk1/p1pqbppp/bp2p3/4P1N1/3n1P2/2N5/PP3PBP/R2QR1K1 w - - 0 15",
+      "bad_fen": "r4rk1/p1pqbppp/1pn1p3/4P1N1/2bP1P2/2N5/PP3PBP/R2QR1K1 w - - 3 15",
+      "sign": -1,
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "game": 15,
+      "cp_loss": 406
+    },
+    {
+      "good_fen": "3r2k1/3n1p1p/2pR2p1/8/b3p3/4B1PB/1P2P2P/6K1 b - - 1 25",
+      "bad_fen": "3r2k1/3n1p1p/2pR2p1/8/b3B3/4B1P1/1P2P2P/6K1 b - - 0 25",
+      "sign": 1,
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "game": 16,
+      "cp_loss": 485
+    },
+    {
+      "good_fen": "1r1r2k1/1ppbqppp/5n2/2pPp3/p1P1P1P1/2P2N1P/P3QPB1/1R1R2K1 b - - 2 19",
+      "bad_fen": "1r1r2k1/1ppbqppp/5n2/2pPp1P1/p1P1P3/2P2N1P/P1Q2PB1/1R1R2K1 b - - 0 19",
+      "sign": 1,
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "game": 17,
+      "cp_loss": 195
+    },
+    {
+      "good_fen": "8/8/4R3/6k1/3PKp2/8/4r2P/8 w - - 1 69",
+      "bad_fen": "8/8/4R3/6k1/3PKp2/8/7r/8 w - - 0 69",
+      "sign": -1,
+      "source": "ml/artifacts/targeted-v10/v10-trained/report.json",
+      "game": 19,
+      "cp_loss": 653
+    }
+  ],
+  "stockfish": {
+    "name": "Stockfish 19",
+    "author": "the Stockfish developers (see AUTHORS file)"
+  },
+  "summary": {
+    "games": 20,
+    "draws_reviewed": 7,
+    "draws_with_confirmed_conversion_loss": 5,
+    "confirmed": 18,
+    "extra_time_recovered": 4,
+    "wrong_static_ranking": 13
+  }
+}

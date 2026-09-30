@@ -1,0 +1,89 @@
+{
+  "policy": "Training mistake diagnostics are not generalization evidence. Same .25 quiet weight on all comparisons; no search or latency measurements.",
+  "models": {
+    "previous": {
+      "confirmed_training_pairs": {
+        "pairs": 74,
+        "correct": 41,
+        "accuracy": 0.5540540540540541,
+        "hard_pairs": 35,
+        "hard_correct": 2,
+        "previously_correct_regressions": 0
+      },
+      "recent_confirmed_training_pairs": {
+        "pairs": 41,
+        "correct": 21,
+        "accuracy": 0.5121951219512195,
+        "hard_pairs": 22,
+        "hard_correct": 2,
+        "previously_correct_regressions": 0
+      },
+      "validation_pairs": {
+        "pairs": 694,
+        "correct": 495,
+        "accuracy": 0.7132564841498559,
+        "hard_pairs": 209,
+        "hard_correct": 14,
+        "previously_correct_regressions": 4
+      },
+      "test_pairs": {
+        "pairs": 683,
+        "correct": 512,
+        "accuracy": 0.7496339677891655,
+        "hard_pairs": 181,
+        "hard_correct": 24,
+        "previously_correct_regressions": 14
+      },
+      "inference_parity": {
+        "positions": 512,
+        "different_integer_scores": 0,
+        "max_difference_cp": 0
+      },
+      "color_symmetry": {
+        "max_error_cp": 0
+      }
+    },
+    "candidate": {
+      "confirmed_training_pairs": {
+        "pairs": 74,
+        "correct": 43,
+        "accuracy": 0.581081081081081,
+        "hard_pairs": 35,
+        "hard_correct": 4,
+        "previously_correct_regressions": 0
+      },
+      "recent_confirmed_training_pairs": {
+        "pairs": 41,
+        "correct": 21,
+        "accuracy": 0.5121951219512195,
+        "hard_pairs": 22,
+        "hard_correct": 2,
+        "previously_correct_regressions": 0
+      },
+      "validation_pairs": {
+        "pairs": 694,
+        "correct": 494,
+        "accuracy": 0.7118155619596542,
+        "hard_pairs": 209,
+        "hard_correct": 17,
+        "previously_correct_regressions": 8
+      },
+      "test_pairs": {
+        "pairs": 683,
+        "correct": 520,
+        "accuracy": 0.7613469985358712,
+        "hard_pairs": 181,
+        "hard_correct": 32,
+        "previously_correct_regressions": 14
+      },
+      "inference_parity": {
+        "positions": 512,
+        "different_integer_scores": 0,
+        "max_difference_cp": 0
+      },
+      "color_symmetry": {
+        "max_error_cp": 0
+      }
+    }
+  }
+}

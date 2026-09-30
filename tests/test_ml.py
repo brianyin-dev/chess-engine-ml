@@ -34,6 +34,43 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_validation_ranking_uses_integer_search_scores(self):
+        import torch
+        from ml.train import ranking_accuracy
+        class SubCentipawnModel(torch.nn.Module):
+            def forward(self, x):
+                return x[:, 0] / 400
+        # A positive float margin becomes a tie after runtime rounding.
+        tensors = (torch.tensor([[.4]]), torch.tensor([[0.]]), torch.tensor([0.]),
+                   torch.tensor([1.]), torch.tensor([1.]), torch.tensor([1.]), torch.tensor([1.]))
+        loader = torch.utils.data.DataLoader(torch.utils.data.TensorDataset(*tensors))
+        self.assertEqual(ranking_accuracy(SubCentipawnModel(), loader), 0.)
+
+    def test_pawn_relationship_masks_match_geometric_definition(self):
+        from ml.model import relationship_features
+        import random
+        rng = random.Random(1200250)
+        board = chess.Board()
+        for _ in range(120):
+            values = relationship_features(board)
+            for color_index, color in enumerate((chess.WHITE, chess.BLACK)):
+                direction = 1 if color else -1
+                pawns = list(board.pieces(chess.PAWN, color))
+                enemy = list(board.pieces(chess.PAWN, not color))
+                king = board.king(color)
+                passed = sum(not any(abs(chess.square_file(p) - chess.square_file(e)) <= 1
+                                     and direction * (chess.square_rank(e) - chess.square_rank(p)) > 0
+                                     for e in enemy) for p in pawns)
+                shield = sum(king is not None and abs(chess.square_file(p) - chess.square_file(king)) <= 1
+                             and 0 < direction * (chess.square_rank(p) - chess.square_rank(king)) <= 2
+                             for p in pawns)
+                self.assertEqual(values[color_index * 49 + 47], passed / 8)
+                self.assertEqual(values[color_index * 49 + 48], shield / 8)
+            if board.is_game_over():
+                board = chess.Board()
+            else:
+                board.push(rng.choice(list(board.legal_moves)))
+
     def test_mistake_importance_is_training_only(self):
         import json
         from ml.train import pair_loader
@@ -288,6 +325,34 @@ class RelationshipEvaluatorTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, 'ML dependencies are optional')
 class WeightedCorrectionTests(unittest.TestCase):
+    def test_training_blend_matches_runtime_for_quiet_and_tactical_pairs(self):
+        import json
+        import torch
+        from ml.train import pair_loader
+        from ml.evaluator import NeuralEvaluator
+        from ml.dataset import ChessEvalDataset
+        from ml.model import SCORE_SCALE
+        capture = chess.Board()
+        capture.push_uci('e2e4'); capture.push_uci('d7d5')
+        quiet = chess.Board()
+        with tempfile.TemporaryDirectory() as directory:
+            evaluator = NeuralEvaluator(self.checkpoint(directory), .25, quiet_only=True)
+            path = Path(directory) / 'pairs.jsonl'
+            path.write_text(json.dumps({'good_fen': capture.fen(), 'bad_fen': quiet.fen(), 'sign': 1}) + '\n')
+            good, bad, base, sign, good_factor, bad_factor, _ = next(iter(
+                pair_loader(path, False, target_mode='residual', correction_weight=.25, quiet_only=True)))
+            self.assertEqual(good_factor.item(), 0)
+            self.assertEqual(bad_factor.item(), .25)
+            with torch.inference_mode():
+                gap = sign * (good_factor * evaluator.model(good) - bad_factor * evaluator.model(bad) + base) * SCORE_SCALE
+            self.assertAlmostEqual(gap.item(), evaluator(capture) - evaluator(quiet), places=3)
+            data = ChessEvalDataset([{'fen': b.fen(), 'score_cp': evaluator(b), 'game_id': i}
+                                    for i, b in enumerate([capture, quiet])],
+                                   correction_weight=.25, quiet_only=True)
+            with torch.inference_mode():
+                predicted = data.output_factors * evaluator.model(data.features)
+            self.assertTrue(torch.allclose(predicted, data.targets, atol=1e-6))
+
     def test_leaf_fast_path_preserves_scores_and_skips_terminal_recheck(self):
         from ml.evaluator import NeuralEvaluator
         from engine.search import search

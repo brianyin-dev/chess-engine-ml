@@ -1,6 +1,8 @@
 """Train a compact evaluator and compare held-out error with the heuristic."""
 
 import argparse
+import copy
+import math
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -14,11 +16,11 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 from engine.evaluation import evaluate
-from ml.dataset import ChessEvalDataset, load_rows
+from ml.dataset import ChessEvalDataset, load_rows, correction_factor
 from ml.model import ChessNet, INPUT_SIZE, MODEL_VERSION, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, SCORE_SCALE, board_to_tensor, material_score
 
 
-def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material"):
+def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material", correction_weight=1., quiet_only=False):
     records = [json.loads(l) for l in path.read_text().splitlines() if l]
     if not records:
         raise ValueError('pair split is empty')
@@ -33,15 +35,20 @@ def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material"):
     importance = torch.tensor([r.get('training_weight', 1) if shuffle else 1 for r in records], dtype=torch.float32)
     if not torch.isfinite(importance).all() or (importance < 1).any():
         raise ValueError('pair training weights must be finite and at least one')
-    return DataLoader(torch.utils.data.TensorDataset(*tensors, importance), batch_size=64, shuffle=shuffle)
+    good_factors = torch.tensor([correction_factor(b, correction_weight, quiet_only) for b in good])
+    bad_factors = torch.tensor([correction_factor(b, correction_weight, quiet_only) for b in bad])
+    return DataLoader(torch.utils.data.TensorDataset(*tensors, good_factors, bad_factors, importance), batch_size=64, shuffle=shuffle)
 
 
 def ranking_accuracy(model, loader):
     correct = total = 0
     model.eval()
     with torch.inference_mode():
-        for good, bad, base_difference, sign, _ in loader:
-            delta = sign * (model(good) - model(bad) + base_difference)
+        for good, bad, base_difference, sign, good_factors, bad_factors, _ in loader:
+            # Runtime rounds each endpoint to integer centipawns before search.
+            delta = sign * (torch.round(good_factors * model(good) * SCORE_SCALE)
+                            - torch.round(bad_factors * model(bad) * SCORE_SCALE)
+                            + torch.round(base_difference * SCORE_SCALE))
             correct += (delta > 0).sum().item()
             total += len(delta)
     return correct / total
@@ -51,8 +58,9 @@ def mean_absolute_error_cp(model, dataset, batch_size: int) -> float:
     model.eval()
     total = 0.0
     with torch.inference_mode():
-        for features, targets in DataLoader(dataset, batch_size=batch_size):
-            total += (model(features) - targets).abs().sum().item() * SCORE_SCALE
+        encoded = torch.utils.data.TensorDataset(dataset.features, dataset.targets, dataset.output_factors)
+        for features, targets, factors in DataLoader(encoded, batch_size=batch_size):
+            total += (factors * model(features) - targets).abs().sum().item() * SCORE_SCALE
     return total / len(dataset)
 
 
@@ -60,8 +68,9 @@ def heldout_breakdown(model, dataset, rows, batch_size: int, target_mode: str) -
     model.eval()
     predictions = []
     with torch.inference_mode():
-        for features, _ in DataLoader(dataset, batch_size=batch_size):
-            predictions.extend(model(features).tolist())
+        encoded = torch.utils.data.TensorDataset(dataset.features, dataset.output_factors)
+        for features, factors in DataLoader(encoded, batch_size=batch_size):
+            predictions.extend((factors * model(features)).tolist())
     groups = {"early_ply_8_29": [], "middle_ply_30_59": [],
               "late_ply_60_plus": [], "low_material_12_pieces_or_fewer": [],
               "search_stand_pat": [], "self_play": []}
@@ -104,7 +113,18 @@ def main():
     parser.add_argument('--hard-pair-weight', type=float, default=1)
     parser.add_argument('--selection', choices=('combined', 'ranking'), default='combined')
     parser.add_argument('--initial-checkpoint', type=Path)
+    parser.add_argument('--correction-weight', type=float, default=1., help='Train the same deployed residual blend')
+    parser.add_argument('--quiet-only', action='store_true', help='Mask the correction exactly as inference does')
+    parser.add_argument('--score-weight', type=float, default=1., help='Weight of absolute score supervision')
+    parser.add_argument('--anchor-weight', type=float, default=0., help='Penalize correction drift from the initial checkpoint')
+    parser.add_argument('--protected-pair-weight', type=float, default=1., help='Extra weight for teacher rankings the heuristic already gets right')
     args = parser.parse_args()
+    if (not all(math.isfinite(v) and v >= 0 for v in (args.score_weight, args.anchor_weight))
+            or not math.isfinite(args.protected_pair_weight) or args.protected_pair_weight < 1
+            or args.anchor_weight and not args.initial_checkpoint):
+        parser.error('finite nonnegative loss weights; protection >=1; anchoring requires initial checkpoint')
+    if not 0 < args.correction_weight <= 1 or ((args.quiet_only or args.correction_weight != 1) and args.target != 'residual'):
+        parser.error('finite correction weight in (0,1], with residual mode for blending/gating')
     if args.rank_margin_cp <= 0 or args.hard_pair_weight < 1:
         parser.error('positive rank margin and hard-pair weight at least one required')
     if args.selection == 'ranking' and not args.pairs:
@@ -136,7 +156,7 @@ def main():
         if any(canonical[a] & canonical[b] for a, b in
                (('train', 'val'), ('train', 'test'), ('val', 'test'))):
             raise ValueError('color-mirrored or equivalent positions overlap across splits')
-    datasets = {split: ChessEvalDataset(data, args.target, input_size) for split, data in rows.items()}
+    datasets = {split: ChessEvalDataset(data, args.target, input_size, args.correction_weight, args.quiet_only) for split, data in rows.items()}
     correction_limit = args.correction_limit_cp
     if correction_limit is None and args.target == 'material':
         correction_limit = 250
@@ -146,15 +166,17 @@ def main():
         if saved.get('input_size') != input_size or saved.get('target_mode') != args.target or saved.get('diagnostic_only'):
             raise ValueError('initial checkpoint must match features/target and cannot be diagnostic-only')
         model.load_state_dict(saved['state_dict'])
+    anchor = copy.deepcopy(model).eval().requires_grad_(False) if args.anchor_weight else None
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
     loss_fn = nn.HuberLoss(delta=1.0)
     weights = [args.search_weight if 'search' in r.get('source', '') else 1
                for r in rows['train']]
     sampler = (torch.utils.data.WeightedRandomSampler(weights, len(weights), replacement=True)
                if args.search_weight != 1 else None)
-    loader = DataLoader(datasets["train"], batch_size=args.batch_size,
+    training_tensors = torch.utils.data.TensorDataset(datasets['train'].features, datasets['train'].targets, datasets['train'].output_factors)
+    loader = DataLoader(training_tensors, batch_size=args.batch_size,
                         shuffle=sampler is None, sampler=sampler)
-    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train', input_size, args.target)
+    pair_loaders = ({s: pair_loader(args.pairs / f'{s}.jsonl', s == 'train', input_size, args.target, args.correction_weight, args.quiet_only)
                     for s in ('train', 'val', 'test')} if args.pairs else None)
     if args.pairs:
         pair_records = {s: [json.loads(l) for l in (args.pairs / f'{s}.jsonl').read_text().splitlines()]
@@ -174,18 +196,35 @@ def main():
             raise ValueError('candidate pairs overlap across data splits')
     best_state, best_key, stale = None, None, 0
     history = []
+    if args.initial_checkpoint:
+        initial_mae = mean_absolute_error_cp(model, datasets['val'], args.batch_size)
+        initial_rank = ranking_accuracy(model, pair_loaders['val']) if pair_loaders else None
+        initial_score = initial_mae + 100 * (1 - initial_rank) if initial_rank is not None else initial_mae
+        best_key = ((1 - initial_rank, initial_mae) if args.selection == 'ranking' else (initial_score, 0))
+        best_state = {key: value.detach().clone() for key, value in model.state_dict().items()}
+        history.append({'epoch': 0, 'val_mae_cp': round(initial_mae, 2), 'val_rank_accuracy': initial_rank,
+                        'selection_score': initial_score, 'selection_key': best_key})
     for epoch in range(1, args.epochs + 1):
         model.train()
         pairs = cycle(pair_loaders['train']) if pair_loaders else None
-        for features, targets in loader:
+        for features, targets, factors in loader:
             optimizer.zero_grad()
-            loss = loss_fn(model(features), targets)
+            predictions = factors * model(features)
+            loss = args.score_weight * loss_fn(predictions, targets)
+            if anchor is not None:
+                with torch.no_grad():
+                    reference = factors * anchor(features)
+                loss = loss + args.anchor_weight * nn.functional.mse_loss(predictions, reference)
             if pairs is not None:
-                good, bad, base_difference, sign, importance = next(pairs)
-                delta = sign * (model(good) - model(bad) + base_difference)
-                pair_weights = importance * torch.where(sign * base_difference <= 0, args.hard_pair_weight, 1.)
+                good, bad, base_difference, sign, good_factors, bad_factors, importance = next(pairs)
+                delta = sign * (good_factors * model(good) - bad_factors * model(bad) + base_difference)
+                pair_weights = importance * torch.where(sign * base_difference <= 0, args.hard_pair_weight, args.protected_pair_weight)
+                if correction_limit is not None:
+                    attainable = sign * base_difference + correction_limit / SCORE_SCALE * (good_factors + bad_factors)
+                    pair_weights = pair_weights * (attainable > args.rank_margin_cp / SCORE_SCALE)
+                pair_weights = pair_weights * ((good_factors + bad_factors) > 0)
                 rank_loss = torch.relu(args.rank_margin_cp / SCORE_SCALE - delta)
-                loss = loss + args.rank_weight * (rank_loss * pair_weights).sum() / pair_weights.sum()
+                loss = loss + args.rank_weight * (rank_loss * pair_weights).sum() / pair_weights.sum().clamp_min(1)
             loss.backward()
             optimizer.step()
         train_mae = mean_absolute_error_cp(model, datasets["train"], args.batch_size)
@@ -212,6 +251,8 @@ def main():
                 "score_scale": SCORE_SCALE, "target_mode": args.target,
                 'correction_limit_cp': correction_limit,
                 'color_consistent': args.color_consistent,
+                'training_correction_weight': args.correction_weight,
+                'training_quiet_only': args.quiet_only,
                 "state_dict": best_state}, args.checkpoint)
     test_mae = mean_absolute_error_cp(model, datasets["test"], args.batch_size)
     heuristic_mae = mean(abs(evaluate(chess.Board(row["fen"])) - row["score_cp"])
@@ -224,6 +265,9 @@ def main():
         "target_mode": args.target,
         'correction_limit_cp': correction_limit,
         'color_consistent': args.color_consistent,
+        'training_correction_weight': args.correction_weight,
+        'training_quiet_only': args.quiet_only,
+        'ranking_policy': 'Exclude margins outside bounded correction capacity; regression, ranking, and validation use deployed blend/gate.',
         "data_manifest_sha256": hashlib.sha256((args.data / "manifest.json").read_bytes()).hexdigest(),
         "rows": {split: len(data) for split, data in rows.items()},
         "best_epoch": min(history, key=lambda item: item['selection_key'])["epoch"],
@@ -231,6 +275,8 @@ def main():
         'selection_policy': ('validation ranking accuracy, then MAE for ties' if args.selection == 'ranking'
                              else 'validation MAE + 100cp times pair error rate' if pair_loaders else 'validation MAE'),
         'rank_margin_cp': args.rank_margin_cp, 'hard_pair_weight': args.hard_pair_weight,
+        'score_weight': args.score_weight, 'anchor_weight': args.anchor_weight,
+        'protected_pair_weight': args.protected_pair_weight,
         'initial_checkpoint_sha256': hashlib.sha256(args.initial_checkpoint.read_bytes()).hexdigest() if args.initial_checkpoint else None,
         'test_rank_accuracy': ranking_accuracy(model, pair_loaders['test']) if pair_loaders else None,
         'rank_weight': args.rank_weight if pair_loaders else 0,

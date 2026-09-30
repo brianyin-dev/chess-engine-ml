@@ -387,4 +387,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from benchmarks.cpu_lock import exclusive_cpu
+    with exclusive_cpu('strength benchmark'):
+        main()
