@@ -1,0 +1,6 @@
+{
+  "pilot_is_development": "Use bothdemonstratedrook repairsfortraining, includingformerpilotvalcase. Exclude their wholefamilies fromnewvalidation/test. Originalpilot isnot afinalholdout.",
+  "data": "Max128newquiet64kboundedteacher targets/repair pluscriticalPVleaves;512priorpredictionretention rows/512priorrankpairs; caseweights8/32. Priorcanonicalaliases excluded; heldoutrootaliases removed fromretention.",
+  "selection": "Freeze16novel validationroots otherfamilies,32priornoveltestroots plus1pilot-testfatalroot. Pickamong6fixedepochs usingvalidationsearched choices, thenretentionregressions, then trainingrootrepairs. Finalunseen testonlyonce.",
+  "gate": "Require lowermean256knodeteacher regret thanunchangedv22 andnotworseheuristic, noextra losingtransitions/150cpblunders before ANY newgamepilot. Noadaptive pilotbypass."
+}

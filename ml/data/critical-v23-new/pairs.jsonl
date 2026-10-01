@@ -1,0 +1,1 @@
+{"good_fen": "5k2/5p2/3P3p/pp6/3RP3/1P1K4/r7/8 w - - 0 53", "bad_fen": "6k1/5p2/3P3p/pp6/3RP3/1P1K4/r7/8 b - - 0 52", "root_fen": "6k1/5p2/7p/pp1P4/3RP3/1P6/P1K5/4r3 b - - 15 50", "sign": -1, "game_id": 106656074347096, "cp_loss": 14, "heuristic_gap_cp": 13, "source": "searched_bounded_repair", "training_weight": 32}

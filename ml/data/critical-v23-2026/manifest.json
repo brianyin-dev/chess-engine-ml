@@ -1,0 +1,14 @@
+{
+  "target_games": 2,
+  "target_families": [
+    106656074347096,
+    136933115253652
+  ],
+  "new_rows": 256,
+  "new_pairs": 1,
+  "retention_rows": 512,
+  "retention_pairs": 512,
+  "validation_roots": 16,
+  "test_roots": 32,
+  "policy": "All demonstrated repairpilot cases aredevelopment/train (includingformerpilotval). Bothfamilies removed fromnewvalidation/test. Newteacher targets areFEASIBLE64k boundedoracle scores, withrawSFcp/mate preserved; no claim ofSFscorecalibration.512v22prediction-retention rows and512legacyteacher pairs. WeightedCFrows8,pairs32. Canonicalnewlabels excluded fromprior; rootheldouts excluded fromretention. Currentfamilies isolated, legacyfamily provenance incomplete."
+}

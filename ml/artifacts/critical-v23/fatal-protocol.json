@@ -1,0 +1,6 @@
+{
+  "reason": "User prioritizes actual -150 crossings. Earlier diagnostics also found significant positive-score drops. Keep both, scan firstconfirmedavoidable losing-state transition separately.",
+  "depth": "Use matched completed depth from the ORIGINAL played move,clamp1..4. Compare three evaluators atsame complete depth, thenreuse depth3/250ms/4 ifsame root. This matters because most250ms mistakes onlycompleted1or2, where a boundedNN could compensate forlimitedsearch.",
+  "oracle": "64knode teacher at everyactualquietstaticcall, same25% gate/250cp bound/rounding; mate labels map todirection ofmaxallowedshift,notinfinite NN values. Force rootteacherbest/baselinechoice withscore-bearing tracedleaf. Confirm resulting rootmove256knodes. Root gap>126rulesoutreversal onthatfixedtree; smaller gap alone isnot enough.",
+  "training_eligibility": "Onlytrainingfamily cases where boundedteacher improves overcurrentNN atmatcheddepth by>=50cp andavoids the losing-stateflag, or removesnewlyallowedmate. Require canonicalnewquietlabels andteacherconfirmation ofleafpair. Nooracle timings arestrength claims."
+}

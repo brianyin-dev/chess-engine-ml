@@ -1,0 +1,35 @@
+{
+  "phase": "completed",
+  "qualified_for_games": false,
+  "unseen_move_summary": {
+    "heuristic": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 82.25,
+      "losing_transitions": 4,
+      "bad_150cp_moves": 5
+    },
+    "old25": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 82.25,
+      "losing_transitions": 4,
+      "bad_150cp_moves": 5
+    },
+    "v22": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 82.25,
+      "losing_transitions": 4,
+      "bad_150cp_moves": 5
+    },
+    "candidate": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 85.125,
+      "losing_transitions": 4,
+      "bad_150cp_moves": 5
+    }
+  },
+  "app_promoted": false
+}

@@ -1,0 +1,7 @@
+{
+  "threshold": "Scores fromourmover POV. First confirmed competitive mistake/loss: crossing>-150to<=-150 with>=50cp drop, or>=150cp regret, allowsmate ormissedforcedmate; bestcontinuation must>=-150(orpositive mate). -150 is riskflag, notproof oflostgame. Already losingpositions areseparate,notnewmistakes.",
+  "teacher": "16knode screenallcurrentmoves untilfirstqualified; confirm256knodes same-rootbest andforcedplayed, last-exactPV; fullgamehistory.",
+  "probes": "Allthree exactdepth3, then250ms/depth8; alternate evaluator order bycase beforeteacher scoring256k. Fixeddepth4 followupdiagnoses horizons; notpurecausal proof.",
+  "bounded": "ForceHCE better/playedrootmoves atdepth3 withtracedquietscore-bearing leaves. Globalroot gap>2ceil62.5=126 cannotbereversed byanyboundedquiet25% evaluator onthe same complete fixed-depth minimax tree. Gap<=126onlypermits,notproves. Test actual8knode boundedteacher leafintervention, full depth3, thenconfirmitsmove256k. Teacher oracle isdiagnostic,notbenchmark/app evaluator.",
+  "split": "Openingpair owns bothcolors; deterministic familyhash60/20/20 inherited. Trainingonlytraincriticalcases; unseenval/test decisionsheldout. Legacyretentioncanonical aliasesfiltered. No gamepilot unlessnewNNimprovesunseen searcheddecisions."
+}
