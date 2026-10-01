@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-09-30T21:29:09.516541+00:00",
+  "reason": "First120games yielded23train/7val/6test pairs. Extend before any model training or validation. Fixed360more starts, minimum50cp confirmed move loss instead of100; probe1500nodes instead of600, depth3cap unchanged. Keep >=100cp cases separately. Keep existing30pair validation/test qualification gate. No candidate outcomes informed this extension.",
+  "pairs_before": {
+    "train": 23,
+    "val": 7,
+    "test": 6
+  },
+  "training_started": false
+}

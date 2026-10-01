@@ -1,0 +1,6 @@
+{
+  "collection": "120 independent common book starts. Teacher self-play48plies after prefix. At each8th ply sample3 quiet real search leaves; compare equal600-node depth3 heuristic0 vsNN25. Screen teacher100ms/confirm400ms, settle12knodes. Train/val/test whole-game splits4/1/1. Exclude all previous data aliases. RetainNN-harm examples and reject unattainable margins only in training.",
+  "training": "Single unchanged v8 architecture candidate: .25 quiet gate, rounded full scores; lr.0001, rank4, anchor2, protected4, hard2, score.02, margin5,20epochs/patience5. Retain prior training labels; new validation selects epoch, new test never selects it.",
+  "qualification": "At least30 fresh pairs each val/test; strictly better validation ranking thanv8, no extra heuristic-correct regressions; test accuracy/regressions not worse. Failure skips games, no tuning on test.",
+  "games": "Eligible candidate:20 paired games vsoptimized0 then20 vsunchanged old nonincremental25, same fresh starts250ms/depth8/max1000plies. Extend vs0 to100total if>=60% vs0 and>50% vsold, allcomplete/errorfree. No externalStockfish games or apppromotion."
+}

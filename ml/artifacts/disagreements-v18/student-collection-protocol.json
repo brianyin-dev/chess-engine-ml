@@ -1,0 +1,5 @@
+{
+  "recorded_at": "2026-09-30T21:35:14.497151+00:00",
+  "reason": "Teacher-play collection yields sparse consequential disagreements. Add actual unchanged heuristic0/oldNN25 self-play before any candidate training or evaluation. Fixed120 fresh bookstarts, seed180003;96plies cap,3000node student move budgets; leafprobes1500nodes/depth3;50cp teacherconfirmation400ms. Preserve source batches separately in metadata. Student colors alternate across openings; whole-game source splits preserved. No candidate trained yet.",
+  "training_started": false
+}

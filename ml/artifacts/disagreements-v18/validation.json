@@ -1,0 +1,62 @@
+{
+  "metrics": {
+    "heuristic": {
+      "val": {
+        "pairs": 41,
+        "correct": 14,
+        "accuracy": 0.34146341463414637,
+        "hard_pairs": 27,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 46,
+        "correct": 16,
+        "accuracy": 0.34782608695652173,
+        "hard_pairs": 30,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    },
+    "old": {
+      "val": {
+        "pairs": 41,
+        "correct": 13,
+        "accuracy": 0.3170731707317073,
+        "hard_pairs": 27,
+        "hard_correct": 4,
+        "previously_correct_regressions": 5
+      },
+      "test": {
+        "pairs": 46,
+        "correct": 19,
+        "accuracy": 0.41304347826086957,
+        "hard_pairs": 30,
+        "hard_correct": 5,
+        "previously_correct_regressions": 2
+      }
+    },
+    "candidate": {
+      "val": {
+        "pairs": 41,
+        "correct": 16,
+        "accuracy": 0.3902439024390244,
+        "hard_pairs": 27,
+        "hard_correct": 7,
+        "previously_correct_regressions": 5
+      },
+      "test": {
+        "pairs": 46,
+        "correct": 23,
+        "accuracy": 0.5,
+        "hard_pairs": 30,
+        "hard_correct": 8,
+        "previously_correct_regressions": 1
+      }
+    }
+  },
+  "eligible_for_games": true,
+  "policy": "At least30 fresh pairs each val/test; strictly better validation ranking thanv8, no extra heuristic-correct regressions; test accuracy/regressions not worse. Failure skips games, no tuning on test.",
+  "checkpoint_sha256": "6ed626ac741fd38d435e0036eb9c0015a6fbadc0be9b0a20f9758e40f1d15355",
+  "manifest_sha256": "e97a6b931457378cbc94d2feb6306028257a3a6fb0603479d0326ce48080e9d3"
+}

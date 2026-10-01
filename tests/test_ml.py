@@ -26,6 +26,17 @@ class DataSplitTests(unittest.TestCase):
         alternate.push_uci('c7c5')
         self.assertNotEqual(key(board.fen()), key(alternate.fen()))
 
+    @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional")
+    def test_student_holdouts_include_both_source_colors(self):
+        from ml.generate_disagreements_v18 import source_split
+        splits = {split: [i for i in range(480, 504) if source_split(i, True) == split]
+                  for split in ('train', 'val', 'test')}
+        self.assertEqual(len(splits['train']), 16)
+        for split in ('val', 'test'):
+            self.assertEqual(len(splits[split]), 4)
+            self.assertEqual({i % 2 for i in splits[split]}, {0, 1})
+        self.assertFalse(set(splits['val']) & set(splits['test']))
+
     def test_whole_games_have_disjoint_splits(self):
         self.assertEqual([split_for_game(i) for i in range(10)].count("train"), 8)
         self.assertEqual(split_for_game(8), "val")

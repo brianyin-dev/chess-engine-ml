@@ -1,0 +1,75 @@
+{
+  "policy": "Fresh weighted book starts, teacher or unchanged student self-play as recorded per batch. Game IDs split4train/1val/1test; quiet actual search leaves sampled, compare equal node-limited depth3 searches with 0% and25% evaluators; budgets and confirmation thresholds recorded per batch. Confirm differences with full-strength Stockfish400ms root analysis; initial threshold100cp, supplemental50cp. settle endpoints12knodes. Exclude all previous score/pair/root canonical aliases. Keep both NN-harm and NN-help examples; no model-based validation/test filtering. Train excludes corrections incapable of5cp margin; holdouts retain them. All endpoints require at leastone active quiet gate. Val/test teacher-disagreement distribution is targeted, not general chess strength. Student validation/test colors alternate by six-game groups; legacy source split normalized before training.",
+  "counts": {
+    "train": {
+      "rows": 263,
+      "pairs": 145
+    },
+    "val": {
+      "rows": 75,
+      "pairs": 41
+    },
+    "test": {
+      "rows": 82,
+      "pairs": 46
+    }
+  },
+  "statistics": {
+    "quiet_search_leaves": 7839,
+    "disagreement_positions": 1522,
+    "confirmed_100cp_disagreements": 456,
+    "NN_harmed_heuristic": 169,
+    "unattainable_train_pairs": 25,
+    "teacher_root_reviews": 5020,
+    "confirmed_disagreements": 684,
+    "confirmed_50_to_99cp_disagreements": 228
+  },
+  "elapsed_seconds": 2629.6091119999764,
+  "seed": 180481,
+  "batches": [
+    {
+      "games": 120,
+      "confirmation_cp": 100,
+      "probe_nodes": 600,
+      "seed": 180001
+    },
+    {
+      "games": 360,
+      "confirmation_cp": 50,
+      "probe_nodes": 1500,
+      "seed": 180121
+    },
+    {
+      "games": 120,
+      "confirmation_cp": 50,
+      "probe_nodes": 1500,
+      "seed": 180481,
+      "play_policy": "student",
+      "game_plies": 96
+    }
+  ],
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "openings_sha256": "3e61da526386f4c2fa1a8243d1aeeba21e941f9fe0cda9e3634a77aa44577bb6",
+  "endpoint_refinement": {
+    "policy": "Fixed existing endpoints reanalyzed at64knodes, retaining last completed exact scored PV; no candidate predictions. Drop mate/saturated labels or settled score gaps below50cp. Root400ms confirmations unchanged. Freeze before training.",
+    "endpoints": 494,
+    "counts": {
+      "train": {
+        "before_pairs": 169,
+        "pairs": 145,
+        "rows": 263
+      },
+      "val": {
+        "before_pairs": 50,
+        "pairs": 41,
+        "rows": 75
+      },
+      "test": {
+        "before_pairs": 57,
+        "pairs": 46,
+        "rows": 82
+      }
+    }
+  },
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5"
+}

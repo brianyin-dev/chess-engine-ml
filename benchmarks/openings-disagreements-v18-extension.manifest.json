@@ -1,0 +1,9 @@
+{
+  "seed": 180002,
+  "pairs": 360,
+  "attempts": 763,
+  "excluded_labeled_position_aliases": 18499,
+  "book_sha256": "fb6e9f3f27bb19a5b2fdefcc441c88ddeae48db61d5f00ad83973abb9f939c87",
+  "openings_sha256": "6194abdce7682470267f6748a071043ceadc2bc7df32ce2d1d359412435cd34a",
+  "selection": "Weighted book sampling; 10/12/14/16 plies; unique FENs; exclude previous benchmark starts. No engine-score or game-result filtering. Each start is played with both colors; no book after the prefix."
+}

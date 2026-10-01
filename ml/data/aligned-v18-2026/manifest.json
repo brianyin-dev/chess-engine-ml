@@ -1,0 +1,7 @@
+{
+  "policy": "Retain prior training labels/rankings. Fresh whole-game disagreement validation/test exclusively; prior validation/test excluded from training. Candidate selection uses fresh validation only; test consulted once for qualification.",
+  "source_manifests": {
+    "/Users/brianyin/Downloads/chessengine/ml/data/aligned-v17-2026": "0d702bcfa989f0fd467dfdad8e8681858129d325ae6d0cf358eef01a344dd4f0",
+    "/Users/brianyin/Downloads/chessengine/ml/data/disagreements-v18-2026": "e97a6b931457378cbc94d2feb6306028257a3a6fb0603479d0326ce48080e9d3"
+  }
+}

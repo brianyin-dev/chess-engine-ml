@@ -1,0 +1,6 @@
+{
+  "recorded_at": "2026-09-30T22:52:41.169590+00:00",
+  "reason": "NN source colors alternate globally, but modulo6 split aliases validation to NNwhite and test to NNblack. Before any training, swap validation/test membership of odd six-game groups in student batch only. Whole-game ownership maintained; no training membership changes or performance-based selection. Initial running collector uses modulo6; normalize after collection. Future collector applies balanced mapping directly.",
+  "student_game_offset": 480,
+  "training_started": false
+}

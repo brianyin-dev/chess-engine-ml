@@ -1,0 +1,21 @@
+{
+  "policy": "Fixed existing endpoints reanalyzed at64knodes, retaining last completed exact scored PV; no candidate predictions. Drop mate/saturated labels or settled score gaps below50cp. Root400ms confirmations unchanged. Freeze before training.",
+  "endpoints": 494,
+  "counts": {
+    "train": {
+      "before_pairs": 169,
+      "pairs": 145,
+      "rows": 263
+    },
+    "val": {
+      "before_pairs": 50,
+      "pairs": 41,
+      "rows": 75
+    },
+    "test": {
+      "before_pairs": 57,
+      "pairs": 46,
+      "rows": 82
+    }
+  }
+}

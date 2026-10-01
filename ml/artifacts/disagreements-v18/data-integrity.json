@@ -1,0 +1,26 @@
+{
+  "canonical_overlap_with_prior": 0,
+  "canonical_cross_split_overlap": 0,
+  "cross_split_game_overlap": 0,
+  "source_games_with_retained_labels": {
+    "train": 90,
+    "val": 24,
+    "test": 27
+  },
+  "frozen_counts": {
+    "train": {
+      "rows": 263,
+      "pairs": 145
+    },
+    "val": {
+      "rows": 75,
+      "pairs": 41
+    },
+    "test": {
+      "rows": 82,
+      "pairs": 46
+    }
+  },
+  "tests_passed": 102,
+  "candidate_trained_at_freeze": false
+}

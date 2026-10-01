@@ -1,0 +1,31 @@
+{
+  "policy": "Swap val/test source games in odd six-game student groups to balance NN source colors before training. Training membership unchanged; teacher batches unchanged.",
+  "before": {
+    "train": {
+      "rows": 304,
+      "pairs": 169
+    },
+    "val": {
+      "rows": 82,
+      "pairs": 46
+    },
+    "test": {
+      "rows": 108,
+      "pairs": 61
+    }
+  },
+  "after": {
+    "train": {
+      "rows": 304,
+      "pairs": 169
+    },
+    "val": {
+      "rows": 90,
+      "pairs": 50
+    },
+    "test": {
+      "rows": 100,
+      "pairs": 57
+    }
+  }
+}

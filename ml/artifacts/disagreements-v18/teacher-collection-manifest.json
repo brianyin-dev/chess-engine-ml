@@ -1,0 +1,45 @@
+{
+  "policy": "Fresh teacher games from weighted book starts. Game IDs split4train/1val/1test; quiet actual search leaves sampled, compare identical node-limited searches with 0% and25% evaluators. Confirm consequential differences with full-strength Stockfish400ms root analysis; settle endpoints12knodes. Exclude all previous score/pair/root canonical aliases. Keep both NN-harm and NN-help examples; no model-based validation/test filtering. Train excludes corrections incapable of5cp margin; holdouts retain them. All endpoints require at leastone active quiet gate. Val/test teacher-disagreement distribution is targeted, not general chess strength.",
+  "counts": {
+    "train": {
+      "rows": 160,
+      "pairs": 88
+    },
+    "val": {
+      "rows": 43,
+      "pairs": 23
+    },
+    "test": {
+      "rows": 45,
+      "pairs": 25
+    }
+  },
+  "statistics": {
+    "quiet_search_leaves": 4881,
+    "disagreement_positions": 840,
+    "confirmed_100cp_disagreements": 244,
+    "NN_harmed_heuristic": 95,
+    "unattainable_train_pairs": 10,
+    "teacher_root_reviews": 2760,
+    "confirmed_disagreements": 368,
+    "confirmed_50_to_99cp_disagreements": 124
+  },
+  "elapsed_seconds": 1697.8072362079984,
+  "seed": 180121,
+  "batches": [
+    {
+      "games": 120,
+      "confirmation_cp": 100,
+      "probe_nodes": 600,
+      "seed": 180001
+    },
+    {
+      "games": 360,
+      "confirmation_cp": 50,
+      "probe_nodes": 1500,
+      "seed": 180121
+    }
+  ],
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "openings_sha256": "6194abdce7682470267f6748a071043ceadc2bc7df32ce2d1d359412435cd34a"
+}
