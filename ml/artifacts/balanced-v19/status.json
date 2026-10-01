@@ -1,0 +1,61 @@
+{
+  "phase": "completed",
+  "matches": {
+    "vs-heuristic": {
+      "games": 20,
+      "completed": 20,
+      "wins": 8,
+      "draws": 5,
+      "losses": 7,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.525,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.525,
+      "timing": {
+        "current": {
+          "moves": 1477,
+          "mean_elapsed": 0.24605554473952415,
+          "max_overrun_seconds": 0.03614970901980996,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1476,
+          "mean_elapsed": 0.24587261871160904,
+          "max_overrun_seconds": 0.1153969579609111,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "vs-old-NN": {
+      "games": 20,
+      "completed": 20,
+      "wins": 9,
+      "draws": 5,
+      "losses": 6,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.575,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.575,
+      "timing": {
+        "current": {
+          "moves": 1111,
+          "mean_elapsed": 0.24545847397818607,
+          "max_overrun_seconds": 0.016606459044851363,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1110,
+          "mean_elapsed": 0.2453886655590346,
+          "max_overrun_seconds": 0.03240241704043001,
+          "fallback_moves": 0
+        }
+      }
+    }
+  },
+  "selected_weight": 0.05,
+  "app_promoted": false
+}

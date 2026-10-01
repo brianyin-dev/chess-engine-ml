@@ -1,0 +1,7 @@
+{
+  "diagnostics": "All24 v18 losses; first100cp/mate mistake confirmed; exactdepth3 and250ms comparisons across HCE/old/v18.",
+  "data": "120new book starts,80train/20val/20testgames,8 roots/game. Ordinary teacher score/rank pairs, old-correct anchors, confirmed losses. Exclude all prior dataset aliases; whole-game isolation.",
+  "training": "One v8-initialized model, samearchitecture,25% quiet rounded hybrid objective,lr.00005,rank2,score.1,anchor8,protected6,hard1,margin5,20epochs/patience5. Prior training retained.",
+  "selection": "Validation only selects epoch and one of5/10/25% correction; accuracy then fewer heuristic regressions then smaller weight. Freeze hashes+weight before one test scoring and games. No test tuning.",
+  "games": "Chosen model20freshpaired games vsHCE0 then20vsoldv8nonincremental25,250ms/depth8/max1000plies. Noapp promotion. NoStockfish opponent matches."
+}

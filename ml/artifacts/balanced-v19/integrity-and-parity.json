@@ -1,0 +1,60 @@
+{
+  "checkpoint_parameters_equal_initial_v8": true,
+  "verified_pgn_counts": {
+    "vs-heuristic": 20,
+    "vs-old-NN": 20
+  },
+  "bounded_correction_attainability": {
+    "0.05": {
+      "val": {
+        "hard_pairs": 4,
+        "potentially_attainable_5cp_margin": 1
+      },
+      "test": {
+        "hard_pairs": 9,
+        "potentially_attainable_5cp_margin": 2
+      }
+    },
+    "0.1": {
+      "val": {
+        "hard_pairs": 4,
+        "potentially_attainable_5cp_margin": 1
+      },
+      "test": {
+        "hard_pairs": 9,
+        "potentially_attainable_5cp_margin": 5
+      }
+    },
+    "0.25": {
+      "val": {
+        "hard_pairs": 4,
+        "potentially_attainable_5cp_margin": 3
+      },
+      "test": {
+        "hard_pairs": 9,
+        "potentially_attainable_5cp_margin": 7
+      }
+    }
+  },
+  "canonical_cross_split_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "source_game_cross_split_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "new_prior_alias_overlap": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "holdout_reviewed_game_alias_overlap": {
+    "val": 0,
+    "test": 0
+  },
+  "inference_positions": 174,
+  "inference_mismatches": []
+}

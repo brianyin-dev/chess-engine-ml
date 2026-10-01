@@ -1,0 +1,9 @@
+{
+  "positions": 24,
+  "distinct_fens": 19,
+  "same_old_v18_move_at_depth3": 24,
+  "v18_worse_than_old_by_at_least50cp_depth3": 0,
+  "v18_worse_than_old_by_at_least50cp_250ms": 2,
+  "v18_250ms_costly_but_depth3_under100cp": 6,
+  "policy": "Selected correlated loss positions. Fixed-depth similarity and timed differences diagnose time-limited search sensitivity; they do not isolate per-evaluation latency from move ordering/pruning or prove causal attribution."
+}

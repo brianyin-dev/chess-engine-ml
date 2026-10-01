@@ -1,0 +1,5 @@
+{
+  "condition": "If first120 source games yield fewer than30 pairs in either fresh split, add fixed120book starts seed190002 before any candidate fitting or scoring. Same label thresholds and source-game split, source ID offset120. No results-based sampling.",
+  "specified_before_candidate_training": true,
+  "initial_process_may_require_resume": true
+}

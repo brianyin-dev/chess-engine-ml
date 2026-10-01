@@ -1,0 +1,28 @@
+{
+  "candidate": {
+    "pairs": 31,
+    "correct": 22,
+    "accuracy": 0.7096774193548387,
+    "hard_pairs": 9,
+    "hard_correct": 0,
+    "previously_correct_regressions": 0
+  },
+  "old": {
+    "pairs": 31,
+    "correct": 25,
+    "accuracy": 0.8064516129032258,
+    "hard_pairs": 9,
+    "hard_correct": 3,
+    "previously_correct_regressions": 0
+  },
+  "heuristic": {
+    "pairs": 31,
+    "correct": 22,
+    "accuracy": 0.7096774193548387,
+    "hard_pairs": 9,
+    "hard_correct": 0,
+    "previously_correct_regressions": 0
+  },
+  "selected_weight": 0.05,
+  "policy": "One frozen configuration; test never chooses weight or epoch."
+}

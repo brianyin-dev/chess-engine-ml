@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "train": {
+      "rows": 13197,
+      "pairs": 4186
+    },
+    "val": {
+      "rows": 101,
+      "pairs": 45
+    },
+    "test": {
+      "rows": 73,
+      "pairs": 31
+    }
+  },
+  "policy": "Retain all previous training examples and broaden with ordinary/old-correct/confirmed cases. Fresh new whole-game val/test only; all prior heldouts excluded from fitting.",
+  "sources": {
+    "/Users/brianyin/Downloads/chessengine/ml/data/aligned-v18-2026": "2625819d9e894a8688cb61af45940c3d5ba9499cf1fb2a1734b26cf9da4179f6",
+    "/Users/brianyin/Downloads/chessengine/ml/data/balanced-v19-new": "d6d9f71d264ebff3b0b6b6a0e37f3a20fada9daed1a16fb7e865ae02868c5b67"
+  }
+}

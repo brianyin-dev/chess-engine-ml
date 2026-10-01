@@ -1,0 +1,25 @@
+{
+  "counts": {
+    "train": {
+      "rows": 437,
+      "pairs": 193,
+      "old_correct_pairs": 155,
+      "confirmed_failure_pairs": 4
+    },
+    "val": {
+      "rows": 101,
+      "pairs": 45,
+      "old_correct_pairs": 40,
+      "confirmed_failure_pairs": 0
+    },
+    "test": {
+      "rows": 73,
+      "pairs": 31,
+      "old_correct_pairs": 25,
+      "confirmed_failure_pairs": 0
+    }
+  },
+  "seed": 190001,
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "policy": "120 independent teacher source games,8 roots/game, whole-game4/1/1split; 64knode exact endpoint labels after tactical settling,200ms root confirmation. All prior data aliases excluded. Ordinary quiet score labels and old-correct rankings retained. Reviewed losses training only."
+}

@@ -1,0 +1,41 @@
+{
+  "weight": 0.05,
+  "quiet_only": true,
+  "candidate_sha256": "fbba93d3e0e8f70706413a10af60f88515c25c3363d2696535a28c4ceb87853b",
+  "validation_metrics": {
+    "0.05": {
+      "pairs": 45,
+      "correct": 41,
+      "accuracy": 0.9111111111111111,
+      "hard_pairs": 4,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "0.1": {
+      "pairs": 45,
+      "correct": 41,
+      "accuracy": 0.9111111111111111,
+      "hard_pairs": 4,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "0.25": {
+      "pairs": 45,
+      "correct": 40,
+      "accuracy": 0.8888888888888888,
+      "hard_pairs": 4,
+      "hard_correct": 0,
+      "previously_correct_regressions": 1
+    }
+  },
+  "old_validation": {
+    "pairs": 45,
+    "correct": 40,
+    "accuracy": 0.8888888888888888,
+    "hard_pairs": 4,
+    "hard_correct": 0,
+    "previously_correct_regressions": 1
+  },
+  "policy": "Validation only selects epoch and one of5/10/25% correction; accuracy then fewer heuristic regressions then smaller weight. Freeze hashes+weight before one test scoring and games. No test tuning.",
+  "frozen_before_test_and_games": true
+}
