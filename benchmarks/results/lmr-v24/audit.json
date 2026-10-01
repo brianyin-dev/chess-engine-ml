@@ -1,0 +1,10 @@
+{
+  "legal_complete_pgn_games": 20,
+  "baseline_matches_commit": "bda71b6",
+  "tests_passed": 116,
+  "app_lmr_enabled": true,
+  "app_budget_ms": 750,
+  "app_depth_cap": 8,
+  "algorithm_changed_after_measurement": false,
+  "post_measurement_changes": "Search docstring documents flag; API enables measured LMR; evaluation unchanged."
+}

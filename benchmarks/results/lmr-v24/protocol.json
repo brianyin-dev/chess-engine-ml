@@ -1,0 +1,12 @@
+{
+  "budgets_seconds": [
+    0.25,
+    0.75,
+    2.0
+  ],
+  "depth_cap": 64,
+  "evaluation": "Unchanged app heuristic, no NN or book after prescribed start.",
+  "lmr": "One-ply reduction, fifth or later move, depth>=3, non-root quiet moves only; exclude check evasions, giving check, preferred/killer/history moves. Full-depth verification for every reduced score above alpha.",
+  "decision": "Keep opt-in only unless fewer critical mistakes on known positions AND >50% score over20 fresh paired games; small pilot cannot establish general strength or Elo.",
+  "baseline_sha256": "456ebcedb5af0dd2a90e64f7d546853d4c29a5c6ed432fbe40aa12b5f1342000"
+}

@@ -152,7 +152,8 @@ def get_move():
         except OpeningBookError as exc:
             return jsonify({"error": "opening book error", "detail": str(exc)}), 500
 
-    result = None if book_choice else search(board, depth=depth, time_limit=time_ms / 1000)
+    result = None if book_choice else search(board, depth=depth, time_limit=time_ms / 1000,
+                                           use_lmr=True)
     move = book_choice.move if book_choice else result.move
     if move is None:
         return jsonify({"error": "no legal move found"}), 400

@@ -86,8 +86,6 @@ class _Search:
         self.nodes = self.qnodes = self.tt_hits = 0
         self.root_candidate = None
         self.use_pvs = True
-        self.use_lmr = False
-        self.lmr_probes = self.lmr_researches = 0
         # FEN alone cannot reconstruct repetitions. Preserve supplied move history.
         replay = board.copy(stack=True)
         self.counts = Counter({_position_key(replay): 1})
@@ -230,23 +228,10 @@ class _Search:
                 return score
         best_score, best = -INF, None
         preferred = entry.move if entry else self.move_hints.get(_position_key(board))
-        in_check = board.is_check()
         for index, move in enumerate(self.ordered(board, moves, preferred, ply=ply)):
             quiet = not board.is_capture(move) and not move.promotion
-            reduce = (self.use_lmr and ply > 0 and depth >= 3 and index >= 4
-                      and quiet and not in_check and move != preferred
-                      and move not in self.killers.get(ply, ())
-                      and not self.history.get((board.turn, move), 0))
             with self.pushed(board, move):
-                if reduce and not board.is_check():
-                    self.lmr_probes += 1
-                    score = -self.negamax(board, depth - 2, -alpha - 1, -alpha, ply + 1)
-                    if score > alpha:
-                        # Never accept a reduced fail-high without a full-depth
-                        # verification, including scores above beta.
-                        self.lmr_researches += 1
-                        score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
-                elif self.use_pvs and index > 0 and beta > alpha + 1:
+                if self.use_pvs and index > 0 and beta > alpha + 1:
                     # Probe later moves cheaply. A move that improves alpha
                     # inside the window needs a full search before accepting it.
                     score = -self.negamax(board, depth - 1, -alpha - 1, -alpha, ply + 1)
@@ -312,21 +297,17 @@ class _Search:
 
 def search(board: chess.Board, depth: int = 3, eval_fn=None,
            time_limit: float | None = None, use_tt: bool = True,
-           node_limit: int | None = None, use_lmr: bool = False) -> SearchResult:
+           node_limit: int | None = None) -> SearchResult:
     """Search up to depth plies; return the last fully completed iteration.
 
     eval_fn returns integer centipawns from White's perspective. time_limit is
     seconds, checked cooperatively between nodes. Even a tiny limit returns a
     legal fallback move. node_limit counts main and quiescence visits; fallback
     static evaluations are separately recorded and are not visited nodes.
-    use_lmr enables conservative one-ply late quiet move reductions, with
-    full-depth verification whenever a reduced search improves alpha.
     The caller's board is restored, including on exceptions.
     """
     if isinstance(depth, bool) or not isinstance(depth, int) or not 1 <= depth <= 64:
         raise ValueError("depth must be an integer between 1 and 64")
-    if not isinstance(use_lmr, bool):
-        raise ValueError("use_lmr must be a boolean")
     if time_limit is not None and (isinstance(time_limit, bool)
             or not isinstance(time_limit, (int, float))
             or not math.isfinite(time_limit) or time_limit <= 0):
@@ -339,7 +320,6 @@ def search(board: chess.Board, depth: int = 3, eval_fn=None,
     start = perf_counter()
     worker = _Search(board, evaluate if eval_fn is None else eval_fn,
                      None if time_limit is None else start + time_limit, use_tt, node_limit)
-    worker.use_lmr = use_lmr
     moves = list(board.legal_moves)
     terminal = worker.terminal(board, moves, 0)
     if terminal is not None:

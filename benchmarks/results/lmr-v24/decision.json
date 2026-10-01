@@ -1,0 +1,35 @@
+{
+  "screen_better": true,
+  "game_better": true,
+  "qualifies_for_default": true,
+  "summary": {
+    "games": 20,
+    "completed": 20,
+    "wins": 11,
+    "draws": 0,
+    "losses": 9,
+    "unfinished": 0,
+    "errors": 0,
+    "interrupted": 0,
+    "score_fraction_completed": 0.55,
+    "complete_pairs": 10,
+    "score_fraction_complete_pairs": 0.55,
+    "timing": {
+      "baseline": {
+        "moves": 1128,
+        "mean_elapsed": 0.24218071052230355,
+        "max_overrun_seconds": 0.03775837493594736,
+        "fallback_moves": 0
+      },
+      "current": {
+        "moves": 1129,
+        "mean_elapsed": 0.24184085864400898,
+        "max_overrun_seconds": 0.026067166007123888,
+        "fallback_moves": 0
+      }
+    }
+  },
+  "promotion_requires_review_of_results": true,
+  "app_lmr_enabled": true,
+  "confirmation_100_games_completed": false
+}
