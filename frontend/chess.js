@@ -19,20 +19,42 @@ const PIECES = {
 const API_BASE = window.location.port === "8000" ? "http://127.0.0.1:5000" : "";
 const USE_OPENING_BOOK = true;
 const MAX_BOOK_PLY = 20; // Ten full moves; search starts earlier when the book has no entry.
-const DIFFICULTY = {
-  easy: { depth: 2, time_ms: 200, use_book: false },
-  medium: { depth: 8, time_ms: 750, use_book: true },
-  hard: { depth: 8, time_ms: 3000, use_book: true },
-};
+const ENGINE_DEPTH = 8;
+const ENGINE_TIME_MS = 750;
 
 const boardEl = document.getElementById("chessboard");
 const resetButton = document.getElementById("reset-board");
+const resignButton = document.getElementById("resign-game");
 const retryButton = document.getElementById("retry-engine");
 const colorSelect = document.getElementById("play-color");
-const difficultySelect = document.getElementById("difficulty");
 const statusEl = document.getElementById("game-status");
 const historyEl = document.getElementById("move-history");
 const moveCountEl = document.getElementById("move-count");
+
+const winDialog = document.getElementById("engine-win-dialog");
+const winVideoContainer = document.getElementById("win-video-container");
+let winVideoShown = false;
+
+function showComputerWin(winnerColor) {
+  if (!winnerColor || winnerColor === humanColor || winVideoShown) return;
+  winVideoShown = true;
+  const video = document.createElement("iframe");
+  video.src = "https://www.youtube.com/embed/L8XbI9aJOXk?autoplay=1&playsinline=1";
+  video.title = "Computer victory video";
+  video.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  video.allowFullscreen = true;
+  video.referrerPolicy = "strict-origin-when-cross-origin";
+  winVideoContainer.replaceChildren(video);
+  winDialog.showModal();
+}
+
+function stopWinVideo() {
+  winVideoContainer.replaceChildren();
+}
+
+document.getElementById("close-win-video").addEventListener("click", () => winDialog.close());
+winDialog.addEventListener("close", stopWinVideo);
+winDialog.addEventListener("cancel", stopWinVideo);
 
 let gameState = createInitialState();
 let selectedSquare = null;
@@ -84,6 +106,7 @@ function createSquareLabels() {
 }
 
 function renderBoard() {
+  resignButton.disabled = gameFinished;
   boardEl.innerHTML = "";
 
   const rows = humanColor === "w" ? [...Array(8).keys()] : [...Array(8).keys()].reverse();
@@ -154,7 +177,6 @@ async function handleSquareClick(row, col) {
 
 async function requestEngineMove() {
   const currentGame = gameId;
-  const settings = DIFFICULTY[difficultySelect.value];
   requestController = new AbortController();
   engineThinking = true;
   retryButton.hidden = true;
@@ -164,9 +186,9 @@ async function requestEngineMove() {
   try {
     const body = JSON.stringify({
       moves: gameState.uciHistory,
-      depth: settings.depth,
-      time_ms: settings.time_ms,
-      use_book: USE_OPENING_BOOK && settings.use_book,
+      depth: ENGINE_DEPTH,
+      time_ms: ENGINE_TIME_MS,
+      use_book: USE_OPENING_BOOK,
       max_book_ply: MAX_BOOK_PLY,
     });
     let response;
@@ -224,6 +246,7 @@ function showServerGameStatus(game) {
   }[game.reason] || "Game over";
   const winner = game.result === "1-0" ? "White wins." : game.result === "0-1" ? "Black wins." : "";
   setStatus(winner ? `${reason} — ${winner}` : `${reason}.`);
+  showComputerWin(game.result === "1-0" ? "w" : game.result === "0-1" ? "b" : null);
   return true;
 }
 
@@ -249,6 +272,7 @@ function updateLocalGameStatus() {
   if (!hasAnyLegalMove(gameState, gameState.turn)) {
     gameFinished = true;
     setStatus(check ? `Checkmate — ${side === "White" ? "Black" : "White"} wins.` : "Draw by stalemate.");
+    if (check) showComputerWin(gameState.turn === "w" ? "b" : "w");
     renderBoard();
     return true;
   }
@@ -667,7 +691,24 @@ function cloneBoard(board) {
   return board.map((rank) => [...rank]);
 }
 
+function resignGame() {
+  if (gameFinished) return;
+  gameId += 1; // Ignore any engine response already in flight.
+  requestController?.abort();
+  requestController = null;
+  engineThinking = false;
+  gameFinished = true;
+  retryButton.hidden = true;
+  clearSelection();
+  setStatus("You resigned — computer wins.");
+  renderBoard();
+  showComputerWin(humanColor === "w" ? "b" : "w");
+}
+
 function resetBoard() {
+  if (winDialog.open) winDialog.close();
+  stopWinVideo();
+  winVideoShown = false;
   gameId += 1;
   requestController?.abort();
   requestController = null;
@@ -685,9 +726,9 @@ function resetBoard() {
 }
 
 resetButton.addEventListener("click", resetBoard);
+resignButton.addEventListener("click", resignGame);
 retryButton.addEventListener("click", () => { void requestEngineMove(); });
 colorSelect.addEventListener("change", resetBoard);
-difficultySelect.addEventListener("change", resetBoard);
 
 createSquareLabels();
 renderHistory();

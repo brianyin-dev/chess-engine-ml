@@ -124,7 +124,7 @@ def get_move():
 
     try:
         depth = data.get("depth", 8)
-        time_ms = data.get("time_ms", 1500)
+        time_ms = data.get("time_ms", 750)
         use_book = data.get("use_book", True)
         max_book_ply = data.get("max_book_ply", 20)
         if isinstance(depth, bool) or not isinstance(depth, int) or not 1 <= depth <= 64:

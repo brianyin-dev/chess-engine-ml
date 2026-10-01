@@ -211,3 +211,9 @@ h1 { margin: 8px 0 4px; font-size: clamp(1.7rem, 3vw, 2.2rem); }
     border-width: 6px;
   }
 }
+
+.engine-win-dialog { width: min(640px, calc(100vw - 32px)); box-sizing: border-box; padding: 20px; border: 0; border-radius: 14px; color: #182723; background: #fffaf0; }
+.engine-win-dialog::backdrop { background: rgb(0 0 0 / 65%); }
+.win-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.win-header h2 { margin: 0; }
+#win-video-container iframe { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; border: 0; }

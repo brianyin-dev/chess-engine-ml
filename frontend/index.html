@@ -15,10 +15,9 @@
       <div class="settings">
         <label for="play-color">Your pieces</label>
         <select id="play-color"><option value="w">White</option><option value="b">Black</option></select>
-        <label for="difficulty">Difficulty</label>
-        <select id="difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select>
       </div>
       <button id="reset-board" class="reset-button" type="button">New game</button>
+      <button id="resign-game" class="reset-button" type="button">Resign</button>
       <p id="game-status" class="game-status" role="status" aria-live="polite">Your move as White.</p>
       <button id="retry-engine" class="reset-button" type="button" hidden>Retry engine move</button>
     </section>
@@ -36,6 +35,11 @@
       <ol id="move-history" class="move-history" aria-label="Move history"></ol>
     </section>
   </main>
+
+  <dialog id="engine-win-dialog" class="engine-win-dialog" aria-labelledby="engine-win-title">
+    <div class="win-header"><h2 id="engine-win-title">Computer wins!</h2><button id="close-win-video" class="reset-button" type="button" autofocus>Close</button></div>
+    <div id="win-video-container"></div>
+  </dialog>
 
   <script type="module" src="./chess.js"></script>
 </body>
