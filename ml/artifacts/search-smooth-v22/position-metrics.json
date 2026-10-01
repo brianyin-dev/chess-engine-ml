@@ -1,0 +1,80 @@
+{
+  "heuristic": {
+    "train": {
+      "pairs": 307,
+      "correct": 206,
+      "accuracy": 0.6710097719869706,
+      "hard_pairs": 101,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "val": {
+      "pairs": 212,
+      "correct": 129,
+      "accuracy": 0.6084905660377359,
+      "hard_pairs": 83,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    },
+    "test": {
+      "pairs": 212,
+      "correct": 139,
+      "accuracy": 0.6556603773584906,
+      "hard_pairs": 73,
+      "hard_correct": 0,
+      "previously_correct_regressions": 0
+    }
+  },
+  "old25": {
+    "train": {
+      "pairs": 307,
+      "correct": 212,
+      "accuracy": 0.6905537459283387,
+      "hard_pairs": 101,
+      "hard_correct": 24,
+      "previously_correct_regressions": 18
+    },
+    "val": {
+      "pairs": 212,
+      "correct": 148,
+      "accuracy": 0.6981132075471698,
+      "hard_pairs": 83,
+      "hard_correct": 36,
+      "previously_correct_regressions": 17
+    },
+    "test": {
+      "pairs": 212,
+      "correct": 142,
+      "accuracy": 0.6698113207547169,
+      "hard_pairs": 73,
+      "hard_correct": 14,
+      "previously_correct_regressions": 11
+    }
+  },
+  "trained25": {
+    "train": {
+      "pairs": 307,
+      "correct": 218,
+      "accuracy": 0.7100977198697068,
+      "hard_pairs": 101,
+      "hard_correct": 29,
+      "previously_correct_regressions": 17
+    },
+    "val": {
+      "pairs": 212,
+      "correct": 153,
+      "accuracy": 0.7216981132075472,
+      "hard_pairs": 83,
+      "hard_correct": 38,
+      "previously_correct_regressions": 14
+    },
+    "test": {
+      "pairs": 212,
+      "correct": 143,
+      "accuracy": 0.6745283018867925,
+      "hard_pairs": 73,
+      "hard_correct": 15,
+      "previously_correct_regressions": 11
+    }
+  }
+}

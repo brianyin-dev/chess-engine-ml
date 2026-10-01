@@ -1,0 +1,10 @@
+{
+  "roots": 306,
+  "leaves": 2432,
+  "families": 102,
+  "quiet_leaf_policy": "Actual quiet evaluation calls, reservoir sampling40 per search then canonical unique24/family. Both heuristic andold25, depth3/node2000 collector only, never used for strength/speed claims. Same family owns all colors/evaluator variants.",
+  "origin_counts": {
+    "heuristic_NN_match": 600,
+    "book_source_our_search": 1832
+  }
+}

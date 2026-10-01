@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "e5d33770ad96720b7a0311846061ba5933103fa16a30851453812261c1dea648",
+  "weight": 0.25,
+  "quiet_only": true,
+  "incremental": true,
+  "fast_features": true,
+  "exploratory_after_tied_depth_screen": true
+}

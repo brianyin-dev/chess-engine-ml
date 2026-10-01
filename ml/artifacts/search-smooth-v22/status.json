@@ -1,0 +1,36 @@
+{
+  "phase": "completed",
+  "strict_screen_qualified": false,
+  "exploratory_pilot": true,
+  "matches": {
+    "pilot": {
+      "games": 20,
+      "completed": 20,
+      "wins": 6,
+      "draws": 3,
+      "losses": 11,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.375,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.375,
+      "timing": {
+        "current": {
+          "moves": 1093,
+          "mean_elapsed": 0.24425618106470343,
+          "max_overrun_seconds": 0.06991258298512548,
+          "fallback_moves": 0
+        },
+        "neural-baseline": {
+          "moves": 1096,
+          "mean_elapsed": 0.24283490315545775,
+          "max_overrun_seconds": 0.04803950001951307,
+          "fallback_moves": 1
+        }
+      }
+    }
+  },
+  "extended_to_100": false,
+  "app_promoted": false
+}

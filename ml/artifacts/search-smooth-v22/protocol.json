@@ -1,0 +1,7 @@
+{
+  "data": "Quiet runtime calls from historicalheuristicNNgames plus oursearch from560booksourcegames; family-isolated currentadaptation.24uniqueleaves/family; bothHCEandold25 searches. Teacher settled64knode endpoint and ordinary quietlabels; actualrounded25% reachable5cpmargins. Allpriorlabels excluded; retain oldtrain only.",
+  "training": "One unchanged64x32 model at25% quiet,v20fastfeatures. Smooth teacher expected-score proxy, logisticgap targets, protection foroldNNcorrectrankings8, anchor2; lr.00005,30epochs/patience8,seed42. Bestupdatedepoch byvalcorrect minus2oldregressions thenaccuracy thenproxyMSE. No silentepochzero fallback.",
+  "screen": "Freeze novel test-familyroots before fitting;32max/2perfamily. Evaluate allmodels exactdepth3 thenStockfish64knode same-rootregret. Requirelowerregretvsheuristic andnotworsevsoldNN, noextrablunders/mates. Screenisdevelopmentgate, notfinalholdoutclaim.",
+  "games": "If screenpassed:20freshpairedgames250ms/depth8 vsunchangedheuristic.>=60%/complete/errorfree extends80freshgames to100total; reportextensionseparately; oldNNsecondary20 onlyifpilotpassed. Noapppromotion.",
+  "screen_execution_note": "The input-only screening rule, random seed220023, test-family requirement, prior-alias exclusion and max2/family were fixed before training. This initial process materializes the case list after fitting without consulting candidate predictions. Current runner also materializes it before fitting; neither training nor its files change the JSONL-based exclusion set."
+}

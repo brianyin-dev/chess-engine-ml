@@ -1,0 +1,11 @@
+{
+  "pairs": 212,
+  "correct": 148,
+  "regressions_from_old": 0,
+  "teacher_probability_proxy_mse": 0.013686432503163815,
+  "selection_key": [
+    -148,
+    -148,
+    0.013686432503163815
+  ]
+}

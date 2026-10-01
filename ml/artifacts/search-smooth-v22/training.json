@@ -1,0 +1,150 @@
+{
+  "initial_checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "data_manifest_sha256": "fce929b7b88cecdf49de3131f7bc60a67ca8fd46f6e95203999830c1c2876d9c",
+  "best_epoch": 1,
+  "initial_validation": {
+    "pairs": 212,
+    "correct": 148,
+    "regressions_from_old": 0,
+    "teacher_probability_proxy_mse": 0.013686432503163815,
+    "selection_key": [
+      -148,
+      -148,
+      0.013686432503163815
+    ]
+  },
+  "selected_validation": {
+    "pairs": 212,
+    "correct": 153,
+    "regressions_from_old": 0,
+    "teacher_probability_proxy_mse": 0.013668838888406754,
+    "selection_key": [
+      -153,
+      -153,
+      0.013668838888406754
+    ]
+  },
+  "test_descriptive_only": {
+    "pairs": 212,
+    "correct": 143,
+    "regressions_from_old": 1,
+    "teacher_probability_proxy_mse": 0.012785254046320915,
+    "selection_key": [
+      -141,
+      -143,
+      0.012785254046320915
+    ]
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "pairs": 212,
+      "correct": 153,
+      "regressions_from_old": 0,
+      "teacher_probability_proxy_mse": 0.013668838888406754,
+      "selection_key": [
+        -153,
+        -153,
+        0.013668838888406754
+      ]
+    },
+    {
+      "epoch": 2,
+      "pairs": 212,
+      "correct": 151,
+      "regressions_from_old": 2,
+      "teacher_probability_proxy_mse": 0.013672158122062683,
+      "selection_key": [
+        -147,
+        -151,
+        0.013672158122062683
+      ]
+    },
+    {
+      "epoch": 3,
+      "pairs": 212,
+      "correct": 151,
+      "regressions_from_old": 3,
+      "teacher_probability_proxy_mse": 0.013655408285558224,
+      "selection_key": [
+        -145,
+        -151,
+        0.013655408285558224
+      ]
+    },
+    {
+      "epoch": 4,
+      "pairs": 212,
+      "correct": 150,
+      "regressions_from_old": 4,
+      "teacher_probability_proxy_mse": 0.01365344412624836,
+      "selection_key": [
+        -142,
+        -150,
+        0.01365344412624836
+      ]
+    },
+    {
+      "epoch": 5,
+      "pairs": 212,
+      "correct": 151,
+      "regressions_from_old": 4,
+      "teacher_probability_proxy_mse": 0.013646635226905346,
+      "selection_key": [
+        -143,
+        -151,
+        0.013646635226905346
+      ]
+    },
+    {
+      "epoch": 6,
+      "pairs": 212,
+      "correct": 151,
+      "regressions_from_old": 5,
+      "teacher_probability_proxy_mse": 0.013661711476743221,
+      "selection_key": [
+        -141,
+        -151,
+        0.013661711476743221
+      ]
+    },
+    {
+      "epoch": 7,
+      "pairs": 212,
+      "correct": 151,
+      "regressions_from_old": 5,
+      "teacher_probability_proxy_mse": 0.013653798960149288,
+      "selection_key": [
+        -141,
+        -151,
+        0.013653798960149288
+      ]
+    },
+    {
+      "epoch": 8,
+      "pairs": 212,
+      "correct": 148,
+      "regressions_from_old": 8,
+      "teacher_probability_proxy_mse": 0.013654488138854504,
+      "selection_key": [
+        -132,
+        -148,
+        0.013654488138854504
+      ]
+    },
+    {
+      "epoch": 9,
+      "pairs": 212,
+      "correct": 149,
+      "regressions_from_old": 7,
+      "teacher_probability_proxy_mse": 0.01366687286645174,
+      "selection_key": [
+        -135,
+        -149,
+        0.01366687286645174
+      ]
+    }
+  ],
+  "selection": "Best UPDATED epoch by rounded validation correct minus2 oldNN regressions, then correct count, then probability-proxy MSE. Original retained as unchanged baseline, never silently substituted. Candidate need not qualify for games.",
+  "objective": "Smooth sigmoid teacher score proxy(400cp), teacher gap logistic(100cp), old-NN correct-ranking protection8, anchor2. Proxy is not calibrated WDL. Runtime quiet25% blend retained; no rounding in loss, exact whole-endpoint rounding in validation."
+}

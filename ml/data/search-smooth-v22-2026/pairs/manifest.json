@@ -1,0 +1,25 @@
+{
+  "counts": {
+    "train": {
+      "rows": 15121,
+      "pairs": 3796,
+      "new_families": 45
+    },
+    "val": {
+      "rows": 482,
+      "pairs": 212,
+      "new_families": 26
+    },
+    "test": {
+      "rows": 481,
+      "pairs": 212,
+      "new_families": 27
+    }
+  },
+  "cross_split_aliases": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "policy": "Actual quiet leaves from our search. New source families isolated by first4ply canonical position. Legacy prior training retained; prior canonical labels excluded fromnewdata. Legacy opening-family provenance is incomplete, so no claim of globally unseen openings for pretrained/retained legacy examples."
+}

@@ -1,0 +1,38 @@
+{
+  "canonical_and_source_id_cross_split_overlap": {
+    "train-val": {
+      "positions": 0,
+      "source_ids": 0
+    },
+    "train-test": {
+      "positions": 0,
+      "source_ids": 0
+    },
+    "val-test": {
+      "positions": 0,
+      "source_ids": 0
+    }
+  },
+  "new_prior_label_aliases": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "explicit_torch_integer_parity": {
+    "old25": {
+      "positions": 963,
+      "mismatches": []
+    },
+    "trained25": {
+      "positions": 963,
+      "mismatches": []
+    }
+  },
+  "learned_weights_changed": true,
+  "fixed_source_changes": [],
+  "move_screen_training_aliases": 0,
+  "legal_terminal_games": {
+    "vs-heuristic": 20
+  },
+  "scope": "New source opening families isolated; canonical labels/prior aliases checked. Legacy family provenance incomplete; this is not proof of globally unseen opening families."
+}

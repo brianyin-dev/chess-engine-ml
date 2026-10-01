@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "train": {
+      "rows": 769,
+      "pairs": 307,
+      "correctable_heuristic_wrong_pairs": 101,
+      "opening_groups": 45
+    },
+    "val": {
+      "rows": 482,
+      "pairs": 212,
+      "correctable_heuristic_wrong_pairs": 83,
+      "opening_groups": 26
+    },
+    "test": {
+      "rows": 481,
+      "pairs": 212,
+      "correctable_heuristic_wrong_pairs": 73,
+      "opening_groups": 27
+    }
+  },
+  "statistics": {
+    "roots": 2424,
+    "candidate_endpoints": 1462,
+    "outside_correction_range": 2005,
+    "teacher_gap_too_small": 1463
+  },
+  "seed": 200020,
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "policy": "Quiet runtime calls from historicalheuristicNNgames plus oursearch from560booksourcegames; family-isolated currentadaptation.24uniqueleaves/family; bothHCEandold25 searches. Teacher settled64knode endpoint and ordinary quietlabels; actualrounded25% reachable5cpmargins. Allpriorlabels excluded; retain oldtrain only."
+}

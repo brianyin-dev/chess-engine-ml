@@ -1,0 +1,4 @@
+{
+  "reason": "Positive validation ranking gain withzerooldNNregressions; equal-depth candidate matched oldNN choices, but was slightly worse thanheuristic, so initialstrictimprovementgatefailed. Run20exploratoryfreshgames to measure250ms behavior without claiming screenimprovement. Amendment recorded afterscreen/beforeanygameoutcomes.",
+  "extension": "Unchanged>=60%/20complete/errorfree gate triggers80newconfirmationgames. Report exploratory20, independent80 andcombined100 separately. OldNNsecondary onlyifpilotpassed. Noautomaticpromotion."
+}
