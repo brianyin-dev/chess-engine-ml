@@ -56,5 +56,6 @@
     "test": 0
   },
   "inference_positions": 174,
-  "inference_mismatches": []
+  "inference_mismatches": [],
+  "torch_reference_is_explicit": true
 }

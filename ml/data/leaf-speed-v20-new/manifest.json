@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "train": {
+      "rows": 467,
+      "pairs": 151,
+      "correctable_heuristic_wrong_pairs": 52,
+      "opening_groups": 6
+    },
+    "val": {
+      "rows": 157,
+      "pairs": 49,
+      "correctable_heuristic_wrong_pairs": 15,
+      "opening_groups": 2
+    },
+    "test": {
+      "rows": 192,
+      "pairs": 68,
+      "correctable_heuristic_wrong_pairs": 25,
+      "opening_groups": 2
+    }
+  },
+  "statistics": {
+    "roots": 1600,
+    "candidate_endpoints": 536,
+    "outside_correction_range": 2262,
+    "teacher_gap_too_small": 746
+  },
+  "seed": 200020,
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "policy": "Real quiet static search calls from v19 games. Same opening pair/all colors/opponents owns one split (6train/2val/2testopeninggroups). Up to80 roots/group, fixed next80 only if undersized before fitting. Exact64knode labels after12knode teacher tactical settling,>=50cp settled gap. Sample rounded5% reachable near-ties and vulnerable correct rankings. Canonical prior aliases excluded; targeted holdout is not general accuracy."
+}

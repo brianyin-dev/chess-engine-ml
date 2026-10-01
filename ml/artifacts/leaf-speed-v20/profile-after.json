@@ -1,0 +1,157 @@
+{
+  "policy": "Frozen b962422 inference versus opt-in fast features, same v8 weights/5% quiet correction. Alternating measurement order; sampled FENs preserve sequence. Fixeddepth3 search has no clocks/node caps. No score, move, depth or visited-node changes accepted.",
+  "positions": 4741,
+  "integer_score_mismatches": 0,
+  "median_microseconds": {
+    "old": 111.83415944032895,
+    "fast": 103.2952349831383
+  },
+  "round_seconds_per_position": {
+    "old": [
+      0.00011904605208964659,
+      0.00011125052732016134,
+      0.00011112295230919332,
+      0.00011067880384161977,
+      0.0001232524431561841,
+      0.00011518438429876367,
+      0.00011626898334749582,
+      0.0001087131320411075,
+      0.00011183415944032894
+    ],
+    "fast": [
+      0.00010301975660168295,
+      0.00010082958933249653,
+      0.00010688407866681453,
+      0.0001032952349831383,
+      0.00012162483292966735,
+      0.00013260733495523182,
+      9.865765831107342e-05,
+      0.00010835896962159446,
+      0.0001031160708697561
+    ]
+  },
+  "evaluation_time_reduction_fraction": 0.0763534549722863,
+  "fixed_depth_searches": [
+    {
+      "fen": "r1b4r/ppp1kp2/2n1p2p/3pP3/2PPn3/5N2/P1PB1PPP/1R2KB1R b K - 0 13",
+      "move": "e4d2",
+      "score": -112,
+      "depth": 3,
+      "nodes": 3329,
+      "qnodes": 3199,
+      "old_seconds": 0.15557379194069654,
+      "fast_seconds": 0.1491824579425156
+    },
+    {
+      "fen": "8/8/R7/p7/2p1pk2/3r3P/4K3/8 w - - 0 58",
+      "move": "a6a5",
+      "score": -327,
+      "depth": 3,
+      "nodes": 505,
+      "qnodes": 443,
+      "old_seconds": 0.04502399999182671,
+      "fast_seconds": 0.030980166979134083
+    },
+    {
+      "fen": "8/1pkRPP2/7r/8/8/6K1/8/q7 b - - 1 79",
+      "move": "c7b6",
+      "score": -150,
+      "depth": 3,
+      "nodes": 1177,
+      "qnodes": 1094,
+      "old_seconds": 0.21778454107698053,
+      "fast_seconds": 0.14478112501092255
+    },
+    {
+      "fen": "3b4/p2r1kpp/b7/8/P1R1PP2/3K2P1/7P/2R5 w - - 0 33",
+      "move": "d3e3",
+      "score": -91,
+      "depth": 3,
+      "nodes": 265,
+      "qnodes": 220,
+      "old_seconds": 0.026472249999642372,
+      "fast_seconds": 0.03217483393382281
+    },
+    {
+      "fen": "7r/1R3p2/2N1p1kp/2NpP3/2p5/r4p2/4K2P/8 w - - 0 39",
+      "move": "e2f2",
+      "score": -330,
+      "depth": 3,
+      "nodes": 1012,
+      "qnodes": 934,
+      "old_seconds": 0.08060329197905958,
+      "fast_seconds": 0.06490658305119723
+    },
+    {
+      "fen": "8/5R2/8/8/8/4kp2/1r6/5K2 w - - 86 121",
+      "move": "f7e7",
+      "score": -231,
+      "depth": 3,
+      "nodes": 195,
+      "qnodes": 145,
+      "old_seconds": 0.02018429199233651,
+      "fast_seconds": 0.011088875005953014
+    },
+    {
+      "fen": "r2qk1r1/pppb1p2/2n1p3/3pP3/3P4/2P2N1Q/P1PK1PPP/R4B1R b q - 4 13",
+      "move": "c6e7",
+      "score": -226,
+      "depth": 3,
+      "nodes": 2702,
+      "qnodes": 2505,
+      "old_seconds": 0.15783379203639925,
+      "fast_seconds": 0.1606687919702381
+    },
+    {
+      "fen": "3rr1k1/1pp1qpp1/p1n1p2p/4P3/3P4/P1nQ1N2/1P3PPP/R2R2K1 w - - 0 27",
+      "move": "d3c3",
+      "score": 15,
+      "depth": 3,
+      "nodes": 2639,
+      "qnodes": 2480,
+      "old_seconds": 0.15760129201225936,
+      "fast_seconds": 0.17436399997677654
+    },
+    {
+      "fen": "8/1B6/3k1b1p/5p2/p3pp2/2p5/2K3P1/8 b - - 5 70",
+      "move": "f6d4",
+      "score": 799,
+      "depth": 3,
+      "nodes": 915,
+      "qnodes": 818,
+      "old_seconds": 0.07614599994849414,
+      "fast_seconds": 0.05220812500920147
+    },
+    {
+      "fen": "5k1r/p2Pb1pp/8/7q/P3QP2/2r1PbP1/1P5P/R1B1K2R w KQ - 0 21",
+      "move": "e4d4",
+      "score": -2,
+      "depth": 3,
+      "nodes": 2843,
+      "qnodes": 2672,
+      "old_seconds": 0.11241745797451586,
+      "fast_seconds": 0.11422629095613956
+    },
+    {
+      "fen": "3rk2r/p4ppp/2p1p3/1b2P3/1R2nP2/2p1BN2/P1K3PP/7R w k - 4 26",
+      "move": "b4e4",
+      "score": -165,
+      "depth": 3,
+      "nodes": 1567,
+      "qnodes": 1417,
+      "old_seconds": 0.1282161659328267,
+      "fast_seconds": 0.1032957499846816
+    },
+    {
+      "fen": "4R3/8/5k2/8/8/3K4/8/1r6 b - - 31 73",
+      "move": "b1b4",
+      "score": -6,
+      "depth": 3,
+      "nodes": 1005,
+      "qnodes": 882,
+      "old_seconds": 0.07743070798460394,
+      "fast_seconds": 0.06277216703165323
+    }
+  ],
+  "fixed_depth_search_time_reduction_fraction": 0.12318963250149861
+}

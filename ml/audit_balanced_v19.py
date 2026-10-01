@@ -27,10 +27,18 @@ def main():
             reviewed.add(key(board.fen()))
     review_overlap={s:len(new[s][0]&reviewed) for s in ('val','test')}
     frozen=json.loads((ART/'frozen-selection.json').read_text());w=frozen['weight']
-    evaluators=[NeuralEvaluator(CP,w,True,incremental=True),NeuralEvaluator(CP,w,True),NeuralEvaluator(CP,w,True,optimized=False)]
+    evaluators=[NeuralEvaluator(CP,w,True,incremental=True),NeuralEvaluator(CP,w,True)]
+    # optimized=False disables the search fast path; it still uses NumPy.
+    # Invoke the Torch model explicitly when checking training parity.
+    import torch
+    from ml.model import board_to_tensor,SCORE_SCALE
+    from engine.evaluation import evaluate_position
     fens={r['fen'] for s in ('val','test') for r in readrows(NEW/f'{s}.jsonl')};mismatches=[]
     for fen in fens:
         board=chess.Board(fen);scores=[e.evaluate_position(board) for e in evaluators]
+        with torch.inference_mode():
+            prediction=evaluators[0].model(board_to_tensor(board,evaluators[0].input_size)).item()
+        scores.append(round(evaluate_position(board)+prediction*SCORE_SCALE*correction_factor(board,w,True)))
         if len(set(scores))!=1:mismatches.append({'fen':fen,'scores':scores})
     attainability={}
     for weight in (.05,.1,.25):
@@ -39,7 +47,6 @@ def main():
             hard=[r for r in readrows(NEW/'pairs'/f'{split}.jsonl') if r['heuristic_gap_cp']<=0]
             possible=sum(r['heuristic_gap_cp']+250*sum(correction_factor(chess.Board(r[f]),weight,True) for f in ('good_fen','bad_fen'))>=5 for r in hard)
             attainability[str(weight)][split]={'hard_pairs':len(hard),'potentially_attainable_5cp_margin':possible}
-    import torch
     previous=torch.load(OLD,map_location='cpu',weights_only=True)['state_dict']
     chosen=torch.load(CP,map_location='cpu',weights_only=True)['state_dict']
     state_equal=previous.keys()==chosen.keys() and all(torch.equal(previous[k],chosen[k]) for k in previous)
@@ -59,7 +66,7 @@ def main():
         assert count==20
     result={'checkpoint_parameters_equal_initial_v8':state_equal,'verified_pgn_counts':pgn_counts,'bounded_correction_attainability':attainability,'canonical_cross_split_overlap':overlaps,'source_game_cross_split_overlap':game_overlaps,
         'new_prior_alias_overlap':prior_overlap,'holdout_reviewed_game_alias_overlap':review_overlap,
-        'inference_positions':len(fens),'inference_mismatches':mismatches}
+        'torch_reference_is_explicit':True,'inference_positions':len(fens),'inference_mismatches':mismatches}
     write(ART/'integrity-and-parity.json',result);print(json.dumps(result,indent=2))
     assert not any(overlaps.values()) and not any(game_overlaps.values()) and not any(prior_overlap.values()) and not mismatches
 

@@ -1,0 +1,22 @@
+{
+  "counts": {
+    "train": {
+      "rows": 13664,
+      "pairs": 3282
+    },
+    "val": {
+      "rows": 157,
+      "pairs": 49
+    },
+    "test": {
+      "rows": 192,
+      "pairs": 68
+    }
+  },
+  "unattainable_previous_training_rankings_removed": 1055,
+  "policy": "Prior score labels and attainable/correct prior training rankings retained. Inert hard training margins excluded using exact rounded5% bounds; heldout sampling frozen before fitting. Fresh new capacity-targeted val/test only.",
+  "sources": {
+    "/Users/brianyin/Downloads/chessengine/ml/data/balanced-v19-2026": "0192250393ee75009585646872983a1cb7a47d0d90cb0f5c22c240372a1b87f1",
+    "/Users/brianyin/Downloads/chessengine/ml/data/leaf-speed-v20-new": "25c98a7193aa3fa0dc3091bed92b9656293686d18400b9d88ae6bb83bcedbce5"
+  }
+}

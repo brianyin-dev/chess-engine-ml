@@ -1,4 +1,6 @@
 {
   "positions": 157,
-  "incremental_numpy_torch_score_mismatches": []
+  "incremental_numpy_torch_score_mismatches": [],
+  "torch_reference_is_explicit": true,
+  "explicit_torch_integer_mismatches": []
 }

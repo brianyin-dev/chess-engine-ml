@@ -1,0 +1,1 @@
+{"reason":"Reservoir counter corrected to count only eligible quiet calls, before optimization or training. Initial sample preserved as pilot; corrected fixed-seed sample used for all subsequent comparisons."}

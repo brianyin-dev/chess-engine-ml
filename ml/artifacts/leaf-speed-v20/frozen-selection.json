@@ -1,0 +1,84 @@
+{
+  "trained_qualified": false,
+  "checkpoint": "/Users/brianyin/Downloads/chessengine/ml/artifacts/quiet-ranking-v8.pt",
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "nn_weight": 0.05,
+  "quiet_only": true,
+  "incremental": true,
+  "fast_features": true,
+  "metrics": {
+    "old5": {
+      "val": {
+        "pairs": 49,
+        "correct": 34,
+        "accuracy": 0.6938775510204082,
+        "hard_pairs": 15,
+        "hard_correct": 1,
+        "previously_correct_regressions": 1
+      },
+      "test": {
+        "pairs": 68,
+        "correct": 44,
+        "accuracy": 0.6470588235294118,
+        "hard_pairs": 25,
+        "hard_correct": 2,
+        "previously_correct_regressions": 1
+      }
+    },
+    "trained5": {
+      "val": {
+        "pairs": 49,
+        "correct": 34,
+        "accuracy": 0.6938775510204082,
+        "hard_pairs": 15,
+        "hard_correct": 2,
+        "previously_correct_regressions": 2
+      },
+      "test": {
+        "pairs": 68,
+        "correct": 41,
+        "accuracy": 0.6029411764705882,
+        "hard_pairs": 25,
+        "hard_correct": 4,
+        "previously_correct_regressions": 6
+      }
+    },
+    "old25": {
+      "val": {
+        "pairs": 49,
+        "correct": 33,
+        "accuracy": 0.673469387755102,
+        "hard_pairs": 15,
+        "hard_correct": 5,
+        "previously_correct_regressions": 6
+      },
+      "test": {
+        "pairs": 68,
+        "correct": 42,
+        "accuracy": 0.6176470588235294,
+        "hard_pairs": 25,
+        "hard_correct": 8,
+        "previously_correct_regressions": 9
+      }
+    },
+    "heuristic": {
+      "val": {
+        "pairs": 49,
+        "correct": 34,
+        "accuracy": 0.6938775510204082,
+        "hard_pairs": 15,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 68,
+        "correct": 43,
+        "accuracy": 0.6323529411764706,
+        "hard_pairs": 25,
+        "hard_correct": 0,
+        "previously_correct_regressions": 0
+      }
+    }
+  },
+  "policy": "Train checkpoint selected on fresh targeted validation. Require strict validation accuracy gain and no extra heuristic-correct regressions; testnonregression veto only. If not qualified, predeclared speed-only v8 at5% is tested instead. No weight tuning; test never changes learned weights."
+}

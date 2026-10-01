@@ -1,0 +1,63 @@
+{
+  "phase": "completed",
+  "matches": {
+    "vs-heuristic": {
+      "games": 20,
+      "completed": 20,
+      "wins": 5,
+      "draws": 3,
+      "losses": 12,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.325,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.325,
+      "timing": {
+        "current": {
+          "moves": 1633,
+          "mean_elapsed": 0.24464479706005465,
+          "max_overrun_seconds": 0.04306449997238815,
+          "fallback_moves": 1
+        },
+        "neural-baseline": {
+          "moves": 1637,
+          "mean_elapsed": 0.24413897189105166,
+          "max_overrun_seconds": 0.03906729200389236,
+          "fallback_moves": 0
+        }
+      }
+    },
+    "vs-old-NN": {
+      "games": 20,
+      "completed": 20,
+      "wins": 10,
+      "draws": 2,
+      "losses": 8,
+      "unfinished": 0,
+      "errors": 0,
+      "interrupted": 0,
+      "score_fraction_completed": 0.55,
+      "complete_pairs": 10,
+      "score_fraction_complete_pairs": 0.55,
+      "timing": {
+        "current": {
+          "moves": 1249,
+          "mean_elapsed": 0.24356981543182812,
+          "max_overrun_seconds": 0.06539658294059336,
+          "fallback_moves": 2
+        },
+        "neural-baseline": {
+          "moves": 1247,
+          "mean_elapsed": 0.2436624324670302,
+          "max_overrun_seconds": 0.05426116695161909,
+          "fallback_moves": 2
+        }
+      }
+    }
+  },
+  "extended_to_100": false,
+  "trained_qualified": false,
+  "checkpoint": "/Users/brianyin/Downloads/chessengine/ml/artifacts/quiet-ranking-v8.pt",
+  "app_promoted": false
+}

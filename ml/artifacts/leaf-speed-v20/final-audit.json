@@ -1,0 +1,31 @@
+{
+  "canonical_cross_split_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "source_group_cross_split_overlap": {
+    "train-val": 0,
+    "train-test": 0,
+    "val-test": 0
+  },
+  "new_prior_alias_overlap": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "explicit_torch_runtime_parity": {
+    "old5": {
+      "positions": 349,
+      "integer_mismatches": []
+    },
+    "trained5": {
+      "positions": 349,
+      "integer_mismatches": []
+    }
+  },
+  "verified_games": {
+    "vs-heuristic": 20,
+    "vs-old-NN": 20
+  }
+}

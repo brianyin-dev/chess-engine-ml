@@ -35,11 +35,17 @@ def main():
     parser.add_argument('--nn-weight', type=float, default=1.0)
     parser.add_argument('--quiet-only', action='store_true', help='Apply correction only outside check with no legal capture')
     parser.add_argument('--incremental', action='store_true', help='Reuse unchanged neural and handcrafted feature blocks')
+    parser.add_argument('--fast-features', action='store_true', help='Share attack maps and canonicalize features without mirrored boards')
+    parser.add_argument('--opponent-frozen-inference', action='store_true', help='Use inference frozen at b962422 for the neural opponent')
     parser.add_argument('--reference-inference', action='store_true', help='Disable the NN search-leaf fast path')
     parser.add_argument('--frozen-heuristic', action='store_true', help='Use the heuristic search frozen at 9e23b7c as local opponent')
     args = parser.parse_args()
     if args.nodes is not None and (args.nodes < 1 or args.stockfish):
         parser.error('positive node budget requires a local opponent')
+    if args.fast_features and (not args.incremental or args.reference_inference):
+        parser.error('fast features require incremental optimized inference')
+    if args.opponent_frozen_inference and not args.opponent_checkpoint:
+        parser.error('frozen inference requires an opponent checkpoint')
     openings = json.loads(args.openings.read_text())
     for opening in openings:
         opening_board(opening)
@@ -56,11 +62,16 @@ def main():
     if args.output.exists():
         parser.error("output directory already exists")
     evaluator = NeuralEvaluator(args.checkpoint, args.nn_weight, args.quiet_only,
-                                optimized=not args.reference_inference, incremental=args.incremental)
+                                optimized=not args.reference_inference, incremental=args.incremental,
+                                fast_features=args.fast_features)
     if evaluator.diagnostic_only:
         parser.error("memorization-only checkpoints are excluded from match candidates")
     uci = UciOpponent(args.stockfish, args.stockfish_elo) if args.stockfish else None
-    neural_baseline = NeuralEvaluator(args.opponent_checkpoint, args.opponent_nn_weight,
+    if args.opponent_frozen_inference:
+        from benchmarks.nn_baseline_v20.evaluator import NeuralEvaluator as OpponentEvaluator
+    else:
+        OpponentEvaluator = NeuralEvaluator
+    neural_baseline = OpponentEvaluator(args.opponent_checkpoint, args.opponent_nn_weight,
                                      args.opponent_quiet_only, incremental=args.opponent_incremental) if args.opponent_checkpoint else None
     if neural_baseline and neural_baseline.diagnostic_only:
         parser.error('memorization-only checkpoints are excluded from opponents')
@@ -99,6 +110,7 @@ def main():
                    "nn_weight": args.nn_weight, "quiet_only": args.quiet_only,
                    "reference_inference": args.reference_inference,
                    'incremental': args.incremental,
+                   'fast_features': args.fast_features,
                    "frozen_heuristic": args.frozen_heuristic,
                    "target_mode": evaluator.target_mode, 'input_size': evaluator.input_size,
                    'hidden_sizes': list(evaluator.hidden_sizes),
@@ -119,9 +131,14 @@ def main():
         report['opponent'] = {'checkpoint_sha256': hashlib.sha256(args.opponent_checkpoint.read_bytes()).hexdigest(),
                               'correction_weight': args.opponent_nn_weight, 'quiet_only': args.opponent_quiet_only,
                               'incremental': args.opponent_incremental,
+                              'inference_frozen_at': 'b962422' if args.opponent_frozen_inference else None,
                               'target_mode': neural_baseline.target_mode,
                               'input_size': neural_baseline.input_size}
         report['opponent']['hidden_sizes'] = list(neural_baseline.hidden_sizes)
+        if args.opponent_frozen_inference:
+            report['opponent']['inference_sources_sha256'] = {
+                str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in (ROOT/'benchmarks/nn_baseline_v20/evaluator.py', ROOT/'benchmarks/nn_baseline_v20/incremental.py', ROOT/'ml/model.py')}
     elif args.frozen_heuristic:
         frozen_path = ROOT / 'benchmarks/nn_baseline_v10/search.py'
         report['opponent'] = {'search_frozen_at': '9e23b7c',

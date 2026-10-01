@@ -17,7 +17,7 @@ class IncrementalEncoder:
         self.pawns={}
         self.reused_geometry=0
 
-    def encode(self, board, attacks=None):
+    def encode(self, board):
         """Return a borrowed feature buffer, valid until the next encode call."""
         masks={}
         for ci,color in enumerate((chess.WHITE,chess.BLACK)):
@@ -28,17 +28,16 @@ class IncrementalEncoder:
                 for sq in chess.scan_forward(mask & ~old):self.values[index*64+sq]=1
                 self.masks[index]=mask
         encode_state(board,self.values,self.input_size)
-        if self.input_size==RELATIONAL_INPUT_SIZE:self.values[794:]=self.relationships(board,masks,attacks)
+        if self.input_size==RELATIONAL_INPUT_SIZE:self.values[794:]=self.relationships(board,masks)
         return self.values
 
-    def relationships(self, board, masks, attacks=None):
-        if attacks is None:
-            attacks={}
-            for color in (chess.WHITE,chess.BLACK):
-                combined=0
-                for sq in chess.scan_forward(board.occupied_co[color]):
-                    combined|=board.attacks_mask(sq)
-                attacks[color]=combined
+    def relationships(self, board, masks):
+        attacks={}
+        for color in (chess.WHITE,chess.BLACK):
+            combined=0
+            for sq in chess.scan_forward(board.occupied_co[color]):
+                combined|=board.attacks_mask(sq)
+            attacks[color]=combined
         result=[]
         for color in (chess.WHITE,chess.BLACK):
             direction=1 if color else -1
@@ -97,7 +96,7 @@ class IncrementalBaseline:
                             (40-10*(abs(2*(sq&7)-7)+abs(2*(sq>>3)-7)))*(hce.MAX_PHASE-phase))//hce.MAX_PHASE
                             for sq in range(64))
 
-    def evaluate(self,board,piece_attacks=None,color_attacks=None):
+    def evaluate(self,board):
         hce=self.hce
         global_masks=(board.pawns,board.knights,board.bishops,board.rooks,board.queens,board.kings)
         masks=[tuple(mask & board.occupied_co[color] for mask in global_masks) for color in (chess.WHITE,chess.BLACK)]
@@ -114,15 +113,7 @@ class IncrementalBaseline:
                     value=mask.bit_count()*hce.MATERIAL[pt]+sum(table[sq] for sq in chess.scan_forward(mask))
                     previous=(mask,king_phase,value);self.pieces[index]=previous
                 score+=previous[2]
-            if piece_attacks is None:
-                score+=hce._mobility_score(board,color)+hce._center_control_score(board,color)
-            else:
-                friendly=board.occupied_co[color]
-                score+=sum(weight*(piece_attacks[sq]&~friendly).bit_count()
-                           for pt,weight in hce.MOBILITY_WEIGHTS.items()
-                           for sq in chess.scan_forward(own[pt-1]))
-                score+=hce.CENTER_CONTROL_BONUS*sum(bool(color_attacks[color]&chess.BB_SQUARES[sq])
-                                                   for sq in hce.CENTER_SQUARES)
+            score+=hce._mobility_score(board,color)+hce._center_control_score(board,color)
             minors=own[1]|own[2];key=(minors,own[4],phase)
             previous=self.activity[ci*3]
             if previous is None or previous[0]!=key:

@@ -1,0 +1,18 @@
+{
+  "old5": {
+    "pairs": 151,
+    "correct": 101,
+    "accuracy": 0.6688741721854304,
+    "hard_pairs": 52,
+    "hard_correct": 7,
+    "previously_correct_regressions": 5
+  },
+  "trained5": {
+    "pairs": 151,
+    "correct": 150,
+    "accuracy": 0.9933774834437086,
+    "hard_pairs": 52,
+    "hard_correct": 51,
+    "previously_correct_regressions": 0
+  }
+}

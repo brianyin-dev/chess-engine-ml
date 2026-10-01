@@ -17,7 +17,7 @@ class NeuralEvaluator:
     cacheable_by_fen = True
 
     def __init__(self, checkpoint: str | Path, correction_weight=1.0, quiet_only=False, optimized=True,
-                 incremental=False, fast_features=False):
+                 incremental=False):
         saved = torch.load(checkpoint, map_location="cpu", weights_only=True)
         if ((saved.get("version"), saved.get("input_size")) not in
                 ((2, LEGACY_INPUT_SIZE), (MODEL_VERSION, INPUT_SIZE),
@@ -35,9 +35,6 @@ class NeuralEvaluator:
         self.quiet_only = quiet_only
         self.optimized = optimized
         self.incremental = incremental
-        if fast_features and (not incremental or not optimized):
-            raise ValueError('fast features require incremental optimized inference')
-        self.fast_features = fast_features
         self.diagnostic_only = saved.get('diagnostic_only', False)
         self.input_size = saved['input_size']
         self.correction_limit_cp = saved.get('correction_limit_cp')
@@ -58,13 +55,9 @@ class NeuralEvaluator:
         self.weights = tuple(layer.weight.detach().numpy() for layer in linear)
         self.biases = tuple(layer.bias.detach().numpy() for layer in linear)
         if incremental:
-            from ml.incremental import IncrementalEncoder, IncrementalBaseline
+            from .incremental import IncrementalEncoder, IncrementalBaseline
             self.encoders = {sign: IncrementalEncoder(self.input_size) for sign in (1,-1)}
             self.baseline_encoder = IncrementalBaseline()
-        if fast_features:
-            self.feature_buffer = np.empty(self.input_size, dtype=np.float32)
-            self.hidden_buffers = tuple(np.empty(size, dtype=np.float32) for size in self.hidden_sizes)
-            self.output_buffer = np.empty(1, dtype=np.float32)
 
     def __call__(self, board: chess.Board) -> int:
         baseline = evaluate(board) if self.target_mode == 'residual' else 0
@@ -78,65 +71,22 @@ class NeuralEvaluator:
         """
         if not self.optimized:
             return self(board)
-        if self.fast_features:
-            active = not (self.target_mode == 'residual' and (self.correction_weight == 0 or
-                self.quiet_only and (board.is_check() or next(board.generate_legal_captures(), None))))
-            if not active:
-                return self.baseline_encoder.evaluate(board) if self.target_mode == 'residual' else 0
-            piece_attacks, color_attacks = {}, {}
-            for color in (chess.WHITE, chess.BLACK):
-                combined = 0
-                for square in chess.scan_forward(board.occupied_co[color]):
-                    attack = board.attacks_mask(square)
-                    piece_attacks[square] = attack
-                    combined |= attack
-                color_attacks[color] = combined
-            baseline = (self.baseline_encoder.evaluate(board, piece_attacks, color_attacks)
-                        if self.target_mode == 'residual' else 0)
-            return self._score(board, baseline, color_attacks, active=True)
         baseline = ((self.baseline_encoder.evaluate(board) if self.incremental else evaluate_position(board))
                     if self.target_mode == 'residual' else 0)
         return self._score(board, baseline)
 
-    def _score(self, board, baseline, attacks=None, active=False):
-        if not active and self.target_mode == 'residual' and (self.correction_weight == 0 or
+    def _score(self, board, baseline):
+        if self.target_mode == 'residual' and (self.correction_weight == 0 or
                 self.quiet_only and (board.is_check() or next(board.generate_legal_captures(), None))):
             return baseline
         sign = -1 if self.color_consistent and board.turn == chess.BLACK else 1
-        if self.fast_features:
-            # Encode the original coordinates once; canonicalize the borrowed
-            # array rather than allocating and transforming a Board for Black.
-            x = self.encoders[1].encode(board, attacks)
-            if sign == -1:
-                canonical = self.feature_buffer
-                canonical[:] = x
-                canonical[:768] = x[:768].reshape(2, 6, 8, 8)[::-1, :, ::-1, :].reshape(768)
-                canonical[768] = 1 - x[768]
-                canonical[769:773] = x[[771, 772, 769, 770]]
-                canonical[782:787] = x[787:792]
-                canonical[787:792] = x[782:787]
-                canonical[792] = -x[792]
-                if self.input_size == RELATIONAL_INPUT_SIZE:
-                    canonical[794:] = x[794:].reshape(2, 49)[::-1].reshape(98)
-                x = canonical
-        else:
-            encoded_board = board.mirror() if sign == -1 else board
-            x = (self.encoders[sign].encode(encoded_board) if self.incremental else
-                 board_to_array(encoded_board, self.input_size))
+        encoded_board = board.mirror() if sign == -1 else board
+        x = (self.encoders[sign].encode(encoded_board) if self.incremental else
+             board_to_array(encoded_board, self.input_size))
         material = sign * float(x[792]) * 4000 if self.target_mode == 'material' else 0
-        if self.fast_features:
-            for weight, bias, buffer in zip(self.weights[:-1], self.biases[:-1], self.hidden_buffers):
-                np.matmul(weight, x, out=buffer)
-                np.add(buffer, bias, out=buffer)
-                np.maximum(buffer, 0, out=buffer)
-                x = buffer
-            np.matmul(self.weights[-1], x, out=self.output_buffer)
-            np.add(self.output_buffer, self.biases[-1], out=self.output_buffer)
-            correction = float(self.output_buffer[0])
-        else:
-            for weight, bias in zip(self.weights[:-1], self.biases[:-1]):
-                x = np.maximum(weight @ x + bias, 0)
-            correction = float((self.weights[-1] @ x + self.biases[-1])[0])
+        for weight, bias in zip(self.weights[:-1], self.biases[:-1]):
+            x = np.maximum(weight @ x + bias, 0)
+        correction = float((self.weights[-1] @ x + self.biases[-1])[0])
         if self.correction_limit_cp is not None:
             limit = self.correction_limit_cp / SCORE_SCALE
             correction = limit * np.tanh(correction / limit)

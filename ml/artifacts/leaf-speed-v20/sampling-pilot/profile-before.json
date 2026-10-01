@@ -1,0 +1,219 @@
+{
+  "positions": 4741,
+  "roots": 120,
+  "median_microseconds": 106.83597870912828,
+  "round_seconds_per_position": [
+    0.00010675774267730275,
+    0.00010683597870912828,
+    0.00010798492743811466,
+    0.00010761556104497394,
+    9.623398714885666e-05,
+    9.802214721655027e-05,
+    0.00011458417695476124
+  ],
+  "top_functions": [
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/evaluator.py",
+      "line": 66,
+      "function": "evaluate_position",
+      "calls": 4741,
+      "self_seconds": 0.0064858400000000005,
+      "cumulative_seconds": 1.0281090320000001
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/evaluator.py",
+      "line": 78,
+      "function": "_score",
+      "calls": 4741,
+      "self_seconds": 0.06210705700000001,
+      "cumulative_seconds": 0.714495218
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/incremental.py",
+      "line": 20,
+      "function": "encode",
+      "calls": 4741,
+      "self_seconds": 0.066943444,
+      "cumulative_seconds": 0.516963521
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/incremental.py",
+      "line": 34,
+      "function": "relationships",
+      "calls": 4741,
+      "self_seconds": 0.16329199400000002,
+      "cumulative_seconds": 0.309431962
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/incremental.py",
+      "line": 99,
+      "function": "evaluate",
+      "calls": 4741,
+      "self_seconds": 0.079333784,
+      "cumulative_seconds": 0.307127974
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/ml/model.py",
+      "line": 82,
+      "function": "encode_state",
+      "calls": 4741,
+      "self_seconds": 0.048669098,
+      "cumulative_seconds": 0.11171465300000001
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 405,
+      "function": "scan_forward",
+      "calls": 477088,
+      "self_seconds": 0.086112002,
+      "cumulative_seconds": 0.106617287
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.sum>",
+      "calls": 43103,
+      "self_seconds": 0.031250783000000004,
+      "cumulative_seconds": 0.105999513
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.next>",
+      "calls": 4741,
+      "self_seconds": 0.0027814180000000003,
+      "cumulative_seconds": 0.07686401100000001
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 3702,
+      "function": "generate_legal_moves",
+      "calls": 4741,
+      "self_seconds": 0.006899906000000001,
+      "cumulative_seconds": 0.07075183
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/engine/evaluation.py",
+      "line": 139,
+      "function": "_mobility_score",
+      "calls": 9482,
+      "self_seconds": 0.028865821000000003,
+      "cumulative_seconds": 0.063506909
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/engine/evaluation.py",
+      "line": 175,
+      "function": "_center_control_score",
+      "calls": 9482,
+      "self_seconds": 0.008117837000000001,
+      "cumulative_seconds": 0.053393406000000004
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 1819,
+      "function": "generate_pseudo_legal_moves",
+      "calls": 4981,
+      "self_seconds": 0.02594725,
+      "cumulative_seconds": 0.052160340000000006
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 925,
+      "function": "is_attacked_by",
+      "calls": 38128,
+      "self_seconds": 0.012290741,
+      "cumulative_seconds": 0.045583115
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 905,
+      "function": "attackers_mask",
+      "calls": 47610,
+      "self_seconds": 0.041924669000000005,
+      "cumulative_seconds": 0.041924669000000005
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 875,
+      "function": "attacks_mask",
+      "calls": 98438,
+      "self_seconds": 0.039586043,
+      "cumulative_seconds": 0.039586043
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 799,
+      "function": "pieces_mask",
+      "calls": 225468,
+      "self_seconds": 0.039131843,
+      "cumulative_seconds": 0.039131843
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 3843,
+      "function": "mirror",
+      "calls": 2365,
+      "self_seconds": 0.0013398260000000001,
+      "cumulative_seconds": 0.037556456
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/ml/model.py",
+      "line": 60,
+      "function": "material_score",
+      "calls": 4741,
+      "self_seconds": 0.0024956180000000002,
+      "cumulative_seconds": 0.035212701
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'bit_count' of 'int' objects>",
+      "calls": 314842,
+      "self_seconds": 0.030308730000000002,
+      "cumulative_seconds": 0.030308730000000002
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/benchmarks/nn_baseline_v20/incremental.py",
+      "line": 113,
+      "function": "<genexpr>",
+      "calls": 55989,
+      "self_seconds": 0.012443000000000001,
+      "cumulative_seconds": 0.028046698000000002
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/ml/model.py",
+      "line": 61,
+      "function": "<genexpr>",
+      "calls": 28446,
+      "self_seconds": 0.016220811,
+      "cumulative_seconds": 0.027786017000000003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'bit_length' of 'int' objects>",
+      "calls": 317947,
+      "self_seconds": 0.025585309,
+      "cumulative_seconds": 0.025585309
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/engine/evaluation.py",
+      "line": 197,
+      "function": "_passed_pawn_score",
+      "calls": 5894,
+      "self_seconds": 0.012171633000000001,
+      "cumulative_seconds": 0.024982853000000003
+    },
+    {
+      "file": "/Users/brianyin/Downloads/chessengine/.venv/lib/python3.13/site-packages/chess/__init__.py",
+      "line": 3839,
+      "function": "apply_mirror",
+      "calls": 2365,
+      "self_seconds": 0.000998872,
+      "cumulative_seconds": 0.022855946000000002
+    }
+  ],
+  "policy": "Quiet evaluator calls from bounded depth3/6000-node searches of v19 development games. Sampling is not used for speed claims. Profiles use standalone search-only inference on saved FENs, preserving sequence. Same opening pair owns all variants/colors across train/val/test.",
+  "checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "leaves_sha256": "76105f3d1fa332680e610428b7356f37fb2a6379879c3ff81fe78f5e7cd138b4"
+}

@@ -45,6 +45,50 @@ class DataSplitTests(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "ML dependencies are optional in the engine CI environment")
 class NeuralEvaluatorTests(unittest.TestCase):
+    def test_capacity_bounds_use_gate_and_full_endpoint_rounding(self):
+        from ml.run_leaf_speed_v20 import ranking_range
+        good = chess.Board().fen()
+        bad = '4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 2'
+        # Only the first endpoint is eligible. Its 11 + 12.5 rounds to 24:
+        # an integer 5cp margin is reachable despite a continuous 4.5cp bound.
+        with patch('ml.run_leaf_speed_v20.baseline', side_effect=lambda fen: 11 if fen == good else 19):
+            self.assertEqual(ranking_range(good, bad, 1), (-21, 5))
+            self.assertEqual(ranking_range(good, bad, -1), (-5, 21))
+
+    def test_fast_features_preserve_frozen_scores_through_moves_and_undo(self):
+        import random
+        import torch
+        from ml.model import ChessNet, RELATIONAL_INPUT_SIZE, RELATIONAL_MODEL_VERSION, SCORE_SCALE
+        from ml.evaluator import NeuralEvaluator
+        from benchmarks.nn_baseline_v20.evaluator import NeuralEvaluator as FrozenEvaluator
+        torch.manual_seed(20)
+        model = ChessNet(RELATIONAL_INPUT_SIZE, 250, True)
+        rng = random.Random(20)
+        boards = []
+        for fen, move in [('r3k2r/8/8/8/8/8/8/R3K2R b KQkq - 0 1', 'e8c8'),
+                          ('4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 2', 'e5d6'),
+                          ('1r2k3/P7/8/8/8/8/8/4K3 w - - 0 1', 'a7b8n')]:
+            board = chess.Board(fen)
+            boards.append(board.copy()); board.push_uci(move)
+            boards.append(board.copy()); board.pop(); boards.append(board.copy())
+        board = chess.Board()
+        for _ in range(200):
+            boards.append(board.copy())
+            if board.is_game_over(): board = chess.Board()
+            elif board.move_stack and rng.random() < .2: board.pop()
+            else: board.push(rng.choice(list(board.legal_moves)))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'network.pt'
+            torch.save({'version': RELATIONAL_MODEL_VERSION, 'input_size': RELATIONAL_INPUT_SIZE,
+                        'score_scale': SCORE_SCALE, 'target_mode': 'residual', 'correction_limit_cp': 250,
+                        'color_consistent': True, 'state_dict': model.state_dict()}, path)
+            for weight, gate in ((0, True), (.05, True), (.25, True), (.25, False), (1, False)):
+                frozen = FrozenEvaluator(path, weight, gate, incremental=True)
+                fast = NeuralEvaluator(path, weight, gate, incremental=True, fast_features=True)
+                for position in boards:
+                    self.assertEqual(frozen.evaluate_position(position), fast.evaluate_position(position))
+                    self.assertEqual(frozen(position), fast(position))
+
     def test_zero_weight_benchmark_keeps_optimized_baseline_for_both_players(self):
         import json
         import io
