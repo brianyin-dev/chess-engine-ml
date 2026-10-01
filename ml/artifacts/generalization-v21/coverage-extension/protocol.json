@@ -1,0 +1,3 @@
+{
+  "policy": "Before model fitting: add120train,100val,100test source games, max6newgames/family, balance family exposure by split only. Fixed hash assignment unchanged. Teacher outcomes never select sources. Label with samev20 policy; merge existing labels, globally exclude them from new labels. Collection minimum30 temporarily deferred until merged counts checked."
+}

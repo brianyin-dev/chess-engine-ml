@@ -1,0 +1,4 @@
+{
+  "reason": "Fixed next80 roots/group permitted before fitting when a holdout has fewer than30pairs",
+  "candidate_fitted": false
+}

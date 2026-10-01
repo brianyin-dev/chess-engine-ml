@@ -1,0 +1,224 @@
+{"fen": "8/p4pk1/2p5/1p2b3/1P4pp/P3P1P1/3QNPPK/1q6 w - - 0 34", "score_cp": 25, "game_id": 5500319394368, "ply": 66, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/p4pk1/8/1p2b3/1Pp2NK1/P3P3/5PP1/8 w - - 0 39", "score_cp": 8, "game_id": 5500319394368, "ply": 76, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r4rk1/pb1nppbp/3p1np1/q1pP4/1pP1P3/5NP1/PP1N1P1P/R1BQRBK1 w - - 1 13", "score_cp": 36, "game_id": 28487286249338, "ply": 24, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rnb1k2r/p3ppbp/3p1np1/qppP4/8/2P2NP1/PP1NPPBP/R1BQK2R w KQkq - 0 8", "score_cp": 44, "game_id": 28487286249338, "ply": 14, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1r4k1/7p/2r5/6p1/p5P1/P4PP1/4R1K1/8 b - - 3 38", "score_cp": -678, "game_id": 56508462247699, "ply": 75, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2r3k1/7p/2r5/4R1p1/p5P1/P4PP1/6K1/8 b - - 1 37", "score_cp": -693, "game_id": 56508462247699, "ply": 73, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r5k1/1pR3pp/2b5/p3B3/5P2/1P6/7P/6K1 b - - 0 35", "score_cp": -2, "game_id": 114484134758198, "ply": 69, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/1p3k2/2bB4/R7/5P2/1r6/8/6K1 b - - 0 42", "score_cp": -3, "game_id": 114484134758198, "ply": 83, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2R5/4bk2/5pp1/8/1r6/pP1KB3/5P2/8 w - - 4 41", "score_cp": -109, "game_id": 114484134758198, "ply": 80, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/4b3/5pp1/8/1r6/pP1KB3/5P2/2R5 w - - 2 40"}
+{"fen": "6k1/4b3/5ppB/8/1r6/pP1K4/5P2/2R5 b - - 3 40", "score_cp": -632, "game_id": 114484134758198, "ply": 79, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/4b3/5pp1/8/1r6/pP1KB3/5P2/2R5 w - - 2 40"}
+{"fen": "6k1/4b3/5pp1/8/1r6/pP1KB3/5P2/1R6 b - - 3 40", "score_cp": -265, "game_id": 114484134758198, "ply": 79, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/4b3/5pp1/8/1r6/pP1KB3/5P2/2R5 w - - 2 40"}
+{"fen": "3r4/p1pk1ppp/2p5/2Pn4/8/P2p2P1/1P2RP1P/4R1K1 w - - 0 24", "score_cp": 408, "game_id": 180342002734038, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r4/p1pk1ppp/2p5/2Pn4/3p4/P5P1/1P2RP1P/4R1K1 b - - 0 23"}
+{"fen": "1r6/p1pk1ppp/2p5/2Pn4/3p4/P5P1/1P2RP1P/4R1K1 w - - 1 24", "score_cp": 507, "game_id": 180342002734038, "ply": 46, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1r6/2p2k2/2p4p/p1Pn2p1/5pP1/P7/1P2RPKP/4R3 w - - 1 40", "score_cp": 411, "game_id": 180342002734038, "ply": 78, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5k2/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/1R6 b - - 2 41", "score_cp": 839, "game_id": 194190904912389, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/5R2 w - - 1 41"}
+{"fen": "5k2/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/2R5 b - - 2 41", "score_cp": 771, "game_id": 194190904912389, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/5R2 w - - 1 41"}
+{"fen": "5k2/5p1p/1p6/6p1/3Pp3/6PP/3KBP2/5R2 b - - 0 41", "score_cp": 775, "game_id": 194190904912389, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/5R2 w - - 1 41"}
+{"fen": "rnb2rk1/ppb1qppp/2pp1n2/4p3/NPP5/P3PN2/1BQP1PPP/R3KB1R b KQ - 4 11", "score_cp": -19, "game_id": 194190904912389, "ply": 21, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/4kp1p/1p6/6p1/3Pp3/6P1/2K1BP1P/7R b - - 4 42", "score_cp": 784, "game_id": 194190904912389, "ply": 83, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3q1rbk/1pr1p2p/2pn1ppP/p7/Pn1P4/R1N3PB/1P2PP1N/2QR2K1 w - - 5 25", "score_cp": 0, "game_id": 208441101299598, "ply": 48, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/R1N3PB/1P2PP1N/2QR2K1 b - - 4 24", "score_cp": -31, "game_id": 208441101299598, "ply": 47, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P2PP1N/R1QR2K1 w - - 3 24"}
+{"fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P2PP1N/RQ1R2K1 b - - 4 24", "score_cp": -97, "game_id": 208441101299598, "ply": 47, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P2PP1N/R1QR2K1 w - - 3 24"}
+{"fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P1QPP1N/R2R2K1 b - - 4 24", "score_cp": -112, "game_id": 208441101299598, "ply": 47, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P2PP1N/R1QR2K1 w - - 3 24"}
+{"fen": "3q1r1k/1pr1pb1p/2pn1ppP/p7/Pn1P4/2N3PB/1P2PP1N/R1QR2K1 w - - 3 24", "score_cp": -10, "game_id": 208441101299598, "ply": 46, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1b6/3q1p1k/6p1/2Q5/6Pp/1P5P/P4PB1/6K1 w - - 3 34", "score_cp": 212, "game_id": 208441101299598, "ply": 66, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2q1rk1/1ppn1p2/p1np2p1/3N4/2P1P3/1P3P2/PQ2B1pP/2KR2R1 b - - 0 19", "score_cp": 149, "game_id": 270515783285929, "ply": 37, "source": "ordinary_quiet_search_leaf"}
+{"fen": "7k/8/B2P2p1/4p3/1Q2P3/8/P4q1P/7K w - - 0 40", "score_cp": 704, "game_id": 280534263926909, "ply": 78, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/7p/P2k4/r1pp1P2/6P1/8/4BK2/4N3 w - - 1 39", "score_cp": 70, "game_id": 280534263926909, "ply": 76, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r5k1/4p2p/n2p1ppP/2pP4/P3P3/6P1/1r1NRP2/R4K2 w - - 0 25", "score_cp": 24, "game_id": 280534263926909, "ply": 48, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rn1q1rk1/4ppbp/3p1np1/2pP4/4P3/2N3P1/PP3PKP/R1BQ2NR w - - 3 11", "score_cp": 69, "game_id": 280534263926909, "ply": 20, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1nb2rk1/4p2p/3p1pp1/2pP4/P3P3/2r2N2/5PPP/RR3BK1 b - - 1 18", "score_cp": 175, "game_id": 280534263926909, "ply": 35, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1nb2rk1/4p2p/3p1pp1/1BpP4/P3P3/2r2N2/5PPP/RR4K1 w - - 0 18"}
+{"fen": "1nb2rk1/4p2p/3p1pp1/1BpP4/P3P3/2r5/3N1PPP/RR4K1 b - - 1 18", "score_cp": 76, "game_id": 280534263926909, "ply": 35, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1nb2rk1/4p2p/3p1pp1/1BpP4/P3P3/2r2N2/5PPP/RR4K1 w - - 0 18"}
+{"fen": "1n6/3p1pk1/1PbP4/2p2P1p/2r5/7P/5K2/8 b - - 0 40", "score_cp": -1083, "game_id": 280534263926909, "ply": 79, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1n6/3p1pk1/1PbP4/2p2P1p/2r5/8/5K1P/8 w - - 0 40"}
+{"fen": "1n6/3p1pk1/1PbP4/2p2P1p/2r5/6K1/7P/8 b - - 1 40", "score_cp": -1268, "game_id": 280534263926909, "ply": 79, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1n6/3p1pk1/1PbP4/2p2P1p/2r5/8/5K1P/8 w - - 0 40"}
+{"fen": "1n2r1k1/3p1p1p/3P2p1/1Pp3P1/4bP2/8/7P/5BK1 b - - 0 30", "score_cp": -790, "game_id": 280534263926909, "ply": 59, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1n2r1k1/3p1p1p/3P2p1/1Pp5/4bPP1/8/7P/5BK1 w - - 1 30"}
+{"fen": "1n2r1k1/3p1p1p/3P2p1/1Pp5/4bPP1/7B/7P/6K1 b - - 2 30", "score_cp": -1027, "game_id": 280534263926909, "ply": 59, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1n2r1k1/3p1p1p/3P2p1/1Pp5/4bPP1/8/7P/5BK1 w - - 1 30"}
+{"fen": "1n2r1k1/3p1p1p/3P2p1/1Pp5/4bPP1/8/7P/5BK1 w - - 1 30", "score_cp": -752, "game_id": 280534263926909, "ply": 58, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1n3rk1/3p1p1p/3P2p1/1Pp5/4bP2/8/6PP/5BK1 w - - 1 29", "score_cp": -785, "game_id": 280534263926909, "ply": 56, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rn3rk1/4ppbp/1q1p1np1/2pP4/4P3/2N2NP1/PP3PKP/R1BQ3R w - - 5 12", "score_cp": 84, "game_id": 280534263926909, "ply": 22, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rnbq1rk1/p4pbp/3p2p1/2pPp2n/2B1P3/1PB2N2/P2N1PPP/R2QR1K1 b - - 3 12", "score_cp": 90, "game_id": 280534263926909, "ply": 23, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2r4/1p1n1kp1/p3p3/4p1P1/P1R5/7R/1P5P/6K1 w - - 4 32", "score_cp": -581, "game_id": 5500319394368, "ply": 62, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/p5p1/4pk1p/1r5P/4P1K1/P2R1PP1/8/8 b - - 0 33", "score_cp": 179, "game_id": 5500319394368, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33"}
+{"fen": "8/p5p1/4pk1p/1r6/4PPKP/P2R2P1/8/8 b - - 0 33", "score_cp": 59, "game_id": 5500319394368, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33"}
+{"fen": "8/p5p1/4pk1p/1r6/4P1KP/P1R2PP1/8/8 b - - 2 33", "score_cp": 82, "game_id": 5500319394368, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33"}
+{"fen": "8/p5p1/4pk1p/1r6/P3P1KP/3R1PP1/8/8 b - - 0 33", "score_cp": 66, "game_id": 5500319394368, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33"}
+{"fen": "8/p5p1/4pk1p/1r6/4P1KP/P4PP1/8/3R4 b - - 2 33", "score_cp": 49, "game_id": 5500319394368, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33"}
+{"fen": "8/p5p1/4pk1p/1r6/4P1KP/P2R1PP1/8/8 w - - 1 33", "score_cp": 223, "game_id": 5500319394368, "ply": 64, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/p4kp1/4p2p/4P2P/r4P2/P1R3PK/8/8 w - - 5 40", "score_cp": 163, "game_id": 5500319394368, "ply": 78, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r5k1/pq3pp1/4p2p/3nN3/7P/P4PP1/3QP1K1/2R5 b - - 0 24", "score_cp": -2, "game_id": 5500319394368, "ply": 47, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1r3rk1/7p/n5pb/Bb2pp2/4N3/1P4PP/P4PB1/3RR1K1 w - - 0 24", "score_cp": 364, "game_id": 28487286249338, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r3rk1/5p1p/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 b - - 2 23"}
+{"fen": "1r3rk1/5pbp/n5p1/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 w - - 3 24", "score_cp": 467, "game_id": 28487286249338, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r3rk1/5p1p/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 b - - 2 23"}
+{"fen": "1r3r2/5pkp/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 w - - 3 24", "score_cp": 549, "game_id": 28487286249338, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r3rk1/5p1p/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 b - - 2 23"}
+{"fen": "4rrk1/5p1p/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 w - - 3 24", "score_cp": 775, "game_id": 28487286249338, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r3rk1/5p1p/n5pb/Bb2p3/4N3/1P4PP/P4PB1/3RR1K1 b - - 2 23"}
+{"fen": "8/2k4p/P5p1/1B3p2/P3p2P/6P1/2n2P2/6K1 w - - 1 40", "score_cp": 179, "game_id": 28487286249338, "ply": 78, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/7p/P2k2p1/1B3p2/P3p2P/6P1/2n2P2/6K1 b - - 0 39"}
+{"fen": "8/7p/P2k2p1/1B3p2/P3p2P/n5P1/5P2/6K1 w - - 1 40", "score_cp": 910, "game_id": 28487286249338, "ply": 78, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/7p/P2k2p1/1B3p2/P3p2P/6P1/2n2P2/6K1 b - - 0 39"}
+{"fen": "8/7p/P2k2p1/1B3p2/P3p2P/6P1/5P2/n5K1 w - - 1 40", "score_cp": 988, "game_id": 28487286249338, "ply": 78, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/7p/P2k2p1/1B3p2/P3p2P/6P1/2n2P2/6K1 b - - 0 39"}
+{"fen": "8/7p/P2k2p1/1B3p2/P3p2P/6P1/2n2P2/6K1 b - - 0 39", "score_cp": 173, "game_id": 28487286249338, "ply": 77, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1r3rk1/5pbp/n5p1/Bb2p3/4N3/1P4PP/P4PB1/2R1R1K1 b - - 0 22", "score_cp": 283, "game_id": 28487286249338, "ply": 43, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r1rk1/5pbp/nB4p1/pb2p3/4N3/1P4PP/P4PB1/2R1R1K1 b - - 1 21"}
+{"fen": "5rk1/5pbp/n5p1/pb6/3pN3/1P4PP/P4PB1/2R1R1K1 w - - 0 23", "score_cp": 432, "game_id": 28487286249338, "ply": 44, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r1rk1/5pbp/nB4p1/pb2p3/4N3/1P4PP/P4PB1/2R1R1K1 b - - 1 21"}
+{"fen": "3r1rk1/5pbp/nB4p1/pb2p3/4N3/1P4PP/P4PB1/2R1R1K1 b - - 1 21", "score_cp": 274, "game_id": 28487286249338, "ply": 41, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r1rk1/5pbp/n5p1/pb2p3/4N3/1P2B1PP/P4PB1/2R1R1K1 w - - 0 21"}
+{"fen": "r4rk1/p2nppbp/b2p1np1/qppP4/4P3/2P2NP1/PP1N1PBP/R1BQR1K1 w - - 3 11", "score_cp": 60, "game_id": 28487286249338, "ply": 20, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3r4/6kp/6p1/1B3p2/Pn2p3/1P4PP/5P2/2R3K1 w - - 3 32", "score_cp": 229, "game_id": 28487286249338, "ply": 62, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r2k1/7p/6p1/1B3p2/Pn2p3/1P4PP/5P2/2R3K1 b - - 2 31"}
+{"fen": "3r1k2/7p/6p1/1B3p2/Pn2p3/1P4PP/5P2/2R3K1 w - - 3 32", "score_cp": 304, "game_id": 28487286249338, "ply": 62, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r2k1/7p/6p1/1B3p2/Pn2p3/1P4PP/5P2/2R3K1 b - - 2 31"}
+{"fen": "r5k1/8/pBp5/P3pp1p/7P/1p2K1P1/1PbR4/8 b - - 1 38", "score_cp": -70, "game_id": 28487286249338, "ply": 75, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3r1rk1/5pbp/n5p1/pb2p3/P3N3/1P2B1PP/5PB1/2R1R1K1 b - - 0 21", "score_cp": 135, "game_id": 28487286249338, "ply": 41, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r1rk1/5pbp/n5p1/pb2p3/4N3/1P2B1PP/P4PB1/2R1R1K1 w - - 0 21"}
+{"fen": "r4rk1/3nq1b1/p1p1bpp1/Pp2p2p/4P2P/3B2P1/1PPNQP2/R1B2RK1 b - - 1 20", "score_cp": -140, "game_id": 28487286249338, "ply": 39, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/1p1k4/2p5/b4N2/2P5/8/P6P/7K b - - 1 37", "score_cp": 9, "game_id": 56508462247699, "ply": 73, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r1bq1rk1/pp2p1bp/2pp1np1/8/2PP4/5NP1/PP2RPBP/R1BQ2K1 b - - 2 12", "score_cp": 36, "game_id": 56508462247699, "ply": 23, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rn2k3/3n3p/6p1/pR3p2/2P5/1PN3P1/P3PP1P/6K1 b - - 2 21", "score_cp": -13, "game_id": 56508462247699, "ply": 41, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r3q1k1/p4r1p/5pp1/2R5/8/3R1NP1/b4PP1/3Q2K1 w - - 0 32", "score_cp": 31, "game_id": 88013414864199, "ply": 62, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r5k1/5r1p/3R1pp1/p1R5/8/5NP1/b2Q1PPK/1q6 b - - 5 35", "score_cp": 4, "game_id": 88013414864199, "ply": 69, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/p4p1k/2q3pp/2rnQ3/6PP/P1p2P2/2R1N3/5K2 b - - 0 36", "score_cp": -320, "game_id": 88013414864199, "ply": 71, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3k3r/1p3pp1/2p5/b1B4p/2P5/6PP/5P2/3B1K2 b - - 1 32", "score_cp": -519, "game_id": 114484134758198, "ply": 63, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1k6/pp5B/8/2p5/3n1PP1/4K3/r7/7R b - - 0 36", "score_cp": 2, "game_id": 114484134758198, "ply": 71, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/pp5B/8/2p5/3n1P2/4K1P1/r7/7R w - - 0 36"}
+{"fen": "1k6/pp5B/8/2p5/3n1P2/4K1P1/r7/3R4 b - - 1 36", "score_cp": -102, "game_id": 114484134758198, "ply": 71, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/pp5B/8/2p5/3n1P2/4K1P1/r7/7R w - - 0 36"}
+{"fen": "1k6/pp5B/8/2p5/3n1P2/4K1P1/r7/7R w - - 0 36", "score_cp": 25, "game_id": 114484134758198, "ply": 70, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r3k1nr/pppnqpbp/6p1/3p4/7P/5PP1/PP1P1PB1/RNBQ1K1R w kq - 1 10", "score_cp": 44, "game_id": 114484134758198, "ply": 18, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2rqkb1r/N2n1ppp/4pn2/8/1ppPb3/5NP1/1P2PPBP/R1BQ1RK1 b k - 0 14", "score_cp": 20, "game_id": 114484134758198, "ply": 27, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2rqkb1r/p2n1ppp/4pn2/1N3b2/1ppP4/5NP1/1P2PPBP/R1BQ1RK1 b k - 1 13"}
+{"fen": "2rqkbr1/N2n1ppp/4pn2/5b2/1ppP4/5NP1/1P2PPBP/R1BQ1RK1 b - - 0 14", "score_cp": 456, "game_id": 114484134758198, "ply": 27, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2rqkb1r/p2n1ppp/4pn2/1N3b2/1ppP4/5NP1/1P2PPBP/R1BQ1RK1 b k - 1 13"}
+{"fen": "2rqkb1r/p2n1ppp/4pn2/1N3b2/1ppP4/5NP1/1P2PPBP/R1BQ1RK1 b k - 1 13", "score_cp": 93, "game_id": 114484134758198, "ply": 25, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1k6/pp6/8/2p3r1/4B3/3K4/8/7R b - - 1 41", "score_cp": 1, "game_id": 114484134758198, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/pp6/8/2p2Br1/8/3K4/8/7R w - - 0 41"}
+{"fen": "1k6/pp1B4/8/2p3r1/8/3K4/8/7R b - - 1 41", "score_cp": -402, "game_id": 114484134758198, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/pp6/8/2p2Br1/8/3K4/8/7R w - - 0 41"}
+{"fen": "3q1rk1/RQ1bbppp/4pn2/8/1p1P1B2/1Pp2BP1/4PP1P/6K1 b - - 4 27", "score_cp": -564, "game_id": 114484134758198, "ply": 53, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1k6/ppp4B/8/8/3n1P2/4K1P1/r7/7R b - - 2 33", "score_cp": 1, "game_id": 114484134758198, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/ppp4B/2n5/8/5P2/5KP1/r7/7R b - - 0 32"}
+{"fen": "1k6/ppp4B/8/8/1n3P2/5KP1/r7/7R w - - 1 33", "score_cp": 276, "game_id": 114484134758198, "ply": 64, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1k6/ppp4B/2n5/8/5P2/5KP1/r7/7R b - - 0 32"}
+{"fen": "6k1/B3bp2/4pn1p/1b2P3/1p1P2p1/1Pp3P1/2K2PBP/8 b - - 0 41", "score_cp": -520, "game_id": 114484134758198, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/B3bp2/4pn1p/1b6/1p1PP1p1/1Pp3P1/2K2PBP/8 w - - 3 41"}
+{"fen": "6k1/4bp2/1B2pn1p/1b6/1p1PP1p1/1Pp3P1/2K2PBP/8 b - - 4 41", "score_cp": -595, "game_id": 114484134758198, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/B3bp2/4pn1p/1b6/1p1PP1p1/1Pp3P1/2K2PBP/8 w - - 3 41"}
+{"fen": "3r1k2/1p4p1/2p2p2/b1P5/6P1/1B2B3/5P2/5K2 w - - 1 40", "score_cp": -472, "game_id": 114484134758198, "ply": 78, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2k5/5n2/p1p1ppp1/2P5/2P5/NP2P1P1/P2RK3/7r b - - 2 27", "score_cp": -12, "game_id": 116938575870408, "ply": 53, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r3k2r/pp2ppbp/2n1bnp1/2p5/2P5/N4NP1/PP2PPBP/R1BR2K1 w kq - 3 10", "score_cp": 34, "game_id": 116938575870408, "ply": 18, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2k5/5n2/p1p1ppp1/2P5/2P5/1P2P1r1/P1NRK3/8 w - - 0 29", "score_cp": -10, "game_id": 116938575870408, "ply": 56, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2k5/5n2/p1p1ppp1/2P5/2P5/NP2P1Pr/P2RK3/8 w - - 3 28"}
+{"fen": "2k5/5n2/p1p1ppp1/2P5/2P1P3/NP4r1/P2RK3/8 w - - 0 29", "score_cp": -60, "game_id": 116938575870408, "ply": 56, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2k5/5n2/p1p1ppp1/2P5/2P5/NP2P1Pr/P2RK3/8 w - - 3 28"}
+{"fen": "3rrk2/pp3p2/8/2PP4/4Bqb1/4pN2/PPQ3P1/5RK1 w - - 1 26", "score_cp": -499, "game_id": 126875995538068, "ply": 50, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2qkb1r/p2bpp1p/2p2np1/8/Q7/2N1B3/PPP2PPP/R3KB1R b KQkq - 1 10", "score_cp": 19, "game_id": 133242086205039, "ply": 19, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2q1rk1/pb1pbppp/1pn1pn2/8/2P2Q2/2N2NP1/PP2PPBP/R1BR2K1 b - - 4 10", "score_cp": 40, "game_id": 151312981663709, "ply": 19, "source": "ordinary_quiet_search_leaf"}
+{"fen": "7R/1p4k1/1p4p1/p4pr1/PbB5/1P3K1P/2P5/8 w - - 2 42", "score_cp": -10, "game_id": 168898862418499, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/1p6/1p4pk/p4pr1/PbB5/1P3K1P/2P5/8 w - - 0 41"}
+{"fen": "3R4/1p6/1p4pk/p4pr1/Pb6/1P3K1P/2P5/5B2 b - - 1 41", "score_cp": -60, "game_id": 168898862418499, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/1p6/1p4pk/p4pr1/PbB5/1P3K1P/2P5/8 w - - 0 41"}
+{"fen": "3R4/1p6/1p4pk/p2B1pr1/Pb6/1P3K1P/2P5/8 b - - 1 41", "score_cp": -68, "game_id": 168898862418499, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/1p6/1p4pk/p4pr1/PbB5/1P3K1P/2P5/8 w - - 0 41"}
+{"fen": "3R4/1p6/1p4pk/p4pr1/PbB5/1P3K1P/2P5/8 w - - 0 41", "score_cp": -13, "game_id": 168898862418499, "ply": 80, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/1p3pk1/1p4p1/p2r4/P7/1Pb2K1P/2P1B3/3R4 b - - 7 34", "score_cp": -8, "game_id": 168898862418499, "ply": 67, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/1p3pk1/1p4p1/p2r4/P7/1Pb2K1P/2P1B3/2R5 w - - 6 34"}
+{"fen": "8/1p3pk1/1p4p1/p2r4/P7/1Pb1K2P/2P1B3/2R5 b - - 7 34", "score_cp": -92, "game_id": 168898862418499, "ply": 67, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/1p3pk1/1p4p1/p2r4/P7/1Pb2K1P/2P1B3/2R5 w - - 6 34"}
+{"fen": "8/1p3pk1/1p4p1/p2r4/P7/1Pb2K1P/2P1B3/2R5 w - - 6 34", "score_cp": -6, "game_id": 168898862418499, "ply": 66, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/p4k2/5Bp1/1p1p1pP1/6q1/1P2P3/P2K4/3R4 w - - 0 41", "score_cp": -394, "game_id": 168898862418499, "ply": 80, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/5pk1/2r3pp/8/P7/7P/R4PPK/8 w - - 2 40", "score_cp": 254, "game_id": 170788437760518, "ply": 78, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5r1k/7p/8/7P/3p4/P2nbp2/8/1R5K w - - 1 43", "score_cp": -1119, "game_id": 170788437760518, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n2P/3p4/P3bp2/8/1R5K b - - 0 42"}
+{"fen": "4r2k/7p/8/4n2P/3p4/P3bp2/8/1R5K w - - 1 43", "score_cp": -946, "game_id": 170788437760518, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n2P/3p4/P3bp2/8/1R5K b - - 0 42"}
+{"fen": "7k/7p/5r2/4n2P/3p4/P3bp2/8/1R5K w - - 1 43", "score_cp": -929, "game_id": 170788437760518, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n2P/3p4/P3bp2/8/1R5K b - - 0 42"}
+{"fen": "5r1k/3n3p/8/7P/3p4/P3bp2/8/1R5K w - - 1 43", "score_cp": -903, "game_id": 170788437760518, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n2P/3p4/P3bp2/8/1R5K b - - 0 42"}
+{"fen": "r4r1k/3n3p/1bp5/1p1qpp2/p3N3/3P3P/PPPB1PQ1/R4RK1 w - - 2 22", "score_cp": -202, "game_id": 170788437760518, "ply": 42, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5r1k/7p/8/4n2P/3p4/P3bp2/8/1R5K b - - 0 42", "score_cp": -938, "game_id": 170788437760518, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n3/3p3P/P3bp2/8/1R5K w - - 6 42"}
+{"fen": "5r1k/7p/8/4n3/3p3P/P3bp2/1R6/7K b - - 7 42", "score_cp": -1146, "game_id": 170788437760518, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/7p/8/4n3/3p3P/P3bp2/8/1R5K w - - 6 42"}
+{"fen": "5r1k/1p5p/2p5/8/4R3/1P2p2P/1PP3K1/8 b - - 0 35", "score_cp": -4, "game_id": 170788437760518, "ply": 69, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1r2r1k1/1p5n/p3n3/P1p1N1pp/1p2P3/5P1P/2P1N1P1/1R1R2K1 b - - 0 31", "score_cp": 74, "game_id": 170788437760518, "ply": 61, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r2r1k1/1pp4n/p3n3/P3p1pp/1p2P3/3N1P1P/2P1N1P1/1R1R2K1 b - - 1 30"}
+{"fen": "1r2rnk1/1pp4n/p7/P3p1pp/1R2P3/3N1P1P/2P1N1P1/3R2K1 b - - 0 31", "score_cp": 190, "game_id": 170788437760518, "ply": 61, "source": "capacity_aware_quiet_search_leaf", "root_fen": "1r2r1k1/1pp4n/p3n3/P3p1pp/1p2P3/3N1P1P/2P1N1P1/1R1R2K1 b - - 1 30"}
+{"fen": "5r1k/1p5p/2p5/5r2/4R3/1P2p2P/1PP4K/6R1 b - - 1 33", "score_cp": 0, "game_id": 170788437760518, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/1p5p/2p5/5r2/R7/1P2p2P/1PP4K/6R1 w - - 0 33"}
+{"fen": "5r1k/1p5p/2p5/5r2/R6P/1P2p3/1PP4K/6R1 b - - 0 33", "score_cp": -154, "game_id": 170788437760518, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/1p5p/2p5/5r2/R7/1P2p2P/1PP4K/6R1 w - - 0 33"}
+{"fen": "5r1k/1p5p/2p5/5r2/2R5/1P2p2P/1PP4K/6R1 b - - 1 33", "score_cp": -72, "game_id": 170788437760518, "ply": 65, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r1k/1p5p/2p5/5r2/R7/1P2p2P/1PP4K/6R1 w - - 0 33"}
+{"fen": "5k2/2pRR1pp/p7/Pnp5/6r1/7r/5K2/8 b - - 1 41", "score_cp": -776, "game_id": 170788437760518, "ply": 81, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/5pk1/6pp/8/P7/2r4P/3R1PPK/8 w - - 0 39", "score_cp": 284, "game_id": 170788437760518, "ply": 76, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/5pk1/2r3pp/8/P7/2P4P/5PPK/8 w - - 1 38"}
+{"fen": "3R4/5pk1/6pp/8/P7/2r4P/5PP1/6K1 w - - 0 39", "score_cp": 35, "game_id": 170788437760518, "ply": 76, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/5pk1/2r3pp/8/P7/2P4P/5PPK/8 w - - 1 38"}
+{"fen": "8/5pk1/6pp/3R4/P7/2r4P/5PPK/8 w - - 0 39", "score_cp": 24, "game_id": 170788437760518, "ply": 76, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3R4/5pk1/2r3pp/8/P7/2P4P/5PPK/8 w - - 1 38"}
+{"fen": "6k1/1p6/pR6/P3p2p/4Pn1P/5PN1/5K2/2r5 b - - 4 42", "score_cp": -2, "game_id": 170788437760518, "ply": 83, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/5pk1/r5pp/P7/8/7P/R4PPK/8 w - - 1 41", "score_cp": 298, "game_id": 170788437760518, "ply": 80, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/5pk1/2r3pp/P7/8/7P/R4PPK/8 b - - 0 40"}
+{"fen": "8/2r2pk1/6pp/P7/8/7P/R4PPK/8 w - - 1 41", "score_cp": 479, "game_id": 170788437760518, "ply": 80, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/5pk1/2r3pp/P7/8/7P/R4PPK/8 b - - 0 40"}
+{"fen": "5r1k/7p/8/4n3/3p1b1P/P4p2/8/1R5K b - - 5 41", "score_cp": -962, "game_id": 170788437760518, "ply": 81, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rnbq1rk1/ppp1b1pp/3p1n2/4pp2/1PP5/P1N2NP1/1B1PPPBP/R2QK2R b KQ - 1 8", "score_cp": 30, "game_id": 171712031939428, "ply": 15, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4r2k/8/6p1/R7/P3N3/1b1n1P1P/7K/5R2 w - - 3 38", "score_cp": 601, "game_id": 171712031939428, "ply": 74, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/2p2k2/2p3pp/prPn1p2/8/P5P1/1P2RP1P/4R1K1 w - - 4 34", "score_cp": 439, "game_id": 180342002734038, "ply": 66, "source": "ordinary_quiet_search_leaf"}
+{"fen": "6k1/5p1p/1p6/6p1/3Pp3/6P1/3KBP1P/5R2 b - - 0 40", "score_cp": 784, "game_id": 194190904912389, "ply": 79, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5r1k/2p1nrp1/1p1p2qp/p2Pp2n/P1P1P3/1P4PP/3N3R/1KB1Q1R1 w - - 0 27", "score_cp": 13, "game_id": 194190904912389, "ply": 52, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5k2/pp5p/8/3p4/3P1BP1/3b3P/P4P2/6K1 b - - 0 38", "score_cp": 259, "game_id": 203907699213639, "ply": 75, "source": "ordinary_quiet_search_leaf"}
+{"fen": "6k1/1p3r1p/1p3B2/3p4/3P1p2/3b3P/P4PP1/2R3K1 w - - 0 35", "score_cp": 232, "game_id": 203907699213639, "ply": 68, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/pp3r1p/5B2/1P1p4/3P1p2/3b3P/P4PP1/2R3K1 w - - 1 34"}
+{"fen": "6k1/pp3r1p/8/1b1p2B1/3P1p2/7P/P4PP1/2R3K1 w - - 0 35", "score_cp": 51, "game_id": 203907699213639, "ply": 68, "source": "capacity_aware_quiet_search_leaf", "root_fen": "6k1/pp3r1p/5B2/1P1p4/3P1p2/3b3P/P4PP1/2R3K1 w - - 1 34"}
+{"fen": "5k2/1p5p/8/p2p4/3P2P1/3b3P/P2B1P2/6K1 b - - 1 39", "score_cp": 272, "game_id": 203907699213639, "ply": 77, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/1p5p/8/p2p4/3P1BP1/3b3P/P4P2/6K1 w - - 0 39"}
+{"fen": "1B3k2/1p5p/8/p2p4/3P2P1/3b3P/P4P2/6K1 b - - 1 39", "score_cp": 148, "game_id": 203907699213639, "ply": 77, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/1p5p/8/p2p4/3P1BP1/3b3P/P4P2/6K1 w - - 0 39"}
+{"fen": "5k2/pp5p/8/3p4/3P1B2/3b3P/P4PPK/8 b - - 2 38", "score_cp": 191, "game_id": 203907699213639, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/pp5p/8/3p4/3P1B2/3b3P/P4PP1/6K1 w - - 1 38"}
+{"fen": "5k2/pp5p/8/3p2B1/3P4/3b3P/P4PP1/6K1 b - - 2 38", "score_cp": 129, "game_id": 203907699213639, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5k2/pp5p/8/3p4/3P1B2/3b3P/P4PP1/6K1 w - - 1 38"}
+{"fen": "5k2/pp5p/8/3p4/3P1B2/3b3P/P4PP1/6K1 w - - 1 38", "score_cp": 202, "game_id": 203907699213639, "ply": 74, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r1bq1rk1/1p2ppbp/1np3p1/p7/Pn1P1B2/2N2NP1/1P2PPBP/R1Q2RK1 w - - 0 12", "score_cp": 19, "game_id": 208441101299598, "ply": 22, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3r4/1p1k1p2/p5n1/P2p1NR1/1P6/2P5/3K1P2/8 b - - 2 40", "score_cp": 41, "game_id": 208441101299598, "ply": 79, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3q1rbk/1pr1p2p/2pn1ppP/p7/Pn1P4/R1N3P1/1P2PPBN/2QR2K1 b - - 6 25", "score_cp": -42, "game_id": 208441101299598, "ply": 49, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r3rbk1/1p3p1p/n3b1p1/1p2p3/3pP3/P2P2P1/1P1B1PBP/R1R1N1K1 w - - 3 22", "score_cp": -41, "game_id": 231167436271828, "ply": 42, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2b5/1p4k1/5pp1/4n2p/1P2P2P/3P2P1/5K2/1R6 w - - 0 41", "score_cp": 5, "game_id": 231167436271828, "ply": 80, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r1bqk2r/1pp1npb1/2np2pp/p3p3/2P5/P1NP1NP1/1P2PPBP/1RBQ1RK1 b kq - 1 9", "score_cp": 13, "game_id": 235916202909689, "ply": 17, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/r1kb3p/2p3p1/p4p2/n2N4/4PBP1/P6P/2R2K2 b - - 1 34", "score_cp": -133, "game_id": 235916202909689, "ply": 67, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r1bR4/6kp/2p2rp1/p1P1np2/P3p3/4P1P1/P3NPBP/1R4K1 b - - 0 23", "score_cp": 47, "game_id": 235916202909689, "ply": 45, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r1bq1rk1/6bp/2pp1np1/p4p2/P1P1p3/4P1P1/PB1QNPBP/1R3RK1 b - - 0 17", "score_cp": 0, "game_id": 235916202909689, "ply": 33, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2r3k1/pnr3pp/1pp1Np2/3p4/PP1P3P/2R1P1P1/5P2/5RK1 b - - 0 31", "score_cp": 128, "game_id": 236243555563429, "ply": 61, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2qkb1r/ppp2ppp/2n2n2/3p1b2/3P4/P4NP1/1P2PP1P/RNBQKB1R w KQkq - 0 7", "score_cp": 7, "game_id": 236243555563429, "ply": 12, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3Q4/5p1k/p1p1b1p1/7p/2p1P2P/P5P1/1q2NP2/5BK1 w - - 2 31", "score_cp": 512, "game_id": 256016459201669, "ply": 60, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2B5/5p1k/6p1/p6p/2p1P2P/P2p2P1/3K1P2/8 b - - 1 38", "score_cp": 659, "game_id": 256016459201669, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2B5/5p1k/6p1/p6p/2p1P2P/P2p2P1/5P2/4K3 w - - 0 38"}
+{"fen": "2B5/5p1k/6p1/p3P2p/2p4P/P2p2P1/5P2/4K3 b - - 0 38", "score_cp": 490, "game_id": 256016459201669, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2B5/5p1k/6p1/p6p/2p1P2P/P2p2P1/5P2/4K3 w - - 0 38"}
+{"fen": "2B5/5p1k/p5p1/7p/2p1P2P/P2p2P1/5P2/4K3 b - - 1 37", "score_cp": 556, "game_id": 256016459201669, "ply": 73, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/5p1k/p5p1/2p4p/4P2P/P2p2PB/5P2/4K3 b - - 1 36", "score_cp": 627, "game_id": 256016459201669, "ply": 71, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/5p1k/p5p1/2p4p/4P2P/P2p2PB/5P2/5K2 w - - 0 36"}
+{"fen": "8/5p1k/p5p1/2p4p/4P2P/P2p2P1/5PB1/5K2 b - - 1 36", "score_cp": 526, "game_id": 256016459201669, "ply": 71, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/5p1k/p5p1/2p4p/4P2P/P2p2PB/5P2/5K2 w - - 0 36"}
+{"fen": "8/3B1p1k/p5p1/2p4p/4P2P/P2p2P1/5P2/5K2 b - - 1 36", "score_cp": 495, "game_id": 256016459201669, "ply": 71, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/5p1k/p5p1/2p4p/4P2P/P2p2PB/5P2/5K2 w - - 0 36"}
+{"fen": "1r4k1/3bb3/1q1p2p1/1P1Pp1Pp/2B1P2P/2N5/2KN4/R4R2 w - - 5 33", "score_cp": 74, "game_id": 256016459201669, "ply": 64, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/6p1/3k3p/3N4/1P1n2P1/7P/5K2/8 w - - 1 41", "score_cp": 59, "game_id": 259060625971519, "ply": 80, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3rk3/1p4p1/2p2p2/2P5/6P1/1B2B3/3b1P2/5K2 w - - 1 40", "score_cp": -559, "game_id": 259060625971519, "ply": 78, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3rk3/1p4p1/2p2p2/b1P5/6P1/1B2B3/5P2/5K2 b - - 0 39"}
+{"fen": "4k3/1p1r2p1/2p2p2/b1P5/6P1/1B2B3/5P2/5K2 w - - 1 40", "score_cp": -491, "game_id": 259060625971519, "ply": 78, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3rk3/1p4p1/2p2p2/b1P5/6P1/1B2B3/5P2/5K2 b - - 0 39"}
+{"fen": "8/p3k1p1/2p1n3/8/N1B1P2K/8/1P3P2/2n5 b - - 0 38", "score_cp": 13, "game_id": 259060625971519, "ply": 75, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3rk3/1p4p1/2p2p2/b1P4p/8/4B1PP/2B2P2/5K2 b - - 4 38", "score_cp": -604, "game_id": 259060625971519, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3rk3/1p4p1/2p2p2/b1P4p/8/1B2B1PP/5P2/5K2 w - - 3 38"}
+{"fen": "3rk3/1p4p1/2p2p2/b1P4p/8/1B2BPPP/8/5K2 b - - 0 38", "score_cp": -719, "game_id": 259060625971519, "ply": 75, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3rk3/1p4p1/2p2p2/b1P4p/8/1B2B1PP/5P2/5K2 w - - 3 38"}
+{"fen": "8/p3k1p1/2p1n1p1/8/N1B1P2P/8/1P3P1K/2n5 b - - 0 36", "score_cp": 7, "game_id": 259060625971519, "ply": 71, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5rk1/6p1/3np2p/3pN3/1R1P2P1/1P5P/4P3/6K1 w - - 3 32", "score_cp": 262, "game_id": 259060625971519, "ply": 62, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r2/5kp1/3np2p/3p4/1R1P2P1/1P3N1P/4P3/6K1 w - - 1 31"}
+{"fen": "5r2/5kp1/1R1np2p/3p4/3P2P1/1P3N1P/4P3/6K1 b - - 2 31", "score_cp": 115, "game_id": 259060625971519, "ply": 61, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5r2/5kp1/3np2p/3p4/1R1P2P1/1P3N1P/4P3/6K1 w - - 1 31"}
+{"fen": "3r2k1/pp4p1/2p3p1/6n1/4Pn2/2N4P/PP3PBK/4R3 w - - 0 28", "score_cp": -27, "game_id": 259060625971519, "ply": 54, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/8/3k3p/6p1/1P1n2P1/2N4P/5K2/8 w - - 0 42", "score_cp": 56, "game_id": 259060625971519, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/6p1/3k3p/8/1P1n2P1/2N4P/5K2/8 b - - 2 41"}
+{"fen": "8/4k1p1/7p/8/1P1n2P1/2N4P/5K2/8 w - - 3 42", "score_cp": 191, "game_id": 259060625971519, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/6p1/3k3p/8/1P1n2P1/2N4P/5K2/8 b - - 2 41"}
+{"fen": "7r/1p4p1/2p1kp2/b6p/2P5/4B1PP/2B2P2/5K2 b - - 3 35", "score_cp": -480, "game_id": 259060625971519, "ply": 69, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/8/3k3p/6p1/1P4P1/2N3KP/2n5/8 w - - 2 43", "score_cp": 35, "game_id": 259060625971519, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/8/3k3p/6p1/1P1n2P1/2N3KP/8/8 b - - 1 42"}
+{"fen": "8/4k3/7p/6p1/1P1n2P1/2N3KP/8/8 w - - 2 43", "score_cp": 91, "game_id": 259060625971519, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/8/3k3p/6p1/1P1n2P1/2N3KP/8/8 b - - 1 42"}
+{"fen": "5rk1/6p1/4p2p/3p4/1R1P4/4nNP1/1P2P2P/6K1 w - - 0 28", "score_cp": 107, "game_id": 259060625971519, "ply": 54, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3rk3/1p4p1/2p2p2/b1P4p/8/1B2B1PP/5P2/5K2 w - - 3 38", "score_cp": -515, "game_id": 259060625971519, "ply": 74, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r4/1p3kp1/2p2p2/b1P4p/8/4B1PP/2B2P2/5K2 w - - 1 37"}
+{"fen": "3r4/1p3kp1/2p2p2/b1P2B1p/8/4B1PP/5P2/5K2 b - - 2 37", "score_cp": -605, "game_id": 259060625971519, "ply": 73, "source": "capacity_aware_quiet_search_leaf", "root_fen": "3r4/1p3kp1/2p2p2/b1P4p/8/4B1PP/2B2P2/5K2 w - - 1 37"}
+{"fen": "r1b1kb1r/3n3p/1qp3p1/pp2p3/4P3/2N2NP1/PPPQB1P1/1K1R3R b kq - 1 15", "score_cp": 182, "game_id": 262824904995309, "ply": 29, "source": "ordinary_quiet_search_leaf"}
+{"fen": "6k1/pp4pp/3p4/3P4/1PPnp3/8/P4rNP/2R4K w - - 0 30", "score_cp": -146, "game_id": 270515783285929, "ply": 58, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5rk1/pp3rpp/3p4/3P4/2Pnp3/8/PP3PNP/2R2R1K w - - 1 28"}
+{"fen": "6k1/pp4pp/3p4/3P4/2Pnp3/1P6/P4rNP/2R4K w - - 0 30", "score_cp": -512, "game_id": 270515783285929, "ply": 58, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5rk1/pp3rpp/3p4/3P4/2Pnp3/8/PP3PNP/2R2R1K w - - 1 28"}
+{"fen": "5rk1/ppr3pp/3p4/3P1n2/2P1pq2/8/PPR2P1P/3QNR1K w - - 0 24", "score_cp": -174, "game_id": 270515783285929, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5rk1/ppN1r1pp/3p4/3P1nq1/2P1pn2/8/PPR2PPP/3QNR1K w - - 1 22"}
+{"fen": "6k1/ppr3pp/3p4/3P1rq1/2P1pn2/8/PPR2P1P/3QNR1K w - - 0 24", "score_cp": -263, "game_id": 270515783285929, "ply": 46, "source": "capacity_aware_quiet_search_leaf", "root_fen": "5rk1/ppN1r1pp/3p4/3P1nq1/2P1pn2/8/PPR2PPP/3QNR1K w - - 1 22"}
+{"fen": "5rk1/ppN1r1pp/3p4/3P1nq1/2P1pn2/8/PPR2PPP/3QNR1K w - - 1 22", "score_cp": -192, "game_id": 270515783285929, "ply": 42, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rn1qk1nr/ppp1b1pp/3p4/3Ppb2/2P5/2N5/PP3PPP/R1BQKBNR b KQkq - 1 6", "score_cp": 44, "game_id": 270515783285929, "ply": 11, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r2qk1nr/pppnb1pp/3p4/3Ppb2/2P3P1/2N5/PP3P1P/R1BQKBNR b KQkq - 0 7", "score_cp": 133, "game_id": 270515783285929, "ply": 13, "source": "capacity_aware_quiet_search_leaf", "root_fen": "r2qk1nr/pppnb1pp/3p4/3Ppb2/2P5/2N5/PP3PPP/R1BQKBNR w KQkq - 2 7"}
+{"fen": "r2qk1nr/pppnb1pp/3p4/3Ppb2/2P5/P1N5/1P3PPP/R1BQKBNR b KQkq - 0 7", "score_cp": 21, "game_id": 270515783285929, "ply": 13, "source": "capacity_aware_quiet_search_leaf", "root_fen": "r2qk1nr/pppnb1pp/3p4/3Ppb2/2P5/2N5/PP3PPP/R1BQKBNR w KQkq - 2 7"}
+{"fen": "5rk1/ppr3pp/3p3q/3P1n2/2P1p3/8/PPR2PNP/3Q1R1K w - - 2 25", "score_cp": -180, "game_id": 270515783285929, "ply": 48, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4R3/8/6B1/3p4/1p1k4/2p2K2/1p1r4/4R3 w - - 0 43", "score_cp": 49, "game_id": 271948223243579, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp2K2/3r4/4R3 b - - 4 42"}
+{"fen": "4R3/8/6B1/3p4/1p1k4/1p3K2/2pr4/4R3 w - - 0 43", "score_cp": 314, "game_id": 271948223243579, "ply": 84, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp2K2/3r4/4R3 b - - 4 42"}
+{"fen": "4R3/8/6B1/3p4/1p1k4/1pp2K2/3r4/4R3 b - - 4 42", "score_cp": 49, "game_id": 271948223243579, "ply": 83, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4R3/8/6B1/2kp4/1p6/1pp3K1/3r4/4R3 b - - 2 41", "score_cp": 99, "game_id": 271948223243579, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/8/4R1B1/2kp4/1p6/1pp3K1/3r4/4R3 w - - 1 41"}
+{"fen": "8/8/4R3/2kp3B/1p6/1pp3K1/3r4/4R3 b - - 2 41", "score_cp": -183, "game_id": 271948223243579, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/8/4R1B1/2kp4/1p6/1pp3K1/3r4/4R3 w - - 1 41"}
+{"fen": "8/8/4R1B1/2kp4/1p6/1pp3K1/3r4/7R b - - 2 41", "score_cp": 11, "game_id": 271948223243579, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/8/4R1B1/2kp4/1p6/1pp3K1/3r4/4R3 w - - 1 41"}
+{"fen": "8/8/4R1B1/2kp4/1p6/1pp3K1/3r4/4R3 w - - 1 41", "score_cp": 109, "game_id": 271948223243579, "ply": 80, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/5k2/4r3/6P1/8/8/R5K1/8 b - - 2 42", "score_cp": 0, "game_id": 271948223243579, "ply": 83, "source": "ordinary_quiet_search_leaf"}
+{"fen": "r3r3/p1P3k1/7p/2p3p1/6P1/5N2/PP4P1/RB4K1 b - - 0 31", "score_cp": 334, "game_id": 271948223243579, "ply": 61, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4R3/8/6B1/3p4/1p1k4/1pp3K1/3r4/5R2 b - - 4 42", "score_cp": 83, "game_id": 271948223243579, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp3K1/3r4/4R3 w - - 3 42"}
+{"fen": "1R6/8/6B1/3p4/1p1k4/1pp3K1/3r4/4R3 b - - 4 42", "score_cp": -2, "game_id": 271948223243579, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp3K1/3r4/4R3 w - - 3 42"}
+{"fen": "4R3/8/6B1/3pR3/1p1k4/1pp3K1/3r4/8 b - - 4 42", "score_cp": -67, "game_id": 271948223243579, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp3K1/3r4/4R3 w - - 3 42"}
+{"fen": "8/8/6B1/3p4/1p1k4/1pp1R1K1/3r4/4R3 b - - 4 42", "score_cp": -33, "game_id": 271948223243579, "ply": 83, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/3p4/1p1k4/1pp3K1/3r4/4R3 w - - 3 42"}
+{"fen": "8/6pk/R7/4P1bp/3N4/6PK/8/1r6 b - - 2 33", "score_cp": 3, "game_id": 271948223243579, "ply": 65, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4r3/p1r5/5k1p/5Bp1/2p3P1/5N2/PPR3P1/5K2 b - - 3 35", "score_cp": 367, "game_id": 271948223243579, "ply": 69, "source": "ordinary_quiet_search_leaf"}
+{"fen": "6k1/3nnp1p/q3p1p1/3bP3/8/3N3P/5PP1/1Q2R1K1 w - - 3 38", "score_cp": -387, "game_id": 271948223243579, "ply": 74, "source": "ordinary_quiet_search_leaf"}
+{"fen": "R7/6k1/8/4P1pp/8/6P1/6K1/4r3 w - - 4 39", "score_cp": 5, "game_id": 271948223243579, "ply": 76, "source": "ordinary_quiet_search_leaf"}
+{"fen": "4R3/8/6B1/2kp4/1p6/2p3K1/1p1r4/4R3 w - - 0 42", "score_cp": 144, "game_id": 271948223243579, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/2kp4/1p6/1pp3K1/3r4/4R3 b - - 2 41"}
+{"fen": "4R3/8/6B1/2kp4/1p6/1p4K1/2pr4/4R3 w - - 0 42", "score_cp": 247, "game_id": 271948223243579, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "4R3/8/6B1/2kp4/1p6/1pp3K1/3r4/4R3 b - - 2 41"}
+{"fen": "6k1/3nnp1p/4p1p1/1q1bP3/8/3N3P/5PP1/2Q1R1K1 w - - 1 37", "score_cp": -351, "game_id": 271948223243579, "ply": 72, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2r1qrk1/p2bb1pp/2p1p3/3pNp2/3P4/6P1/PP2PPBP/R2Q1RK1 b - - 0 19", "score_cp": -4, "game_id": 277896988899199, "ply": 37, "source": "ordinary_quiet_search_leaf"}
+{"fen": "rnb1qrk1/ppB1b1pp/4pn2/3p1p2/3P1N2/5NP1/PPQ1PPBP/R4RK1 b - - 5 13", "score_cp": 31, "game_id": 277896988899199, "ply": 25, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2r4k/p2q2pp/8/4Q2P/5N2/1P2P1P1/P4PK1/8 b - - 2 33", "score_cp": 39, "game_id": 278647426902918, "ply": 65, "source": "ordinary_quiet_search_leaf"}
+{"fen": "5r2/pp2q1k1/n2p1ppn/P1pPp2p/2P1P2P/3NQPPb/4BR2/1R4K1 b - - 9 29", "score_cp": 224, "game_id": 280534263926909, "ply": 57, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/4pk1p/P2p4/r1pP1p2/8/5P1P/4B1P1/4N1K1 w - - 0 33", "score_cp": 108, "game_id": 280534263926909, "ply": 64, "source": "ordinary_quiet_search_leaf"}
+{"fen": "2R5/8/8/1k1Np1p1/p3P3/5P2/r3nKPP/8 b - - 3 40", "score_cp": -4, "game_id": 280534263926909, "ply": 79, "source": "ordinary_quiet_search_leaf"}
+{"fen": "3r3r/pp1k1pp1/7p/1Pp1p3/P1PnP3/2N5/5PPP/R1R3K1 w - - 1 23", "score_cp": 20, "game_id": 280534263926909, "ply": 44, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/7p/P2pk3/r1p5/5PP1/8/4B3/4N1K1 w - - 0 37", "score_cp": 150, "game_id": 280534263926909, "ply": 72, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1R6/3k1pp1/7p/p3p3/P1rnP3/2N2P2/6PP/6K1 w - - 0 32", "score_cp": 0, "game_id": 280534263926909, "ply": 62, "source": "ordinary_quiet_search_leaf"}
+{"fen": "8/7p/r2k4/3p1PP1/2p5/3N4/4BK2/8 w - - 0 41", "score_cp": -2, "game_id": 280534263926909, "ply": 80, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/7p/P2k4/r2p1P2/2p3P1/3N4/4BK2/8 w - - 0 40"}
+{"fen": "8/7p/P2k4/r2p1P2/6P1/3B1K2/8/8 b - - 0 41", "score_cp": -141, "game_id": 280534263926909, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "8/7p/P2k4/r2p1P2/2p3P1/3N4/4BK2/8 w - - 0 40"}
+{"fen": "b7/p7/P2p2k1/1Pp4p/7P/5P1N/3r2P1/6K1 w - - 1 42", "score_cp": -656, "game_id": 280534263926909, "ply": 82, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1R6/8/8/3Np1p1/2k1P3/p4P2/r3nKPP/8 w - - 2 42", "score_cp": 0, "game_id": 280534263926909, "ply": 82, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2R5/8/8/1k1Np1p1/4P3/p4P2/r3nKPP/8 w - - 0 41"}
+{"fen": "5R2/8/8/1k1Np1p1/4P3/p4P2/r3nKPP/8 b - - 1 41", "score_cp": -449, "game_id": 280534263926909, "ply": 81, "source": "capacity_aware_quiet_search_leaf", "root_fen": "2R5/8/8/1k1Np1p1/4P3/p4P2/r3nKPP/8 w - - 0 41"}
+{"fen": "R7/8/8/2kNp1p1/p3P3/5P2/r3n1PP/5K2 b - - 1 39", "score_cp": -3, "game_id": 280534263926909, "ply": 77, "source": "capacity_aware_quiet_search_leaf", "root_fen": "7R/8/8/2kNp1p1/p3P3/5P2/r3n1PP/5K2 w - - 0 39"}
+{"fen": "7R/8/8/2kNp1p1/p3P3/5P2/r3nKPP/8 b - - 1 39", "score_cp": -61, "game_id": 280534263926909, "ply": 77, "source": "capacity_aware_quiet_search_leaf", "root_fen": "7R/8/8/2kNp1p1/p3P3/5P2/r3n1PP/5K2 w - - 0 39"}
+{"fen": "7R/8/8/2kNp1p1/p3P3/5P2/r3n1PP/4K3 b - - 1 39", "score_cp": -56, "game_id": 280534263926909, "ply": 77, "source": "capacity_aware_quiet_search_leaf", "root_fen": "7R/8/8/2kNp1p1/p3P3/5P2/r3n1PP/5K2 w - - 0 39"}
+{"fen": "1n2r3/3p1pk1/1PbP4/2p2P1p/8/8/B6P/6K1 b - - 0 36", "score_cp": -909, "game_id": 280534263926909, "ply": 71, "source": "ordinary_quiet_search_leaf"}
+{"fen": "1n6/3p1pk1/1PbP4/2p2P1p/2r5/8/7P/4K3 b - - 1 40", "score_cp": -1008, "game_id": 280534263926909, "ply": 79, "source": "ordinary_quiet_search_leaf"}

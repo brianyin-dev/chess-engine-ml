@@ -1,0 +1,172 @@
+{
+  "created_at": "2026-10-01T13:59:40.808558+00:00",
+  "torch": "2.11.0",
+  "seed": 42,
+  "search_weight": 1,
+  "features": "relationships",
+  "input_size": 892,
+  "hidden_sizes": [
+    64,
+    32
+  ],
+  "target_mode": "residual",
+  "correction_limit_cp": 250.0,
+  "color_consistent": true,
+  "training_correction_weight": 0.25,
+  "training_quiet_only": true,
+  "rounding_policy": "Round full endpoint scores in training with straight-through gradients; validation uses rounded full endpoint scores.",
+  "ranking_policy": "Exclude margins outside bounded correction capacity; regression, ranking, and validation use deployed blend/gate.",
+  "data_manifest_sha256": "e042313da0d1a7e01ea1ee26bd3ebee2ae34b68d661b9213ed56054c6176bb83",
+  "rows": {
+    "train": 14352,
+    "val": 275,
+    "test": 224
+  },
+  "best_epoch": 0,
+  "validation_mae_cp": 126.75,
+  "selection_policy": "validation ranking accuracy, then MAE for ties",
+  "rank_margin_cp": 5.0,
+  "hard_pair_weight": 3.0,
+  "score_weight": 0.0,
+  "anchor_weight": 0.1,
+  "protected_pair_weight": 3.0,
+  "initial_checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "test_rank_accuracy": 0.6268656716417911,
+  "rank_weight": 4.0,
+  "weighted_training_pairs": 748,
+  "pair_manifest_sha256": "e042313da0d1a7e01ea1ee26bd3ebee2ae34b68d661b9213ed56054c6176bb83",
+  "test_mae_cp": 136.52,
+  "heuristic_test_mae_cp": 140.07,
+  "test_breakdown": {
+    "early_ply_8_29": {
+      "positions": 24,
+      "network_mae_cp": 87.75,
+      "heuristic_mae_cp": 100.71
+    },
+    "middle_ply_30_59": {
+      "positions": 48,
+      "network_mae_cp": 145.75,
+      "heuristic_mae_cp": 145.38
+    },
+    "late_ply_60_plus": {
+      "positions": 152,
+      "network_mae_cp": 141.3,
+      "heuristic_mae_cp": 144.61
+    },
+    "low_material_12_pieces_or_fewer": {
+      "positions": 56,
+      "network_mae_cp": 127.41,
+      "heuristic_mae_cp": 133.04
+    },
+    "search_stand_pat": {
+      "positions": 224,
+      "network_mae_cp": 136.52,
+      "heuristic_mae_cp": 140.07
+    },
+    "self_play": {
+      "positions": 0,
+      "network_mae_cp": null,
+      "heuristic_mae_cp": null
+    }
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "val_mae_cp": 126.75,
+      "val_rank_accuracy": 0.6923076923076923,
+      "selection_score": 157.5171472509424,
+      "selection_key": [
+        0.3076923076923077,
+        126.74791648171164
+      ]
+    },
+    {
+      "epoch": 1,
+      "train_mae_cp": 158.5,
+      "val_mae_cp": 128.19,
+      "val_rank_accuracy": 0.6666666666666666,
+      "selection_score": 161.52528404467034,
+      "selection_key": [
+        0.33333333333333337,
+        128.191950711337
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_mae_cp": 158.59,
+      "val_mae_cp": 128.42,
+      "val_rank_accuracy": 0.6538461538461539,
+      "selection_score": 163.03506096259696,
+      "selection_key": [
+        0.34615384615384615,
+        128.41967634721235
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_mae_cp": 158.61,
+      "val_mae_cp": 128.9,
+      "val_rank_accuracy": 0.6410256410256411,
+      "selection_score": 164.8022376996376,
+      "selection_key": [
+        0.3589743589743589,
+        128.90480180220172
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_mae_cp": 158.51,
+      "val_mae_cp": 128.93,
+      "val_rank_accuracy": 0.6410256410256411,
+      "selection_score": 164.82689659634391,
+      "selection_key": [
+        0.3589743589743589,
+        128.92946069890803
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_mae_cp": 158.47,
+      "val_mae_cp": 128.96,
+      "val_rank_accuracy": 0.6538461538461539,
+      "selection_score": 163.5751014122596,
+      "selection_key": [
+        0.34615384615384615,
+        128.959716796875
+      ]
+    },
+    {
+      "epoch": 6,
+      "train_mae_cp": 158.42,
+      "val_mae_cp": 128.94,
+      "val_rank_accuracy": 0.6794871794871795,
+      "selection_score": 160.99523790621814,
+      "selection_key": [
+        0.3205128205128205,
+        128.9439558549361
+      ]
+    },
+    {
+      "epoch": 7,
+      "train_mae_cp": 158.38,
+      "val_mae_cp": 128.97,
+      "val_rank_accuracy": 0.6794871794871795,
+      "selection_score": 161.02523807267764,
+      "selection_key": [
+        0.3205128205128205,
+        128.9739560213956
+      ]
+    },
+    {
+      "epoch": 8,
+      "train_mae_cp": 158.35,
+      "val_mae_cp": 129.08,
+      "val_rank_accuracy": 0.6794871794871795,
+      "selection_score": 161.12972817943367,
+      "selection_key": [
+        0.3205128205128205,
+        129.07844612815163
+      ]
+    }
+  ]
+}

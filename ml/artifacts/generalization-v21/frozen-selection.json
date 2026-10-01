@@ -1,0 +1,74 @@
+{
+  "checkpoint_sha256": "9750b336ec2d4a80d48d2712763b421bd20e974620f695c60aba58591e303206",
+  "metrics": {
+    "old5": {
+      "train": {
+        "pairs": 207,
+        "correct": 136,
+        "accuracy": 0.6570048309178744,
+        "hard_pairs": 74,
+        "hard_correct": 9,
+        "previously_correct_regressions": 6
+      },
+      "val": {
+        "pairs": 78,
+        "correct": 51,
+        "accuracy": 0.6538461538461539,
+        "hard_pairs": 30,
+        "hard_correct": 3,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 67,
+        "correct": 44,
+        "accuracy": 0.6567164179104478,
+        "hard_pairs": 25,
+        "hard_correct": 3,
+        "previously_correct_regressions": 1
+      }
+    },
+    "trained5": {
+      "train": {
+        "pairs": 207,
+        "correct": 136,
+        "accuracy": 0.6570048309178744,
+        "hard_pairs": 74,
+        "hard_correct": 9,
+        "previously_correct_regressions": 6
+      },
+      "val": {
+        "pairs": 78,
+        "correct": 51,
+        "accuracy": 0.6538461538461539,
+        "hard_pairs": 30,
+        "hard_correct": 3,
+        "previously_correct_regressions": 0
+      },
+      "test": {
+        "pairs": 67,
+        "correct": 44,
+        "accuracy": 0.6567164179104478,
+        "hard_pairs": 25,
+        "hard_correct": 3,
+        "previously_correct_regressions": 1
+      }
+    }
+  },
+  "best_epoch": 0,
+  "protocol": {
+    "inference": "Fixed v20 fast_features incremental quiet5%; unchanged architecture/search/heuristic.",
+    "data": "240 independent book-start Stockfish games,2000nodes/move72plies; up to8quiet roots/game; first4ply transposition families hash60/20/20 split.64knode settled ranking teacher and exact rounded5% capacity filter fromv20. Prior canonical labels excluded.",
+    "training": "One v8 initialized5% candidate; ranking4 margin5 hard3 protected3 lr.0001 anchor.1 score0 epochs30 patience8. Score loss disabled because target is useful bounded move decisions. Retain prior training rankings.",
+    "selection": "Validation ranking selects checkpoint; report fresh test untouched. Test is descriptive, not selector. Play learned candidate20games vsfrozenHCE regardless static qualification to prioritize strength; no unchanged checkpoint rerun. Extend to100total if pilot>=60%; extension separately must>50%, combined>=60% for success. Old NN20secondary only if heuristic pilot>=60%. No automatic app promotion."
+  },
+  "source_sha256": {
+    "engine/search.py": "456ebcedb5af0dd2a90e64f7d546853d4c29a5c6ed432fbe40aa12b5f1342000",
+    "engine/evaluation.py": "fb5c503844e57fc39f4f6ee33a082526ef28101ee89b091ba6f53e0b033d4d88",
+    "ml/evaluator.py": "fe4fc47549dfd2dc10d371ee154f981d5e1ec9c9c495035bfef56296d7fad8c0",
+    "ml/incremental.py": "7cb8f07c56eaf9ecbd3bc07edd4a43ea8f0f73f20005b72857b442ce3c3748f9",
+    "ml/model.py": "b2e9cb4b1cf36adedb2b6c6a734d2014d5996d083d40a5225d8da1056897a882",
+    "benchmarks/nn_baseline_v20/evaluator.py": "09a8ef9b7ef571102e1f537133b81aca50bded77961b0ee183e8a1fe67cdb566",
+    "benchmarks/nn_baseline_v20/incremental.py": "2776e1b2ca3b0f616806095f5c5c2623ce1f0f6695bc652277d23d32e8343e6e"
+  },
+  "old_checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0"
+}

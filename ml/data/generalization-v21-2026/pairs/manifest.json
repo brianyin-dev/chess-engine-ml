@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "train": {
+      "rows": 14352,
+      "pairs": 3489,
+      "new_families": 28
+    },
+    "val": {
+      "rows": 275,
+      "pairs": 78,
+      "new_families": 14
+    },
+    "test": {
+      "rows": 224,
+      "pairs": 67,
+      "new_families": 15
+    }
+  },
+  "cross_split_aliases": 0,
+  "policy": "New opening families separated at first-four-ply canonical position; former heldouts excluded; all v20 training retained; fresh val/test only."
+}

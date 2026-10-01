@@ -1,0 +1,5 @@
+{
+  "reason": "5% validation retained epochzero. One larger established25% quiet blend, fixed inference and same family-separated data, chosen from correction range and validation failure, nottest results.",
+  "training": "Same objective/hyperparameters except runtimeblend25% and initializationoldv8; bestvalidation checkpoint including epochzero.",
+  "games": "Selected25% configuration frozen before fresh10paired openings250ms; report whether learned weights retained. Primary heuristic pilot>=60% and20complete/errorfree triggers80newgames; oldNNsecondary20 only ifheurpilotpassed. No apppromotion. Ifepochzero retained, game result is old25reference replication, nottraining improvement."
+}

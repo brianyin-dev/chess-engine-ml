@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "train": {
+      "rows": 230,
+      "pairs": 57,
+      "correctable_heuristic_wrong_pairs": 19,
+      "opening_groups": 18
+    },
+    "val": {
+      "rows": 193,
+      "pairs": 52,
+      "correctable_heuristic_wrong_pairs": 24,
+      "opening_groups": 12
+    },
+    "test": {
+      "rows": 184,
+      "pairs": 57,
+      "correctable_heuristic_wrong_pairs": 21,
+      "opening_groups": 12
+    }
+  },
+  "statistics": {
+    "roots": 1327,
+    "candidate_endpoints": 332,
+    "outside_correction_range": 1674,
+    "teacher_gap_too_small": 452
+  },
+  "seed": 200020,
+  "stockfish_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "policy": "Family-balanced pre-fit extension, same64knode settled ranking labels and exact rounded5% reachability filter; first4ply canonical families own hash split. Prior labels including initialv21 excluded."
+}

@@ -1,0 +1,6 @@
+{
+  "inference": "Fixed v20 fast_features incremental quiet5%; unchanged architecture/search/heuristic.",
+  "data": "240 independent book-start Stockfish games,2000nodes/move72plies; up to8quiet roots/game; first4ply transposition families hash60/20/20 split.64knode settled ranking teacher and exact rounded5% capacity filter fromv20. Prior canonical labels excluded.",
+  "training": "One v8 initialized5% candidate; ranking4 margin5 hard3 protected3 lr.0001 anchor.1 score0 epochs30 patience8. Score loss disabled because target is useful bounded move decisions. Retain prior training rankings.",
+  "selection": "Validation ranking selects checkpoint; report fresh test untouched. Test is descriptive, not selector. Play learned candidate20games vsfrozenHCE regardless static qualification to prioritize strength; no unchanged checkpoint rerun. Extend to100total if pilot>=60%; extension separately must>50%, combined>=60% for success. Old NN20secondary only if heuristic pilot>=60%. No automatic app promotion."
+}

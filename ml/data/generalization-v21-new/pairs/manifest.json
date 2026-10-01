@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "train": {
+      "rows": 688,
+      "pairs": 207,
+      "families": 28
+    },
+    "val": {
+      "rows": 275,
+      "pairs": 78,
+      "families": 14
+    },
+    "test": {
+      "rows": 224,
+      "pairs": 67,
+      "families": 15
+    }
+  },
+  "policy": "Initial240 plus fixed320 family-balanced sourcegames; first4ply canonical families retain same hash split; v20 settled reachable5% ranking labels. No model fitted before extension."
+}

@@ -1,0 +1,63 @@
+{
+  "checkpoint_sha256": "712e62096c5d69ac91db7019c64aed716d8a707c610151f35d4b2b41656f7dd7",
+  "old_checkpoint_sha256": "32beb3b6d5231fe115b2f07ccbc6298c9d9f76a5d58fce27801f6e1d443237b0",
+  "best_epoch": 0,
+  "metrics": {
+    "old25": {
+      "train": {
+        "pairs": 207,
+        "correct": 129,
+        "accuracy": 0.6231884057971014,
+        "hard_pairs": 74,
+        "hard_correct": 22,
+        "previously_correct_regressions": 26
+      },
+      "val": {
+        "pairs": 78,
+        "correct": 54,
+        "accuracy": 0.6923076923076923,
+        "hard_pairs": 30,
+        "hard_correct": 11,
+        "previously_correct_regressions": 5
+      },
+      "test": {
+        "pairs": 67,
+        "correct": 42,
+        "accuracy": 0.6268656716417911,
+        "hard_pairs": 25,
+        "hard_correct": 10,
+        "previously_correct_regressions": 10
+      }
+    },
+    "trained25": {
+      "train": {
+        "pairs": 207,
+        "correct": 129,
+        "accuracy": 0.6231884057971014,
+        "hard_pairs": 74,
+        "hard_correct": 22,
+        "previously_correct_regressions": 26
+      },
+      "val": {
+        "pairs": 78,
+        "correct": 54,
+        "accuracy": 0.6923076923076923,
+        "hard_pairs": 30,
+        "hard_correct": 11,
+        "previously_correct_regressions": 5
+      },
+      "test": {
+        "pairs": 67,
+        "correct": 42,
+        "accuracy": 0.6268656716417911,
+        "hard_pairs": 25,
+        "hard_correct": 10,
+        "previously_correct_regressions": 10
+      }
+    }
+  },
+  "weight": 0.25,
+  "quiet_only": true,
+  "incremental": true,
+  "fast_features": true
+}

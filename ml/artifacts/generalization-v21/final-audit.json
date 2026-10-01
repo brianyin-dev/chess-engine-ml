@@ -1,0 +1,38 @@
+{
+  "unchanged_selected_weights": {
+    "selected5": true,
+    "selected25": true
+  },
+  "fixed_inference_source_changes": [],
+  "cross_split_overlap": {
+    "train-val": {
+      "positions": 0,
+      "families": 0
+    },
+    "train-test": {
+      "positions": 0,
+      "families": 0
+    },
+    "val-test": {
+      "positions": 0,
+      "families": 0
+    }
+  },
+  "explicit_torch_parity": {
+    "old": {
+      "positions": 499,
+      "mismatches": []
+    },
+    "trained": {
+      "positions": 499,
+      "mismatches": []
+    },
+    "trained25": {
+      "positions": 499,
+      "mismatches": []
+    }
+  },
+  "legal_terminal_games": {
+    "vs-heuristic": 20
+  }
+}

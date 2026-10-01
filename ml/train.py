@@ -26,6 +26,14 @@ def rounded_score(baseline, correction, straight_through=False):
     return score + (rounded - score).detach() if straight_through else rounded
 
 
+def attainable_margin_cp(good_base, bad_base, good_factors, bad_factors, sign, limit_cp):
+    """Maximum signed integer margin permitted by bounded corrections."""
+    good_limit, bad_limit = limit_cp * good_factors, limit_cp * bad_factors
+    upper = torch.round(good_base + good_limit) - torch.round(bad_base - bad_limit)
+    lower = torch.round(good_base - good_limit) - torch.round(bad_base + bad_limit)
+    return torch.where(sign > 0, upper, -lower)
+
+
 def pair_loader(path, shuffle, input_size=INPUT_SIZE, target_mode="material", correction_weight=1., quiet_only=False, include_baselines=False):
     records = [json.loads(l) for l in path.read_text().splitlines() if l]
     if not records:
@@ -238,8 +246,9 @@ def main():
                                 - rounded_score(bad_base, bad_factors * model(bad), True)) / SCORE_SCALE
                 pair_weights = importance * torch.where(sign * base_difference <= 0, args.hard_pair_weight, args.protected_pair_weight)
                 if correction_limit is not None:
-                    attainable = sign * base_difference + correction_limit / SCORE_SCALE * (good_factors + bad_factors)
-                    pair_weights = pair_weights * (attainable > args.rank_margin_cp / SCORE_SCALE)
+                    attainable_cp = attainable_margin_cp(
+                        good_base, bad_base, good_factors, bad_factors, sign, correction_limit)
+                    pair_weights = pair_weights * (attainable_cp >= args.rank_margin_cp)
                 pair_weights = pair_weights * ((good_factors + bad_factors) > 0)
                 rank_loss = torch.relu(args.rank_margin_cp / SCORE_SCALE - delta)
                 loss = loss + args.rank_weight * (rank_loss * pair_weights).sum() / pair_weights.sum().clamp_min(1)

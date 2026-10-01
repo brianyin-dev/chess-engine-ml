@@ -613,3 +613,14 @@ class WeightedCorrectionTests(unittest.TestCase):
         self.assertTrue(is_tactical(promotion,chess.Move.from_uci('a7a8q')))
         checking=chess.Board('4k3/8/8/8/8/8/8/4R1K1 b - - 0 1')
         self.assertTrue(is_tactical(checking,next(iter(checking.legal_moves))))
+
+
+class RoundedCapacityTests(unittest.TestCase):
+    def test_whole_endpoint_rounding_retains_reachable_margin(self):
+        import torch
+        from ml.train import attainable_margin_cp
+        # Quiet good endpoint can reach round(11+12.5)=24;
+        # gated bad endpoint remains19. Continuous bound4.5 is misleading.
+        value=attainable_margin_cp(torch.tensor([11.,19.]),torch.tensor([19.,11.]),
+            torch.tensor([.05,0.]),torch.tensor([0.,.05]),torch.tensor([1.,-1.]),250.)
+        self.assertEqual(value.tolist(),[5.,5.])
