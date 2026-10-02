@@ -1,0 +1,7 @@
+{
+  "penalty_cp": 220,
+  "feature": "Advanced queens only, <=1 geometrically unattacked destination. No parameter sweep. Root bishop position is development evidence only.",
+  "gate": "On32priorheldout roots, candidate meanregret no worse thanbaseline, noadditional>=150cp moves oravoidablelosingtransitions, exactdepth3 andisolated750ms. Target750ms regret improves by>=50cp. No games unlessgatepasses.",
+  "baseline_evaluation_sha256": "fb5c503844e57fc39f4f6ee33a082526ef28101ee89b091ba6f53e0b033d4d88",
+  "search": "Unchanged v24 LMR, same heuristic except one explicit feature. No NN."
+}

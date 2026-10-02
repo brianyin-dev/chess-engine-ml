@@ -1,0 +1,9 @@
+{
+  "target_750ms_regret_improvement_cp": 481,
+  "heldout_gates": [
+    false,
+    false
+  ],
+  "qualifies_for_games": false,
+  "app_promoted": false
+}

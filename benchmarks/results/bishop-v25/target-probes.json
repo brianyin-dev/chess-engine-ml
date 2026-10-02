@@ -1,0 +1,410 @@
+{
+  "depth2": {
+    "baseline": {
+      "move": "f1c4",
+      "score": 77,
+      "depth": 2,
+      "nodes": 1195,
+      "qnodes": 1150,
+      "tt_hits": 0,
+      "elapsed": 0.05448633304331452,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 444,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -557,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 17,
+        "nodes_per_search": 256000,
+        "cp_loss": 943,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": true,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "c3d5",
+      "score": 136,
+      "depth": 2,
+      "nodes": 1550,
+      "qnodes": 1505,
+      "tt_hits": 0,
+      "elapsed": 0.072581332991831,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 566,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -422,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 808,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": true,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    }
+  },
+  "depth3": {
+    "baseline": {
+      "move": "d2e3",
+      "score": 65,
+      "depth": 3,
+      "nodes": 6234,
+      "qnodes": 5979,
+      "tt_hits": 0,
+      "elapsed": 0.26890033402014524,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 1885,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -95,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 481,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "d2c1",
+      "score": 141,
+      "depth": 3,
+      "nodes": 6791,
+      "qnodes": 6534,
+      "tt_hits": 0,
+      "elapsed": 0.36318387498613447,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 2053,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 17,
+        "nodes_per_search": 256000,
+        "cp_loss": 0,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": false
+      }
+    }
+  },
+  "depth4": {
+    "baseline": {
+      "move": "d2e3",
+      "score": 65,
+      "depth": 4,
+      "nodes": 17454,
+      "qnodes": 15707,
+      "tt_hits": 54,
+      "elapsed": 0.8155977500136942,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 4711,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -95,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 481,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "d2e2",
+      "score": 127,
+      "depth": 4,
+      "nodes": 23804,
+      "qnodes": 21919,
+      "tt_hits": 77,
+      "elapsed": 1.1667914170539007,
+      "timed_out": false,
+      "stop_reason": null,
+      "static_cache_hits": 7380,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 35,
+        "nodes_per_search": 256000,
+        "cp_loss": 386,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    }
+  },
+  "0.25": {
+    "baseline": {
+      "move": "f1c4",
+      "score": 77,
+      "depth": 2,
+      "nodes": 5656,
+      "qnodes": 5433,
+      "tt_hits": 0,
+      "elapsed": 0.2500510000390932,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 1652,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -557,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 17,
+        "nodes_per_search": 256000,
+        "cp_loss": 943,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": true,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "c3d5",
+      "score": 136,
+      "depth": 2,
+      "nodes": 4885,
+      "qnodes": 4756,
+      "tt_hits": 0,
+      "elapsed": 0.2500537909800187,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 1264,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -422,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 808,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": true,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    }
+  },
+  "0.75": {
+    "baseline": {
+      "move": "d2e3",
+      "score": 65,
+      "depth": 3,
+      "nodes": 15712,
+      "qnodes": 14240,
+      "tt_hits": 34,
+      "elapsed": 0.7500312920892611,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 3900,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -95,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 481,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "d2c1",
+      "score": 141,
+      "depth": 3,
+      "nodes": 15024,
+      "qnodes": 13967,
+      "tt_hits": 32,
+      "elapsed": 0.7500390829518437,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 4047,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 17,
+        "nodes_per_search": 256000,
+        "cp_loss": 0,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": false
+      }
+    }
+  },
+  "2.0": {
+    "baseline": {
+      "move": "d2e3",
+      "score": 34,
+      "depth": 5,
+      "nodes": 45956,
+      "qnodes": 41171,
+      "tt_hits": 280,
+      "elapsed": 2.0000693750334904,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 14213,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": -95,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 19,
+        "nodes_per_search": 256000,
+        "cp_loss": 481,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    },
+    "candidate": {
+      "move": "d2e2",
+      "score": 127,
+      "depth": 4,
+      "nodes": 40291,
+      "qnodes": 37374,
+      "tt_hits": 83,
+      "elapsed": 2.000098083051853,
+      "timed_out": true,
+      "stop_reason": "time_limit",
+      "static_cache_hits": 11952,
+      "fallback_evaluations": 43,
+      "review": {
+        "best_move": "d2c1",
+        "best_score": {
+          "cp": 386,
+          "mate": null
+        },
+        "played_score": {
+          "cp": 0,
+          "mate": null
+        },
+        "best_depth": 17,
+        "played_depth": 35,
+        "nodes_per_search": 256000,
+        "cp_loss": 386,
+        "allows_mate": false,
+        "missed_forced_mate": false,
+        "crosses_minus_150": false,
+        "competitive_before_move": true,
+        "qualifies": true
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "tests_passed": 121,
+  "baseline_matches_commit": "5f1818c",
+  "production_sources_unchanged": {
+    "engine/evaluation.py": true,
+    "engine/search.py": true,
+    "ml/incremental.py": true,
+    "backend/app.py": true
+  },
+  "candidate_rejected": true,
+  "game_pilot_run": false,
+  "nn_training_run": false
+}

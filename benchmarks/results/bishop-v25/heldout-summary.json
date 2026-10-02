@@ -1,0 +1,34 @@
+{
+  "depth3": {
+    "baseline": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 82.25,
+      "bad_150cp_moves": 5,
+      "losing_transitions": 4
+    },
+    "candidate": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 85.84375,
+      "bad_150cp_moves": 5,
+      "losing_transitions": 4
+    }
+  },
+  "0.75": {
+    "baseline": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 48.65625,
+      "bad_150cp_moves": 3,
+      "losing_transitions": 3
+    },
+    "candidate": {
+      "positions": 32,
+      "comparable": 32,
+      "mean_cp_regret": 71.0625,
+      "bad_150cp_moves": 5,
+      "losing_transitions": 3
+    }
+  }
+}
